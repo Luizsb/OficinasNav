@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<!-- Oficina: o-espelho-tecnologico | O Espelho tecnológico -->
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>O Espelho tecnológico — Oficina NAVE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../assets/css/nave.css"/>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+<!-- ========== CABEÇALHO ========== -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+<div class="flex items-center gap-4 min-w-0">
+<a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0" href="../../index.html" title="Voltar ao índice">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span>Todas</span>
+</a>
+<span class="text-headline-sm font-headline-sm font-bold text-primary truncate">O Espelho tecnológico</span>
+<span class="hidden lg:block text-label-md font-label-md text-on-surface-variant ml-4 border-l border-outline-variant pl-4">Tecnologia, design e programação com Scratch</span>
+</div>
+<!-- <div class="flex items-center gap-4">
+<button class="hidden md:block text-label-md font-label-md text-primary-container px-4 py-2 border border-primary-container rounded-DEFAULT smooth-transition hover:bg-primary-container/10">Ver etapas</button>
+<button class="text-label-md font-label-md bg-primary-container text-on-primary px-4 py-2 rounded-DEFAULT smooth-transition hover:bg-primary">Start Workshop</button>
+</div> -->
+</header>
+<div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+<!-- ========== MENU LATERAL ========== -->
+<aside class="hidden lg:flex flex-col sticky top-24 h-[calc(100vh-120px)] ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40">
+<div class="p-6 border-b border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">face</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed mb-1">O Espelho tecnológico</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">7º ano EFAF • 90 min</p>
+</div>
+<nav class="flex-1 overflow-y-auto py-4" id="sidebar-nav">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 py-3 text-on-surface-variant dark:text-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all group nav-link" href="#view">
+<span class="material-symbols-outlined group-hover:text-primary">visibility</span>
+                            Visão Geral
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 text-on-surface-variant dark:text-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all group nav-link" href="#prepare">
+<span class="material-symbols-outlined group-hover:text-primary">menu_book</span>
+                            Preparar
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 text-on-surface-variant dark:text-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all group nav-link" href="#materials">
+<span class="material-symbols-outlined group-hover:text-primary">inventory_2</span>
+                            Materiais
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 text-on-surface-variant dark:text-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all group nav-link" href="#create">
+<span class="material-symbols-outlined group-hover:text-primary">construction</span>
+                            Criar
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 text-on-surface-variant dark:text-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all group nav-link" href="#reflect">
+<span class="material-symbols-outlined group-hover:text-primary">psychology</span>
+                            Refletir
+                        </a>
+</li>
+</ul>
+</nav>
+<!-- <div class="p-4 border-t border-outline-variant/30">
+<button class="w-full py-2 bg-surface text-primary border border-outline-variant rounded-DEFAULT text-label-md font-label-md hover:bg-surface-variant transition-colors">View Materials</button>
+</div> -->
+</aside>
+<!-- ========== CONTEÚDO PRINCIPAL ========== -->
+<main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+<!-- #view — Visão geral -->
+<section class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 chamfer-card scroll-mt-24" id="view">
+<div class="absolute inset-0 pattern-grid z-0"></div>
+<div class="relative z-10 p-8 lg:p-12"><div class="flex-1 space-y-6">
+<h1 class="text-display-lg font-display-lg text-primary md:text-display-lg text-headline-lg-mobile">O Espelho tecnológico</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina de tecnologia e design, os estudantes assumem o papel de criadores ao desenvolverem um espelho interativo utilizando a extensão Face Sensing do Scratch. Por meio da programação de algoritmos, criarão um provador virtual no qual acessórios, como chapéus e óculos, acompanham automaticamente os movimentos e o tamanho do rosto em tempo real, unindo aprendizado técnico e liberdade criativa para personalizar estilos e transformar o projeto em um jogo interativo de vestir.</p>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Toda a construção pode ser realizada 100% no Scratch, com a possibilidade de compartilhamento dos projetos finalizados na comunidade da plataforma.</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">school</span><span class="text-label-sm font-label-sm">7º ano EFAF</span></div>
+<div class="flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">timer</span><span class="text-label-sm font-label-sm">2 encontros de 45 min cada (total: 90 min)</span></div>
+<div class="flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">account_tree</span><span class="text-label-sm font-label-sm">Pensamento Computacional (foco)</span></div>
+</div></div></div></section>
+<section class="mb-16"><h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-sm"><div class="flex items-center justify-between mb-4"><h3 class="text-headline-sm font-headline-sm text-primary">Preparar</h3><span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-sm font-label-sm">15 min</span></div><p class="text-body-md font-body-md text-on-surface-variant">Apresentar o contexto do espelho interativo, introduzir a extensão Face Sensing do Scratch e realizar uma mini experiência de detecção de rosto.</p></div>
+<div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-sm"><div class="flex items-center justify-between mb-4"><h3 class="text-headline-sm font-headline-sm text-secondary">Criar</h3><span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-label-sm font-label-sm">60 min</span></div><p class="text-body-md font-body-md text-on-surface-variant">Programar o acessório para acompanhar o topo da cabeça, inclinar junto com o rosto e ajustar o tamanho conforme a aproximação/afastamento.</p></div>
+<div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-sm"><div class="flex items-center justify-between mb-4"><h3 class="text-headline-sm font-headline-sm text-tertiary">Refletir</h3><span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-label-sm font-label-sm">15 min</span></div><p class="text-body-md font-body-md text-on-surface-variant">Compartilhar os projetos, testar as interações dos colegas, registrar descobertas e refletir sobre o processo de programação e design.</p></div>
+</div></section>
+<section class="mb-16 scroll-mt-24" id="prepare">
+<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center"><span class="material-symbols-outlined">menu_book</span></div>
+<h2 class="text-headline-lg font-headline-lg text-primary">Preparar</h2><span class="text-label-md font-label-md text-on-surface-variant ml-auto">15 minutos</span></div><div class="space-y-8">
+<div><h3 class="text-headline-sm font-headline-sm text-on-surface mb-3">Apresentação</h3><div class="space-y-4">
+<p class="text-body-md font-body-md text-on-surface-variant">Nesta oficina, os estudantes são convidados a assumir o papel de criadores em um laboratório de tecnologia e design, desenvolvendo um espelho interativo que funciona como provador virtual de acessórios. Utilizando a extensão Face Sensing do Scratch, irão programar um sistema capaz de identificar pontos do rosto capturados pela câmera e posicionar acessórios virtuais, de modo que acompanhem os movimentos da cabeça, ajustem-se ao tamanho do rosto e possam ser alterados de forma interativa.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">A proposta integra programação e design, permitindo que os estudantes compreendam como dados capturados em tempo real podem ser utilizados para atualizar objetos na tela com base em coordenadas, eventos e condições lógicas. Ao longo da atividade, serão mobilizados conceitos como algoritmos, eventos, variáveis e condicionais, articulando raciocínio lógico e criatividade.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Inicialmente, os estudantes serão orientados na criação de um primeiro acessório (um chapéu que acompanha o topo da cabeça e se ajusta conforme o movimento). Em seguida, terão autonomia para desenvolver novos elementos visuais, combinar estilos e programar interações, transformando o projeto em um jogo de vestir digital personalizado. O foco está tanto na construção técnica quanto na experimentação estética, reforçando a ideia de que programação também é uma forma de expressão criativa.</p>
+<figure class="mt-6 max-w-xl mx-auto text-center">
+<img alt="Figura - Simulação da programação final em um rosto desenhado" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/simulacao-programacao-rosto-desenhado.png"/>
+<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant">Figura - Simulação da programação final em um rosto desenhado</figcaption>
+</figure>
+</div></div>
+<div class="bg-surface-container-low rounded-xl p-6 border-l-4 border-secondary"><h4 class="text-headline-sm font-headline-sm text-secondary mb-3 flex items-center gap-2"><span class="material-symbols-outlined">help</span>Perguntas reflexivas</h4><ul class="list-disc pl-5 space-y-2">
+<li class="text-body-md font-body-md text-on-surface-variant">Como o computador consegue identificar que há um rosto na imagem capturada pela câmera?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">O que deve acontecer com um acessório virtual quando a pessoa inclina a cabeça? Ele deve permanecer fixo na tela ou acompanhar o movimento?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Se a pessoa se aproximar ou se afastar da câmera, como o tamanho do acessório virtual deve se comportar?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Quais acessórios poderiam ser criados para ampliar a experiência do espelho interativo?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Como seria possível trocar o estilo dos acessórios sem utilizar o mouse, apenas com movimentos do rosto?</li>
+</ul></div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="text-label-md font-label-md font-bold text-on-surface">Elemento-chave</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest"><div class="p-4 space-y-4"><p class="text-body-md font-body-md text-on-surface-variant">O grande destaque desta oficina é a extensão Face Sensing do Scratch, que permite ao programa utilizar a câmera do computador para identificar rostos em tempo real. Por meio dessa extensão, é possível detectar não apenas a presença de um rosto, mas também pontos específicos, como topo da cabeça, olhos, nariz, boca e orelhas.</p><p class="text-body-md font-body-md text-on-surface-variant">Além do reconhecimento facial, a extensão disponibiliza dados relevantes para a programação, como a posição de cada ponto do rosto na tela (coordenadas x e y), a inclinação da cabeça e a variação de tamanho, que indica a aproximação ou o afastamento em relação à câmera. Essas informações são processadas continuamente, permitindo que o programa atualize os objetos na tela conforme o movimento do usuário.</p><p class="text-body-md font-body-md text-on-surface-variant">Com base nesses dados, os estudantes podem programar acessórios virtuais que acompanham as partes do rosto, inclinam-se junto com a cabeça e ajustam automaticamente seu tamanho conforme a distância da câmera. Embora os blocos utilizados no Scratch sejam visualmente simples, a lógica por trás do funcionamento envolve atualização em tempo real, leitura de coordenadas e aplicação de transformações geométricas, aproximando os estudantes de conceitos mais amplos da computação interativa.</p></div></div>
+</div>
+<div><h3 class="text-headline-sm font-headline-sm text-on-surface mb-4">Dicas de condução</h3><div class="space-y-2">
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Reflexão sobre o espelho</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Inicie a aula propondo uma reflexão instigante sobre o conceito de espelho. Convide os estudantes a imaginarem um espelho que não apenas reflete a imagem, mas permite experimentar acessórios virtuais sem contato físico, acompanhando movimentos, ajustando tamanhos automaticamente e reagindo a gestos.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Apresente a proposta da oficina</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Os estudantes atuarão como inventores em um laboratório de tecnologia e design, desenvolvendo um espelho interativo utilizando o Scratch e a extensão Face Sensing. Explique que essa extensão permite detectar pontos específicos do rosto, como topo da cabeça e olhos, possibilitando a criação de acessórios digitais que se movimentam em tempo real.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Organização das contas</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Antecipe a criação e o gerenciamento das contas dos estudantes no Scratch, seguindo o tutorial institucional indicado para criação de conta de educador e configuração das contas de estudantes. Esse procedimento garante padronização com os demais capítulos que utilizam a plataforma e assegura que os projetos sejam salvos corretamente ao longo das aulas.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Atividade sem login</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4 space-y-4 flex flex-col items-start text-left">
+<p class="text-body-sm font-body-md text-on-surface-variant w-full">Explique que é possível realizar a atividade sem login; contudo, nesse caso, o professor deverá planejar uma estratégia para gerenciamento dos arquivos entre as aulas, pois o salvamento em nuvem está disponível apenas para usuários autenticados.</p>
+<a class="inline-flex self-center items-center gap-2 text-label-md font-label-md bg-primary-container text-on-primary px-5 py-3 rounded-DEFAULT smooth-transition hover:bg-primary" href="#video-tutorial" title="Link do vídeo em breve"><span class="material-symbols-outlined">play_circle</span>Confira o passo a passo em vídeo!</a>
+<div class="flex flex-col sm:flex-row items-center gap-6 p-4 bg-surface-container-low rounded-xl border border-outline-variant w-full max-w-md mx-auto">
+<div class="w-32 h-32 bg-white border-2 border-outline-variant rounded-lg p-2 shrink-0 flex items-center justify-center" aria-label="QR-code simulado"><svg class="w-full h-full text-on-surface" viewBox="0 0 29 29" fill="currentColor" aria-hidden="true"><path d="M0 0h7v7H0V0zm22 0h7v7h-7V0zM0 22h7v7H0v-7zm22 0h7v7h-7v-7zM9 0h2v2H9V0zm0 4h2v2H9V4zm0 4h2v2H9V8zm4-8h2v2h-2V0zm4 0h2v2h-2V0zm-4 4h2v2h-2V4zm4 0h2v2h-2V4zm-8 4h2v2H9v-2zm8 0h2v2h-2v-2zm-8 4h2v2H9v-2zm0 4h2v2H9v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2zM9 22h2v2H9v-2zm8 0h2v2h-2v-2z"/></svg></div>
+<div class="space-y-2"><p class="text-body-sm font-body-md text-on-surface-variant">[QR-code + link] inserir link do vídeo</p><a class="text-primary text-label-md font-label-md hover:underline" href="#video-tutorial">Link do vídeo tutorial (em breve)</a></div>
+</div></div></div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Preparação prévia</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Antes da oficina, teste a extensão Face Sensing em um computador da escola para verificar se a câmera está funcionando corretamente e se os blocos da extensão estão disponíveis. Confirme também que o Scratch não está bloqueado pela rede institucional.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Permissão da câmera</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4 space-y-4">
+<p class="text-body-sm font-body-md text-on-surface-variant">Alguns navegadores solicitam autorização para uso da câmera. Oriente os estudantes a clicarem em “Permitir” quando a notificação aparecer. Caso surjam problemas, verifique se a câmera não está sendo utilizada por outro programa. Se necessário, recarregue a página ou redefina as permissões do navegador.</p>
+<figure class="max-w-lg mx-auto"><img alt="Demonstração da oficina" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/gif_oficina_4_2.gif"/></figure>
+</div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">7</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Circulação e apoio</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Durante o momento inicial de exploração, circule pela sala para identificar estudantes com dificuldades de navegação ou acesso. Observe também soluções criativas encontradas por algumas duplas e incentive o compartilhamento dessas descobertas com o restante da turma.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">8</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Diário de bordo</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Sugira que os estudantes registrem, em caderno ou ambiente digital, suas descobertas, hipóteses e dúvidas ao longo da oficina. Esse registro facilitará a retomada do projeto em aulas posteriores e fortalecerá a reflexão sobre o processo de aprendizagem.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">9</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Contexto como motivador</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Reforce constantemente o papel de pesquisadores e criadores assumido pelos estudantes. O laboratório de tecnologia e design deve ser compreendido como um ambiente de experimentação, no qual o erro faz parte do processo de construção do conhecimento.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">10</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Apoio linguístico</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4 space-y-4"><p class="text-body-sm font-body-md text-on-surface-variant">Informe que a extensão Face Sensing apresenta blocos em inglês. Sempre que possível, projete ou disponibilize um glossário com os principais comandos, como:</p><table class="w-full text-left border-collapse mb-4"><thead><tr class="bg-surface-container-low border-b border-outline-variant"><th class="p-4 font-bold text-on-surface">Bloco em inglês</th><th class="p-4 font-bold text-on-surface">Tradução / função</th></tr></thead><tbody><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">Go to (parte)</td><td class="p-4">Vá para (nariz, boca, olho, orelha, topo da cabeça, etc.)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">point in direction of face tilt</td><td class="p-4">aponte para a direção da inclinação do rosto</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">set size to face size</td><td class="p-4">defina o tamanho como o tamanho do rosto</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">when face tilts left/right</td><td class="p-4">quando o rosto inclinar para esquerda/direita</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">when a face is detected</td><td class="p-4">quando um rosto é detectado</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">a face is detected?</td><td class="p-4">um rosto está detectado? (condicional)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">face tilt</td><td class="p-4">inclinação do rosto (valor)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">face size</td><td class="p-4">tamanho do rosto (valor)</td></tr></tbody></table><p class="text-body-sm font-body-md text-on-surface-variant">Incentive a consulta entre colegas e o desenvolvimento do vocabulário técnico.</p></div>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">11</span>
+<span class="text-label-md font-label-md font-bold text-on-surface flex-1">Exploração para além da escola</span>
+<span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4"><p class="text-body-sm font-body-md text-on-surface-variant">Estimule a continuidade da experimentação em casa, destacando que os projetos podem ser acessados e editados de qualquer computador com internet, desde que estejam salvos na conta do estudante.</p></div>
+</div>
+</div></div>
+<div><h3 class="text-headline-sm font-headline-sm text-on-surface mb-4">Embarque</h3><div><div class="space-y-4">
+<p class="text-body-md font-body-md text-on-surface-variant">Antes de iniciar a programação dos acessórios, proponha um momento de exploração da ferramenta Scratch e da extensão Face Sensing. Explique que esta etapa tem como objetivo compreender como o programa reconhece e utiliza pontos do rosto capturados pela câmera.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a acessarem o site <a class="text-primary hover:underline" href="http://scratch.mit.edu" rel="noopener noreferrer" target="_blank">scratch.mit.edu</a> e clicarem em “Criar”, na parte superior da tela, para iniciar um novo projeto. Recomenda-se que o acesso seja realizado utilizando as contas vinculadas ao educador ou contas institucionais previamente organizadas pela escola, garantindo o salvamento em nuvem e a continuidade do projeto nas aulas seguintes.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Explique que é possível explorar a ferramenta sem login; no entanto, sem autenticação o projeto não poderá ser salvo na nuvem, o que pode comprometer o andamento da atividade ao longo das aulas. Caso seja necessário criar ou acessar uma conta, indique o botão “Aderir ao Scratch” ou “Inscreva-se”, localizado no canto superior direito da tela.</p>
+<figure class="max-w-xl mx-auto my-4 text-center">
+<img alt="Figura - Tela inicial da ferramenta Scratch" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/tela_inicia_da_ferramenta_scratch.png"/>
+<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant italic">Figura - Tela inicial da ferramenta Scratch</figcaption>
+</figure>
+<p class="text-body-md font-body-md text-on-surface-variant">Após a abertura do novo projeto, solicite que localizem o ícone de extensões (representado por um cubo com um símbolo “+”) no canto inferior esquerdo da interface.</p>
+<figure class="max-w-xl mx-auto my-4"><img alt="Extensões no Scratch" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/gif_oficina_4_1.gif"/></figure>
+<p class="text-body-md font-body-md text-on-surface-variant">Em seguida, oriente a seleção da extensão Face Sensing (ícone de um rosto) e a concessão de permissão para uso da câmera. Explique que, ao ativar a extensão, um novo conjunto de blocos será adicionado à categoria Face Sensing.</p>
+<figure class="max-w-xl mx-auto my-4 text-center">
+<img alt="Figura - Extensão de blocos, Face Sensing" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/extensao_de_blocos_face_sensing.png"/>
+<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant italic">Figura - Extensão de blocos, Face Sensing</figcaption>
+</figure>
+<p class="text-body-md font-body-md text-on-surface-variant">Informe que, embora o ambiente do Scratch esteja configurado em Português (Brasil), os blocos da extensão ainda aparecem em inglês, pois não foram totalmente traduzidos pela plataforma. Incentive os estudantes a utilizarem estratégias de apoio, como consulta entre colegas, uso de ferramentas de tradução, aproveitando a oportunidade de ampliação do vocabulário técnico em inglês. Valorize a colaboração entre pares como estratégia de aprendizagem.</p>
+<figure class="max-w-[360px] mx-auto my-4 text-center">
+<img alt="Figura - Blocos do conjunto Face Sensing" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/blocos_do_conjunto_face_sensing.png"/>
+<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant italic">Figura - Blocos do conjunto “Face Sensing”</figcaption>
+</figure>
+<p class="text-body-md font-body-md text-on-surface-variant">Após a familiarização com os blocos, proponha o seguinte desafio exploratório:</p>
+<ul class="list-disc pl-5 space-y-2">
+<li class="text-body-md font-body-md text-on-surface-variant">Oriente a turma a descobrir, em 3 minutos, como fazer um personagem (por exemplo, o gato do Scratch) posicionar-se sobre o nariz quando o programa iniciar.</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Em seguida, desafie-os a fazer com que o personagem sempre acompanhe o movimento do nariz enquanto o estudante se movimenta diante da câmera.</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Enfatize a palavra “sempre”, direcionando a atenção para blocos de repetição ou atualização contínua.</li>
+</ul>
+<p class="text-body-md font-body-md text-on-surface-variant">Após o tempo estipulado, convide alguns voluntários a compartilharem as soluções encontradas. Utilize esse momento para sistematizar a ideia de que o programa pode seguir partes específicas do rosto por meio da leitura constante de coordenadas.</p>
+<div class="rounded-xl border border-primary/20 border-l-4 border-l-primary overflow-hidden bg-primary/5">
+<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-primary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')">
+<span class="material-symbols-outlined text-primary text-xl">lightbulb</span>
+<span class="text-label-md font-label-md font-bold text-primary flex-1">Dica</span>
+<span class="material-symbols-outlined text-primary dica-chevron transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-primary/20 px-5 py-4 sm:px-6 sm:py-5">
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Caso os estudantes encontrem dificuldade no desafio, sugira que explorem os blocos da extensão <em>Face Sensing</em>, especialmente aqueles relacionados à detecção de rosto (“when face detected”) e ao posicionamento em partes específicas do rosto, como o bloco “go to (nose)”. Esses blocos podem auxiliar na criação da lógica necessária para que o personagem se posicione corretamente e acompanhe o movimento.</p>
+</div>
+</div>
+<figure class="max-w-xl mx-auto my-4 text-center">
+<img alt="Figura - Programações necessárias para os desafios apresentados" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/propramacoes_necessarias.png"/>
+<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant italic">Figura - Programações necessárias para os desafios apresentados</figcaption>
+</figure>
+</div></div></div></section>
+<section class="mb-16 scroll-mt-24" id="materials">
+<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-on-surface-variant/10 text-on-surface-variant flex items-center justify-center"><span class="material-symbols-outlined">inventory_2</span></div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Materiais necessários</h2></div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de materiais, softwares e componentes necessários para a oficina.</p>
+<div class="bg-surface rounded-xl p-6 border border-outline-variant"><ul class="space-y-3">
+<li class="flex items-center gap-3"><input class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary" type="checkbox"/><span class="text-body-md font-body-md text-on-surface">Computadores com webcam e acesso à internet</span></li>
+<li class="flex items-center gap-3"><input class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary" type="checkbox"/><span class="text-body-md font-body-md text-on-surface">Acesso ao Scratch (versão web)</span></li>
+<li class="flex items-center gap-3"><input class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary" type="checkbox"/><span class="text-body-md font-body-md text-on-surface">(opcional) Criar conta no Scratch para salvar os projetos</span></li>
+<li class="flex items-center gap-3"><input class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary" type="checkbox"/><span class="text-body-md font-body-md text-on-surface">Extensão Face Sensing ativada no Scratch</span></li>
+<li class="flex items-center gap-3"><input class="w-5 h-5 text-primary rounded border-outline-variant focus:ring-primary" type="checkbox"/><span class="text-body-md font-body-md text-on-surface">Caderno ou folha de rascunho para registro das descobertas e realização de testes com desenhos de rostos (Diário de Bordo)</span></li>
+</ul></div></section>
+<section class="mb-16 scroll-mt-24" id="create">
+<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center"><span class="material-symbols-outlined">construction</span></div>
+<h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span class="text-label-md font-label-md text-on-surface-variant ml-auto">60 minutos</span></div><div class="space-y-10">
+<div class="space-y-4">
+<div class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+<p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo</p>
+<h3 class="text-headline-md font-headline-md text-on-surface">Espelho Tecnológico</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Chapéu, óculos e ícone interativo</p>
+</div>
+<figure class="mt-6 max-w-xl mx-auto text-center">
+<img alt="Figura - Simulação da programação final em um rosto desenhado" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/simulacao-programacao-rosto-desenhado.png"/>
+<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant">Figura - Simulação da programação final em um rosto desenhado</figcaption>
+</figure>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Passo a passo</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">A construção do espelho tecnológico será realizada em dois encontros. Na primeira aula, os estudantes desenvolverão o chapéu virtual, explorando os conceitos fundamentais de acompanhamento de partes do rosto, inclinação e ajuste automático de tamanho conforme a aproximação da câmera. Esse momento deve priorizar a compreensão da lógica de posicionamento e atualização em tempo real.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Na segunda aula, os estudantes criarão os óculos virtuais, aplicando os mesmos princípios de rastreamento e proporção. Em seguida, serão desafiados a programar um ícone ou mecanismo interativo que permita trocar os estilos dos acessórios por meio da aproximação das mãos, de outra parte do corpo ou de um objeto diante da câmera, ampliando a experiência de interação sem uso do mouse.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Reforce ao longo do processo que programar envolve testar, identificar erros e realizar ajustes sucessivos. Ao final do segundo encontro, cada estudante terá um espelho funcional, pronto para ser compartilhado com a turma e aprimorado conforme novas ideias surgirem.</p>
+</div>
+<div class="space-y-6 mt-8">
+<div class="border border-secondary/30 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.accordion-chevron').classList.toggle('rotate-180')">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0"><span class="material-symbols-outlined">school</span></div>
+<span class="text-headline-sm font-headline-sm text-on-surface flex-1">Chapéu Virtual</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">4 etapas</span>
+<span class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0 rotate-180">expand_more</span>
+</button>
+<div class="border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"><div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+<div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">1. Preparação do projeto</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a criarem um novo projeto no Scratch. Ao iniciar, solicite que apaguem o personagem padrão (o gato), clicando com o botão direito sobre ele e selecionando “apagar”.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Em seguida, peça que criem um novo ator que representará o chapéu. O acessório pode ser desenhado clicando no ícone “Pintar” (pincel) ou escolhido na biblioteca de fantasias do Scratch.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Caso ainda não tenham ativado a extensão no momento anterior, oriente-os a adicionar a extensão “Face Sensing”, clicando no ícone de extensões (cubo com “+”) no canto inferior esquerdo e selecionando a opção correspondente.</p>
+<figure class="max-w-xl mx-auto my-4"><img alt="Preparação do projeto — chapéu virtual" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/gif_oficina_4_3.gif"/></figure>
+</div>
+<div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">2. Programando o acompanhamento do rosto</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Explique que o bloco “sempre” será essencial nesta etapa, pois garante que o programa atualize continuamente a posição do acessório.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a programarem o chapéu para sempre ir até o topo da cabeça de quem estiver diante da câmera.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Após posicionar corretamente, peça que testem inclinando levemente a cabeça e verificando se o chapéu acompanha o movimento.</p>
+<figure class="max-w-xl mx-auto my-4"><img alt="Programação do acompanhamento do rosto" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/gif_oficina_4_4.gif"/></figure>
+<div class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mt-4">
+<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')">
+<span class="material-symbols-outlined text-secondary text-xl">lightbulb</span>
+<span class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span>
+<span class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+<p class="text-body-sm font-body-md text-on-surface-variant leading-relaxed">Se for necessário alterar o tamanho do personagem, é possível usar os blocos da categoria &quot;Aparência&quot;. Porém, é importante estar atento a possíveis conflitos entre as programações, pois o bloco “set size to face size” irá forçar um tamanho específico para o personagem continuamente. Caso se queira fazer ajustes adicionais, uma alternativa é utilizar o bloco “mude ( ) no tamanho”, que soma ou subtrai um valor ao tamanho definido pelo bloco anterior, permitindo que o acessório possa se adequar ao tamanho desejável. Uma alternativa mais simples e que evita conflitos de programação é editar diretamente o personagem na aba &quot;Fantasias&quot;, localizada logo acima dos conjuntos de blocos, redimensionando o desenho manualmente.</p>
+</div>
+</div>
+</div>
+<div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">3. Ajustando inclinação e tamanho</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Nesta etapa, evite apresentar todos os blocos ou o caminho completo da solução. Convide os estudantes a explorarem a extensão Face Sensing e testarem hipóteses sobre como fazer o acessório responder aos movimentos do rosto.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Desafie a turma a fazer com que o chapéu incline junto com a cabeça, utilizando os blocos relacionados à inclinação do rosto.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Em seguida, oriente-os a ajustar o tamanho do chapéu para que aumente ou diminua conforme o estudante se aproxime ou se afaste da câmera.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Incentive testes constantes: aproximar, afastar e inclinar a cabeça para verificar se o comportamento está coerente.</p>
+</div>
+<div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">4. Exploração e personalização</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Após garantir o funcionamento básico do acessório, conduza a turma para uma etapa mais aberta, voltada à personalização e à criatividade. Evite apresentar um roteiro fechado; incentive os estudantes a modificarem o desenho na aba “Fantasias” ou criarem novos modelos de chapéus conforme seus interesses.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Para aqueles que demonstrarem maior autonomia, proponha a exploração do bloco “mude para a fantasia ( )”, permitindo alternar estilos enquanto o chapéu continua acompanhando o rosto. Essa etapa favorece a compreensão de que a lógica principal pode permanecer estável enquanto aspectos visuais são transformados.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Finalize promovendo a socialização dos resultados, convidando alguns estudantes a demonstrarem seus projetos em funcionamento para a turma e compartilharem as escolhas criativas realizadas.</p>
+<figure class="max-w-lg mx-auto my-4"><img alt="Exploração e personalização do chapéu virtual" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/3_1.png"/></figure>
+</div>
+</div></div></div>
+<div class="border border-secondary/30 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.accordion-chevron').classList.toggle('rotate-180')">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0"><span class="material-symbols-outlined">visibility</span></div>
+<span class="text-headline-sm font-headline-sm text-on-surface flex-1">Óculos e Ícone Interativo</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">2 etapas</span>
+<span class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"><div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+<div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">1. Criando o ator “Óculos”</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a criarem um novo ator chamado “Óculos”. Ele pode ser desenhado no editor de pintura ou escolhido na biblioteca, seguindo o mesmo processo realizado para o chapéu.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Explique que, para simplificar a programação, não é necessário criar um ator para cada olho. Uma estratégia mais eficiente é utilizar o bloco “go to (between eyes)” (vá para entre olhos), centralizando o acessório no rosto.</p>
+<figure class="max-w-xl mx-auto my-4"><img alt="Criando o ator Óculos" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/gif_oficina_4_5.gif"/></figure>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente a aplicação do mesmo padrão lógico utilizado no chapéu, adaptando agora para a posição “entre os olhos”.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Proponha os seguintes desafios:</p>
+<ul class="list-disc pl-5 space-y-1 mb-4">
+<li class="text-body-md font-body-md text-on-surface-variant">Criar o ator “Óculos”.</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Programar para que sempre vá para “entre os olhos”.</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Fazer os óculos inclinarem junto com a cabeça.</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Ajustar o tamanho conforme a aproximação ou afastamento da câmera.</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Incentive testes constantes, verificando se o comportamento está coerente.</li>
+</ul>
+<div class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5">
+<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')">
+<span class="material-symbols-outlined text-secondary text-xl">lightbulb</span>
+<span class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span>
+<span class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+<p class="text-body-sm font-body-md text-on-surface-variant leading-relaxed">Como a programação do óculos é muito semelhante à programação do chapéu, é possível arrastar o bloco programado de um para outro, criando uma cópia.</p>
+</div>
+</div>
+<figure class="max-w-[403px] mx-auto my-4"><img alt="Criando o ator Óculos" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/3_2.png"/></figure>
+</div>
+<div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">2. Criando o ícone interativo para trocar fantasias</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Nesta etapa, os estudantes serão desafiados a ampliar a interação do espelho tecnológico, criando uma forma de trocar o estilo dos acessórios sem utilizar o mouse, apenas por meio de movimentos diante da câmera.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente a criação de um novo ator que funcionará como ícone interativo (pode ser um círculo, uma estrela, uma seta ou qualquer outro símbolo simples). Esse elemento será posicionado em um dos cantos da tela e terá a função de reagir ao movimento detectado pela câmera.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Antes de programar a interação, oriente os estudantes a verificar se o ator “Óculos” (ou outro acessório escolhido) possui mais de uma fantasia. Caso não possua, conduza os estudantes à aba “Fantasias” para criarem novas versões, como modelos coloridos ou variações de estilo. Quanto maior a variedade, mais interessante será a experiência de troca.</p>
+<figure class="max-w-xl mx-auto my-4"><img alt="Ícone interativo para trocar fantasias" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/gif_oficina_4_7.gif"/></figure>
+<p class="text-body-md font-body-md text-on-surface-variant"><b>Programação do ícone:</b> O ícone deve ser posicionado em um canto da tela (os estudantes podem arrastá-lo com o mouse para o local desejado). Quando a mão do usuário ou algum objeto “tocar” o ícone, a fantasia dos óculos deve mudar para a próxima. Para evitar que a troca aconteça muitas vezes de uma só vez, oriente a adicionar um pequeno tempo de espera, na categoria “Controle”.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Com o ícone posicionado, introduza a extensão “Detecção de Vídeo”, que permitirá utilizar o movimento captado pela câmera como gatilho para ações no programa. Explique que o bloco disparador “quando detectar sensor de vídeo &gt; ( )” funcionará como um sensor de movimento na área do ícone.</p>
+<figure class="max-w-[358px] mx-auto my-4"><img alt="Imagem 7 - Detecção de movimento no ícone" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image7.png"/></figure>
+<p class="text-body-md font-body-md text-on-surface-variant">Proponha um momento como um desafio à turma: como fazer com que a fantasia dos óculos mude quando a mão do usuário ou algum objeto se aproximar do ícone na tela? Conceda alguns minutos para que testem hipóteses e explorem os blocos disponíveis, antes de apresentar a solução estruturada nos passos seguintes.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Durante a investigação, incentive-os a pensar também em como evitar que a troca de fantasia aconteça repetidamente em frações de segundo. Caso necessário, direcione a atenção para a categoria “Controle”, sugerindo a inclusão de um pequeno tempo de espera para tornar a interação mais fluida.</p>
+<div class="grid sm:grid-cols-2 gap-4 my-4">
+<figure><img alt="Imagem 8 - Exploração do desafio" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image8.png"/></figure>
+<figure><img alt="Imagem 8.1 - Exploração do desafio" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image8_1.png"/></figure>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Essa extensão adiciona novos blocos. Dentre eles destaca-se o disparador de programação chamado “Quando detectar sensor de vídeo &gt; ( )”, que funciona como um sensor de movimento. Sempre que houver qualquer movimento na área do ícone, esse bloco será acionado. Junto com ele, usaremos os blocos de rádio (presentes na categoria &quot;Rádio&quot;) para transmitir um sinal para outro ator, no caso, o óculos.</p>
+<div class="grid sm:grid-cols-2 gap-4 my-4">
+<figure><img alt="Imagem 9 - Blocos de rádio e vídeo" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image9.png"/></figure>
+<figure><img alt="Imagem 9.1 - Blocos de rádio e vídeo" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image9_1.png"/></figure>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Com isso, sempre que for detectado algum movimento no personagem &quot;seta&quot; (ou outro ícone escolhido), um sinal será enviado para o personagem &quot;óculos&quot;. Quando o personagem &quot;óculos&quot; receber este sinal, ele deverá mudar para a próxima fantasia. É importante inserir um bloco de espera para que essa troca não ocorra de forma muito rápida e repetitiva, garantindo uma experiência mais fluida para o usuário.</p>
+<div class="grid sm:grid-cols-2 gap-4 my-4">
+<figure><img alt="Imagem 10 - Troca de fantasias" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image10.png"/></figure>
+<figure><img alt="Imagem 10.1 - Troca de fantasias" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image10_1.png"/></figure>
+</div>
+<div class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mt-4">
+<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')">
+<span class="material-symbols-outlined text-secondary text-xl">lightbulb</span>
+<span class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span>
+<span class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span>
+</button>
+<div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 space-y-3">
+<p class="text-body-sm font-body-md text-on-surface-variant leading-relaxed">Para orientar o trabalho da turma, apresente os seguintes desafios:</p>
+<ul class="list-disc pl-6 space-y-3">
+<li class="text-body-md font-body-md text-on-surface-variant">Criar um novo ator &quot;Ícone&quot; (pode ser um círculo, uma estrela ou uma seta)</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Posicionar o ícone em um canto da tela</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Adicionar a extensão &quot;Detecção de Vídeo&quot; (Video Sensing)</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Criar pelo menos duas fantasias diferentes para os óculos</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Programar o ícone para detectar movimento em sua área</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Programar o ícone para enviar um sinal de rádio sempre que o movimento for detectado</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Programar os óculos para receber o sinal de rádio e mudar para a próxima fantasia</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Adicionar um tempo de espera para evitar que a troca aconteça muitas vezes de uma só vez</li>
+<li class="text-body-md font-body-md text-on-surface-variant">(Opcional) Adicionar um efeito sonoro ao trocar a fantasia, como o som &quot;pop&quot;</li>
+</ul>
+</div>
+</div>
+<figure class="max-w-xl mx-auto my-4 text-center">
+<img alt="Figura - Troca de fantasias pelo sensor de movimento" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/simulacao-programacao-rosto-desenhado.png"/>
+<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant italic">Figura - Troca de fantasias pelo sensor de movimento</figcaption>
+</figure>
+</div></div></div>
+</div>
+<div><h3 class="text-headline-sm font-headline-sm text-on-surface mb-5">Dicas de condução</h3><div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-secondary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">Preparação prévia</h4><p class="text-body-sm font-body-md text-on-surface-variant">Antes da oficina, teste as extensões “Face Sensing” e “Detecção de Vídeo” em um computador da escola, verificando se a câmera está funcionando corretamente e se todos os blocos estão disponíveis. Confirme também que o Scratch não está bloqueado pela rede institucional.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-secondary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">Permissão da câmera</h4><p class="text-body-sm font-body-md text-on-surface-variant">Informe que alguns navegadores solicitam autorização para uso da câmera. Oriente os estudantes a clicarem em “Permitir” quando a notificação aparecer. Caso surjam dificuldades, verifique se a câmera não está sendo utilizada por outro programa ou se é necessário redefinir as permissões do navegador.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-secondary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">Circulação e apoio</h4><p class="text-body-sm font-body-md text-on-surface-variant">Durante a programação, circule pela sala para identificar dificuldades técnicas ou conceituais. Observe soluções criativas desenvolvidas por algumas duplas e incentive o compartilhamento dessas estratégias com o restante da turma. Aproveite para confirmar se todos adicionaram corretamente as extensões necessárias.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-secondary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">Incentivo à colaboração</h4><p class="text-body-sm font-body-md text-on-surface-variant">Promova a troca entre pares. Caso um estudante descubra como resolver determinado desafio (como fazer o chapéu inclinar corretamente), convide-o a demonstrar o procedimento brevemente para os colegas. Pequenos momentos de socialização fortalecem a aprendizagem coletiva.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-secondary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">Registro dos aprendizados</h4><p class="text-body-sm font-body-md text-on-surface-variant">Solicite que os estudantes registrem, em caderno ou documento digital, uma breve reflexão sobre o que aprenderam, quais dificuldades enfrentaram e como as superaram. Esse registro favorece a consolidação do pensamento computacional e da metacognição.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-secondary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">Exploração para além da escola</h4><p class="text-body-sm font-body-md text-on-surface-variant">Incentive a continuidade do projeto fora do ambiente escolar. Reforce que os projetos podem ser salvos e acessados de qualquer computador com internet, desde que estejam vinculados à conta do estudante.</p></div>
+</div></div></div></section>
+<section class="mb-16 scroll-mt-24" id="reflect">
+<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-tertiary text-on-primary flex items-center justify-center"><span class="material-symbols-outlined">psychology</span></div>
+<h2 class="text-headline-lg font-headline-lg text-tertiary">Refletir</h2><span class="text-label-md font-label-md text-on-surface-variant ml-auto">15 minutos</span></div><div class="space-y-10">
+<div class="space-y-6">
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Aprendizados</h3>
+<div class="space-y-4">
+<h4 class="text-headline-sm font-headline-sm text-tertiary">Dinâmica de compartilhamento: &quot;Galeria dos Espelhos&quot;</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Organize um momento breve para socialização dos projetos desenvolvidos. Como o tempo pode ser limitado, priorize dinâmicas ágeis e coletivas que valorizem o protagonismo dos estudantes e a troca de experiências.</p>
+</div>
+<div class="space-y-4 pt-2">
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant"><p class="text-body-md font-body-md text-on-surface-variant"><strong class="text-on-surface">Opção 1 – Roda de testes:</strong> Divida a turma em duplas. Cada estudante testa o espelho interativo do colega por aproximadamente 2 minutos, experimentando movimentos como inclinar a cabeça, aproximar e afastar o rosto da câmera e ativar o ícone de troca de fantasias. Ao final, cada participante deve comentar um aspecto positivo do projeto do colega e sugerir uma possível melhoria.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant"><p class="text-body-md font-body-md text-on-surface-variant"><strong class="text-on-surface">Opção 2 – Demonstração voluntária:</strong> Convide alguns estudantes a apresentarem seus projetos para a turma. Solicite que demonstrem como os acessórios acompanham os movimentos do rosto e como o sistema de troca de fantasias funciona. Utilize esse momento para destacar soluções criativas ou estratégias de programação bem estruturadas.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant"><p class="text-body-md font-body-md text-on-surface-variant"><strong class="text-on-surface">Opção 3 – Estúdio no Scratch:</strong> Caso os estudantes possuam conta no Scratch (com e-mail confirmado), organize um Estúdio da turma para reunir os projetos. O professor pode criar o Estúdio na área “Meus Estúdios” → “Novo Estúdio” e compartilhar o link com a turma. Após salvar o projeto, os estudantes devem clicar em “Compartilhar” e, em seguida, em “Adicionar ao Estúdio”.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant"><p class="text-body-md font-body-md text-on-surface-variant"><strong class="text-on-surface">Opção 4 – Compartilhamento digital externo:</strong> Oriente os estudantes a salvarem seus projetos no Scratch (“Arquivo” → “Salvar agora”) e, se desejarem, compartilharem o link em um mural virtual, como o Padlet. Reforce que o compartilhamento público exige conta ativa e e-mail confirmado.</p></div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant pt-2">Finalize ressaltando que a socialização dos projetos amplia o aprendizado coletivo, permite observar diferentes soluções para o mesmo desafio e fortalece a cultura de colaboração na turma.</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 sm:p-8 border-l-4 border-tertiary"><h4 class="text-headline-sm font-headline-sm text-tertiary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">help</span>Perguntas reflexivas</h4><ul class="list-disc pl-5 space-y-3">
+<li class="text-body-md font-body-md text-on-surface-variant">Qual foi a parte mais fácil de programar? E a mais desafiadora? Por quê?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">O que aconteceria com o chapéu se o bloco “sempre” não fosse utilizado? Ele continuaria acompanhando o rosto?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Como o computador identifica o topo da cabeça e os olhos? O que pode acontecer se o ambiente estiver escuro ou mal iluminado?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Se fosse necessário adicionar um novo acessório (como máscara, tiara ou pintura facial), quais pontos do rosto seriam utilizados para posicioná-lo corretamente?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Por que o chapéu muda de tamanho quando o rosto se aproxima ou se afasta da câmera?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">Qual foi a parte mais divertida de criar? O que você mostraria para um familiar em casa?</li>
+<li class="text-body-md font-body-md text-on-surface-variant">A programação funcionaria da mesma forma com o desenho de um rosto? Por quê?</li>
+</ul></div>
+<div id="beyond" class="space-y-5"><h3 class="text-headline-sm font-headline-sm text-on-surface">Para ir além!</h3><div class="space-y-5">
+<p class="text-body-md font-body-md text-on-surface-variant">Amplie a experiência propondo novos desafios de criação. Incentive os estudantes a experimentarem novas situações, respondendo questões como: seria possível criar uma moldura para o espelho? Como organizar um acessório para frente ou para trás de outros? É possível criar efeitos durante a transição entre cada fantasia?</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Como desafio adicional, proponha a utilização do bloco “escolha um número aleatório” para criar um sistema de sorteio de fantasias, permitindo que o acessório mude para um modelo aleatório a cada ativação.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Desafie também os estudantes a pensarem no design da interface quando o espelho possui múltiplos acessórios (chapéu, óculos, máscara). Onde posicionar os ícones de controle na tela para não atrapalhar a visão do rosto? Como indicar visualmente qual acessório está selecionado? Como organizar os elementos para que a experiência seja clara e intuitiva? Incentive ajustes de posição, tamanho e até a criação de um &quot;painel de controle&quot; organizado.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes que possuam conta ativa no Scratch a compartilharem seus projetos na plataforma, divulgando-os para familiares, amigos ou outras turmas. Esse momento amplia o alcance do trabalho e fortalece o protagonismo digital.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Proponha ainda uma investigação prática sobre as condições de funcionamento do espelho tecnológico. Como o sistema se comporta em diferentes níveis de iluminação? O que acontece quando o usuário usa óculos reais ou cobre parte do rosto? E se o rosto estiver mais distante da câmera? Incentive o registro das observações.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Por fim, estimule uma investigação sobre os limites da detecção facial: a programação funcionaria com um desenho de rosto? E com um boneco, máscara, fotografia impressa ou até mesmo um animal de pelúcia? Oriente os estudantes a testarem diferentes possibilidades e registrarem os resultados, analisando por que alguns “rostos” são reconhecidos e outros não. Essa reflexão contribui para a compreensão crítica das possibilidades e limitações das tecnologias de reconhecimento facial.</p>
+</div></div>
+<div class="pt-2"><h3 class="text-headline-sm font-headline-sm text-on-surface mb-5">Dicas de condução</h3><div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-tertiary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">1. Celebração das entregas</h4><p class="text-body-sm font-body-md text-on-surface-variant">Valorize o esforço de cada estudante ao final da oficina. Mesmo que alguns projetos não estejam totalmente finalizados, reconheça o progresso alcançado ao longo do processo. Pequenos gestos de reconhecimento, como aplausos coletivos ou menções positivas, contribuem significativamente para a motivação e a autoconfiança.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-tertiary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">2. Registro dos aprendizados</h4><p class="text-body-sm font-body-md text-on-surface-variant">Solicite que os estudantes registrem, em seus cadernos ou em um documento digital, uma breve reflexão orientada por perguntas como: “O que aprendi hoje?” e “O que gostaria de melhorar no meu espelho interativo?”. Esse momento favorece a consolidação do conhecimento e estimula a autorregulação da aprendizagem.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-tertiary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">3. Feedback positivo e construtivo</h4><p class="text-body-sm font-body-md text-on-surface-variant">Durante os testes e apresentações, incentive práticas de feedback que comecem com um aspecto positivo e avancem para uma sugestão de melhoria. Por exemplo: “Gostei do seu chapéu; você poderia criar uma segunda fantasia para ampliar as opções?”. Essa abordagem fortalece o respeito mútuo e a cultura de aprimoramento contínuo.</p></div>
+<div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-tertiary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">4. Estímulo à continuidade</h4><p class="text-body-sm font-body-md text-on-surface-variant">Reforce que a programação é um campo em constante expansão e que os estudantes podem continuar explorando o Scratch em outros momentos, seja na escola ou em casa. Incentive o desenvolvimento de novos projetos ou o aperfeiçoamento do espelho interativo criado.</p></div>
+<div class="sm:col-span-2 bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant shadow-sm border-t-4 border-t-tertiary"><h4 class="text-label-md font-label-md font-bold text-on-surface mb-3">5. Organização de um evento de socialização</h4><p class="text-body-sm font-body-md text-on-surface-variant">Sempre que possível, promova uma “Mostra de Espelhos Tecnológicos”, permitindo que os estudantes apresentem seus projetos para outras turmas, familiares ou em um evento interno da escola. Essa ação amplia o reconhecimento do trabalho realizado e fortalece o protagonismo estudantil.</p></div>
+</div></div></div></section>
+</main><!-- ========== NAVEGAÇÃO MOBILE ========== -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl" id="bottom-nav">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 rounded-xl transition-colors nav-link-mobile" href="#prepare">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="text-label-sm font-label-sm mt-1">Preparar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 rounded-xl transition-colors nav-link-mobile" href="#materials">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-sm font-label-sm mt-1">Materiais</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 rounded-xl transition-colors nav-link-mobile" href="#create">
+<span class="material-symbols-outlined">construction</span>
+<span class="text-label-sm font-label-sm mt-1">Criar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 rounded-xl transition-colors nav-link-mobile" href="#reflect">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-label-sm font-label-sm mt-1">Refletir</span>
+</a>
+</nav>
+
+<script src="../../assets/js/nave.js"></script>
+</body>
+</html>

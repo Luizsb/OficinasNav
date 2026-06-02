@@ -1,0 +1,11 @@
+[
+    {
+        "id": "o-espelho-tecnologico",
+        "titulo": "O Espelho tecnológico",
+        "subtitulo": "Tecnologia, design e programação com Scratch",
+        "arquivo": "oficinas/o-espelho-tecnologico/index.html",
+        "ano": "7º ano EFAF",
+        "duracao": "90 min",
+        "tags": ["Scratch", "Face Sensing", "Pensamento Computacional"]
+    }
+]
