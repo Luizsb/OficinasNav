@@ -35,7 +35,7 @@
 
         var sectionBorderColors = {
             view: "primary",
-            prepare: "primary",
+            prepare: "prepare",
             materials: "tertiary",
             create: "secondary",
             reflect: "primary-container"

@@ -15,6 +15,8 @@ tailwind.config = {
                 "secondary-container": "#db266f",
                 "tertiary-fixed": "#e2e2e2",
                 "secondary": "#b60057",
+                "prepare": "#94579e",
+                "on-prepare": "#ffffff",
                 "outline": "#737786",
                 "outline-variant": "#c2c6d6",
                 "on-error": "#ffffff",

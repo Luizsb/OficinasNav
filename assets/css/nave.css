@@ -1,5 +1,19 @@
 /* Estilos compartilhados — Oficinas NAVE */
 
+.nave-logo {
+    display: block;
+    height: 2rem;
+    width: auto;
+    max-width: 8.5rem;
+}
+
+@media (min-width: 768px) {
+    .nave-logo {
+        height: 2.5rem;
+        max-width: 10.5rem;
+    }
+}
+
 .pattern-dots {
     background-image: radial-gradient(var(--tw-colors-outline-variant) 1px, transparent 1px);
     background-size: 24px 24px;
@@ -67,8 +81,8 @@
 }
 
 .subsection-prepare {
-    color: var(--tw-colors-primary);
-    border-bottom: 1px solid color-mix(in srgb, var(--tw-colors-primary) 18%, transparent);
+    color: var(--tw-colors-prepare);
+    border-bottom: 1px solid color-mix(in srgb, var(--tw-colors-prepare) 22%, transparent);
     padding-bottom: 0.5rem;
 }
 

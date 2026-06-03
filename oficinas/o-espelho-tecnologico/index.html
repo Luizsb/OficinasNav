@@ -5,6 +5,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>O Espelho tecnológico — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="../../assets/js/tailwind-config.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -14,14 +16,19 @@
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
 
 <!-- ========== CABEÇALHO ========== -->
-<header class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
-<div class="flex items-center gap-4 min-w-0">
-<a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0" href="../../index.html" title="Voltar ao índice">
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+<div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+<a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html" title="Oficinas NAVE — início">
+<img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg" width="137"/>
+</a>
+<a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4" href="../../index.html" title="Voltar ao índice">
 <span class="material-symbols-outlined text-lg">arrow_back</span>
 <span>Todas</span>
 </a>
-<span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate">O Espelho tecnológico</span>
-<span class="hidden lg:block text-label-md font-label-md text-on-surface-variant ml-4 border-l border-outline-variant pl-4">Tecnologia, design e programação com Scratch</span>
+<div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">O Espelho tecnológico</span>
+<span class="hidden lg:block text-label-md font-label-md text-on-surface-variant truncate">Tecnologia, design e programação com Scratch</span>
+</div>
 </div>
 <!-- <div class="flex items-center gap-4">
 <button class="hidden md:block text-label-md font-label-md text-primary-container px-4 py-2 border border-primary-container rounded-DEFAULT smooth-transition hover:bg-primary-container/10">Ver etapas</button>
@@ -48,8 +55,8 @@
                         </a>
 </li>
 <li>
-<a class="flex items-center gap-3 py-3 text-on-surface-variant dark:text-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all group nav-link" href="#prepare" data-section-color="primary">
-<span class="material-symbols-outlined group-hover:text-primary">menu_book</span>
+<a class="flex items-center gap-3 py-3 text-on-surface-variant dark:text-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all group nav-link" href="#prepare" data-section-color="prepare">
+<span class="material-symbols-outlined group-hover:text-prepare">menu_book</span>
                             Preparar
                         </a>
 </li>
@@ -93,13 +100,13 @@
 <div class="flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">account_tree</span><span class="text-label-sm font-label-sm">Pensamento Computacional (foco)</span></div>
 </div></div></div></section>
 <section class="mb-16"><h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-sm"><div class="flex items-center justify-between mb-4"><h3 class="text-headline-sm font-headline-sm text-primary">Preparar</h3><span class="duration-badge bg-primary/10 text-primary">15 min</span></div><p class="text-body-md font-body-md text-on-surface-variant">Apresentar o contexto do espelho interativo, introduzir a extensão Face Sensing do Scratch e realizar uma mini experiência de detecção de rosto.</p></div>
+<div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-sm"><div class="flex items-center justify-between mb-4"><h3 class="text-headline-sm font-headline-sm text-prepare">Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">15 min</span></div><p class="text-body-md font-body-md text-on-surface-variant">Apresentar o contexto do espelho interativo, introduzir a extensão Face Sensing do Scratch e realizar uma mini experiência de detecção de rosto.</p></div>
 <div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-sm"><div class="flex items-center justify-between mb-4"><h3 class="text-headline-sm font-headline-sm text-secondary">Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">60 min</span></div><p class="text-body-md font-body-md text-on-surface-variant">Programar o acessório para acompanhar o topo da cabeça, inclinar junto com o rosto e ajustar o tamanho conforme a aproximação/afastamento.</p></div>
 <div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-sm"><div class="flex items-center justify-between mb-4"><h3 class="text-headline-sm font-headline-sm text-primary-container">Refletir</h3><span class="duration-badge bg-primary-container/10 text-primary-container">15 min</span></div><p class="text-body-md font-body-md text-on-surface-variant">Compartilhar os projetos, testar as interações dos colegas, registrar descobertas e refletir sobre o processo de programação e design.</p></div>
 </div></section>
 <section class="mb-16 scroll-mt-24" id="prepare">
-<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center"><span class="material-symbols-outlined">menu_book</span></div>
-<h2 class="text-headline-lg font-headline-lg text-primary">Preparar</h2><span class="duration-badge ml-auto bg-primary/10 text-primary">15 min</span></div><div class="space-y-8">
+<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center"><span class="material-symbols-outlined">menu_book</span></div>
+<h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span class="duration-badge ml-auto bg-prepare/10 text-prepare">15 min</span></div><div class="space-y-8">
 <div><h3 class="text-headline-sm font-headline-sm subsection-prepare mb-4">Apresentação</h3><div class="space-y-4 content-block">
 <p class="text-body-md font-body-md text-on-surface-variant">Nesta oficina, os estudantes são convidados a assumir o papel de criadores em um laboratório de tecnologia e design, desenvolvendo um espelho interativo que funciona como provador virtual de acessórios. Utilizando a extensão Face Sensing do Scratch, irão programar um sistema capaz de identificar pontos do rosto capturados pela câmera e posicionar acessórios virtuais, de modo que acompanhem os movimentos da cabeça, ajustem-se ao tamanho do rosto e possam ser alterados de forma interativa.</p>
 <p class="text-body-md font-body-md text-on-surface-variant">A proposta integra programação e design, permitindo que os estudantes compreendam como dados capturados em tempo real podem ser utilizados para atualizar objetos na tela com base em coordenadas, eventos e condições lógicas. Ao longo da atividade, serão mobilizados conceitos como algoritmos, eventos, variáveis e condicionais, articulando raciocínio lógico e criatividade.</p>
@@ -109,7 +116,7 @@
 <figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant">Figura - Simulação da programação final em um rosto desenhado</figcaption>
 </figure>
 </div></div>
-<div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary"><h4 class="text-headline-sm font-headline-sm text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">help</span>Perguntas reflexivas</h4><ul class="list-disc pl-5 space-y-2">
+<div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare"><h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2"><span class="material-symbols-outlined">help</span>Perguntas reflexivas</h4><ul class="list-disc pl-5 space-y-2">
 <li class="text-body-md font-body-md text-on-surface-variant">Como o computador consegue identificar que há um rosto na imagem capturada pela câmera?</li>
 <li class="text-body-md font-body-md text-on-surface-variant">O que deve acontecer com um acessório virtual quando a pessoa inclina a cabeça? Ele deve permanecer fixo na tela ou acompanhar o movimento?</li>
 <li class="text-body-md font-body-md text-on-surface-variant">Se a pessoa se aproximar ou se afastar da câmera, como o tamanho do acessório virtual deve se comportar?</li>
@@ -126,7 +133,7 @@
 <div><h3 class="text-headline-sm font-headline-sm heading-dicas mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2"><span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução</h3><div class="space-y-2">
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Reflexão sobre o espelho</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -134,7 +141,7 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Apresente a proposta da oficina</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -142,7 +149,7 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Organização das contas</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -150,20 +157,20 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Atividade sem login</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
 <div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4 space-y-4 flex flex-col items-start text-left">
 <p class="text-body-sm font-body-md text-on-surface-variant w-full">Explique que é possível realizar a atividade sem login; contudo, nesse caso, o professor deverá planejar uma estratégia para gerenciamento dos arquivos entre as aulas, pois o salvamento em nuvem está disponível apenas para usuários autenticados.</p>
-<a class="inline-flex self-center items-center gap-2 text-label-md font-label-md bg-primary-container text-on-primary px-5 py-3 rounded-DEFAULT smooth-transition hover:bg-primary" href="#video-tutorial" title="Link do vídeo em breve"><span class="material-symbols-outlined">play_circle</span>Confira o passo a passo em vídeo!</a>
+<a class="inline-flex self-center items-center gap-2 text-label-md font-label-md bg-prepare text-on-prepare px-5 py-3 rounded-DEFAULT smooth-transition hover:bg-prepare/90" href="#video-tutorial" title="Link do vídeo em breve"><span class="material-symbols-outlined">play_circle</span>Confira o passo a passo em vídeo!</a>
 <div class="flex flex-col sm:flex-row items-center gap-6 p-4 bg-surface-container-low rounded-xl border border-outline-variant w-full max-w-md mx-auto">
 <div class="w-32 h-32 bg-white border-2 border-outline-variant rounded-lg p-2 shrink-0 flex items-center justify-center" aria-label="QR-code simulado"><svg class="w-full h-full text-on-surface" viewBox="0 0 29 29" fill="currentColor" aria-hidden="true"><path d="M0 0h7v7H0V0zm22 0h7v7h-7V0zM0 22h7v7H0v-7zm22 0h7v7h-7v-7zM9 0h2v2H9V0zm0 4h2v2H9V4zm0 4h2v2H9V8zm4-8h2v2h-2V0zm4 0h2v2h-2V0zm-4 4h2v2h-2V4zm4 0h2v2h-2V4zm-8 4h2v2H9v-2zm8 0h2v2h-2v-2zm-8 4h2v2H9v-2zm0 4h2v2H9v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2zM9 22h2v2H9v-2zm8 0h2v2h-2v-2z"/></svg></div>
-<div class="space-y-2"><p class="text-body-sm font-body-md text-on-surface-variant">[QR-code + link] inserir link do vídeo</p><a class="text-primary text-label-md font-label-md hover:underline" href="#video-tutorial">Link do vídeo tutorial (em breve)</a></div>
+<div class="space-y-2"><p class="text-body-sm font-body-md text-on-surface-variant">[QR-code + link] inserir link do vídeo</p><a class="text-prepare text-label-md font-label-md hover:underline" href="#video-tutorial">Link do vídeo tutorial (em breve)</a></div>
 </div></div></div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Preparação prévia</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -171,7 +178,7 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Permissão da câmera</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -182,7 +189,7 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">7</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">7</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Circulação e apoio</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -190,7 +197,7 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">8</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">8</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Diário de bordo</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -198,7 +205,7 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">9</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">9</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Contexto como motivador</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -206,15 +213,15 @@
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">10</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">10</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Apoio linguístico</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
-<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4 space-y-4"><p class="text-body-sm font-body-md text-on-surface-variant">Informe que a extensão Face Sensing apresenta blocos em inglês. Sempre que possível, projete ou disponibilize um glossário com os principais comandos, como:</p><table class="w-full text-left border-collapse mb-4"><thead><tr class="bg-surface-container-low border-b border-outline-variant"><th class="p-4 font-bold text-on-surface">Bloco em inglês</th><th class="p-4 font-bold text-on-surface">Tradução / função</th></tr></thead><tbody><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">Go to (parte)</td><td class="p-4">Vá para (nariz, boca, olho, orelha, topo da cabeça, etc.)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">point in direction of face tilt</td><td class="p-4">aponte para a direção da inclinação do rosto</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">set size to face size</td><td class="p-4">defina o tamanho como o tamanho do rosto</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">when face tilts left/right</td><td class="p-4">quando o rosto inclinar para esquerda/direita</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">when a face is detected</td><td class="p-4">quando um rosto é detectado</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">a face is detected?</td><td class="p-4">um rosto está detectado? (condicional)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">face tilt</td><td class="p-4">inclinação do rosto (valor)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-primary">face size</td><td class="p-4">tamanho do rosto (valor)</td></tr></tbody></table><p class="text-body-sm font-body-md text-on-surface-variant">Incentive a consulta entre colegas e o desenvolvimento do vocabulário técnico.</p></div>
+<div class="hidden border-t border-outline-variant bg-surface-container-lowest p-4 space-y-4"><p class="text-body-sm font-body-md text-on-surface-variant">Informe que a extensão Face Sensing apresenta blocos em inglês. Sempre que possível, projete ou disponibilize um glossário com os principais comandos, como:</p><table class="w-full text-left border-collapse mb-4"><thead><tr class="bg-surface-container-low border-b border-outline-variant"><th class="p-4 font-bold text-on-surface">Bloco em inglês</th><th class="p-4 font-bold text-on-surface">Tradução / função</th></tr></thead><tbody><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">Go to (parte)</td><td class="p-4">Vá para (nariz, boca, olho, orelha, topo da cabeça, etc.)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">point in direction of face tilt</td><td class="p-4">aponte para a direção da inclinação do rosto</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">set size to face size</td><td class="p-4">defina o tamanho como o tamanho do rosto</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">when face tilts left/right</td><td class="p-4">quando o rosto inclinar para esquerda/direita</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">when a face is detected</td><td class="p-4">quando um rosto é detectado</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">a face is detected?</td><td class="p-4">um rosto está detectado? (condicional)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">face tilt</td><td class="p-4">inclinação do rosto (valor)</td></tr><tr class="border-b border-outline-variant"><td class="p-4 font-semibold text-prepare">face size</td><td class="p-4">tamanho do rosto (valor)</td></tr></tbody></table><p class="text-body-sm font-body-md text-on-surface-variant">Incentive a consulta entre colegas e o desenvolvimento do vocabulário técnico.</p></div>
 </div>
 <div class="border border-outline-variant rounded-xl overflow-hidden">
 <button class="w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
-<span class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">11</span>
+<span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">11</span>
 <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Exploração para além da escola</span>
 <span class="material-symbols-outlined transition-transform duration-300 shrink-0">expand_more</span>
 </button>
@@ -223,7 +230,7 @@
 </div></div>
 <div><h3 class="text-headline-sm font-headline-sm subsection-prepare mb-4">Embarque</h3><div><div class="space-y-4 content-block">
 <p class="text-body-md font-body-md text-on-surface-variant">Antes de iniciar a programação dos acessórios, proponha um momento de exploração da ferramenta Scratch e da extensão Face Sensing. Explique que esta etapa tem como objetivo compreender como o programa reconhece e utiliza pontos do rosto capturados pela câmera.</p>
-<p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a acessarem o site <a class="text-primary hover:underline" href="http://scratch.mit.edu" rel="noopener noreferrer" target="_blank">scratch.mit.edu</a> e clicarem em “Criar”, na parte superior da tela, para iniciar um novo projeto. Recomenda-se que o acesso seja realizado utilizando as contas vinculadas ao educador ou contas institucionais previamente organizadas pela escola, garantindo o salvamento em nuvem e a continuidade do projeto nas aulas seguintes.</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a acessarem o site <a class="text-prepare hover:underline" href="http://scratch.mit.edu" rel="noopener noreferrer" target="_blank">scratch.mit.edu</a> e clicarem em “Criar”, na parte superior da tela, para iniciar um novo projeto. Recomenda-se que o acesso seja realizado utilizando as contas vinculadas ao educador ou contas institucionais previamente organizadas pela escola, garantindo o salvamento em nuvem e a continuidade do projeto nas aulas seguintes.</p>
 <p class="text-body-md font-body-md text-on-surface-variant">Explique que é possível explorar a ferramenta sem login; no entanto, sem autenticação o projeto não poderá ser salvo na nuvem, o que pode comprometer o andamento da atividade ao longo das aulas. Caso seja necessário criar ou acessar uma conta, indique o botão “Aderir ao Scratch” ou “Inscreva-se”, localizado no canto superior direito da tela.</p>
 <figure class="max-w-xl mx-auto my-4 text-center">
 <img alt="Figura - Tela inicial da ferramenta Scratch" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/tela_inicia_da_ferramenta_scratch.png"/>
@@ -248,13 +255,13 @@
 <li class="text-body-md font-body-md text-on-surface-variant">Enfatize a palavra “sempre”, direcionando a atenção para blocos de repetição ou atualização contínua.</li>
 </ul>
 <p class="text-body-md font-body-md text-on-surface-variant">Após o tempo estipulado, convide alguns voluntários a compartilharem as soluções encontradas. Utilize esse momento para sistematizar a ideia de que o programa pode seguir partes específicas do rosto por meio da leitura constante de coordenadas.</p>
-<div class="rounded-xl border border-primary/20 border-l-4 border-l-primary overflow-hidden bg-primary/5">
-<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-primary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')">
-<span class="material-symbols-outlined text-primary text-xl">lightbulb</span>
-<span class="text-label-md font-label-md font-bold text-primary flex-1">Dica</span>
-<span class="material-symbols-outlined text-primary dica-chevron transition-transform duration-300 shrink-0">expand_more</span>
+<div class="rounded-xl border border-prepare/20 border-l-4 border-l-prepare overflow-hidden bg-prepare/5">
+<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-prepare/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')">
+<span class="material-symbols-outlined text-prepare text-xl">lightbulb</span>
+<span class="text-label-md font-label-md font-bold text-prepare flex-1">Dica</span>
+<span class="material-symbols-outlined text-prepare dica-chevron transition-transform duration-300 shrink-0">expand_more</span>
 </button>
-<div class="hidden border-t border-primary/20 px-5 py-4 sm:px-6 sm:py-5">
+<div class="hidden border-t border-prepare/20 px-5 py-4 sm:px-6 sm:py-5">
 <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Caso os estudantes encontrem dificuldade no desafio, sugira que explorem os blocos da extensão <em>Face Sensing</em>, especialmente aqueles relacionados à detecção de rosto (“when face detected”) e ao posicionamento em partes específicas do rosto, como o bloco “go to (nose)”. Esses blocos podem auxiliar na criação da lógica necessária para que o personagem se posicione corretamente e acompanhe o movimento.</p>
 </div>
 </div>
