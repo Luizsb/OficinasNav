@@ -42,3 +42,68 @@
 .nav-active-mobile {
     background-color: var(--tw-colors-surface-variant);
 }
+
+/* Hierarquia visual — oficinas NAVE */
+.workshop-hero-title {
+    color: var(--tw-colors-on-surface);
+}
+
+.box-elemento-chave {
+    border-color: color-mix(in srgb, var(--tw-colors-primary-container) 35%, transparent);
+    border-left-color: var(--tw-colors-primary-container);
+    background-color: color-mix(in srgb, var(--tw-colors-primary-fixed) 55%, var(--tw-colors-surface-container-lowest));
+}
+
+.box-elemento-chave__trigger {
+    background-color: color-mix(in srgb, var(--tw-colors-primary-container) 8%, transparent);
+}
+
+.box-elemento-chave__trigger:hover {
+    background-color: color-mix(in srgb, var(--tw-colors-primary-container) 14%, transparent);
+}
+
+.heading-dicas {
+    color: var(--tw-colors-secondary);
+}
+
+.subsection-prepare {
+    color: var(--tw-colors-primary);
+    border-bottom: 1px solid color-mix(in srgb, var(--tw-colors-primary) 18%, transparent);
+    padding-bottom: 0.5rem;
+}
+
+.subsection-create {
+    color: var(--tw-colors-secondary);
+    border-bottom: 1px solid color-mix(in srgb, var(--tw-colors-secondary) 18%, transparent);
+    padding-bottom: 0.5rem;
+}
+
+.subsection-materials {
+    color: var(--tw-colors-tertiary);
+    border-bottom: 1px solid color-mix(in srgb, var(--tw-colors-tertiary) 22%, transparent);
+    padding-bottom: 0.5rem;
+}
+
+.subsection-reflect {
+    color: var(--tw-colors-primary-container);
+    border-bottom: 1px solid color-mix(in srgb, var(--tw-colors-primary-container) 20%, transparent);
+    padding-bottom: 0.5rem;
+}
+
+.content-block p,
+.content-block li {
+    line-height: 1.65;
+}
+
+/* Badge de duração (pill colorida por seção) */
+.duration-badge {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}

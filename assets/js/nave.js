@@ -33,10 +33,28 @@
             }
         });
 
+        var sectionBorderColors = {
+            view: "primary",
+            prepare: "primary",
+            materials: "tertiary",
+            create: "secondary",
+            reflect: "primary-container"
+        };
+
         navLinks.forEach(function (link) {
             link.classList.remove("nav-active");
+            link.style.borderColor = "";
+            link.style.color = "";
+            link.style.backgroundColor = "";
             if (link.getAttribute("href").includes(current) && current !== "") {
                 link.classList.add("nav-active");
+                var accent = sectionBorderColors[current] || "primary";
+                link.style.borderColor = "var(--tw-colors-" + accent + ")";
+                link.style.color = "var(--tw-colors-" + accent + ")";
+                link.style.backgroundColor =
+                    accent === "primary-container"
+                        ? "color-mix(in srgb, var(--tw-colors-primary-container) 8%, transparent)"
+                        : "color-mix(in srgb, var(--tw-colors-" + accent + ") 8%, transparent)";
             }
         });
 
