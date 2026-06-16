@@ -78,6 +78,7 @@
 
 .heading-dicas {
     color: var(--tw-colors-secondary);
+    margin-top: 3rem;
 }
 
 .subsection-prepare {
@@ -109,7 +110,42 @@
     line-height: 1.65;
 }
 
-/* Badge de duração (pill colorida por seção) */
+/* Espaçamento entre seções e sub-blocos */
+main > section[id] {
+    margin-bottom: 5rem;
+}
+
+main > section[id] > div > .space-y-8 > * + *,
+main > section[id] > div > .space-y-10 > * + * {
+    margin-top: 2.75rem;
+}
+
+.workshop-accordions {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.workshop-subsection-title {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+    main > section[id] {
+        margin-bottom: 6rem;
+    }
+
+    .workshop-accordions {
+        gap: 2.5rem;
+        margin-top: 3rem;
+    }
+
+    .heading-dicas {
+        margin-top: 3.5rem;
+    }
+}
 .duration-badge {
     display: inline-flex;
     align-items: center;
@@ -317,11 +353,11 @@ body.nave-lightbox-active {
     bottom: 1.25rem;
     z-index: 80;
     transform: translateX(100%);
-    width: 3rem;
-    height: 3.25rem;
+    width: 2.25rem;
+    height: 2.5rem;
     padding: 0;
     border: none;
-    border-radius: 1.75rem 0 0 1.75rem;
+    border-radius: 1.25rem 0 0 1.25rem;
     background: #1561de;
     color: #ffffff;
     cursor: pointer;
@@ -332,19 +368,19 @@ body.nave-lightbox-active {
     opacity: 0;
     visibility: hidden;
     transition:
-        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.3s ease,
-        visibility 0.3s ease,
+        transform 0.3s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
         background 0.2s ease;
 }
 
 .nave-back-to-top .material-symbols-outlined {
-    font-size: 1.875rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
 .nave-back-to-top:hover {
-    background: #004ab3;
+    background: #1254c4;
 }
 
 .nave-back-to-top--visible {

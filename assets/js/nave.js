@@ -219,7 +219,10 @@
             });
         });
 
-        btnClose.addEventListener("click", closeLightbox);
+        btnClose.addEventListener("click", function (e) {
+            e.stopPropagation();
+            closeLightbox();
+        });
 
         overlay.querySelectorAll(".nave-lightbox__zoom").forEach(function (btn) {
             btn.addEventListener("click", function (e) {
@@ -231,8 +234,16 @@
             });
         });
 
-        overlay.addEventListener("click", function (e) {
-            if (e.target === overlay) closeLightbox();
+        overlay.querySelector(".nave-lightbox__toolbar").addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+
+        lightboxImg.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+
+        overlay.addEventListener("click", function () {
+            closeLightbox();
         });
 
         viewport.addEventListener("wheel", function (e) {
