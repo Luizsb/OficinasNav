@@ -48,6 +48,14 @@
         return SECTION_IDS.indexOf("beyond") >= 0;
     }
 
+    var SCROLL_HEADER_OFFSET = 100;
+
+    function scrollElementBelowHeader(el, behavior) {
+        if (!el) return;
+        var top = el.getBoundingClientRect().top + window.pageYOffset - SCROLL_HEADER_OFFSET;
+        window.scrollTo({ top: Math.max(0, top), behavior: behavior || "smooth" });
+    }
+
     refreshSectionIds();
 
     var panelController = null;
@@ -587,10 +595,7 @@
                 if (!targetElement || targetElement.classList.contains("nave-panel-hidden")) return;
 
                 e.preventDefault();
-                var headerOffset = 100;
-                var offsetPosition =
-                    targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                scrollElementBelowHeader(targetElement);
             });
         });
     }
@@ -1358,6 +1363,11 @@
 
                     if (!isOpen) {
                         setWorkshopAccordionItem(item, true);
+                        requestAnimationFrame(function () {
+                            requestAnimationFrame(function () {
+                                scrollElementBelowHeader(btn);
+                            });
+                        });
                     }
                 });
             });
