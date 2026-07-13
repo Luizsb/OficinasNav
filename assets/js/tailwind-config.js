@@ -17,6 +17,7 @@ tailwind.config = {
                 "secondary": "#b60057",
                 "prepare": "#94579e",
                 "on-prepare": "#ffffff",
+                "beyond": "#9a6700",
                 "outline": "#737786",
                 "outline-variant": "#c2c6d6",
                 "on-error": "#ffffff",

@@ -1,0 +1,51 @@
+schema: spec-driven
+
+context: |
+  Projeto: Oficinas NAVE
+
+  Objetivo:
+  Publicar roteiros pedagógicos interativos para educadores e acelerar a conversão
+  de oficinas Word (.docx template NAVE) para HTML no padrão visual do programa.
+
+  Contexto atual:
+  - Site estático no GitHub Pages (1 oficina publicada: o-espelho-tecnologico)
+  - Conversor em tools/conversor/ (client-side, parser por marcadores)
+  - HTML de referência construído manualmente; conversor em calibração
+  - Ver docs/CURRENT_STATE.md para detalhes
+
+  Stack:
+  - HTML5, Tailwind CSS (CDN), nave.css, nave.js
+  - Conversor: JavaScript vanilla, JSZip (CDN)
+  - Deploy: GitHub Actions → GitHub Pages
+  - Sem build obrigatório para o site público
+
+  Regra de governança:
+  Antes de implementar mudança relevante, ler docs/SDD.md e docs/CURRENT_STATE.md.
+  Mudanças relevantes exigem OpenSpec change (proposal, specs, design, tasks).
+  Ao concluir: evidência em docs/EVIDENCES.md; decisões em docs/DECISIONS.md.
+
+  Mudança relevante inclui:
+  - Parser/conversor, formato template Word, layout de oficina
+  - Fluxo de publicação, oficinas.json, deploy
+  - Regras de negócio das seções pedagógicas
+
+  Não exige OpenSpec:
+  - Typo, ajuste CSS pontual, correção de texto em oficina já publicada
+
+rules:
+  proposal:
+    - Responder modelo de discovery (problema, público, valor, critérios).
+    - Declarar fora de escopo.
+    - Listar riscos e arquivos afetados.
+
+  specs:
+    - Comportamento verificável; preferir Given / When / Then.
+    - Caso feliz + pelo menos um caso de erro.
+
+  design:
+    - Módulos em tools/conversor/js/ e oficinas/
+    - Não introduzir build no site público sem decisão registrada.
+
+  tasks:
+    - Separar implementação, teste manual, documentação, evidência.
+    - Atualizar CURRENT_STATE ou SDD se o fluxo mudar.

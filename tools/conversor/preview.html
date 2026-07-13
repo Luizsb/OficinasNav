@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <title>Pré-visualização — Oficina NAVE</title>
+</head>
+<body>
+    <p style="font-family: system-ui, sans-serif; padding: 2rem; text-align: center; color: #424654;">
+        Carregando pré-visualização…
+    </p>
+    <script>
+        (function () {
+            var html = localStorage.getItem("nave-preview-html");
+            if (!html) {
+                document.body.innerHTML =
+                    '<div style="font-family:system-ui,sans-serif;padding:2rem;max-width:32rem;margin:0 auto">' +
+                    "<h1>Prévia não encontrada</h1>" +
+                    "<p>Gere a conversão no conversor e clique em <strong>Pré-visualizar HTML</strong> novamente.</p>" +
+                    '<p><a href="index.html">← Voltar ao conversor</a></p></div>';
+                return;
+            }
+            document.open();
+            document.write(html);
+            document.close();
+        })();
+    </script>
+</body>
+</html>

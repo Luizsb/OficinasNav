@@ -12,34 +12,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/nave.css"/>
 </head>
-<body class="bg-background text-on-surface font-body-md antialiased min-h-screen">
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+
     <header class="border-b border-outline-variant bg-surface-container-lowest/95 backdrop-blur-sm sticky top-0 z-50">
-        <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-5 md:py-6 flex items-center gap-4 sm:gap-6">
+        <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-4 md:py-5 flex items-center gap-4 sm:gap-6">
             <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="index.html" title="Oficinas NAVE — início">
                 <img alt="NAVE a vela" class="nave-logo" height="41" src="assets/images/Logo_Naveavela.svg" width="137"/>
             </a>
             <div class="min-w-0 border-l border-outline-variant pl-4 sm:pl-6">
-                <h1 class="text-headline-lg font-headline-lg text-primary">Oficinas NAVE</h1>
-                <p class="text-body-md text-on-surface-variant mt-1">Guias de condução para educadores</p>
+                <p class="text-label-sm font-label-sm text-primary-container uppercase tracking-wide">Programa NAVE</p>
+                <h1 class="text-headline-md md:text-headline-lg font-headline-lg text-primary leading-tight">Oficinas</h1>
             </div>
         </div>
     </header>
 
-    <main class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-12">
-        <section class="mb-10 rounded-2xl bg-surface-container-low border border-outline-variant p-6 lg:p-8">
-            <h2 class="text-headline-sm font-headline-sm text-primary mb-3">Apresentação</h2>
-            <div class="space-y-4 max-w-2xl">
-                <p class="text-body-lg text-on-surface-variant">
-                    Selecione uma oficina para abrir o roteiro completo (Preparar, Criar, Refletir, materiais e dicas).
+    <main class="flex-1 max-w-max-width mx-auto w-full px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+
+        <!-- Hero -->
+        <section class="nave-home-hero relative overflow-hidden rounded-2xl border border-outline-variant mb-10 md:mb-12 chamfer-card ambient-shadow">
+            <div class="absolute inset-0 pattern-grid z-0" aria-hidden="true"></div>
+            <div class="absolute top-0 right-0 w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary-container/10 blur-3xl -translate-y-1/2 translate-x-1/4" aria-hidden="true"></div>
+            <div class="relative z-10 p-6 md:p-10 lg:p-12">
+                <p class="text-label-sm font-label-sm text-primary-container font-semibold mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">sailing</span>
+                    Guias de condução para educadores
                 </p>
-                <!-- <p class="text-body-md text-on-surface-variant">
-                    Cada oficina fica em sua pasta em <code class="text-sm bg-surface px-1.5 py-0.5 rounded">oficinas/nome-da-oficina/</code>, com <code class="text-sm bg-surface px-1.5 py-0.5 rounded">index.html</code>, <code class="text-sm bg-surface px-1.5 py-0.5 rounded">images/</code> e <code class="text-sm bg-surface px-1.5 py-0.5 rounded">fonte/</code>.
-                </p> -->
+                <h2 class="text-headline-lg md:text-display-lg font-display-lg text-on-surface max-w-3xl mb-4">
+                    Roteiros interativos para levar a oficina à sala de aula
+                </h2>
+                <p class="text-body-lg text-on-surface-variant max-w-2xl mb-8">
+                    Cada oficina reúne o passo a passo completo — contexto, materiais, atividades e reflexão — no padrão visual e pedagógico NAVE.
+                </p>
+
+                <div class="nave-home-phases" aria-label="Estrutura das oficinas">
+                    <div class="nave-home-phase nave-home-phase--materials">
+                        <span class="material-symbols-outlined" aria-hidden="true">inventory_2</span>
+                        <span>Materiais</span>
+                    </div>
+                    <div class="nave-home-phase nave-home-phase--prepare">
+                        <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                        <span>Preparar</span>
+                    </div>
+                    <div class="nave-home-phase nave-home-phase--create">
+                        <span class="material-symbols-outlined" aria-hidden="true">construction</span>
+                        <span>Criar</span>
+                    </div>
+                    <div class="nave-home-phase nave-home-phase--reflect">
+                        <span class="material-symbols-outlined" aria-hidden="true">psychology</span>
+                        <span>Refletir</span>
+                    </div>
+                    <div class="nave-home-phase nave-home-phase--beyond">
+                        <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
+                        <span>Para ir além</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div class="grid gap-6 md:grid-cols-2" id="lista-oficinas"></div>
+        <!-- Catálogo (alinhado à borda dos cards acima e abaixo) -->
+        <div class="mb-6">
+            <h2 class="text-headline-md font-headline-md text-on-surface">Catálogo de oficinas</h2>
+            <p class="text-body-md text-on-surface-variant mt-1" id="home-catalogo-subtitulo">Carregando…</p>
+        </div>
+
+        <div class="grid gap-6 lg:gap-8 nave-home-lista" id="lista-oficinas"></div>
     </main>
+
+    <footer class="border-t border-outline-variant bg-surface-container-low mt-auto">
+        <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-5">
+            <p class="text-label-sm text-on-surface-variant text-center">Conteúdo pedagógico © NAVE</p>
+        </div>
+    </footer>
 
     <script type="application/json" id="oficinas-data">
 [
@@ -48,47 +91,119 @@
         "titulo": "O Espelho tecnológico",
         "subtitulo": "Tecnologia, design e programação com Scratch",
         "arquivo": "oficinas/o-espelho-tecnologico/index.html",
-        "ano": "7º ano EFAF",
-        "duracao": "90 min",
-        "tags": ["Scratch", "Face Sensing", "Pensamento Computacional"]
+        "capa": "oficinas/o-espelho-tecnologico/images/simulacao-programacao-rosto-desenhado.png",
+        "icone": "face",
+        "ano": "a partir de 11 anos",
+        "duracao": "90 min"
     }
 ]
     </script>
     <script>
+        function escapeHtml(text) {
+            var div = document.createElement("div");
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
         function renderOficinas(oficinas) {
             var container = document.getElementById("lista-oficinas");
+            var subtitulo = document.getElementById("home-catalogo-subtitulo");
             container.innerHTML = "";
-            oficinas.forEach(function (o) {
-                var tags = (o.tags || []).map(function (t) {
-                    return '<span class="text-label-sm bg-primary/10 text-primary px-2 py-0.5 rounded-full">' + t + "</span>";
-                }).join(" ");
 
-                var card = document.createElement("a");
-                card.href = o.arquivo;
-                card.className = "block bg-surface rounded-xl p-6 border border-outline-variant shadow-sm hover:shadow-md hover:border-primary-container smooth-transition group";
+            if (!oficinas || !oficinas.length) {
+                subtitulo.textContent = "Nenhuma oficina publicada no momento.";
+                container.innerHTML =
+                    '<div class="nave-home-empty rounded-xl border border-dashed border-outline-variant p-10 text-center">' +
+                    '<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-3">inventory_2</span>' +
+                    "<p class=\"text-body-md text-on-surface-variant\">As oficinas aparecerão aqui quando forem publicadas.</p></div>";
+                return;
+            }
+
+            var n = oficinas.length;
+            subtitulo.textContent =
+                n === 1 ? "1 oficina disponível para condução em sala." : n + " oficinas disponíveis para condução em sala.";
+
+            oficinas.forEach(function (o) {
+                var tags = (o.tags || [])
+                    .map(function (t) {
+                        return '<span class="nave-oficina-card__tag">' + escapeHtml(t) + "</span>";
+                    })
+                    .join("");
+
+                var icone = o.icone || "school";
+                var baseHref = o.arquivo || "#";
+
+                var card = document.createElement("article");
+                card.className = "nave-oficina-card group smooth-transition";
+                card.setAttribute("data-oficina-id", o.id || "");
+                card.setAttribute("data-oficina-href", baseHref);
                 card.innerHTML =
-                    '<div class="flex items-start justify-between gap-4 mb-3">' +
-                    '<h2 class="text-headline-md font-headline-md text-primary group-hover:text-primary-container">' + o.titulo + "</h2>" +
-                    '<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">arrow_forward</span>' +
-                    "</div>" +
-                    '<p class="text-body-md text-on-surface-variant mb-4">' + o.subtitulo + "</p>" +
-                    '<div class="flex flex-wrap gap-2 mb-4">' + tags + "</div>" +
-                    '<p class="text-label-sm text-on-surface-variant">' + o.ano + " · " + o.duracao + "</p>";
+                    '<a class="nave-oficina-card__cover-link" href="' +
+                    escapeHtml(baseHref) +
+                    '" aria-labelledby="oficina-titulo-' +
+                    escapeHtml(o.id) +
+                    '"></a>' +
+                    '<div class="nave-oficina-card__body">' +
+                    '<div class="nave-oficina-card__head">' +
+                    '<div class="nave-oficina-card__icon" aria-hidden="true">' +
+                    '<span class="material-symbols-outlined">' +
+                    escapeHtml(icone) +
+                    "</span></div>" +
+                    '<div class="nave-oficina-card__head-main">' +
+                    '<h3 class="nave-oficina-card__title" id="oficina-titulo-' +
+                    escapeHtml(o.id) +
+                    '">' +
+                    escapeHtml(o.titulo) +
+                    "</h3>" +
+                    '<p class="nave-oficina-card__subtitle">' +
+                    escapeHtml(o.subtitulo || "") +
+                    "</p></div>" +
+                    '<div class="nave-oficina-card__status-slot"></div></div>' +
+                    (tags ? '<div class="nave-oficina-card__tags">' + tags + "</div>" : "") +
+                    '<div class="nave-oficina-card__meta">' +
+                    '<span class="nave-oficina-card__meta-item nave-meta-chip nave-meta-chip--card" data-nave-meta="audience">' +
+                    '<span class="material-symbols-outlined" aria-hidden="true">school</span>' +
+                    '<span class="nave-meta-chip__value">' +
+                    escapeHtml(o.ano || "") +
+                    "</span></span>" +
+                    '<span class="nave-oficina-card__meta-item nave-meta-chip nave-meta-chip--card" data-nave-meta="duration">' +
+                    '<span class="material-symbols-outlined" aria-hidden="true">timer</span>' +
+                    '<span class="nave-meta-chip__value">' +
+                    escapeHtml(o.duracao || "") +
+                    "</span></span></div>" +
+                    '<div class="nave-oficina-card__progress" hidden>' +
+                    '<div class="nave-oficina-card__progress-head">' +
+                    '<span class="nave-oficina-card__progress-label">Progresso</span>' +
+                    '<span class="nave-oficina-card__progress-value">0%</span></div>' +
+                    '<div class="nave-oficina-card__progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">' +
+                    '<div class="nave-oficina-card__progress-fill"></div></div>' +
+                    '<p class="nave-oficina-card__progress-section"></p></div>' +
+                    '<span class="nave-oficina-card__cta" data-cta>Abrir oficina</span>' +
+                    "</div>";
+
                 container.appendChild(card);
             });
+
+            if (window.Nave && typeof window.Nave.refreshMetaHints === "function") {
+                window.Nave.refreshMetaHints(container);
+            }
         }
 
         var embedded = document.getElementById("oficinas-data");
         renderOficinas(JSON.parse(embedded.textContent));
 
         fetch("oficinas.json")
-            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (r) {
+                return r.ok ? r.json() : null;
+            })
             .then(function (oficinas) {
                 if (oficinas && oficinas.length) {
                     renderOficinas(oficinas);
                 }
             })
-            .catch(function () { /* mantém dados embutidos */ });
+            .catch(function () {
+                /* mantém dados embutidos */
+            });
     </script>
     <script src="assets/js/nave.js"></script>
 </body>

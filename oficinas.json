@@ -4,8 +4,9 @@
         "titulo": "O Espelho tecnológico",
         "subtitulo": "Tecnologia, design e programação com Scratch",
         "arquivo": "oficinas/o-espelho-tecnologico/index.html",
-        "ano": "7º ano EFAF",
-        "duracao": "90 min",
-        "tags": ["Scratch", "Face Sensing", "Pensamento Computacional"]
+        "capa": "oficinas/o-espelho-tecnologico/images/simulacao-programacao-rosto-desenhado.png",
+        "icone": "face",
+        "ano": "a partir de 11 anos",
+        "duracao": "90 min"
     }
 ]
