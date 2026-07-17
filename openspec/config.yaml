@@ -11,7 +11,7 @@ context: |
   - Site estático no GitHub Pages (1 oficina publicada: o-espelho-tecnologico)
   - Conversor em tools/conversor/ (client-side, parser por marcadores)
   - HTML de referência construído manualmente; conversor em calibração
-  - Ver docs/CURRENT_STATE.md para detalhes
+  - Ver docs/SDD.md e docs/ROADMAP.md para estado e débitos
 
   Stack:
   - HTML5, Tailwind CSS (CDN), nave.css, nave.js
@@ -19,10 +19,11 @@ context: |
   - Deploy: GitHub Actions → GitHub Pages
   - Sem build obrigatório para o site público
 
-  Regra de governança:
-  Antes de implementar mudança relevante, ler docs/SDD.md e docs/CURRENT_STATE.md.
+  Regra de governança (D.N.E.E.):
+  Antes de implementar mudança relevante, ler docs/SDD.md e docs/ROADMAP.md.
   Mudanças relevantes exigem OpenSpec change (proposal, specs, design, tasks).
-  Ao concluir: evidência em docs/EVIDENCES.md; decisões em docs/DECISIONS.md.
+  Ao concluir: evidência em docs/CHANGELOG_EVIDENCES.md (formato ## AAAA-MM-DD · HH:MM — [Nome]);
+  atualizar ROADMAP (checkboxes) e SDD se o estado técnico mudar.
 
   Mudança relevante inclui:
   - Parser/conversor, formato template Word, layout de oficina
@@ -48,4 +49,4 @@ rules:
 
   tasks:
     - Separar implementação, teste manual, documentação, evidência.
-    - Atualizar CURRENT_STATE ou SDD se o fluxo mudar.
+    - Atualizar SDD ou ROADMAP se o fluxo mudar.

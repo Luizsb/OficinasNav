@@ -56,4 +56,4 @@ Revisão com 1 pessoa de conteúdo comparando prévia do conversor com site publ
 
 ## 9. Evidência esperada
 
-Atualizar `docs/EVIDENCES.md` EV-001 com checklist marcado e screenshots.
+Atualizar `docs/CHANGELOG_EVIDENCES.md` com entrada no formato D.N.E.E. e screenshots.

@@ -1,0 +1,8 @@
+{
+  "name": "oficinas-nave",
+  "private": true,
+  "description": "Oficinas NAVE — site estático e documentação D.N.E.E.",
+  "scripts": {
+    "docs:serve": "npx --yes serve . -p 3000"
+  }
+}

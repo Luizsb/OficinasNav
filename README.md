@@ -6,18 +6,18 @@ O projeto não usa framework de front-end nem servidor de aplicação: são pág
 
 ---
 
-## Documentação do projeto
-
-**Confuso com pastas?** Leia primeiro → **[docs/COMECAR_AQUI.md](docs/COMECAR_AQUI.md)** (mapa simples em 1 página).
+## Documentação do projeto (D.N.E.E.)
 
 | Documento | Quando ler |
 |-----------|------------|
-| [docs/COMECAR_AQUI.md](docs/COMECAR_AQUI.md) | **Sempre** — mapa do projeto e calibração |
-| [docs/CURRENT_STATE.md](docs/CURRENT_STATE.md) | O que funciona hoje |
-| [docs/SDD.md](docs/SDD.md) | Visão completa do produto |
-| [openspec/changes/calibrar-conversor-docx-nave/tasks.md](openspec/changes/calibrar-conversor-docx-nave/tasks.md) | Checklist da tarefa atual |
+| [docs/SOBRE.md](docs/SOBRE.md) | **Primeiro** — porta de entrada de negócio |
+| [docs/visao-projeto.html](docs/visao-projeto.html) | Painel visual (Sobre, Norte, Roadmap, Evidências) |
+| [docs/SDD.md](docs/SDD.md) | Estado técnico real + regras inquebráveis |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | Débitos e entregas (checkboxes) |
+| [docs/CHANGELOG_EVIDENCES.md](docs/CHANGELOG_EVIDENCES.md) | Log de mudanças verificáveis |
+| [openspec/changes/calibrar-conversor-docx-nave/tasks.md](openspec/changes/calibrar-conversor-docx-nave/tasks.md) | Checklist da calibração do conversor |
 
-Demais arquivos em `docs/` e `openspec/specs/` são referência — não precisa ler tudo para começar.
+Regras do agente: [`.cursorrules`](.cursorrules). Para o painel D.N.E.E.: `npm run docs:serve` e abra `http://localhost:3000/docs/visao-projeto.html` (evite `file://`).
 
 ---
 

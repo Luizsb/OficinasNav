@@ -239,38 +239,6 @@ main.nave-panel-mode > section[data-nave-panel] {
     color: #424654;
 }
 
-.nave-section-footer__optional {
-    margin: 0.75rem 0 0;
-    text-align: center;
-}
-
-.nave-section-footer__optional-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.5rem;
-    border: none;
-    background: transparent;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #9a6700;
-    cursor: pointer;
-    border-radius: 0.375rem;
-}
-
-.nave-section-footer__optional-btn:hover {
-    text-decoration: underline;
-}
-
-.nave-section-footer__optional-btn:focus-visible {
-    outline: 2px solid #9a6700;
-    outline-offset: 2px;
-}
-
-.nave-section-footer__optional-btn .material-symbols-outlined {
-    font-size: 1rem;
-}
-
 .nav-link--optional {
     font-size: 0.875rem;
 }

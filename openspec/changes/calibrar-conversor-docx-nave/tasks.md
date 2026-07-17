@@ -42,9 +42,8 @@
 
 ## Documentação
 
-- [ ] Atualizar `docs/CURRENT_STATE.md` se fluxo mudar
-- [ ] Registrar decisões novas em `docs/DECISIONS.md`
-- [ ] Fechar `docs/EVIDENCES.md` EV-001
+- [ ] Atualizar `docs/SDD.md` / `docs/ROADMAP.md` se o fluxo mudar
+- [ ] Registrar evidência em `docs/CHANGELOG_EVIDENCES.md` (formato D.N.E.E.)
 - [ ] Atualizar `CHANGELOG.md`
 
 ## Evidência

@@ -7,7 +7,6 @@
 
     var CORE_SECTION_IDS = ["view", "materials", "prepare", "create", "reflect"];
     var OPTIONAL_SECTION_IDS = ["beyond"];
-    var COMPLETION_PANELS = ["reflect", "beyond"];
     var SECTION_IDS = CORE_SECTION_IDS.slice();
 
     var SECTION_LABELS = {
@@ -41,11 +40,7 @@
     }
 
     function isCompletionPanel(panelId) {
-        return COMPLETION_PANELS.indexOf(panelId) >= 0;
-    }
-
-    function hasBeyondSection() {
-        return SECTION_IDS.indexOf("beyond") >= 0;
+        return panelId === SECTION_IDS[SECTION_IDS.length - 1];
     }
 
     var SCROLL_HEADER_OFFSET = 100;
@@ -188,7 +183,7 @@
                 percent: 90,
                 section: "reflect",
                 label: SECTION_LABELS.reflect,
-                pendingFinish: true
+                pendingFinish: false
             };
         }
         return {
@@ -227,9 +222,7 @@
         modal.setAttribute("role", "dialog");
         modal.setAttribute("aria-modal", "true");
         modal.setAttribute("aria-labelledby", "nave-completion-title");
-        var completionText = hasBeyondSection()
-            ? 'Parabéns! Você concluiu as etapas obrigatórias. A extensão "Para ir além" é opcional. O que deseja fazer agora?'
-            : "Parabéns! Você percorreu todas as etapas. O que deseja fazer agora?";
+        var completionText = "Parabéns! Você percorreu todas as etapas. O que deseja fazer agora?";
         modal.innerHTML =
             '<div class="nave-completion-modal__inner">' +
             '<span class="material-symbols-outlined nave-completion-modal__icon" aria-hidden="true">celebration</span>' +
@@ -360,7 +353,7 @@
             '<span class="nave-section-footer__btn-label">Anterior</span>' +
             "</button>" +
             '<div class="nave-section-footer__progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="' +
-            CORE_SECTION_IDS.length +
+            SECTION_IDS.length +
             '" aria-valuenow="1">' +
             '<div class="nave-section-footer__progress-fill"></div>' +
             "</div>" +
@@ -369,12 +362,7 @@
             '<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>' +
             "</button>" +
             "</div>" +
-            '<p class="nave-section-footer__progress-label" aria-live="polite"></p>' +
-            '<p class="nave-section-footer__optional" hidden>' +
-            '<button type="button" class="nave-section-footer__optional-btn" data-nav="beyond">' +
-            "Para ir além (opcional)" +
-            '<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>' +
-            "</button></p>";
+            '<p class="nave-section-footer__progress-label" aria-live="polite"></p>';
         main.appendChild(footer);
 
         var btnPrev = footer.querySelector('[data-nav="prev"]');
@@ -384,8 +372,6 @@
         var progressLabel = footer.querySelector(".nave-section-footer__progress-label");
         var progressFill = footer.querySelector(".nave-section-footer__progress-fill");
         var progressTrack = footer.querySelector(".nave-section-footer__progress-track");
-        var optionalWrap = footer.querySelector(".nave-section-footer__optional");
-        var optionalBtn = footer.querySelector('[data-nav="beyond"]');
 
         function hideAllPanels() {
             SECTION_IDS.forEach(function (panelId) {
@@ -397,19 +383,18 @@
         }
 
         function updateFooter(panelId) {
-            var coreIndex = CORE_SECTION_IDS.indexOf(panelId);
             var optional = isOptionalPanel(panelId);
             var label = SECTION_LABELS[panelId] || panelId;
-            var step = coreIndex >= 0 ? coreIndex + 1 : CORE_SECTION_IDS.length;
-            var percent = optional ? 100 : ((coreIndex + 1) / CORE_SECTION_IDS.length) * 100;
+            var step = SECTION_IDS.indexOf(panelId) + 1;
+            var totalSteps = SECTION_IDS.length;
+            var percent = (step / totalSteps) * 100;
 
-            progressLabel.textContent = optional
-                ? "Opcional — " + label
-                : step + " de " + CORE_SECTION_IDS.length + " — " + label;
+            progressLabel.textContent =
+                step + " de " + totalSteps + " — " + label + (optional ? " (opcional)" : "");
             progressFill.style.width = percent + "%";
             progressFill.style.backgroundColor = sectionAccentHex[panelId] || "#1561de";
             progressTrack.setAttribute("aria-valuenow", String(step));
-            progressTrack.setAttribute("aria-valuemax", String(CORE_SECTION_IDS.length));
+            progressTrack.setAttribute("aria-valuemax", String(totalSteps));
             progressTrack.setAttribute(
                 "aria-label",
                 optional ? "Etapa opcional: " + label : "Progresso da oficina: " + label
@@ -422,10 +407,6 @@
             var nextId = panelIndex < SECTION_IDS.length - 1 ? SECTION_IDS[panelIndex + 1] : "";
 
             btnPrev.setAttribute("aria-label", prevId ? "Ir para " + SECTION_LABELS[prevId] : "Primeira seção");
-
-            if (optionalWrap) {
-                optionalWrap.hidden = !(panelId === "reflect" && hasBeyondSection());
-            }
 
             if (isCompletionPanel(panelId)) {
                 var alreadyCompleted = isWorkshopCompleted(getWorkshopSlug());
@@ -530,12 +511,6 @@
             }
             navigateByOffset(1);
         });
-
-        if (optionalBtn) {
-            optionalBtn.addEventListener("click", function () {
-                showPanel("beyond");
-            });
-        }
 
         window.addEventListener("popstate", function () {
             var panelId = getPanelFromHash() || "view";

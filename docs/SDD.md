@@ -1,114 +1,123 @@
-# SDD — Oficinas NAVE
+# SDD — Estado técnico real
 
-Documento norte do produto. Versão inicial: 23/06/2026.
+Documento norte técnico. Reflete o que o código faz **hoje** (baseline jul/2026). Atualizar quando arquitetura, fluxos ou regras mudarem.
 
-## 1. Visão geral
+## 1. Visão técnica em uma linha
 
-**Oficinas NAVE** é um site estático que publica roteiros pedagógicos interativos para educadores aplicarem oficinas em sala de aula, com estrutura padronizada (Preparar, Materiais, Criar, Refletir) e identidade visual NAVE.
+Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; uma oficina publicada; conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
 
-## 2. Problema e contexto
+## 2. Arquitetura
 
-- Oficinas chegam em **Word (.docx)** com template institucional
-- Publicar manualmente em HTML é **lento** e exige quem conhece o layout
-- Educadores precisam de roteiro **claro, navegável e responsivo** (desktop e mobile)
+### Componentes
 
-## 3. Público impactado
+| Peça | Papel |
+|------|--------|
+| `index.html` | Home / catálogo |
+| `oficinas.json` | Metadados das oficinas (espelho embutido em `#oficinas-data`) |
+| `oficinas/{slug}/` | HTML da oficina + `images/` (+ opcional `fonte/*.docx`) |
+| `assets/css/nave.css` | Design system, painéis, home, lightbox |
+| `assets/js/nave.js` | Runtime: painéis, progresso, accordions, persistência |
+| `assets/js/tailwind-config.js` | Tokens de cor/espaçamento |
+| `tools/conversor/` | Upload DOCX → parse → HTML/ZIP/prévia (uso local) |
+| `.github/workflows/pages.yml` | Deploy: checkout → Pages (path: `.`, sem build) |
 
-| Público | Uso |
-|---------|-----|
-| Educadores | Ler e conduzir oficinas |
-| Equipe NAVE / conteúdo | Converter e publicar novas oficinas |
-| Gestão | Acompanhar escala de publicação |
-| Mantenedores / IA | Evoluir site e conversor |
+<details>
+<summary>Diagrama — visão estática + cliente</summary>
 
-## 4. Objetivos
-
-1. Publicar oficinas com experiência consistente
-2. Reduzir tempo de conversão Word → HTML
-3. Manter rastreabilidade (fonte `.docx`, specs, evidências)
-4. Permitir evolução sem reescrever o site inteiro
-
-## 5. Fora de escopo (v1)
-
-- CMS ou painel administrativo
-- Login / contas de usuário
-- Build pipeline (Webpack, Vite, etc.)
-- Conversão 100% automática sem revisão humana
-- App mobile nativo
-
-## 6. Fluxos principais
-
-Ver `docs/CURRENT_STATE.md` — Fluxos A, B e C.
-
-## 7. Regras de negócio
-
-1. Toda oficina publicada deve ter: `index.html`, pasta `images/` (se houver mídia), entrada em `oficinas.json`
-2. Seções obrigatórias na página: Visão geral, Preparar, Materiais, Criar, Refletir
-3. Assets compartilhados ficam em `assets/` — oficinas referenciam via `../../assets/`
-4. Template Word deve seguir marcadores NAVE documentados
-5. Conteúdo pedagógico prevalece sobre automação — revisão humana é aceita e esperada na v1
-
-## 8. Arquitetura e stack
-
-```
-index.html ──► oficinas.json
-     │
-     └──► oficinas/{slug}/index.html
-              ├── ../../assets/ (css, js, logo)
-              └── images/ (por oficina)
-
-tools/conversor/  (uso local, não publicado como produto separado)
-  ├── index.html
-  ├── preview.html
-  └── js/ (parser, generator, app)
+```mermaid
+flowchart LR
+  subgraph deploy [Artefato Pages]
+    OJ[oficinas.json]
+    Home[index.html]
+    Off[oficinas/slug]
+    Assets[assets/]
+  end
+  subgraph browser [Navegador]
+    LS[(localStorage)]
+    Home --> OJ
+    Home --> Off
+    Off --> Assets
+    Assets --> LS
+  end
+  subgraph local [Ferramenta local]
+    Docx[.docx] --> Conv[tools/conversor]
+    Conv -->|ZIP revisão| Off
+  end
+  Push[push main] --> GHP[GitHub Pages]
 ```
 
-## 9. Dados e entradas/saídas
+</details>
 
-| Entrada | Saída |
-|---------|--------|
-| `.docx` template NAVE | ZIP: `oficinas/{id}/index.html`, `images/`, `fonte/` |
-| Metadados da oficina | `oficinas.json` |
-| Push `main` | Site no GitHub Pages |
+### Stack real
 
-## 10. Critérios de qualidade
+- HTML5, Tailwind CSS via CDN, Lexend + Material Symbols
+- JavaScript vanilla (IIFE em `nave.js`)
+- Conversor: JSZip via CDN no browser
+- Sem framework SPA, sem bundler obrigatório, sem backend, sem SQL
 
-- Layout alinhado à oficina referência (`o-espelho-tecnologico`)
-- Funciona em Chrome/Edge recentes
-- Navegação em modo painel (uma seção por vez) + barra inferior no mobile
-- Acessibilidade básica (estrutura semântica, alt em imagens, `aria-hidden` em seções ocultas)
-- Conversor não envia `.docx` para servidor externo
+## 3. Fluxos que existem
 
-## 11. Métricas e evidências
+**A — Consumir oficina:** educador abre o catálogo → card → página da oficina → modo painel (hash `#view` … `#beyond`) → percorre “Para ir além” como última etapa quando ela existe → Concluir grava conclusão → home mostra badge.
 
-| Métrica | Meta inicial |
-|---------|----------------|
-| Tempo para publicar 1 oficina nova | Reduzir vs 100% manual |
-| % seções geradas corretamente | ≥ 90% antes da revisão |
-| Oficinas publicadas | Crescimento incremental |
-| Changes com evidência | 100% das mudanças relevantes |
+**B — Publicar manualmente:** pasta `oficinas/{slug}/` + entrada em `oficinas.json` → push `main`.
 
-Registrar em `docs/EVIDENCES.md`.
+**C — Conversor (local):** `.docx` → `tools/conversor/` → prévia/`localStorage` ou ZIP → revisão → fluxo B.
 
-## 12. Roadmap
+## 4. Modelo de dados
 
-Ver `docs/ROADMAP.md`.
+Não há banco. Persistência e conteúdo:
 
-## 13. Decisões relevantes
+| Camada | Chave / arquivo | Conteúdo |
+|--------|-----------------|----------|
+| Cliente | `nave-section:{pathname}` | Última seção visitada |
+| Cliente | `nave-checkboxes:{pathname}` | JSON de checkboxes |
+| Cliente | `nave-completed:{slug}` | ISO datetime ao Concluir |
+| Cliente | `nave-preview-html` / `nave-preview-ts` | Prévia do conversor |
+| Estático | `oficinas.json` | id, título, arquivo, ícone, ano, duração… |
+| Estático | HTML da oficina | Seções `view\|materials\|prepare\|create\|reflect\|beyond` |
 
-Ver `docs/DECISIONS.md`.
+Progresso na home: 0% se só Visão/sem seção; seções intermediárias avançam progressivamente; Refletir = 90%; “Para ir além” sem Concluir = 90% com pendência de conclusão; após Concluir = 100%.
 
-## 14. Riscos e mitigação
+## 5. Regras inquebráveis
 
-| Risco | Mitigação |
-|-------|-----------|
-| Parser frágil a mudanças no Word | Spec + teste com `.docx` de referência |
-| HTML manual divergir do gerado | Oficina referência como golden master |
-| IA gera código desalinhado | OpenSpec + SDD + CURRENT_STATE |
+1. **Estático em produção** — sem API de aplicação, sem login, sem CMS na v1 vigente.
+2. **Sem SQL** — estado de uso só no browser (`localStorage`).
+3. **Conteúdo pedagógico prevalece** — conversor acelera; revisão humana é esperada.
+4. **Oficina publicada** tem `index.html`, `images/` se houver mídia, e entrada em `oficinas.json`.
+5. **Seções obrigatórias:** Visão geral, Materiais, Preparar, Criar, Refletir. **Para ir além** mantém indicação pedagógica de opcional, mas, quando existir, participa da navegação sequencial como última etapa antes de Concluir.
+6. **Assets compartilhados** em `assets/`; páginas de oficina usam `../../assets/`.
+7. **Deploy** = conteúdo do repositório na raiz via GitHub Actions → Pages.
+8. **Documentação D.N.E.E.** — mudanças relevantes atualizam SDD / ROADMAP / Evidências; evidências no formato `## AAAA-MM-DD · HH:MM — [Nome]`.
 
-## 15. Histórico de atualização
+## 6. Runtime (`nave.js`) — ordem de boot
+
+`initSectionPanel` → `initInSectionAnchors` → `initExternalLinks` → `initImageLightbox` → `initSectionRestore` → `initBackToTop` → `initCheckboxPersist` → `initHomeOficinas` → `initMetaHints` → `initWorkshopAccordions` → `initDicasAccordions`
+
+Painéis ocultam seções com `.nave-panel-hidden` + `aria-hidden`. Accordions de oficina: um aberto por grupo e scroll ao trigger.
+
+## 7. Fora de escopo (estado atual)
+
+- Contas de usuário / sync em nuvem do progresso
+- Build pipeline obrigatório (Vite/Webpack) para o site
+- Conversão 100% automática sem revisão
+- App nativo mobile
+- Banco de dados servidor
+
+## 8. Riscos conhecidos (código)
+
+- Mídia GIF ~187 MB na oficina referência
+- Conversor ainda diverge do golden master
+- Metadados duplicados JSON ⇄ embed ⇄ HTML
+- Artefato Pages inclui docs/tools
+- Dependência de CDN (Tailwind/fontes)
+
+Detalhamento e checkboxes: `docs/ROADMAP.md`.
+
+## 9. Histórico deste SDD
 
 | Data | Mudança |
 |------|---------|
-| 13/07/2026 | Modo painel por seção nas oficinas (`nave.js`) |
-| 23/06/2026 | Criação inicial do SDD (baseline projeto em andamento) |
+| 2026-07-17 | “Para ir além” passa a ser a última etapa da navegação antes da conclusão |
+| 2026-07-15 | Reescrita no padrão D.N.E.E. a partir do Raio-X do código |
+| 2026-07-13 | Modo painel documentado (versão anterior) |
+| 2026-06-23 | SDD inicial |

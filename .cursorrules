@@ -1,0 +1,69 @@
+# Oficinas NAVE — regras D.N.E.E.
+
+Este projeto segue a arquitetura de documentação **D.N.E.E.** (Discovery → Norte → Evidências → Execução). Código e docs devem refletir a **realidade atual**, não a intenção futura.
+
+## Fonte da verdade
+
+| Documento | Papel |
+|-----------|--------|
+| `docs/SOBRE.md` | Porta de entrada de **negócio** (sem jargão técnico no corpo) |
+| `docs/SDD.md` | Estado técnico **real** + regras inquebráveis |
+| `docs/ROADMAP.md` | Débitos e entregas com checkboxes |
+| `docs/CHANGELOG_EVIDENCES.md` | Log de mudanças verificáveis |
+| `docs/visao-projeto.html` | Painel visual (Sobre, Norte, Roadmap, Evidências) |
+
+Antes de propor arquitetura ou features novas: ler SDD + ROADMAP e mapear o código existente.
+
+## Fluxo obrigatório em mudanças relevantes
+
+1. **Discovery** — confirmar o que o código faz hoje (não inventar).
+2. **Norte** — alinhar com `docs/SDD.md` e regras inquebráveis; atualizar SDD se o estado técnico mudar.
+3. **Evidências** — registrar em `docs/CHANGELOG_EVIDENCES.md` **antes ou junto** da entrega.
+4. **Execução** — implementar; atualizar `docs/ROADMAP.md` (marcar checkboxes) e `docs/SOBRE.md` se o momento de negócio mudar.
+
+Mudanças cosméticas triviais podem pular Discovery formal, mas ainda devem respeitar o SDD.
+
+## Regra de Evidências
+
+Em `docs/CHANGELOG_EVIDENCES.md`, cada entrada usa **exatamente** este cabeçalho:
+
+```markdown
+## AAAA-MM-DD · HH:MM — [Nome da mudança]
+```
+
+Exemplo: `## 2026-07-15 · 15:00 — Organização inicial D.N.E.E.`
+
+Cada evidência deve incluir: contexto breve, o que mudou, como verificar (caminhos/comandos), resultado.
+
+## Regra de Estética (diagramas)
+
+Diagramas grandes (Mermaid, ASCII de arquitetura, fluxos longos) **não** ficam abertos no corpo principal. Encapsular assim:
+
+```markdown
+<details>
+<summary>Diagrama — título curto</summary>
+
+\`\`\`mermaid
+...
+\`\`\`
+
+</details>
+```
+
+Em `docs/visao-projeto.html`, o Mermaid deve re-renderizar ao abrir `<details>`.
+
+## Regras técnicas inquebráveis (resumo)
+
+Detalhes em `docs/SDD.md`. Em especial:
+
+- Site **estático**: sem backend, sem SQL, sem build obrigatório para publicar.
+- Persistência de progresso/checkboxes/conclusão: **apenas `localStorage`** no cliente.
+- Conteúdo pedagógico no HTML da oficina prevalece sobre automação do conversor; revisão humana é esperada.
+- Assets compartilhados em `assets/`; oficinas em `oficinas/{slug}/`.
+- Deploy: push em `main` → GitHub Pages (raiz do repo).
+
+## Idioma e escopo do agente
+
+- Responder ao usuário em **português**.
+- Não inventar CMS, login, banco ou framework sem atualizar SDD e obter alinhamento explícito.
+- Não commitar nem publicar sem pedido explícito do usuário.

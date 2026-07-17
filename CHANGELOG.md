@@ -8,7 +8,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/).
 
 ### Added
 
-- Estrutura de documentação D.N.E.E.: `docs/` (SDD, CURRENT_STATE, DECISIONS, EVIDENCES, ROADMAP, discovery)
+- Estrutura de documentação D.N.E.E.: `docs/SOBRE.md`, `SDD.md`, `ROADMAP.md`, `CHANGELOG_EVIDENCES.md`, `visao-projeto.html`, `.cursorrules`
 - OpenSpec: `openspec/config.yaml`, specs iniciais (conversor, oficina-html, publicacao)
 - Change `calibrar-conversor-docx-nave` (proposal, design, tasks)
 - Conversor DOCX → HTML em `tools/conversor/`

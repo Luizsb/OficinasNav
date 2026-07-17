@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visão do projeto — Oficinas NAVE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg: #f3f4f5;
+      --surface: #ffffff;
+      --ink: #191c1d;
+      --muted: #424654;
+      --border: #c2c6d6;
+      --accent: #004ab3;
+      --accent-soft: #dae2ff;
+      --warn-bg: #fff4e5;
+      --warn-border: #e6a23c;
+      --radius: 12px;
+      --font: Lexend, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 5rem;
+    }
+
+    header.app-header {
+      margin-bottom: 1.5rem;
+    }
+    header.app-header h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    header.app-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .file-protocol-banner {
+      display: none;
+      margin-bottom: 1.25rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--warn-border);
+      background: var(--warn-bg);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+    }
+    .file-protocol-banner.is-visible { display: block; }
+    .file-protocol-banner code {
+      font-size: 0.8em;
+      background: rgba(0,0,0,0.06);
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    .tabs button {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .tabs button:hover { color: var(--ink); background: #e8eaed; }
+    .tabs button[aria-selected="true"] {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+    }
+
+    .panel { display: none; }
+    .panel.is-active { display: block; }
+
+    .panel section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1rem;
+    }
+    .panel h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.15rem;
+    }
+    .panel h3 {
+      margin: 1.25rem 0 0.5rem;
+      font-size: 1rem;
+    }
+    .panel p { margin: 0 0 0.75rem; color: var(--ink); }
+    .panel p.muted, .lead {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Checklists — list-style none */
+    ul.checklist,
+    .checklist ul {
+      list-style: none;
+      margin: 0.5rem 0 0;
+      padding: 0;
+    }
+    ul.checklist > li,
+    .checklist li {
+      list-style: none;
+      position: relative;
+      padding: 0.4rem 0.5rem 0.4rem 1.85rem;
+      border-bottom: 1px solid #e8eaed;
+      font-size: 0.9rem;
+    }
+    ul.checklist > li:last-child,
+    .checklist li:last-child { border-bottom: none; }
+    ul.checklist > li::before,
+    .checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0.65rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 3px;
+      background: #fff;
+    }
+    ul.checklist > li.done::before,
+    .checklist li.done::before {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+    ul.checklist > li.done,
+    .checklist li.done {
+      color: var(--muted);
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0.5rem 0 1rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; }
+
+    details {
+      margin: 0.75rem 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      background: #fafbfc;
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--accent);
+    }
+    .mermaid {
+      margin-top: 0.75rem;
+      background: #fff;
+      border-radius: 6px;
+      padding: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .evidence {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .evidence time {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .code-inline {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.85em;
+      background: #eef0f3;
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+
+    #back-to-top {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 50;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--accent);
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    #back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #back-to-top:hover { background: var(--accent-soft); }
+
+    footer.page-foot {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0; }
+    .pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div id="file-protocol-banner" class="file-protocol-banner" role="status">
+      <strong>Abertura via <code>file://</code> detectada.</strong>
+      Mermaid, fontes CDN e alguns recursos podem falhar.
+      Sirva o projeto por HTTP local na raiz do repositório:
+      <code>npm run docs:serve</code>
+      e abra
+      <code>http://localhost:3000/docs/visao-projeto.html</code>.
+      (Se a porta estiver ocupada, o serve pode sugerir outra.)
+    </div>
+
+    <header class="app-header">
+      <h1>Visão do projeto — Oficinas NAVE</h1>
+      <p>Painel D.N.E.E. · conteúdo alinhado a SOBRE, SDD, ROADMAP e evidências</p>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Seções da visão">
+      <button type="button" role="tab" id="tab-sobre" aria-controls="panel-sobre" aria-selected="true" data-tab="sobre">💡 Sobre o projeto</button>
+      <button type="button" role="tab" id="tab-norte" aria-controls="panel-norte" aria-selected="false" data-tab="norte">🧭 Norte</button>
+      <button type="button" role="tab" id="tab-roadmap" aria-controls="panel-roadmap" aria-selected="false" data-tab="roadmap">🗺️ Roadmap</button>
+      <button type="button" role="tab" id="tab-evidencias" aria-controls="panel-evidencias" aria-selected="false" data-tab="evidencias">📌 Evidências</button>
+    </nav>
+
+    <!-- SOBRE (padrão) -->
+    <div class="panel is-active" id="panel-sobre" role="tabpanel" aria-labelledby="tab-sobre">
+      <section>
+        <h2>💡 Sobre o projeto</h2>
+        <p class="lead"><strong>Em uma frase:</strong> Roteiros interativos para o educador levar a oficina da NAVE para a sala de aula, no próprio navegador.</p>
+        <h3>Problema</h3>
+        <p>As oficinas chegam em documentos Word e precisam virar guias claros, navegáveis e fáceis de seguir no celular ou no computador. Fazer isso na mão demora e depende de quem conhece o padrão visual.</p>
+        <h3>Para quem é</h3>
+        <p>Educadores que conduzem as oficinas em sala. Equipe de conteúdo da NAVE que prepara e publica novos roteiros. Quem acompanha a escala de publicação e a qualidade do material.</p>
+        <h3>O que faz hoje</h3>
+        <p>Existe um catálogo online com a oficina publicada. O educador abre o roteiro, percorre as etapas uma a uma, marca materiais, retoma de onde parou e conclui a leitura. Há uma ferramenta interna para transformar o Word no formato do site, ainda com revisão humana antes de publicar.</p>
+        <h3>Momento atual</h3>
+        <p>Uma oficina de referência no ar. Site utilizável para condução em sala. Conversão do Word ainda parcial. Próximo foco: reduzir o peso das animações e fechar a calibração da conversão.</p>
+        <div class="pill-row">
+          <span class="pill">1 oficina publicada</span>
+          <span class="pill">Sem banco SQL</span>
+          <span class="pill">Progresso no navegador</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- NORTE / SDD -->
+    <div class="panel" id="panel-norte" role="tabpanel" aria-labelledby="tab-norte" hidden>
+      <section>
+        <h2>🧭 Norte técnico (SDD)</h2>
+        <p class="muted">Estado real do código — não a intenção futura. Fonte: <span class="code-inline">docs/SDD.md</span></p>
+
+        <h3>Arquitetura</h3>
+        <p>Portal estático: home + catálogo JSON + páginas por oficina + assets compartilhados. Conversor DOCX é ferramenta local. Deploy = push em <span class="code-inline">main</span> → GitHub Pages (raiz, sem build).</p>
+
+        <details>
+          <summary>Diagrama — visão estática + cliente</summary>
+          <pre class="mermaid">
+flowchart LR
+  subgraph deploy [Artefato Pages]
+    OJ[oficinas.json]
+    Home[index.html]
+    Off[oficinas/slug]
+    Assets[assets/]
+  end
+  subgraph browser [Navegador]
+    LS[(localStorage)]
+    Home --> OJ
+    Home --> Off
+    Off --> Assets
+    Assets --> LS
+  end
+  subgraph local [Ferramenta local]
+    Docx[.docx] --> Conv[tools/conversor]
+    Conv -->|ZIP| Off
+  end
+  Push[push main] --> GHP[GitHub Pages]
+          </pre>
+        </details>
+
+        <h3>Regras inquebráveis</h3>
+        <ul class="checklist">
+          <li class="done">Estático em produção — sem API / login / CMS na v1 vigente</li>
+          <li class="done">Sem SQL — estado de uso só no localStorage</li>
+          <li class="done">Conteúdo pedagógico prevalece sobre automação do conversor</li>
+          <li class="done">Assets em assets/; oficinas em oficinas/{slug}/</li>
+          <li class="done">Seções obrigatórias: Visão, Materiais, Preparar, Criar, Refletir</li>
+          <li class="done">Para ir além é indicada como opcional, mas integra a sequência antes de Concluir</li>
+        </ul>
+
+        <h3>Modelo de dados</h3>
+        <table>
+          <thead>
+            <tr><th>Camada</th><th>Chave / arquivo</th><th>Conteúdo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cliente</td><td>nave-section:…</td><td>Última seção</td></tr>
+            <tr><td>Cliente</td><td>nave-checkboxes:…</td><td>Materiais marcados</td></tr>
+            <tr><td>Cliente</td><td>nave-completed:…</td><td>Conclusão (ISO)</td></tr>
+            <tr><td>Estático</td><td>oficinas.json</td><td>Catálogo</td></tr>
+            <tr><td>Estático</td><td>HTML da oficina</td><td>Seções e conteúdo</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="panel" id="panel-roadmap" role="tabpanel" aria-labelledby="tab-roadmap" hidden>
+      <section>
+        <h2>🗺️ Roadmap</h2>
+        <p class="muted">Débitos do Raio-X · checkboxes em <span class="code-inline">docs/ROADMAP.md</span></p>
+
+        <h3>Crítico — mídia</h3>
+        <ul class="checklist">
+          <li>Comprimir / substituir 6 GIFs (~187 MB)</li>
+          <li>Lazy-load na seção Criar</li>
+          <li>Validar tamanho após compressão</li>
+        </ul>
+
+        <h3>Alto — conversor e escala</h3>
+        <ul class="checklist">
+          <li>Calibrar conversor vs HTML referência</li>
+          <li>Fechar change OpenSpec calibrar-conversor-docx-nave</li>
+          <li>Fluxo para placeholders &lt;inserir …&gt;</li>
+          <li>Gerar tabelas/glossário no conversor</li>
+          <li>Checklist QA pós-conversão</li>
+          <li>Segunda oficina piloto via conversor</li>
+        </ul>
+
+        <h3>Médio — dados e deploy</h3>
+        <ul class="checklist">
+          <li>Unificar metadados (só oficinas.json)</li>
+          <li>Usar ou remover campo capa</li>
+          <li>Filtrar artefato Pages</li>
+          <li>Alinhar html-generator ao golden master</li>
+        </ul>
+
+        <h3>Baixo — dívida</h3>
+        <ul class="checklist">
+          <li>Código morto / onclick legado / dark: / CDN</li>
+          <li>A11y lightbox e aria-valuemax</li>
+          <li>Smoke tests no CI</li>
+          <li>Template .dotx oficial</li>
+        </ul>
+
+        <h3>Já entregue</h3>
+        <ul class="checklist">
+          <li class="done">Site + oficina referência</li>
+          <li class="done">Modo painel + conclusão</li>
+          <li class="done">Para ir além como última etapa sequencial</li>
+          <li class="done">Persistência local</li>
+          <li class="done">Conversor v1 (primeira passagem)</li>
+          <li class="done">Deploy Pages</li>
+          <li class="done">Documentação D.N.E.E.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- EVIDÊNCIAS -->
+    <div class="panel" id="panel-evidencias" role="tabpanel" aria-labelledby="tab-evidencias" hidden>
+      <section>
+        <h2>📌 Evidências</h2>
+        <p class="muted">Fonte: <span class="code-inline">docs/CHANGELOG_EVIDENCES.md</span></p>
+
+        <article class="evidence">
+          <time>2026-07-17 · 13:27</time>
+          <h3>Para ir além como última etapa</h3>
+          <p>Refletir agora avança por “Próxima”; a conclusão fica na última etapa disponível. <strong>Conclusão: Sim.</strong></p>
+        </article>
+
+        <article class="evidence">
+          <time>2026-07-15 · 15:05</time>
+          <h3>Organização inicial D.N.E.E.</h3>
+          <p>.cursorrules, SOBRE, SDD, ROADMAP, este painel e CHANGELOG_EVIDENCES. Docs legados removidos. <strong>Conclusão: Sim.</strong></p>
+        </article>
+
+        <article class="evidence">
+          <time>2026-07-13 · 12:00</time>
+          <h3>Release v0.2.0 e refinamentos</h3>
+          <p>Modo painel, home, UI da oficina, conversor v1. <strong>Conclusão: Parcial</strong> (conversor ainda em calibração).</p>
+        </article>
+
+        <article class="evidence">
+          <time>2026-06-23 · 10:00</time>
+          <h3>Baseline e conversor v1</h3>
+          <p>tools/conversor e primeira camada documental. <strong>Conclusão: Parcial.</strong></p>
+        </article>
+      </section>
+    </div>
+
+    <footer class="page-foot">
+      Documentos canônicos em Markdown · este HTML é a vista D.N.E.E.
+    </footer>
+  </div>
+
+  <button type="button" id="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+  <script>
+    (function () {
+      var banner = document.getElementById("file-protocol-banner");
+      if (location.protocol === "file:") {
+        banner.classList.add("is-visible");
+      }
+
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "neutral",
+        securityLevel: "loose"
+      });
+
+      var mermaidReady = false;
+
+      function runMermaid(root) {
+        var nodes = (root || document).querySelectorAll(".mermaid:not([data-processed])");
+        if (!nodes.length) return;
+        mermaid.run({ nodes: Array.prototype.slice.call(nodes) }).then(function () {
+          mermaidReady = true;
+        }).catch(function () { /* CDN / file:// */ });
+      }
+
+      function activateTab(name) {
+        var tabs = document.querySelectorAll(".tabs [role='tab']");
+        var panels = document.querySelectorAll(".panel");
+        tabs.forEach(function (btn) {
+          var on = btn.getAttribute("data-tab") === name;
+          btn.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        panels.forEach(function (panel) {
+          var on = panel.id === "panel-" + name;
+          panel.classList.toggle("is-active", on);
+          if (on) {
+            panel.removeAttribute("hidden");
+          } else {
+            panel.setAttribute("hidden", "");
+          }
+        });
+        if (name === "norte") {
+          runMermaid(document.getElementById("panel-norte"));
+        }
+      }
+
+      document.querySelectorAll(".tabs [role='tab']").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          activateTab(btn.getAttribute("data-tab"));
+        });
+      });
+
+      /* Mermaid dentro de <details>: re-render ao abrir */
+      document.querySelectorAll("details").forEach(function (det) {
+        det.addEventListener("toggle", function () {
+          if (!det.open) return;
+          var nodes = det.querySelectorAll(".mermaid");
+          nodes.forEach(function (n) {
+            if (n.getAttribute("data-processed")) {
+              n.removeAttribute("data-processed");
+              if (n.getAttribute("data-mermaid-source")) {
+                n.textContent = n.getAttribute("data-mermaid-source");
+              }
+            } else if (!n.getAttribute("data-mermaid-source")) {
+              n.setAttribute("data-mermaid-source", n.textContent.trim());
+            }
+          });
+          runMermaid(det);
+        });
+      });
+
+      /* Snapshot inicial das fontes Mermaid */
+      document.querySelectorAll(".mermaid").forEach(function (n) {
+        n.setAttribute("data-mermaid-source", n.textContent.trim());
+      });
+
+      /* Aba padrão: Sobre */
+      activateTab("sobre");
+
+      var topBtn = document.getElementById("back-to-top");
+      window.addEventListener("scroll", function () {
+        topBtn.classList.toggle("is-visible", window.scrollY > 300);
+      }, { passive: true });
+      topBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>
