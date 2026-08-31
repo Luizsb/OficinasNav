@@ -96,15 +96,46 @@ python -m http.server 8080
 
 Abra no navegador: [http://localhost:8080](http://localhost:8080)
 
-### Opção 2 — Node (npx)
+### Opção 2 — Node (`npm run dev`)
 
 ```bash
-npx serve .
+npm run dev
 ```
+
+Abra no navegador: [http://localhost:3000](http://localhost:3000)
+
+Este comando usa `scripts/dev-server.js`. **Não use `npx serve`** nesta pasta: com o `serve.json` antigo ele lista arquivos ou devolve 404 em vez da home.
+
+Se ainda quiser o `npx serve`, o `serve.json` precisa de `cleanUrls` + `trailingSlash` ligados (senão a raiz não abre o `index.html`). Prefira `npm run dev`.
 
 ### Opção 3 — VS Code / Cursor
 
 Extensão **Live Server**: clique com o botão direito em `index.html` → *Open with Live Server*.
+
+### Painel de documentação (`docs/visao-projeto.html`)
+
+O painel D.N.E.E. (abas Sobre, Norte, Roadmap e Evidências) precisa ser servido por **HTTP local** — aberto direto pelo arquivo (`file://`), os diagramas Mermaid e as fontes via CDN podem falhar (a própria página exibe um aviso).
+
+Passo a passo:
+
+```bash
+# Na raiz do repositório
+npm run docs:serve
+```
+
+Depois abra no navegador:
+
+```
+http://localhost:3000/docs/visao-projeto.html
+```
+
+Alternativa sem Node (usando o servidor Python da Opção 1):
+
+```
+http://localhost:8080/docs/visao-projeto.html
+```
+
+A aba **💡 Sobre o projeto** abre por padrão; os documentos canônicos em Markdown ficam em `docs/` (o HTML é apenas a vista visual).
 
 ### Conversor DOCX
 
@@ -114,7 +145,13 @@ Abra diretamente no navegador (com o servidor local acima):
 http://localhost:8080/tools/conversor/index.html
 ```
 
-O conversor processa o arquivo `.docx` **no próprio navegador** (nada é enviado a servidor externo). Envie o documento, revise a prévia e baixe o pacote ZIP com a pasta da oficina.
+Se estiver usando `npx serve` (porta 3000):
+
+```
+http://localhost:3000/tools/conversor/index.html
+```
+
+O conversor processa o arquivo `.docx` **no próprio navegador** (nada é enviado a servidor externo). Envie o documento e, se quiser, a pasta de imagens. Revise a prévia e use **Enviar para a home** (Chrome/Edge): escolha a pasta **OficinasNave** (a que contém `oficinas.json`) — recomendado para o card aparecer na home — ou a pasta **oficinas**. O conversor grava `oficinas/{slug}/` no formato da oficina modelo (`index.html`, `images/`, `fonte/`). Depois abra os arquivos no editor para os ajustes finos. Alternativa: baixar o ZIP.
 
 ---
 
@@ -159,12 +196,14 @@ Campos opcionais em `oficinas.json`: `icone` (Material Symbol no card). O progre
 
 ### Pelo conversor DOCX
 
-1. Use o template Word NAVE (ex.: `oficinas/o-espelho-tecnologico/fonte/atividade-4-o-espelho-tecnologico.docx`)
-2. Abra `tools/conversor/index.html` e envie o `.docx`
-3. Baixe o ZIP gerado
-4. Copie a pasta `oficinas/slug/` para o repositório
-5. Adicione a entrada em `oficinas.json`
-6. Revise o HTML gerado (imagens, tabelas e blocos complexos podem precisar de ajuste manual)
+1. Use o template Word NAVE
+2. Rode `npm run dev` e abra `http://localhost:3000/tools/conversor/index.html`
+3. Envie o `.docx` e, se houver, a pasta `images` da oficina; revise a prévia
+4. Clique em **Enviar para a home** e escolha a pasta **OficinasNave** (recomendado, a que contém `oficinas.json`) ou a pasta **oficinas**
+5. O conversor grava `oficinas/{slug}/index.html`, `images/` e `fonte/`; na raiz, também atualiza o catálogo
+6. Abra os arquivos no editor e ajuste o que ainda precisar (layout fino, imagens, textos)
+
+Alternativa sem permissão de pasta: baixe o ZIP e copie `oficinas/slug/` manualmente.
 
 O template Word usa **marcadores entre colchetes**, por exemplo:
 

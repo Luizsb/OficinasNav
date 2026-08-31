@@ -62,10 +62,23 @@
 
     function linkify(text) {
         var escaped = escapeHtml(text);
-        return escaped.replace(
-            /(https?:\/\/[^\s<]+)/g,
-            '<a class="text-prepare hover:underline" href="$1" rel="noopener noreferrer" target="_blank">$1</a>'
-        );
+        function wrap(label, href) {
+            return '<a class="text-prepare hover:underline" href="' + escapeHtml(href) + '" rel="noopener noreferrer" target="_blank">' + label + "</a>";
+        }
+        escaped = escaped.replace(/https?:\/\/[^\s<]+/g, function (url) {
+            var clean = url.replace(/[.,;:]+$/, "");
+            return wrap(clean, clean);
+        });
+        escaped = escaped.replace(/(^|[\s(])((?:www\.)[^\s<]+)/g, function (_, pre, url) {
+            var clean = url.replace(/[.,;:]+$/, "");
+            return pre + wrap(clean, "https://" + clean);
+        });
+        escaped = escaped.replace(/(^|[\s(])((?:[\w-]+\.)+(?:com|org|net|edu|gov|io|br)(?:\.[a-z]{2})?(?:\/[^\s<)]*)?)/gi, function (match, pre, url) {
+            if (/<a\s/i.test(match)) return match;
+            var clean = url.replace(/[.,;:]+$/, "");
+            return pre + wrap(clean, "https://" + clean);
+        });
+        return escaped;
     }
 
     function renderParagraph(text, cls) {
@@ -73,19 +86,127 @@
         return '<p class="' + cls + '">' + linkify(text) + "</p>";
     }
 
-    function renderBlocks(blocks, sectionColor) {
+    function stripInvisible(str) {
+        return String(str || "")
+            .replace(/[\u200B-\u200F\uFEFF\u00AD\u2060]/g, "")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    function wrapNamedLink(label, href, color) {
+        color = color || "prepare";
+        return (
+            '<a class="text-' +
+            color +
+            ' hover:underline" href="' +
+            escapeHtml(href) +
+            '" rel="noopener noreferrer" target="_blank">' +
+            escapeHtml(label) +
+            "</a>"
+        );
+    }
+
+    function extractUrlAndLabel(text) {
+        var raw = stripInvisible(text);
+        var m = raw.match(/https?:\/\/[^\s<>]+/i);
+        if (!m) return { label: raw.replace(/^[a-z][.)]\s*/i, "").trim(), href: "" };
+        var href = m[0].replace(/[.,;:)]+$/g, "");
+        var label = stripInvisible(raw.replace(m[0], "")).replace(/^[a-z][.)]\s*/i, "").trim();
+        return { label: label, href: href };
+    }
+
+    function splitStoreLinkItems(content) {
+        var text = stripInvisible(content);
+        if (!text) return null;
+        var re = /(?:^|\s)(?:([a-z])[.)]\s*)?(Google Play|App Store)\s*:\s*/gi;
+        var matches = [];
+        var m;
+        while ((m = re.exec(text))) {
+            matches.push({
+                index: m.index + (m[0].charAt(0) === " " ? 1 : 0),
+                letter: m[1] || "",
+                store: m[2],
+                end: m.index + m[0].length
+            });
+        }
+        if (!matches.length) return null;
+        var intro = stripInvisible(text.slice(0, matches[0].index));
+        var items = matches.map(function (match, i) {
+            var next = matches[i + 1];
+            var chunk = text.slice(match.end, next ? next.index : text.length);
+            var parsed = extractUrlAndLabel(chunk);
+            return {
+                letter: match.letter || String.fromCharCode(97 + i),
+                store: match.store,
+                name: parsed.label,
+                href: parsed.href
+            };
+        });
+        return { intro: intro, items: items };
+    }
+
+    function renderDicaBody(card, color) {
+        color = color || "prepare";
+        var html = "";
+        var list = [];
+        var split = splitStoreLinkItems(card.content || "");
+        if (split) {
+            if (split.intro) {
+                html += renderParagraph(split.intro, "text-body-sm font-body-md text-on-surface-variant");
+            }
+            list = split.items.slice();
+        } else if (card.content) {
+            html += renderParagraph(card.content, "text-body-sm font-body-md text-on-surface-variant");
+        }
+        (card.items || []).forEach(function (raw) {
+            var nested = splitStoreLinkItems(raw);
+            if (nested && nested.items.length) {
+                list = list.concat(nested.items);
+                return;
+            }
+            var parsed = extractUrlAndLabel(raw);
+            var letterMatch = String(raw || "").trim().match(/^([a-z])[.)]\s*/i);
+            list.push({
+                letter: letterMatch ? letterMatch[1].toLowerCase() : String.fromCharCode(97 + list.length),
+                store: "",
+                name: parsed.label,
+                href: parsed.href
+            });
+        });
+        if (!list.length) return html;
+        html += '<ul class="list-none pl-1 sm:pl-2 space-y-2' + (html ? " mt-3" : "") + '">';
+        list.forEach(function (it, i) {
+            var letter = it.letter || String.fromCharCode(97 + i);
+            var prefix = escapeHtml(letter + ". " + (it.store ? it.store + ": " : ""));
+            var nameHtml = "";
+            if (it.href && it.name) nameHtml = wrapNamedLink(it.name, it.href, color);
+            else if (it.name) nameHtml = escapeHtml(it.name);
+            else if (it.href) nameHtml = wrapNamedLink(it.href, it.href, color);
+            html += '<li class="text-body-sm font-body-md text-on-surface-variant">' + prefix + nameHtml + "</li>";
+        });
+        html += "</ul>";
+        return html;
+    }
+
+    function renderBlocks(blocks, sectionColor, opts) {
         if (!blocks || !blocks.length) return "";
+        opts = opts || {};
         return blocks.map(function (block) {
             if (block.type === "paragraph") return renderParagraph(block.text);
             if (block.type === "list") return renderList(block);
-            if (block.type === "figure") return renderFigure(block);
+            if (block.type === "figure") return renderFigure(block, opts);
             if (block.type === "table") return renderTable(block);
             if (block.type === "dica") return renderDica(block, sectionColor || "prepare");
             if (block.type === "cta") return renderCta(block, sectionColor || "prepare");
             if (block.type === "qr") return renderQr(block, sectionColor || "prepare");
             if (block.type === "heading") {
-                return '<h4 class="text-headline-sm font-headline-sm text-primary-container">' + escapeHtml(block.text) + "</h4>";
+                var headingColor = sectionColor === "beyond" ? "beyond" : "primary-container";
+                return '<h4 class="text-headline-sm font-headline-sm text-' + headingColor + ' mt-8 first:mt-0">' + escapeHtml(block.text) + "</h4>";
             }
+            if (block.type === "subtitle") {
+                return '<p class="text-label-md font-label-md font-bold text-on-surface">' + escapeHtml(block.text) + "</p>";
+            }
+            if (block.type === "atencao") return renderAtencaoRich(block);
             if (block.type === "option_card") return renderOptionCard(block);
             return "";
         }).join("");
@@ -138,21 +259,45 @@
     function renderList(block, cls) {
         cls = cls || "text-body-md font-body-md text-on-surface-variant";
         var tag = block.ordered ? "ol" : "ul";
-        var listCls = block.ordered ? "list-decimal pl-5 space-y-2" : "list-disc pl-5 space-y-2";
-        var items = block.items.map(function (item) {
+        var listCls = block.ordered ? "list-decimal pl-5 space-y-4" : "list-disc pl-5 space-y-2";
+        var startAttr = block.start && block.start > 1 ? ' start="' + block.start + '"' : "";
+        var items = (block.items || []).map(function (item) {
+            if (item && typeof item === "object") {
+                var inner = linkify(item.text || "");
+                if (item.figure) inner += renderFigure(item.figure);
+                return '<li class="' + cls + '">' + inner + "</li>";
+            }
             return '<li class="' + cls + '">' + linkify(item) + "</li>";
         }).join("");
-        return "<" + tag + ' class="' + listCls + '">' + items + "</" + tag + ">";
+        return "<" + tag + ' class="' + listCls + '"' + startAttr + ">" + items + "</" + tag + ">";
     }
 
-    function renderFigure(block) {
+    var activeImages = null;
+
+    function remapImageSrc(src) {
+        if (!src || !activeImages) return src;
+        var m = String(src).match(/^(images\/)(.+)$/i);
+        if (!m) return src;
+        var name = m[2];
+        if (activeImages[name]) return src;
+        var stem = name.replace(/\.[^.]+$/, "").toLowerCase();
+        var keys = Object.keys(activeImages);
+        for (var i = 0; i < keys.length; i++) {
+            if (keys[i].replace(/\.[^.]+$/, "").toLowerCase() === stem) return m[1] + keys[i];
+        }
+        return src;
+    }
+
+    function renderFigure(block, opts) {
+        opts = opts || {};
         var cap = block.caption
             ? '<figcaption class="mt-2 text-label-sm font-label-sm text-on-surface-variant">' +
               escapeHtml(block.caption) + "</figcaption>"
             : "";
+        var sizeCls = opts.compact ? "w-1/2" : "max-w-xl";
         return (
-            '<figure class="max-w-xl mx-auto my-4 text-center">' +
-            '<img alt="' + escapeHtml(block.alt || block.caption || "") + '" class="w-full rounded-xl border border-outline-variant shadow-sm" src="' + escapeHtml(block.src) + '"/>' +
+            '<figure class="' + sizeCls + ' mx-auto my-4 text-center">' +
+            '<img alt="' + escapeHtml(block.alt || block.caption || "") + '" class="w-full rounded-xl border border-outline-variant shadow-sm" src="' + escapeHtml(remapImageSrc(block.src)) + '"/>' +
             cap + "</figure>"
         );
     }
@@ -173,13 +318,13 @@
                 body += '<tr class="border-b border-outline-variant">' + cells + "</tr>";
             }
         });
-        return '<table class="w-full text-left border-collapse mb-4">' + head + "<tbody>" + body + "</tbody></table>";
+        return '<div class="mt-2 rounded-xl overflow-hidden border border-outline-variant bg-surface shadow-sm"><table class="w-full text-left border-collapse">' + head + "<tbody>" + body + "</tbody></table></div>";
     }
 
     function renderDica(block, color) {
         color = color || "prepare";
         return (
-            '<div class="rounded-xl border border-' + color + '/20 border-l-4 border-l-' + color + ' overflow-hidden bg-' + color + '/5">' +
+            '<div class="rounded-xl border border-' + color + '/20 border-l-4 border-l-' + color + ' overflow-hidden bg-' + color + '/5 mb-8">' +
             '<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-' + color + '/10 transition-colors" onclick="this.nextElementSibling.classList.toggle(\'hidden\'); this.querySelector(\'.dica-chevron\').classList.toggle(\'rotate-180\')">' +
             '<span class="material-symbols-outlined text-' + color + ' text-xl">lightbulb</span>' +
             '<span class="text-label-md font-label-md font-bold text-' + color + ' flex-1">Dica</span>' +
@@ -191,13 +336,26 @@
         );
     }
 
+    function uniqueTexts(arr) {
+        var seen = {};
+        var out = [];
+        (arr || []).forEach(function (q) {
+            var key = String(q || "").replace(/\s+/g, " ").trim().toLowerCase();
+            if (!key || seen[key]) return;
+            seen[key] = true;
+            out.push(q);
+        });
+        return out;
+    }
+
     function renderPerguntas(sub, color) {
         color = color || "prepare";
-        var items = sub.items || [];
+        var items = (sub.items || []).slice();
         (sub.blocks || []).forEach(function (b) {
-            if (b.type === "list") items = items.concat(b.items);
-            else if (b.type === "paragraph") items.push(b.text);
+            if (b.type === "list") items = items.concat(b.items || []);
+            else if (b.type === "paragraph" && b.text) items.push(b.text);
         });
+        items = uniqueTexts(items);
         if (!items.length) return "";
         var lis = items.map(function (q) {
             return '<li class="text-body-md font-body-md text-on-surface-variant">' + linkify(q) + "</li>";
@@ -268,7 +426,7 @@
                     '" role="region" aria-labelledby="' +
                     triggerId +
                     '">' +
-                    renderParagraph(card.content, "text-body-sm font-body-md text-on-surface-variant") +
+                    renderDicaBody(card, color) +
                     renderVideoExtras(
                         (card.extra || []).filter(function (ex) {
                             return ex.type === "cta" || ex.type === "qr";
@@ -305,25 +463,88 @@
         );
     }
 
-    function renderAtencaoBlock(items) {
-        if (!items || !items.length) return "";
-        var lis = items
-            .map(function (item) {
-                return '<li class="text-body-sm font-body-md text-on-surface-variant">' + escapeHtml(item) + "</li>";
-            })
-            .join("");
+    function renderAtencaoRich(block) {
+        if (!block) return "";
+        var title = block.title || "Atenção!";
+        var inner = "";
+        if (block.blocks && block.blocks.length) {
+            inner = '<div class="space-y-3">' + renderBlocks(block.blocks.filter(function (b) { return b.type !== "atencao"; }), "secondary") + "</div>";
+        }
         return (
-            '<div class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">' +
+            '<div class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8 mt-8">' +
+            '<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle(\'hidden\'); this.querySelector(\'.atencao-chevron\').classList.toggle(\'rotate-180\')">' +
+            '<span class="material-symbols-outlined text-secondary text-xl">warning</span>' +
+            '<span class="text-label-md font-label-md font-bold text-secondary flex-1">' + escapeHtml(title) + "</span>" +
+            '<span class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span>' +
+            "</button>" +
+            '<div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">' +
+            inner +
+            "</div></div>"
+        );
+    }
+
+    function groupEtapaItems(items) {
+        var groups = [];
+        var current = null;
+        (items || []).forEach(function (raw) {
+            var text = String(raw || "").replace(/^\d+\.\s+/, "").trim();
+            if (!text || /^estrutura sugerida/i.test(text)) return;
+            if (/^Etapa\s*\d+/i.test(text)) {
+                current = { title: text, items: [] };
+                groups.push(current);
+                return;
+            }
+            if (!current) {
+                current = { title: "", items: [] };
+                groups.push(current);
+            }
+            current.items.push(text);
+        });
+        return groups;
+    }
+
+    function renderAtencaoBlock(items, title) {
+        if (!items || !items.length) return "";
+        var heading = title || "Estrutura sugerida da construção:";
+        var groups = groupEtapaItems(items);
+        var hasEtapas = groups.some(function (g) { return g.title; });
+        var inner = '<p class="text-label-md font-label-md font-bold text-on-surface mb-4">' + escapeHtml(heading) + "</p>";
+        if (hasEtapas) {
+            inner += '<div class="space-y-5">';
+            groups.forEach(function (g) {
+                inner += "<div>";
+                if (g.title) {
+                    inner += '<p class="text-body-sm font-body-md font-bold text-on-surface mb-2">' + escapeHtml(g.title) + "</p>";
+                }
+                if (g.items.length) {
+                    inner += '<ol class="list-decimal pl-5 space-y-1">';
+                    g.items.forEach(function (it) {
+                        inner += '<li class="text-body-sm font-body-md text-on-surface-variant">' + escapeHtml(it) + "</li>";
+                    });
+                    inner += "</ol>";
+                }
+                inner += "</div>";
+            });
+            inner += "</div>";
+        } else {
+            inner += '<ol class="list-decimal pl-5 space-y-1">';
+            groups.forEach(function (g) {
+                g.items.forEach(function (it) {
+                    inner += '<li class="text-body-sm font-body-md text-on-surface-variant">' + escapeHtml(it) + "</li>";
+                });
+            });
+            inner += "</ol>";
+        }
+        return (
+            '<div class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8 mt-8">' +
             '<button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle(\'hidden\'); this.querySelector(\'.atencao-chevron\').classList.toggle(\'rotate-180\')">' +
             '<span class="material-symbols-outlined text-secondary text-xl">warning</span>' +
             '<span class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span>' +
             '<span class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span>' +
             "</button>" +
             '<div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">' +
-            '<p class="text-label-md font-label-md font-bold text-on-surface mb-3">Estrutura sugerida da construção:</p>' +
-            '<ul class="list-disc pl-5 space-y-2">' +
-            lis +
-            "</ul></div></div>"
+            inner +
+            "</div></div>"
         );
     }
 
@@ -335,7 +556,7 @@
                     '<div class="relative space-y-4">' +
                     '<div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div>' +
                     '<h4 class="text-headline-sm font-headline-sm text-secondary">' + escapeHtml(stepTitle) + "</h4>" +
-                    renderBlocks(step.blocks, "secondary") +
+                    renderBlocks(step.blocks, "secondary", { compact: true }) +
                     "</div>"
                 );
             }).join("");
@@ -373,6 +594,7 @@
                 "</button>" +
                 '<div class="' + panelClass + ' border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8" id="' + panelId + '" role="region" aria-labelledby="' + triggerId + '">' +
                 atencaoHtml +
+                (acc.intro && acc.intro.length ? '<div class="space-y-4 mb-8">' + renderBlocks(acc.intro, "secondary", { compact: true }) + "</div>" : "") +
                 '<h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>' +
                 '<div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">' +
                 stepsHtml +
@@ -408,6 +630,31 @@
         return (nome || "").replace(/\s*\(opcional\)\s*/gi, "").trim();
     }
 
+    function renderEstruturaDescription(card) {
+        var blocos = card.blocos && card.blocos.length ? card.blocos : null;
+        if (!blocos && card.descricao) {
+            blocos = [{ title: "", text: card.descricao }];
+        }
+        if (!blocos || !blocos.length) return "";
+        var titled = blocos.some(function (b) { return b.title; });
+        if (!titled && blocos.length === 1) {
+            return '<p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">' +
+                linkify(blocos[0].text) + "</p>";
+        }
+        return (
+            '<div class="nave-estrutura-card__blocks">' +
+            blocos.map(function (b) {
+                return (
+                    '<div class="nave-estrutura-card__block">' +
+                    (b.title ? '<p class="nave-estrutura-card__block-title">' + escapeHtml(b.title) + "</p>" : "") +
+                    (b.text ? '<p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">' + linkify(b.text) + "</p>" : "") +
+                    "</div>"
+                );
+            }).join("") +
+            "</div>"
+        );
+    }
+
     function renderEstruturaCards(estrutura) {
         return estrutura.map(function (card) {
             var style = resolveEstruturaStyle(card.nome);
@@ -422,9 +669,7 @@
                 "</div>" +
                 (showOptional ? '<span class="nave-estrutura-card__optional-tag">Opcional</span>' : "") +
                 "</div>" +
-                (card.descricao
-                    ? '<p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">' + linkify(card.descricao) + "</p>"
-                    : "") +
+                renderEstruturaDescription(card) +
                 "</div>"
             );
         }).join("");
@@ -467,11 +712,14 @@
                 inputId +
                 '"/>' +
                 '<span class="text-body-md font-body-md text-on-surface">' +
-                escapeHtml(item) +
+                linkify(item) +
                 "</span></label></li>"
             );
         }).join("");
-        return '<p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de materiais/softwares/componentes necessários</p><div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary"><ul class="space-y-3">' + lis + "</ul></div>";
+        var notes = (data.notes || []).map(function (note) {
+            return renderAtencaoRich(note);
+        }).join("");
+        return '<p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de materiais/softwares/componentes necessários</p><div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary"><ul class="space-y-3">' + lis + "</ul></div>" + (notes ? '<div class="mt-8 space-y-6">' + notes + "</div>" : "");
     }
 
     function renderSectionCreate(data) {
@@ -486,6 +734,7 @@
             } else if (sub.kind === "passo_a_passo") {
                 html += '<div class="space-y-4"><h3 class="text-headline-sm font-headline-sm subsection-create mb-4">Passo a passo</h3>' + renderBlocks(sub.blocks, "secondary") + "</div>";
             } else if (sub.kind === "workshop" && sub.accordions.length) {
+                if (sub.atencao && sub.atencao.length) html += renderAtencaoBlock(sub.atencao);
                 html += '<div class="workshop-accordions">' + renderWorkshopAccordions(sub.accordions) + "</div>";
             } else if (sub.kind === "dicas" && sub.cards.length) {
                 html += renderDicasSection(sub.cards, "secondary", "create");
@@ -539,6 +788,45 @@
         );
     }
 
+    function normalizeEixos(meta) {
+        if (meta.eixos && meta.eixos.length) return meta.eixos;
+        if (!meta.foco) return [];
+        return String(meta.foco).split(/\s*;\s*/).filter(Boolean).map(function (nome) {
+            return { nome: nome, habilidades: [] };
+        });
+    }
+
+    function renderFocusExpandTemplates(eixos) {
+        return eixos.map(function (eixo, i) {
+            var items = (eixo.habilidades || []).map(function (h) {
+                var desc = h.descricao
+                    ? " – “" + escapeHtml(h.descricao.replace(/^["“”']+|["“”']+$/g, "")) + "”"
+                    : "";
+                var code = h.codigo
+                    ? '<span class="nave-meta-expand__code">' + escapeHtml(h.codigo) + "</span>"
+                    : "";
+                return "<li>" + code + desc + "</li>";
+            }).join("\n");
+            if (!items) {
+                items = "<li>Habilidades deste eixo na oficina.</li>";
+            }
+            return (
+                '<template id="nave-focus-expand-' + i + '">\n' +
+                '<h2 class="nave-meta-expand__title">' + escapeHtml(eixo.nome) + "</h2>\n" +
+                '<ul class="nave-meta-expand__list">\n' + items + "\n</ul>\n" +
+                "</template>\n"
+            );
+        }).join("");
+    }
+
+    function renderFocusChips(eixos, variant) {
+        return eixos.map(function (eixo, i) {
+            return renderMetaChip("focus", eixo.nome, variant, {
+                hint: "Eixo da Nova BCCI",
+                expandId: "nave-focus-expand-" + i
+            });
+        }).join("");
+    }
     function getSectionDuration(estrutura, sectionName) {
         var found = (estrutura || []).find(function (e) {
             return (e.nome || "").toLowerCase().indexOf(sectionName) >= 0;
@@ -557,10 +845,13 @@
         var viewParagraphs = sections.view.blocks.filter(function (b) { return b.type === "paragraph"; });
         var viewIntro = viewParagraphs.map(function (b) { return renderParagraph(b.text, "text-body-lg font-body-lg text-on-surface-variant max-w-2xl"); }).join("");
 
+        var eixos = normalizeEixos(meta);
+        activeImages = parsed.images || {};
         var badges = "";
         if (meta.ano) badges += renderMetaChip("audience", meta.ano, "badge");
         if (meta.duracao) badges += renderMetaChip("duration", meta.duracao, "badge");
-        if (meta.foco) badges += renderMetaChip("focus", meta.foco, "badge");
+        badges += renderFocusChips(eixos, "badge");
+        var focusTemplates = renderFocusExpandTemplates(eixos);
 
         var estruturaHtml = estrutura.length
             ? '<section class="mb-16"><h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2><div class="' + estruturaGridClass(estrutura.length) + '">' + renderEstruturaCards(estrutura) + "</div></section>"
@@ -658,6 +949,7 @@
             '<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile" href="#reflect"><span class="material-symbols-outlined">psychology</span><span class="nav-link-mobile__label">Refletir</span></a>\n' +
             '<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional" href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span class="nav-link-mobile__label">Além</span></a>\n' +
             "</nav>\n\n" +
+            focusTemplates +
             '<script src="../../assets/js/nave.js"><\/script>\n' +
             "</body>\n</html>\n";
     }
@@ -668,6 +960,7 @@
             titulo: meta.titulo,
             subtitulo: meta.subtitulo || "",
             arquivo: "oficinas/" + meta.id + "/index.html",
+            icone: meta.icone || "school",
             ano: meta.ano || "",
             duracao: meta.duracao || "",
             tags: meta.tags || []

@@ -4,7 +4,7 @@ Documento norte técnico. Reflete o que o código faz **hoje** (baseline jul/202
 
 ## 1. Visão técnica em uma linha
 
-Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; uma oficina publicada; conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
+Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; duas oficinas no catálogo (`o-espelho-tecnologico`, `recriando-a-realidade`); conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
 
 ## 2. Arquitetura
 
@@ -18,7 +18,9 @@ Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwi
 | `assets/css/nave.css` | Design system, painéis, home, lightbox |
 | `assets/js/nave.js` | Runtime: painéis, progresso, accordions, persistência |
 | `assets/js/tailwind-config.js` | Tokens de cor/espaçamento |
-| `tools/conversor/` | Upload DOCX → parse → HTML/ZIP/prévia (uso local) |
+| `tools/conversor/` | Upload DOCX (+ pasta de imagens) → parse → HTML/ZIP/prévia; **Enviar para a home** grava `oficinas/{slug}/` (raiz do repo ou pasta `oficinas/`, Chrome/Edge) |
+| `scripts/dev-server.js` | Servidor local (`npm run dev`): serve `index.html` sem glob (pastas com `[colchetes]`) |
+| `serve.json` | Config do `npx serve`: `cleanUrls` e `trailingSlash` ligados para achar `index.html` nas pastas |
 | `.github/workflows/pages.yml` | Deploy: checkout → Pages (path: `.`, sem build) |
 
 <details>
@@ -41,7 +43,7 @@ flowchart LR
   end
   subgraph local [Ferramenta local]
     Docx[.docx] --> Conv[tools/conversor]
-    Conv -->|ZIP revisão| Off
+    Conv -->|Enviar para home| Off
   end
   Push[push main] --> GHP[GitHub Pages]
 ```
@@ -53,6 +55,7 @@ flowchart LR
 - HTML5, Tailwind CSS via CDN, Lexend + Material Symbols
 - JavaScript vanilla (IIFE em `nave.js`)
 - Conversor: JSZip via CDN no browser
+- Servidor local: `npm run dev` (`scripts/dev-server.js`); `npx serve` lê `serve.json`
 - Sem framework SPA, sem bundler obrigatório, sem backend, sem SQL
 
 ## 3. Fluxos que existem
@@ -61,7 +64,7 @@ flowchart LR
 
 **B — Publicar manualmente:** pasta `oficinas/{slug}/` + entrada em `oficinas.json` → push `main`.
 
-**C — Conversor (local):** `.docx` → `tools/conversor/` → prévia/`localStorage` ou ZIP → revisão → fluxo B.
+**C — Conversor (local):** `.docx` (+ pasta de imagens opcional) → `tools/conversor/` → prévia → **Enviar para a home** (Chrome/Edge escolhe a raiz do OficinasNave ou a pasta `oficinas/`; grava `oficinas/{slug}/` e, na raiz, atualiza o catálogo) ou ZIP → revisão no editor → fluxo B.
 
 ## 4. Modelo de dados
 
@@ -106,10 +109,11 @@ Painéis ocultam seções com `.nave-panel-hidden` + `aria-hidden`. Accordions d
 ## 8. Riscos conhecidos (código)
 
 - Mídia GIF ~187 MB na oficina referência
-- Conversor ainda diverge do golden master
+- Conversor ainda diverge do golden master em layout fino; o parser lê o template atual (`[text]`, `[acordeon]`, `[card]`) e o legado
 - Metadados duplicados JSON ⇄ embed ⇄ HTML
 - Artefato Pages inclui docs/tools
 - Dependência de CDN (Tailwind/fontes)
+- `npx serve` sem `serve.json` encurta `.html` e quebra caminhos relativos (conversor e imagens de oficina)
 
 Detalhamento e checkboxes: `docs/ROADMAP.md`.
 
@@ -117,6 +121,9 @@ Detalhamento e checkboxes: `docs/ROADMAP.md`.
 
 | Data | Mudança |
 |------|---------|
+| 2026-08-31 | Catálogo com duas oficinas; *Recriando a realidade* entra em `oficinas.json` |
+| 2026-08-31 | Conversor: Enviar para a home aceita raiz ou pasta `oficinas/`; pasta de imagens; títulos no card Para ir além |
+| 2026-08-31 | `serve.json` + `<base>` no conversor para URLs do `npx serve` não quebrarem scripts |
 | 2026-07-17 | “Para ir além” passa a ser a última etapa da navegação antes da conclusão |
 | 2026-07-15 | Reescrita no padrão D.N.E.E. a partir do Raio-X do código |
 | 2026-07-13 | Modo painel documentado (versão anterior) |

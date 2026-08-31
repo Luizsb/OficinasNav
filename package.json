@@ -3,6 +3,8 @@
   "private": true,
   "description": "Oficinas NAVE — site estático e documentação D.N.E.E.",
   "scripts": {
-    "docs:serve": "npx --yes serve . -p 3000"
+    "dev": "node scripts/dev-server.js",
+    "start": "node scripts/dev-server.js",
+    "docs:serve": "node scripts/dev-server.js"
   }
 }

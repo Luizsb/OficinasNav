@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<!-- Oficina: recriando-a-realidade | Recriando a realidade -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recriando a realidade — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Recriando a
+                    realidade</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Recriando a realidade</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 11 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">4 encontros de 45 min cada (total: 180 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Recriando a realidade</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, os
+                            estudantes atuarão como curadores digitais de conteúdo histórico e cultural, criando
+                            flashcards interativos que ganham vida por meio da Realidade Aumentada (RA). Combinando
+                            design autoral, seleção orientada de modelos tridimensionais e tecnologia imersiva, cada
+                            estudante desenvolverá um produto digital: um flashcard criado no Canva Educação que, ao ser
+                            escaneado pelo app Halo AR, exibe um objeto histórico em 3D sobre a imagem impressa ou
+                            projetada, transformando qualquer superfície em um museu portátil e interativo.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">O projeto percorre 3
+                            ambientes digitais em sequência: o Canva Educação, para criação e design do flashcard com
+                            identidade visual própria; o Sketchfab, para seleção de modelos 3D com licença aberta; e o
+                            Halo AR, para configuração da experiência em RA. Por questões de segurança digital e gestão
+                            de contas, a navegação e o acesso ao Sketchfab deverão ser realizados pelo educador, que
+                            poderá disponibilizar previamente os modelos selecionados ou mediar a escolha. No decorrer
+                            desse percurso, por meio de uma criação simultaneamente técnica, cultural e autoral, os
+                            estudantes experimentarão, na prática, conceitos como transmissão de dados em tempo real,
+                            reconhecimento de padrões visuais, decomposição de problemas em etapas e uso ético de
+                            conteúdo digital.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Ao final, os flashcards
+                            podem ser impressos e dispostos nos corredores da escola, transformando o ambiente escolar
+                            em uma exposição visitável por toda a comunidade. A oficina posiciona a tecnologia não como
+                            um fim em si mesma, mas como ferramenta de expressão, preservação cultural e ampliação do
+                            acesso ao conhecimento histórico.</p>
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 11
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">4 encontros de 45 min cada
+                                    (total: 180 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Mundo Digital e
+                                    IA</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-1"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Cultura Digital e
+                                    Midiática</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">25 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Contextualizar o que é RA e como ela se relaciona com história e patrimônio cultural.
+                            Realizar uma experiência inicial com um flashcard de exemplo utilizando o Halo AR.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">120 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Desenvolver o flashcard autoral em RA, passando pela seleção mediada de modelo 3D, criação
+                            do design no Canva Educação e configuração da cena no Halo AR. Testar o reconhecimento do
+                            marcador, ajustar posicionamento do objeto e publicar o projeto com QR Code.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">35 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Apresentar as cenas criadas, compartilhar aprendizados e discutir como a RA pode transformar
+                            a forma de contar histórias e interagir com o aprendizado.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <div class="nave-estrutura-card__blocks">
+                            <div class="nave-estrutura-card__block">
+                                <p class="nave-estrutura-card__block-title">Museu nos corredores</p>
+                                <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                                    Organizar uma exposição coletiva com os flashcards produzidos, reunindo-os em um
+                                    cartaz criado no Canva com seus respectivos QR Codes do Halo AR. O material pode ser
+                                    afixado em um espaço comum da escola, a fim de permitir a outras turmas escanear os
+                                    cards e visualizar os modelos em 3D, o que amplia o alcance do projeto.</p>
+                            </div>
+                            <div class="nave-estrutura-card__block">
+                                <p class="nave-estrutura-card__block-title">Realidades locais</p>
+                                <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                                    Criar um novo flashcard em RA sobre um patrimônio, personagem ou acontecimento
+                                    histórico da comunidade. A proposta inclui pesquisa prévia e reflexão sobre a
+                                    disponibilidade (ou ausência) de modelos 3D no Sketchfab, problematizando quem
+                                    produz os conteúdos digitais e quais histórias ainda não estão representadas. Caso
+                                    necessário, é possível utilizar uma ferramenta de Inteligência Artificial (IA)
+                                    generativa para criar o modelo, conforme as diretrizes da escola.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Tablets da escola ou smartphones
+                                    próprios com o app Halo AR instalado (Android 8.0+ ou iOS)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-2" /><span
+                                    class="text-body-md font-body-md text-on-surface">Computadores ou tablets para
+                                    acessar o Canva Educação (<a class="text-prepare hover:underline"
+                                        href="https://canva.com" rel="noopener noreferrer"
+                                        target="_blank">canva.com</a>) e o Sketchfab (<a
+                                        class="text-prepare hover:underline" href="https://sketchfab.com"
+                                        rel="noopener noreferrer" target="_blank">sketchfab.com</a>)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-3" /><span
+                                    class="text-body-md font-body-md text-on-surface">Contas gratuitas criadas
+                                    previamente no Halo AR</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-4" /><span
+                                    class="text-body-md font-body-md text-on-surface">Contas educacionais do Canva
+                                    criadas previamente</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-5" /><span
+                                    class="text-body-md font-body-md text-on-surface">Acesso à internet</span></label>
+                        </li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-6" /><span
+                                    class="text-body-md font-body-md text-on-surface">Projetor para
+                                    demonstrações</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-7" /><span
+                                    class="text-body-md font-body-md text-on-surface">Roteiro de criação impresso ou
+                                    disponível na tela (opcional)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-8" /><span
+                                    class="text-body-md font-body-md text-on-surface">Impressora (opcional, para
+                                    imprimir os flashcards)</span></label></li>
+                    </ul>
+                </div>
+                <div class="mt-8 space-y-6">
+                    <div
+                        class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8 mt-8">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                            <div class="space-y-3">
+                                <p class="text-label-md font-label-md font-bold text-on-surface">(Preparação exclusiva
+                                    para o educador) Criando uma conta no Sketchfab</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Antes de iniciar os passos
+                                    do projeto, será necessário ter uma conta no Sketchfab, site que possibilita exibir
+                                    e realizar upload e download de modelos.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">O Sketchfab é acessível
+                                    apenas usando uma conta Epic Games, que é destinada a maiores de 18 anos. Portanto,
+                                    nossa recomendação é que apenas os professores envolvidos na atividade tenham acesso
+                                    ao Sketchfab, enquanto os alunos acessam o sketchfab deslogados, procurando recursos
+                                    para download e direcionando os links para download ao professor.</p>
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Acesse <a
+                                            class="text-prepare hover:underline"
+                                            href="https://epicgames.com/id/register" rel="noopener noreferrer"
+                                            target="_blank">epicgames.com/id/register</a> e crie uma conta.</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Acesse <a
+                                            class="text-prepare hover:underline" href="https://sketchfab.com"
+                                            rel="noopener noreferrer" target="_blank">sketchfab.com</a> e faça login com
+                                        a Epic Games.</li>
+                                </ol>
+                                <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image1.gif"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image1.gif" /></figure>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">25 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Nesta etapa, o objetivo é
+                                construir, com os estudantes, a base conceitual que sustentará toda a experiência
+                                prática: o que é, afinal, a RA e o que a diferencia de outras tecnologias imersivas.
+                                Diferentemente da Realidade Virtual (RV), que substitui completamente o ambiente ao
+                                redor do usuário, a RA sobrepõe elementos virtuais ao mundo físico em tempo real e, para
+                                isso, precisa &quot;enxergar&quot; um elemento de referência no ambiente físico. É aqui
+                                que entra o conceito central da oficina: o marcador, uma imagem rica em detalhes visuais
+                                que a câmera reconhece como padrão para posicionar o objeto tridimensional. Compreender
+                                essa lógica de reconhecimento será determinante para as decisões de design que os
+                                estudantes tomarão mais adiante, quando cada escolha de cor, contraste e composição do
+                                flashcard influenciará diretamente o funcionamento da experiência.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">O segundo movimento da
+                                preparação é aproximar a tecnologia do campo da história e do patrimônio cultural.
+                                Monumentos, artefatos e sítios históricos, muitas vezes distantes, inacessíveis ou até
+                                parcialmente destruídos, vêm sendo digitalizados ou recriados em 3D por museus,
+                                universidades e comunidades ao redor do mundo e disponibilizados em plataformas
+                                digitais. Nesse sentido, a RA permite trazê-los para dentro da sala de aula. Ao assumir
+                                o papel de curador digital, o estudante deixa de apenas consumir esses acervos: ele
+                                também seleciona, organiza e apresenta conteúdo histórico com intencionalidade,
+                                exercitando critérios como relevância, qualidade visual e licença de uso.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Esses 2 eixos – o funcionamento
+                                da RA por marcadores e o seu potencial de preservação e de acesso ao conhecimento
+                                histórico – preparam diretamente a vivência prática que vem na sequência. No Embarque, a
+                                turma terá o primeiro contato com a tecnologia por meio do flashcard de exemplo. As
+                                perguntas reflexivas dessa etapa levantarão hipóteses que servirão de fio condutor para
+                                as escolhas dos estudantes na etapa Criar.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image2.jpg" /></figure>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare">
+                        <h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2"><span
+                                class="material-symbols-outlined">help</span>Perguntas reflexivas</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Você já usou algum filtro de
+                                câmera ou jogo que mistura o mundo real com elementos virtuais? O que achou da
+                                experiência?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Na sua opinião, como a
+                                tecnologia pode ajudar a preservar ou a apresentar a história de um lugar ou de um povo?
+                            </li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Na sua opinião, quais
+                                elementos uma imagem precisa conter para que o app consiga reconhecê-la de maneira
+                                confiável?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Se você pudesse trazer
+                                qualquer momento ou lugar histórico para a sala de aula em RA, qual escolheria e por
+                                quê?</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">O Canva Educação é a
+                                    plataforma de design utilizada para criar o flashcard. Com ela, cada estudante
+                                    escolhe tipografia, cores, imagens e informações históricas para compor um cartão
+                                    com identidade visual própria. Quanto mais rico visualmente for o flashcard (com
+                                    contraste, detalhes e cores variadas, por exemplo), melhor o Halo AR conseguirá
+                                    reconhecê-lo como marcador.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">O Sketchfab é uma
+                                    biblioteca com licença aberta que conta com milhares de modelos 3D gratuitos. A
+                                    busca e a seleção dos modelos devem ser mediadas pelo educador, para garantir a
+                                    adequação ao tema histórico e à licença de uso. Os modelos escolhidos serão
+                                    posteriormente vinculados ao flashcard no Halo AR.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">O Halo AR é o app que une
+                                    tudo: o estudante cadastra o flashcard como marcador e vincula o modelo 3D a ele. A
+                                    partir desse momento, qualquer pessoa que escanear o flashcard com o app verá o
+                                    objeto histórico em 3D surgindo sobre a imagem.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1"
+                                    id="nave-dicas-trigger-prepare-1"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Crie um
+                                        flashcard de exemplo…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Crie um flashcard de
+                                        exemplo no Canva e configure um projeto no Halo AR antes da aula para usar no
+                                        Embarque.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2"
+                                    id="nave-dicas-trigger-prepare-2"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Instale o
+                                        Halo AR nos…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Instale o Halo AR nos
+                                        smartphones antes da aula ou reserve os primeiros 3 minutos para que os
+                                        estudantes o façam. Disponibilize os links de acesso:</p>
+                                    <ul class="list-none pl-1 sm:pl-2 space-y-2 mt-3">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">a. Google Play: <a
+                                                class="text-prepare hover:underline"
+                                                href="https://play.google.com/store/apps/details?id=io.lightup.lens&amp;hl=pt_BR"
+                                                rel="noopener noreferrer" target="_blank">Halo AR – 3D Creator &amp;
+                                                Scanner – Apps no Google Play</a></li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">b. App Store: <a
+                                                class="text-prepare hover:underline"
+                                                href="https://apps.apple.com/us/app/halo-ar-3d-experience-maker/id1534359793"
+                                                rel="noopener noreferrer" target="_blank">Halo AR – 3D Creator &amp;
+                                                Scanner App – App Store</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3"
+                                    id="nave-dicas-trigger-prepare-3"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Organize os
+                                        estudantes em grupos…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Organize os estudantes
+                                        em grupos de 3 a 4 pessoas e solicite a cada grupo que escolha um tema. Explique
+                                        que, embora o tema seja comum ao grupo, cada estudante deverá criar um flashcard
+                                        individualmente.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4"
+                                    id="nave-dicas-trigger-prepare-4"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Durante as
+                                        perguntas norteadoras, anote…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Durante as perguntas
+                                        norteadoras, anote as respostas no quadro, especialmente as hipóteses sobre o
+                                        que faz uma boa imagem marcadora. Esse &quot;mural de hipóteses&quot; pode ser
+                                        retomado na etapa Refletir, fortalecendo a conexão entre teoria e prática.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">O objetivo deste momento é
+                                prático: despertar a curiosidade da turma e criar familiaridade com a dinâmica de
+                                escaneamento antes da criação. Os conceitos sobre RA já foram trabalhados anteriormente.
+                                Aqui, eles devem sair do plano das ideias e se tornarem uma experiência concreta. Para
+                                isso, siga estes passos.</p>
+                            <ol class="list-decimal pl-5 space-y-4">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Exiba no projetor um
+                                    flashcard de exemplo já criado no Canva, com um card sobre o Coliseu, em Roma.
+                                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image3.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image3.gif" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Pergunte aos estudantes se
+                                    já presenciaram os detalhes desse patrimônio. É esperado que a maioria conheça o
+                                    Coliseu apenas de forma superficial.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Após os estudantes falarem
+                                    brevemente, diga que é possível vê-lo em 3D por meio da tecnologia de RA. Retome
+                                    brevemente o que foi discutido na Preparação: a RA sobrepõe objetos virtuais ao
+                                    mundo físico, usando o flashcard como marcador.
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image4.jpg" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Abra o Halo AR no
+                                    smartphone ou tablet e aponte a câmera para o flashcard projetado ou impresso.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">O modelo irá aparecer
+                                    sobre o flashcard. A partir deste momento, convide grupos de 2 ou 3 estudantes para
+                                    observar o modelo 3D por um breve período (cerca de 20 segundos), a fim de que
+                                    visualizem a tecnologia.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Para finalizar, provoque a
+                                    turma com perguntas como: O que vocês acham que aconteceria se o flashcard fosse
+                                    todo branco, sem imagens ou cores? Por que será que o app precisa de uma imagem com
+                                    detalhes visuais?</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">120 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">Recriando a história</h3>
+                        </div>
+                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image5.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image5.png" /></figure>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Este é o momento de colocar a mão
+                            na massa, em 2 movimentos: na Primeira criação, os estudantes manipularão o Halo AR
+                            livremente, conhecendo a interface, as suas potencialidades e as suas limitações. Já em
+                            Recriando a história, aplicarão esse repertório na construção do projeto autoral. Essa
+                            progressão garante aos estudantes que, ao chegarem ao projeto final, estejam familiarizados
+                            com a ferramenta e possam concentrar a atenção nas decisões de design e composição.</p>
+                    </div>
+                    <div
+                        class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                            <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Estrutura
+                                sugerida da construção:</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <p class="text-body-sm font-body-md font-bold text-on-surface mb-2">Etapa 1 -
+                                        Primeira criação</p>
+                                    <ol class="list-decimal pl-5 space-y-1">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Abrindo pela
+                                            primeira vez</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Tela inicial e
+                                            menus</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Create</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <p class="text-body-sm font-body-md font-bold text-on-surface mb-2">Etapa 2 -
+                                        Recriando a história</p>
+                                    <ol class="list-decimal pl-5 space-y-1">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Escolher o
+                                            tema histórico</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Criar o
+                                            flashcard no Canva Educação</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Configurar o
+                                            Halo AR</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Teste</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workshop-accordions">
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="primeira-criacao"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-primeira-criacao" aria-expanded="false"
+                                aria-controls="workshop-panel-primeira-criacao">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span></div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Primeira
+                                    criação</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">3
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-primeira-criacao" role="region"
+                                aria-labelledby="workshop-trigger-primeira-criacao">
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Abrindo pela
+                                            primeira vez</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">É provável que
+                                            muitos dos aparelhos estejam abrindo o aplicativo pela primeira vez, o que
+                                            os fará exibir uma sequência específica de telas. Essa sequência exibe
+                                            algumas dicas iniciais, mas que podem ser puladas com o botão “Skip”. Ao
+                                            pressioná-lo, aparecerá a opção “Always Skip?”, que fará com que as telas
+                                            não apareçam novamente. Clique em “Yes”.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image6.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image6.gif" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image7.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image7.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">O aplicativo pedirá
+                                            acesso à câmera. Pressione “Continue”. Em seguida, aparecerá uma notificação
+                                            solicitando autorização para usar a câmera. Permita o acesso, pois ele é
+                                            necessário para o desenvolvimento da oficina.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image8.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image8.gif" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image9.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image9.gif" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Tela inicial e
+                                            menus</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Na tela inicial do
+                                            aplicativo, haverá uma série de opções, inclusive alguns templates e cenas
+                                            prontas.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image10.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image10.gif" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Create</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após o login ou a
+                                            criação de senha, localize o botão “Create” na parte inferior da interface.
+                                            Ele leva a uma tela que resume todos os tipos de projetos que podem ser
+                                            criados em RA.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Busque por uma
+                                            opção chamada “Table Top Exhibit”. Explique à turma que ela possibilita a
+                                            exibição de um modelo em um ambiente.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image11.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image11.jpg" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Ao clicar na opção,
+                                            a câmera será ligada, e o celular deve ser movido lentamente de forma que
+                                            escaneie uma superfície lisa. Quando o Halo encontrar uma superfície
+                                            adequada, será exibido o texto “Surface found! Tap to place trigger”. Basta
+                                            um clique na tela e a opção ”Tap to replace” aparecerá, tornando possível
+                                            que um modelo 3D seja adicionado. Utilizaremos os modelos disponíveis na aba
+                                            “Examples”.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image12.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image12.gif" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image13.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image13.jpg" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Escolha 1 dos 3
+                                            modelos disponíveis.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image14.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image14.png" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image15.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image15.jpg" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Com o modelo
+                                            carregado, é possível mover o objeto, girá-lo e escaloná-lo.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image16.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image16.jpg" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image17.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image17.jpg" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image18.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image18.jpg" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Ao final desse
+                                            processo, traga aos estudantes a compreensão de que, neste modo, o objeto
+                                            aparece sobre qualquer superfície identificada como chão. Instigue-os a
+                                            pensar como fazer para que um modelo 3D apareça sempre em um lugar
+                                            específico, como um quadro, cartaz ou flashcard.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">A intenção é
+                                            conduzir a turma à ideia de que, para posicionar objetos em locais
+                                            determinados, o sistema precisa reconhecer uma imagem específica como
+                                            referência – retomando a técnica de marcador apresentada pelo educador na
+                                            etapa de Embarque.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="recriando-a-historia"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-recriando-a-historia" aria-expanded="false"
+                                aria-controls="workshop-panel-recriando-a-historia">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span></div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Recriando a
+                                    história</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">4
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-recriando-a-historia" role="region"
+                                aria-labelledby="workshop-trigger-recriando-a-historia">
+                                <div class="space-y-4 mb-8">
+                                    <p class="text-body-md font-body-md text-on-surface-variant">Com a interface do Halo
+                                        AR já explorada, os estudantes avançam da experimentação livre para a produção
+                                        estruturada: agora, cada escolha – do tema ao modelo 3D, da composição do
+                                        flashcard à configuração do marcador – passa a ter intencionalidade e coloca em
+                                        prática as hipóteses levantadas na Preparação e no Embarque.</p>
+                                </div>
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Escolher o tema
+                                            histórico</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Cada grupo deverá
+                                            escolher um tema histórico amplo (Grécia Antiga, Império Romano). A
+                                            exploração da categoria “Cultural Heritage and History” do Sketchfab será
+                                            realizada pelos estudantes, os quais navegarão pela plataforma. A ideia,
+                                            neste momento, é inspirá-los e apresentar a eles quais tipos de modelos
+                                            estão disponíveis, de forma que, quando eles encontrarem algo que desejam
+                                            baixar, devem enviar o link para o educador.</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                                    class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <div class="space-y-3">
+                                                    <p class="text-body-md font-body-md text-on-surface-variant">Apesar
+                                                        de ser possível acessar parte da interface do Sketchfab pelo
+                                                        Halo AR, os estudantes não devem realizar login nem navegação
+                                                        individual na plataforma. O educador será responsável por
+                                                        acessar, baixar e organizar os arquivos necessários, pois o uso
+                                                        completo da plataforma exige autenticação. Link do Sketchfab: <a
+                                                            class="text-prepare hover:underline"
+                                                            href="https://sketchfab.com/feed." rel="noopener noreferrer"
+                                                            target="_blank">https://sketchfab.com/feed.</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image19.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image19.gif" /></figure>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Guie os
+                                                estudantes para que digitem um tema relacionado à disciplina de
+                                                História, preferencialmente em inglês, e observem o resultado. Peça-lhes
+                                                que usem termos como Rome, Greece etc.</li>
+                                        </ul>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Nas configurações
+                                            da pesquisa, filtre por “Downloadable”, para garantir que se trate de
+                                            modelos baixáveis. Também é possível filtrar a categoria novamente.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image20.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image20.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Dentro da categoria
+                                            de modelos disponíveis, há opções pagas ou gratuitas. As opções pagas são
+                                            indicadas por um pequeno ícone de cifrão; as gratuitas, apenas pelo ícone de
+                                            download.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image21.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image21.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Ao clicar em um
+                                            modelo, mostre à turma que é possível girá-lo ou aplicar zoom in e zoom out
+                                            usando o mouse.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image22.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image22.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Caso deseje
+                                            organizar previamente os modelos, o educador pode favoritá-los por meio do
+                                            ícone de estrela ou adicioná-lo a uma coleção particular por meio do botão
+                                            “Add To – Collection”.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Agora que os
+                                            estudantes já se apropriaram dos conceitos essenciais da tecnologia e
+                                            conheceram alguns dos modelos disponíveis para download, oriente-os a listar
+                                            3 modelos relacionados ao tema escolhido que gostariam de utilizar para este
+                                            projeto, com base na visualização realizada coletivamente. Observe na Tabela
+                                            – Listagem como cada grupo deve preencher as informações.</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    serão listados 3 modelos como alternativas caso algum dos modelos
+                                                    escolhidos pelos estudantes esteja indisponível ou seja incompatível
+                                                    com o Halo AR.</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="mt-2 rounded-xl overflow-hidden border border-outline-variant bg-surface shadow-sm">
+                                            <table class="w-full text-left border-collapse">
+                                            <thead>
+                                                <tr class="bg-surface-container-low border-b border-outline-variant">
+                                                    <th class="p-4 font-bold text-on-surface">Tema do grupo</th>
+                                                    <th class="p-4 font-bold text-on-surface">Estudante A</th>
+                                                    <th class="p-4 font-bold text-on-surface">Estudante B</th>
+                                                    <th class="p-4 font-bold text-on-surface">Estudante C</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-outline-variant">
+                                                    <td class="p-4">Roma Antiga</td>
+                                                    <td class="p-4">Coliseu
+                                                        Panteão
+                                                        Fontana di Trevi</td>
+                                                    <td class="p-4"></td>
+                                                    <td class="p-4"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Criar o flashcard
+                                            no Canva Educação</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Oriente os
+                                            estudantes a fazer o login no Canva Educação ou com seu e-mail
+                                            institucional.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image23.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image23.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após acessar a
+                                            conta, clique em “Create” e, em seguida, selecione “Custom size”.</p>
+                                        <figure class="w-1/3 mx-auto my-4 text-center"><img alt="image24.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image24.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em “Custom size”,
+                                            insira o tamanho da carta. Para esta atividade, utilize 63 mm × 89 mm.
+                                            Depois, pressione “Create new design”.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image25.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image25.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Para criar o
+                                            formato da carta, acesse “Elements”, selecione um quadrado com bordas e
+                                            desenhe-o na tela clicando e arrastando.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image26.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image26.gif" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image27.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image27.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Apresente o menu
+                                            superior do Canva, que possibilita aplicar no elemento cor, forma, borda,
+                                            entre outros efeitos.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Com a base pronta,
+                                            clique em “Text” e selecione “Add a text box”. Preencha a caixa de texto com
+                                            informações sobre o modelo escolhido. No exemplo, foi inserido “Coliseu,
+                                            Roma, Itália, 80 d.C.”, o que alude a dados básicos sobre o monumento.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image28.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image28.gif" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image29.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image29.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Um flashcard ganha
+                                            mais força visual com uma imagem. Para isso, utilize a opção “Magic Media”,
+                                            disponível no menu lateral esquerdo, que emprega IA generativa para a
+                                            criação de imagens.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image30.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image30.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Como exemplo de
+                                            prompt, pode-se solicitar: “ilustração flat do Coliseu, de frente,
+                                            minimalista, com cores quentes”. Após alguns instantes, o Canva apresentará
+                                            sugestões de imagem para uso no cartão.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image31.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image31.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Com o flashcard
+                                            finalizado e salvo, clique em “Share” e depois em “Download” para baixá-lo.
+                                        </p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image32.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image32.gif" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">É possível exportar
+                                            o arquivo em formatos de imagem, como PNG ou JPG, ou em PDF Print,
+                                            recomendado para impressão.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image33.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image33.gif" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Configurar o Halo
+                                            AR</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Agora que os
+                                            estudantes já selecionaram os temas, exploraram e inclusive fizeram o
+                                            flashcard, é possível criar a aplicação final.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">No Halo AR, clique
+                                            em “Create” e busque pela opção “3D Flash Cards”.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image34.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image34.jpg" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image36.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image36.jpg" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image37.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image37.jpg" /></figure>
+                                        
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em seguida:</p>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">A câmera será
+                                                ativada. A partir deste momento, será possível fotografar o Flashcard
+                                                (na tela do computador ou uma imagem impressa) ou clicar em “Upload
+                                                Image” e utilizar a foto que foi baixada do Canva.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">
+                                                Independentemente da opção escolhida, use o Crop para ajustar a imagem e
+                                                deixar apenas o flashcard visível.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Em seguida, em
+                                                cima do Card, aparecerá uma opção chamada “3D Model - Tap here to
+                                                replace”.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Clique em “3D
+                                                Model - Tap here to replace” e, depois, selecione a opção “Upload”.</li>
+                                        </ul>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image38.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image38.jpg" /></figure>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">O modelo será,
+                                                então, carregado. Aguarde o “Loading” terminar.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Clique na seta
+                                                para a direita e preencha o nome da sua cena.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">À direita do
+                                                nome Collection, clique em “+” e crie uma collection com um nome
+                                                descritivo e que seja pública (“Public”), a fim de que outras pessoas
+                                                tenham acesso a ela.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Oriente os
+                                                estudantes a não incluir informações de localização, evitando
+                                                compartilhar dados sensíveis.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Por fim,
+                                                pressione “Done”.</li>
+                                        </ul>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image39.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image39.jpg" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image40.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image40.gif" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image41.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image41.jpg" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Teste</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Será possível
+                                            encontrar o projeto na aba “Projects”. Clique nele e selecione “Scan”. Em
+                                            seguida, escaneie a imagem e espere o modelo aparecer.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image42.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image42.jpg" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image43.gif"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image43.gif" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image44.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image44.jpg" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Ao clicar em
+                                            “Projects”, será possível acessar mais informações sobre o que foi criado,
+                                            inclusive visualizar o QR Code que concede acesso rápido ao projeto.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image48.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image48.png" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image46.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image46.jpg" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image47.jpg"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image47.jpg" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant"><strong>Importante:</strong> O QR
+                                            Code apresentado é meramente demonstrativo e não estará ativo no material.
+                                            Recomenda-se ao educador que, com base em um projeto criado, gere
+                                            previamente um QR Code de exemplo e, se possível, imprima-o para uso durante
+                                            a aula.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                    id="nave-dicas-trigger-create-1"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Circule
+                                        pelos grupos durante a…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Circule pelos grupos
+                                        durante a produção da atividade para observar se existem pontos de dificuldade
+                                        na execução da tarefa.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                    id="nave-dicas-trigger-create-2"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Durante a
+                                        escolha do tema,…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Durante a escolha do
+                                        tema, caso algum estudante conheça pouco sobre ele, peça-lhe que busque
+                                        informações na internet.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                    id="nave-dicas-trigger-create-3"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">As
+                                        notificações de permissão podem…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">As notificações de
+                                        permissão podem variar dependendo do modelo do celular.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                    id="nave-dicas-trigger-create-4"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">O “Loading”
+                                        pode demorar de…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">O “Loading” pode
+                                        demorar de 5 a 30 segundos, dependendo da velocidade de conexão.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                    id="nave-dicas-trigger-create-5"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">As funções
+                                        utilizadas no Canva…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">As funções utilizadas
+                                        no Canva também estão disponíveis na conta gratuita; no entanto, o recurso Magic
+                                        Media apresenta limitações maiores nessa modalidade.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-6"
+                                    id="nave-dicas-trigger-create-6"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Durante a
+                                        pesquisa de modelos…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Durante a pesquisa de
+                                        modelos dentro do Halo AR, o sistema exibirá uma notificação dos modelos que são
+                                        mais pesados e que podem demorar para serem carregados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">35 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4">
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container mt-8 first:mt-0">
+                                Dinâmica de compartilhamento: Museu de flashcards</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Oriente a publicação do
+                                projeto. Depois de publicado, o QR Code e os flashcards podem ser exibidos em uma tela
+                                ou impressos e dispostos sobre as mesas. Em seguida, a turma deve circular livremente
+                                pelo “museu” durante 5 minutos, escanear os trabalhos dos colegas com o Halo AR e
+                                observar os modelos 3D que surgem sobre as imagens.</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container">
+                        <h4
+                            class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">help</span>Perguntas reflexivas</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Você tomou alguma decisão de
+                                design no seu flashcard pensando em como o Halo AR iria reconhecê-la? O que mudaria se
+                                você pudesse refazer o cartão agora?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Antes desta oficina, como você
+                                aprendia História?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Depois da experiência de RA
+                                criada, explique de quais maneiras a tecnologia pode impactar o acesso ao conhecimento
+                                histórico.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--primary-container mb-4 pb-2 border-b border-primary-container/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="reflect">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-1"
+                                    id="nave-dicas-trigger-reflect-1"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Incentive a
+                                        turma a celebrar</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">a criação de uma
+                                        experiência em RA é uma conquista significativa! Considere criar um espaço de
+                                        exposição das cenas para outras turmas visitarem.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-2"
+                                    id="nave-dicas-trigger-reflect-2"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">O QR Code
+                                        facilita o…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">O QR Code facilita o
+                                        acesso ao projeto publicado. Oriente os estudantes a escanear primeiro o QR Code
+                                        dos colegas e, em seguida, o flashcard, garantindo que o modelo esteja
+                                        disponível para visualização no aplicativo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-5 content-block">
+                    <p class="text-body-md font-body-md text-on-surface-variant">Para os estudantes que desejarem
+                        aprofundar o projeto, proponha caminhos de evolução do projeto, como forma de fazê-los alcançar
+                        mais pessoas e de impactar os locais frequentados pela turma.</p>
+                    <h4 class="text-headline-sm font-headline-sm text-beyond mt-8 first:mt-0">1. Museu nos corredores
+                    </h4>
+                    <p class="text-body-md font-body-md text-on-surface-variant">E se a experiência de RA criada na
+                        oficina pudesse ser vivida por toda a escola, sem que ninguém precisasse entrar na sala de aula?
+                        Nesta expansão, a turma transforma os flashcards individuais em uma exposição coletiva
+                        permanente: um cartaz impresso, criado no Canva, que reúne todos os flashcards produzidos e seus
+                        respectivos QR Codes do Halo AR, para ser afixado nos corredores da escola.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Qualquer pessoa que passar com o
+                        celular em mãos pode apontar para um flashcard e ver o objeto histórico em 3D emergir sobre o
+                        papel, o que transforma o corredor em um museu interativo visitável por toda a comunidade
+                        escolar.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">As regras de criação do cartaz não
+                        exigem um único padrão, mas é importante que ele seja convidativo e mostre como funcionará o
+                        processo de escaneamento e visualização do modelo.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Primeiro, escolha o tamanho do design
+                        de acordo com a disponibilidade de impressora da escola. Podem ser utilizados, por exemplo, os
+                        formatos A3 ou A4. Abaixo ou ao lado de cada flashcard, insira o QR Code gerado pelo Halo AR
+                        (disponível na aba “Projects” do aplicativo), acompanhado do nome do estudante e do tema
+                        histórico trabalhado. Adicione um título ao cartaz e uma breve instrução para os visitantes,
+                        como: &quot;Aponte o Halo AR para qualquer card e veja a história ganhar vida em 3D.&quot;</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Após este passo, basta imprimir o
+                        cartaz e fixá-lo em algum local da escola.</p>
+                    <h4 class="text-headline-sm font-headline-sm text-beyond mt-8 first:mt-0">2. Realidades locais</h4>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Na atividade, os estudantes exploraram
+                        civilizações e monumentos históricos consagrados. Mas e a história do lugar onde eles vivem? O
+                        desafio é criar um novo flashcard em RA sobre um patrimônio, personagem ou momento histórico da
+                        própria cidade, bairro ou comunidade.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">A proposta segue o mesmo fluxo da
+                        atividade (Canva, Modelo 3D e Halo AR), mas agora a curadoria começa por uma pesquisa sobre a
+                        história local: o que existe de relevante perto da escola? Há algum patrimônio arquitetônico,
+                        figura histórica ou evento cultural que merece ser preservado e divulgado em RA?</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Para conduzir a criação, oriente os
+                        estudantes com perguntas como: O que, na história de sua cidade ou bairro, você acha que pouca
+                        gente conhece? Se você pudesse escolher um objeto 3D para representar esse momento ou lugar, o
+                        que seria? Esse modelo 3D existe?</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Vale ressaltar que a maioria dos temas
+                        locais não terá modelos 3D disponíveis no Sketchfab, e isso faz parte da provocação. Quando o
+                        modelo não existe, o estudante se depara com uma limitação real das ferramentas de curadoria e
+                        pode ser convidado a refletir: Quem produz os modelos 3D disponíveis no mundo? Quais histórias
+                        ainda não foram digitalizadas? Essa reflexão conecta-se diretamente às habilidades EF07CO10
+                        (Identificar impactos da tecnologia) e EF07CO11 (Criar e publicar produtos digitais com
+                        propósito cultural), posicionando a ausência de conteúdo não como um erro, mas como um problema
+                        de representação que os próprios estudantes podem, no futuro, ajudar a resolver.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Caso seja necessário partir para a
+                        criação de um modelo, é possível utilizar a IA generativa do MakerWorld. Apresente a ferramenta
+                        e explique brevemente que ela permite gerar modelos 3D por meio de imagens, seguindo as
+                        diretrizes da escola para a criação de contas.</p>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image48.gif"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image48.gif" /></figure>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image49.gif"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image49.gif" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Ao finalizar o login, você poderá
+                        inserir o nome a ser exibido, o nome de usuário, o nível de habilidade em impressão 3D, além das
+                        suas categorias preferidas. Clique em “NEXT” até a aparição da tela de criação.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image50.gif"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image50.gif" /></figure>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image51.gif"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image51.gif" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Em “Model”, são oferecidas diferentes
+                        opções, que podem variar ao longo do tempo. Para esta atividade, priorize modelos que apresentem
+                        boa qualidade visual.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image52.gif"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image52.gif" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Para auxiliar a IA, recomenda-se
+                        utilizar uma imagem com fundo branco, porque isso garante foco no elemento principal. O Magic
+                        Media do Canva pode oferecer auxílio na criação dessa imagem.</p>
+                
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image55.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image55.png" /></figure>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image56.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image56.png" /></figure>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image54-gif.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image54-gif.png" /></figure>
+                </div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Mundo Digital e IA</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF07CO06</span> – “Compreender o papel de protocolos para
+                    transmissão de dados: o Halo AR comunica, em tempo real, câmera, processador e tela para reconhecer
+                    a imagem e sobrepor o objeto 3D.”</li>
+            </ul>
+        </template>
+        <template id="nave-focus-expand-1">
+            <h2 class="nave-meta-expand__title">Cultura Digital e Midiática</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF07CO11</span> – “Criar, documentar e publicar produtos
+                    digitais: o flashcard em RA é um produto final autoral, projetado no Canva e publicado no Halo AR.”
+                </li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
+</body>
+
+</html>

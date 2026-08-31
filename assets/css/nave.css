@@ -1325,6 +1325,25 @@ main > section[id] > div > .space-y-10 > * + * {
     word-wrap: break-word;
 }
 
+.nave-estrutura-card__blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+.nave-estrutura-card__block-title {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #2f2f2f;
+}
+
+.nave-estrutura-card--beyond .nave-estrutura-card__block-title {
+    color: #9a6700;
+}
+
 .nave-estrutura-card__optional-tag {
     display: inline-block;
     margin-top: 0.5rem;

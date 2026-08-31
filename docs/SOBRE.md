@@ -14,8 +14,8 @@ Educadores que conduzem as oficinas em sala. Equipe de conteúdo da NAVE que pre
 
 ## O que faz hoje
 
-Existe um catálogo online com a oficina publicada. O educador abre o roteiro, percorre as etapas uma a uma (visão, materiais, preparar, criar, refletir e, se quiser, ir além), marca materiais, retoma de onde parou e conclui a leitura. Há uma ferramenta interna para transformar o Word no formato do site, ainda com revisão humana antes de publicar.
+Existe um catálogo online com as oficinas publicadas. O educador abre o roteiro, percorre as etapas uma a uma (visão, materiais, preparar, criar, refletir e, se quiser, ir além), marca materiais, retoma de onde parou e conclui a leitura. Há uma ferramenta interna para transformar o Word no formato do site, ainda com revisão humana antes de publicar.
 
 ## Momento atual
 
-Uma oficina de referência no ar. Site utilizável para condução em sala. Conversão do Word ainda parcial — exige calibração para aproximar da qualidade do HTML feito à mão. Próximo foco: reduzir o peso das animações e fechar a calibração da conversão para publicar novas oficinas com menos retrabalho.
+Duas oficinas no catálogo: *O Espelho tecnológico* (referência) e *Recriando a realidade* (gerada pelo conversor, ainda em revisão humana). Site utilizável para condução em sala. Conversão do Word ainda parcial. Próximo foco: reduzir o peso das animações e fechar a calibração da conversão.
