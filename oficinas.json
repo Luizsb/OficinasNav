@@ -14,7 +14,7 @@
         "titulo": "Recriando a realidade",
         "subtitulo": "Realidade aumentada, história e flashcards no Halo AR",
         "arquivo": "oficinas/recriando-a-realidade/index.html",
-        "capa": "oficinas/recriando-a-realidade/images/image3.png",
+        "capa": "oficinas/recriando-a-realidade/images/image16.jpg",
         "icone": "view_in_ar",
         "ano": "a partir de 11 anos",
         "duracao": "180 min"
@@ -69,7 +69,7 @@
         "ano": "a partir de 11 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image7.png"
+        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image6.png"
     },
     {
         "id": "missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade",
@@ -135,7 +135,7 @@
         "ano": "a partir de 14 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/vibe-coding/images/image1.png"
+        "capa": "oficinas/vibe-coding/images/image8.png"
     },
     {
         "id": "missao-hacker",

@@ -78,7 +78,7 @@
             <div class="flex flex-wrap items-stretch gap-3 w-full sm:w-auto">
                 <label class="nave-home-search flex-1 sm:flex-initial sm:min-w-[14rem] md:min-w-[18rem]" for="home-catalogo-busca">
                     <span class="material-symbols-outlined nave-home-search__icon" aria-hidden="true">search</span>
-                    <input type="search" id="home-catalogo-busca" class="nave-home-search__input"
+                    <input type="search" id="home-catalogo-busca" class="nave-home-search__input border-0 shadow-none ring-0 focus:ring-0 focus:ring-offset-0"
                         placeholder="Buscar oficinas…" autocomplete="off"
                         enterkeyhint="search" aria-controls="lista-oficinas" />
                     <button type="button" class="nave-home-search__clear" id="home-catalogo-busca-limpar"
@@ -129,7 +129,7 @@
         "titulo": "Recriando a realidade",
         "subtitulo": "Realidade aumentada, história e flashcards no Halo AR",
         "arquivo": "oficinas/recriando-a-realidade/index.html",
-        "capa": "oficinas/recriando-a-realidade/images/image3.png",
+        "capa": "oficinas/recriando-a-realidade/images/image16.jpg",
         "icone": "view_in_ar",
         "ano": "a partir de 11 anos",
         "duracao": "180 min"
@@ -184,7 +184,7 @@
         "ano": "a partir de 11 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image7.png"
+        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image6.png"
     },
     {
         "id": "missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade",
@@ -250,7 +250,7 @@
         "ano": "a partir de 14 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/vibe-coding/images/image1.png"
+        "capa": "oficinas/vibe-coding/images/image8.png"
     },
     {
         "id": "missao-hacker",
@@ -462,22 +462,23 @@
             var start = (currentPage - 1) * PAGE_SIZE;
             var end = Math.min(start + PAGE_SIZE, n);
             var pageItems = filtered.slice(start, end);
+            var nestaPagina = pageItems.length;
 
             if (hasSearch) {
                 if (totalPages > 1) {
                     subtitulo.textContent =
-                        filtered.length +
-                        (filtered.length === 1 ? " oficina encontrada" : " oficinas encontradas") +
-                        ' para "' +
-                        searchQuery.trim() +
-                        '" · Mostrando ' +
-                        (start + 1) +
-                        "–" +
-                        end +
-                        " · Página " +
+                        'Página ' +
                         currentPage +
                         " de " +
-                        totalPages;
+                        totalPages +
+                        " · " +
+                        nestaPagina +
+                        " nesta página · " +
+                        filtered.length +
+                        (filtered.length === 1 ? " encontrada" : " encontradas") +
+                        ' para "' +
+                        searchQuery.trim() +
+                        '"';
                 } else {
                     subtitulo.textContent =
                         filtered.length +
@@ -488,7 +489,15 @@
                 }
             } else if (totalPages > 1) {
                 subtitulo.textContent =
-                    "Mostrando " + (start + 1) + "–" + end + " de " + n + " oficinas · Página " + currentPage + " de " + totalPages;
+                    "Página " +
+                    currentPage +
+                    " de " +
+                    totalPages +
+                    " · " +
+                    nestaPagina +
+                    " nesta página · " +
+                    n +
+                    " no total";
             } else {
                 subtitulo.textContent =
                     n === 1 ? "1 oficina disponível para condução em sala." : n + " oficinas disponíveis para condução em sala.";
