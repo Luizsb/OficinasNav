@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<!-- Oficina: etica-na-computacao-a-maquina-moral | Ética na Computação: A Máquina Moral -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ética na Computação: A Máquina Moral — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Ética na
+                    Computação: A Máquina Moral</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Ética na Computação: A Máquina Moral</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 12 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">2 encontros de 45 min cada (total: 90 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Ética na Computação: A Máquina Moral</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, os
+                            estudantes serão convidados a assumir o papel de arquitetos de ética algorítmica,
+                            investigando os desafios envolvidos na tomada de decisão por sistemas automatizados, como
+                            veículos autônomos. Como ferramenta de análise de dilemas éticos simulados, a proposta
+                            utiliza a plataforma Moral Machine, desenvolvida pelo Massachusetts Institute of Technology
+                            (MIT). O projeto consiste em navegar por cenários hipotéticos de colisão inevitável nos
+                            quais o estudante deve decidir como o algoritmo deve agir quando nenhuma opção parece
+                            adequada, classificando valores humanos sob uma perspectiva técnica e social.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">O objetivo não é
+                            encontrar respostas “certas” ou “erradas”, mas refletir a respeito de como valores humanos,
+                            culturais e sociais podem ser traduzidos (ou não) em regras computacionais. A oficina propõe
+                            a discussão sobre como algoritmos podem incorporar critérios de decisão e sobre os limites
+                            de uma lógica puramente técnica diante de questões morais complexas. A atividade pode ser
+                            realizada integralmente em ambiente virtual.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">A oficina também pode ser
+                            articulada de forma interdisciplinar, dialogando com componentes como Filosofia, Sociologia,
+                            Projeto de Vida e Orientação Educacional. É possível para o educador alinhar o debate com
+                            temas já trabalhados nessas áreas, como construção de valores, ética aplicada,
+                            responsabilidade social e consequências das escolhas individuais e coletivas. Essa
+                            integração amplia a dimensão formativa da atividade, sem que sua realização dependa
+                            necessariamente de outros componentes curriculares.</p>
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 12
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">2 encontros de 45 min cada
+                                    (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento
+                                    Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-1"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Mundo Digital e
+                                    IA</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">15 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Promover
+                            um contato inicial intuitivo no qual os estudantes simulam ser a própria IA do veículo e
+                            decidem rapidamente entre opções binárias para entender como suas escolhas impactam os
+                            resultados estatísticos.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">55 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Executar
+                            o teste da Moral Machine e analisar as variáveis de decisão.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">20 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Comparar
+                            resultados globais e discutir vieses culturais e responsabilidade do programador.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Realizar
+                            dinâmica sobre a construção de políticas públicas.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Dispositivos com acesso à
+                                    internet</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-2" /><span
+                                    class="text-body-md font-body-md text-on-surface">Acesso ao site Moral Machine
+                                    (MIT): <a class="text-prepare hover:underline"
+                                        href="https://www.moralmachine.net/hl/pt" rel="noopener noreferrer"
+                                        target="_blank">https://www.moralmachine.net/hl/pt</a> Esse site redireciona
+                                    para a versão em português do site</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-3" /><span
+                                    class="text-body-md font-body-md text-on-surface">Caderno, documento ou diário para
+                                    registro de justificativas lógicas</span></label></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">15 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Nesta aula, os estudantes são
+                                convidados a participar de uma auditoria ética sobre o futuro do transporte. Pergunte a
+                                eles se já pararam para pensar que, em um futuro próximo, um código de programação pode
+                                ter que escolher quem salvar em um acidente. Mencione que, utilizando a Moral Machine,
+                                eles entenderão como a lógica de algoritmos e a ética se fundem na criação de sistemas
+                                autônomos.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image1.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image1.png" /></figure>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare">
+                        <h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2"><span
+                                class="material-symbols-outlined">help</span>Perguntas reflexivas</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Se um computador não tem
+                                sentimentos ou consciência, como ele pode tomar decisões sobre o que é certo ou errado?
+                            </li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Apesar da decisão tomada pelo
+                                computador, ele é capaz de identificar se agiu conforme o que é moral e eticamente
+                                correto?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">É possível criar um algoritmo
+                                totalmente justo, ou todo código carrega o preconceito (viés) de quem o escreveu?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Como a sociedade e as leis
+                                precisarão se adaptar ao avanço dessas tecnologias? Seria possível viver em uma cidade
+                                onde todas as decisões de trânsito fossem tomadas por um software cujo funcionamento não
+                                conhecemos? Por quê?</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">O destaque aqui é a ética
+                                    algorítmica. A IA não &quot;sente&quot; empatia: ela executa funções baseadas em
+                                    pesos e probabilidades aprendidos ou programados. A simulação nos permite testar
+                                    cenários extremos de forma segura para prever o impacto social de tecnologias
+                                    emergentes. Isso, por sua vez, evidencia que o futuro da tecnologia passa por muitos
+                                    testes e discussões.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1"
+                                    id="nave-dicas-trigger-prepare-1"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Observação
+                                        ativa</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">durante a exploração da
+                                        plataforma, circule pela sala para verificar se todos compreenderam a interface,
+                                        especialmente os botões de decisão à esquerda e à direita da tela. Esse
+                                        acompanhamento evita ruídos operacionais e mantém o foco na reflexão ética.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2"
+                                    id="nave-dicas-trigger-prepare-2"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Clima de
+                                        curiosidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">apresente a atividade
+                                        como um desafio ético, reforçando que não há respostas certas ou erradas. O
+                                        objetivo é analisar como sistemas computacionais processam escolhas humanas
+                                        diante de dilemas complexos.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3"
+                                    id="nave-dicas-trigger-prepare-3"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Foco na
+                                        intuição inicial</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">evite introduzir, neste
+                                        momento, teorias formais, como o “Dilema do Bonde” ou correntes éticas
+                                        específicas. Estimule os estudantes a experimentar os cenários e perceber a
+                                        complexidade das decisões binárias antes da formalização conceitual.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4"
+                                    id="nave-dicas-trigger-prepare-4"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Verificação
+                                        técnica</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">antes do início da
+                                        atividade, confirme que o site da Moral Machine está acessível na rede
+                                        institucional e que todos os dispositivos conseguem utilizá-lo sem restrições.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-5"
+                                    id="nave-dicas-trigger-prepare-5"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Conexão com
+                                        situações reais</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">evidencie que a rapidez
+                                        das decisões simula contextos em que sistemas automatizados respondem em frações
+                                        de segundo e destaque que programar escolhas éticas envolve responsabilidade e
+                                        consequências concretas.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-6"
+                                    id="nave-dicas-trigger-prepare-6"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Relevância
+                                        da pesquisa</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">explique que a Moral
+                                        Machine integra uma pesquisa global que coleta dados sobre decisões humanas em
+                                        dilemas simulados. Os resultados subsidiam debates sobre regulação e
+                                        desenvolvimento de sistemas de IA, aproximando a atividade das discussões
+                                        contemporâneas sobre tecnologia e sociedade.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant"><strong>Interpretando uma
+                                    IA</strong></p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">O objetivo desta etapa é
+                                proporcionar um primeiro contato intuitivo com a interface da Moral Machine, fazendo com
+                                que os estudantes compreendam, na prática, como decisões individuais influenciam
+                                resultados estatísticos agregados. A proposta é simular, de forma simplificada, o papel
+                                de um sistema automatizado diante de escolhas difíceis, colocando os estudantes, de
+                                certa maneira, no papel da IA do veículo.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image2.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant"><strong>Passo a passo para o
+                                    estudante
+                                </strong></p>
+                            <ul class="list-disc pl-5 space-y-4">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a
+                                    acessar o site <a class="text-prepare hover:underline"
+                                        href="https://www.moralmachine.net/hl/pt" rel="noopener noreferrer"
+                                        target="_blank">https://www.moralmachine.net/hl/pt</a> e, depois, a clicar em
+                                    “Comece a Julgar” (Start Judging).</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Caso necessário, indique a
+                                    opção de alterar o idioma para português no menu superior da página.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Antes de iniciar, explique
+                                    que eles não devem refletir excessivamente sobre cada decisão. Esclareça que, em
+                                    situações reais envolvendo sistemas automatizados, escolhas precisam ser feitas em
+                                    frações de segundo. Nesse sentido, o tempo limitado faz parte da dinâmica e ajuda a
+                                    simular a pressão envolvida.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Quando todos tiverem
+                                    clicado, solicite que, em 2 minutos, resolvam as 13 situações apresentadas, clicando
+                                    na opção que escolheriam. Embora o tempo seja insuficiente para análise aprofundada,
+                                    essa limitação é intencional e contribui para a experiência.<figure
+                                        class="max-w-xl mx-auto my-4 text-center"><img alt="image3.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image3.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Ao final, será mostrado um
+                                    resultado que traz informações sobre o que guiou as decisões dos estudantes,
+                                    considerando critérios como número de vidas, passageiros, cumprimento das leis,
+                                    entre outros. Leia as informações resumidas, pois elas traçam um bom perfil inicial
+                                    e constituem um material relevante para as discussões.<figure
+                                        class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image4.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Solicite a pelo menos 5
+                                    estudantes que compartilhem as próprias impressões sobre a experiência e os
+                                    incentive a descrever não apenas as decisões, mas também as sensações frente às
+                                    situações apresentadas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">55 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">Auditoria de Algoritmo</h3>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 hidden">
+                            <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Estrutura sugerida da
+                                construção</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <ol class="list-decimal pl-5 space-y-1">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Introdução ao
+                                            problema</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Acesso</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Decompondo</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="workshop-accordions">
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="atividade"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-atividade" aria-expanded="false"
+                                aria-controls="workshop-panel-atividade">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span>
+                                </div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Atividade</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">3
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-atividade" role="region"
+                                aria-labelledby="workshop-trigger-atividade">
+
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Introdução ao
+                                            problema</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Antes de apresentar
+                                            a ferramenta, inicie a atividade com a narrativa a seguir. Você pode
+                                            utilizar recursos de leitura dramatizada ou projeção, para criar um ambiente
+                                            imersivo.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant italic">“Atenção,
+                                            auditores
+                                            de sistemas críticos. A Neo-Silicon City acaba de se tornar a primeira
+                                            cidade do mundo com tráfego 100% autônomo. No entanto, nossos servidores
+                                            detectaram um “ponto cego” nos algoritmos: em situações de colisão
+                                            inevitável, as IAs estão travando por falta de diretrizes morais claras. A
+                                            missão de vocês, como arquitetos de ética algorítmica, é alimentar o núcleo
+                                            central da cidade com uma lógica de decisão. Não estamos apenas escolhendo
+                                            caminhos: estamos também definindo o “peso” da vida humana em código. Vocês
+                                            devem ser precisos e decidir se o carro deve priorizar a lei ou o maior
+                                            número de sobreviventes. O laboratório de auditoria está oficialmente
+                                            aberto. Boa sorte!”</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image5.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image5.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Explique aos
+                                            estudantes que o uso de uma cidade fictícia garante distanciamento crítico,
+                                            favorecendo a experimentação e a análise ética sem direcionar o debate para
+                                            situações reais imediatas.</p>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Acesso</h4>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Organize os
+                                                estudantes em duplas ou trios e oriente-os o acesso ao site da Moral
+                                                Machine: <a class="text-prepare hover:underline"
+                                                    href="https://www.moralmachine.net/hl/pt" rel="noopener noreferrer"
+                                                    target="_blank">https://www.moralmachine.net/hl/pt</a> Após entrar
+                                                na plataforma, solicite que cliquem em “Comece a Julgar” e iniciem os 13
+                                                cenários de decisão.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Reforce que as
+                                                escolhas devem ser feitas de forma intuitiva no primeiro momento e
+                                                respeitar o tempo limitado, pois a pressão da decisão faz parte da
+                                                simulação.</li>
+                                        </ul>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image6.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image6.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Decompondo</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Explique que
+                                            decisões éticas em sistemas automatizados não devem ser tomadas de forma
+                                            aleatória: ao contrário, elas precisam ser estruturadas com base em
+                                            critérios definidos.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Apresente o
+                                            “Formulário de auditoria de algoritmo” como ferramenta de organização
+                                            lógica, incentivando os estudantes a registrar quais princípios orientarão
+                                            as escolhas deles.</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    Os estudantes podem utilizar um arquivo do Google Docs ou do Google
+                                                    Planilhas para registrar as informações de cada cenário e o processo
+                                                    lógico utilizado em cada um deles.</p>
+                                                <br>
+                                                <p class="text-body-md font-body-md text-on-surface-variant">[Material
+                                                    complementar] Formulário de auditoria de algoritmo</p>
+                                                <div class="nave-audit-form mt-3"
+                                                    data-nave-audit-form-id="auditoria-algoritmo">
+                                                    <div class="nave-audit-form__toolbar">
+                                                        <p
+                                                            class="nave-audit-form__hint text-body-sm font-body-md text-on-surface-variant">
+                                                            Os rascunhos são salvos automaticamente neste navegador.
+                                                            Clique em cada célula para abrir o campo ampliado.</p>
+                                                        <button type="button"
+                                                            class="nave-audit-form__download inline-flex items-center gap-2 text-label-sm font-label-md bg-secondary text-on-secondary px-4 py-2.5 rounded-DEFAULT smooth-transition hover:bg-secondary/90 shrink-0">
+                                                            <span class="material-symbols-outlined text-lg"
+                                                                aria-hidden="true">download</span>
+                                                            Baixar rascunho
+                                                        </button>
+                                                    </div>
+                                                    <div
+                                                        class="mt-2 rounded-xl overflow-x-auto border border-outline-variant bg-surface shadow-sm">
+                                                        <table class="w-full min-w-[640px] text-left border-collapse">
+                                                            <thead>
+                                                                <tr
+                                                                    class="bg-surface-container-low border-b border-outline-variant">
+                                                                    <th class="p-4 font-bold text-on-surface w-[22%]">
+                                                                        Categoria da decisão</th>
+                                                                    <th class="p-4 font-bold text-on-surface w-[38%]">
+                                                                        Instruções de programação</th>
+                                                                    <th class="p-4 font-bold text-on-surface w-[40%]">
+                                                                        Seu rascunho (lógica)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="border-b border-outline-variant"
+                                                                    data-nave-audit-row-id="prioridade-especie"
+                                                                    data-nave-audit-label="Prioridade de espécie"
+                                                                    data-nave-audit-instruction="Os seres humanos têm maior relevância que os animais ou a vida é igual para todos?">
+                                                                    <td class="p-4 align-top font-label-md">Prioridade
+                                                                        de
+                                                                        espécie</td>
+                                                                    <td class="p-4 align-top">Os seres humanos têm maior
+                                                                        relevância que os animais ou a vida é igual para
+                                                                        todos?</td>
+                                                                    <td class="p-4 align-top">
+                                                                        <button type="button"
+                                                                            class="nave-audit-form__open w-full text-left"
+                                                                            aria-haspopup="dialog">
+                                                                            <span
+                                                                                class="nave-audit-form__preview">Clique
+                                                                                para
+                                                                                preencher…</span>
+                                                                            <span
+                                                                                class="material-symbols-outlined nave-audit-form__open-icon"
+                                                                                aria-hidden="true">edit_note</span>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="border-b border-outline-variant"
+                                                                    data-nave-audit-row-id="fator-legalista"
+                                                                    data-nave-audit-label="Fator legalista"
+                                                                    data-nave-audit-instruction="O algoritmo deve proteger apenas quem respeita as leis de trânsito?">
+                                                                    <td class="p-4 align-top font-label-md">Fator
+                                                                        legalista
+                                                                    </td>
+                                                                    <td class="p-4 align-top">O algoritmo deve proteger
+                                                                        apenas
+                                                                        quem respeita as leis de trânsito?</td>
+                                                                    <td class="p-4 align-top">
+                                                                        <button type="button"
+                                                                            class="nave-audit-form__open w-full text-left"
+                                                                            aria-haspopup="dialog">
+                                                                            <span
+                                                                                class="nave-audit-form__preview">Clique
+                                                                                para
+                                                                                preencher…</span>
+                                                                            <span
+                                                                                class="material-symbols-outlined nave-audit-form__open-icon"
+                                                                                aria-hidden="true">edit_note</span>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="border-b border-outline-variant"
+                                                                    data-nave-audit-row-id="fator-utilitarista"
+                                                                    data-nave-audit-label="Fator utilitarista"
+                                                                    data-nave-audit-instruction="O objetivo final é sempre salvar o maior número de vidas, independentemente de quem sejam as pessoas envolvidas?">
+                                                                    <td class="p-4 align-top font-label-md">Fator
+                                                                        utilitarista</td>
+                                                                    <td class="p-4 align-top">O objetivo final é sempre
+                                                                        salvar
+                                                                        o maior número de vidas, independentemente de
+                                                                        quem
+                                                                        sejam as pessoas envolvidas?</td>
+                                                                    <td class="p-4 align-top">
+                                                                        <button type="button"
+                                                                            class="nave-audit-form__open w-full text-left"
+                                                                            aria-haspopup="dialog">
+                                                                            <span
+                                                                                class="nave-audit-form__preview">Clique
+                                                                                para
+                                                                                preencher…</span>
+                                                                            <span
+                                                                                class="material-symbols-outlined nave-audit-form__open-icon"
+                                                                                aria-hidden="true">edit_note</span>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="border-b border-outline-variant"
+                                                                    data-nave-audit-row-id="intervencao"
+                                                                    data-nave-audit-label="Intervenção"
+                                                                    data-nave-audit-instruction="O carro deve agir (mudar de faixa) ou omitir-se (manter o curso) em caso de falha?">
+                                                                    <td class="p-4 align-top font-label-md">Intervenção
+                                                                    </td>
+                                                                    <td class="p-4 align-top">O carro deve agir (mudar
+                                                                        de faixa)
+                                                                        ou omitir-se (manter o curso) em caso de falha?
+                                                                    </td>
+                                                                    <td class="p-4 align-top">
+                                                                        <button type="button"
+                                                                            class="nave-audit-form__open w-full text-left"
+                                                                            aria-haspopup="dialog">
+                                                                            <span
+                                                                                class="nave-audit-form__preview">Clique
+                                                                                para
+                                                                                preencher…</span>
+                                                                            <span
+                                                                                class="material-symbols-outlined nave-audit-form__open-icon"
+                                                                                aria-hidden="true">edit_note</span>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div><br>
+                                                <p class="text-body-md font-body-md text-on-surface-variant">Após esse
+                                                    planejamento, garanta que os estudantes concluam os 13 cenários com
+                                                    base na
+                                                    lógica previamente definida. Ao final, a plataforma apresentará um
+                                                    perfil
+                                                    das decisões tomadas. Solicite que mantenham a página aberta para
+                                                    análise
+                                                    posterior dos resultados.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                            <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Oriente os
+                                estudantes a dividir o tempo entre os 13 cenários: é importante que eles aprendam a
+                                fazer
+                                a gestão do tempo.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                    id="nave-dicas-trigger-create-1"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Ritmo da
+                                        turma</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">incentive a reflexão
+                                        antes da decisão e evite respostas impulsivas. Estimule o diálogo entre duplas
+                                        ou trios, valorizando a construção coletiva dos critérios adotados.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                    id="nave-dicas-trigger-create-2"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro no
+                                        diário de bordo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">oriente o registro da
+                                        decisão e da justificativa que a embasou (por exemplo: “Priorizei a faixa de
+                                        pedestres para incentivar o cumprimento das leis”). O acompanhamento explicita o
+                                        raciocínio e fortalece a argumentação ética.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                    id="nave-dicas-trigger-create-3"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Respeito e
+                                        linguagem adequada</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce a importância
+                                        do respeito nas discussões. Valorize o uso de linguagem adequada, considerando
+                                        que os cenários envolvem representações de vidas humanas e decisões sensíveis.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                    id="nave-dicas-trigger-create-4"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Evitar o
+                                        determinismo tecnológico</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">esclareça que sistemas
+                                        de IA não possuem vontade própria: eles executam critérios definidos por
+                                        programadores. Ao discutir ética algorítmica, evite atribuir intenção ou
+                                        consciência à máquina: em vez disso, reforce que a responsabilidade é humana.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                    id="nave-dicas-trigger-create-5"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Compreensão
+                                        da ferramenta como experimento</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">apresente a Moral
+                                        Machine como um experimento de análise de decisões humanas, e não como modelo
+                                        definitivo de justiça. O foco está na reflexão sobre padrões e tensões morais.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">20 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4">
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container mt-8 first:mt-0">
+                                Dinâmica de compartilhamento: &quot;Galeria de perfis éticos&quot;</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Promova um momento de
+                                socialização das decisões tomadas ao longo da atividade. A dinâmica “Galeria de perfis
+                                éticos” permite aos estudantes visualizar como seus valores influenciaram diretamente o
+                                perfil gerado pela plataforma. Ao comparar os resultados, a turma percebe que algoritmos
+                                são reflexos das escolhas humanas e que diferentes lógicas podem produzir sistemas
+                                distintos.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Peça aos estudantes que
+                                capturem um print do gráfico final apresentado pela Moral Machine. Os resultados podem
+                                ser compartilhados em um mural digital (como Padlet ou Notion). Abaixo da imagem,
+                                solicite aos participantes que escrevam sua “Diretriz Mestra” sintetizando o princípio
+                                que mais orientou as decisões deles, como: “Salvar o maior número de vidas” ou
+                                “Priorizar o cumprimento das leis”.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Após a publicação, proponha que
+                                naveguem pelo mural e identifiquem um colega que tenha apresentado resultados
+                                significativamente diferentes dos obtidos por eles. Incentive o diálogo entre esses
+                                pares, orientando que discutam qual variável ou critério foi determinante para gerar
+                                resultados tão distintos.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Finalize conduzindo uma
+                                reflexão coletiva sobre como pequenas mudanças de prioridade podem alterar
+                                significativamente o comportamento de um sistema automatizado.</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container">
+                        <h4
+                            class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                        </h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Quem deve ser responsabilizado
+                                por um erro do carro: o programador que definiu a lógica ou a empresa que treinou a IA?
+                            </li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Seu “algoritmo” pessoal
+                                apresentou algum viés (ex.: salvar mais jovens)? Como você ajustaria esse problema?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Um carro autônomo programado
+                                no Brasil funcionaria bem no Japão, onde leis e prioridades culturais podem ser
+                                diferentes?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--primary-container mb-4 pb-2 border-b border-primary-container/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="reflect">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-1"
+                                    id="nave-dicas-trigger-reflect-1"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Foco na
+                                        intencionalidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que a IA pode
+                                        apoiar a formulação das diretrizes, mas a decisão final sobre sua justiça e
+                                        coerência é humana. Utilize o momento para discutir autoria, responsabilidade e
+                                        limites da automação.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-2"
+                                    id="nave-dicas-trigger-reflect-2"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro e
+                                        visibilidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">sugira que os
+                                        manifestos sejam publicados em um mural digital da turma, compondo uma espécie
+                                        de “Constituição Digital” coletiva. A socialização fortalece o senso de
+                                        pertencimento e evidencia a dimensão pública das decisões éticas.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-3"
+                                    id="nave-dicas-trigger-reflect-3"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Conexão
+                                        interdisciplinar</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">destaque o diálogo com
+                                        áreas como Filosofia, Sociologia e Língua Portuguesa, considerando a abordagem
+                                        de temas como ética, valores sociais e produção argumentativa. Sempre que
+                                        possível, articule a proposta com outros docentes, sem tornar essa integração
+                                        condição para a realização da oficina.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-5 content-block">
+                    <p class="text-body-md font-body-md text-on-surface-variant">Proponha aos estudantes um
+                        desdobramento
+                        da atividade em um exercício de formulação de políticas públicas. Apresente a seguinte questão:
+                        Se
+                        você fosse prefeito de uma cidade com tráfego totalmente autônomo, quais diretrizes éticas
+                        exigiria das montadoras de veículos?</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Os estudantes vão atuar como
+                        consultores
+                        de políticas públicas e criar um conjunto de diretrizes que o governo deve exigir das montadoras
+                        de carros. Com esse objetivo, seguirão o passo a passo a seguir.</p>
+                    <h3 class="text-headline-sm font-headline-sm text-beyond mt-8">Passo a passo</h3>
+                    <ol class="list-decimal pl-5 space-y-4">
+                        <li class="text-body-md font-body-md text-on-surface-variant"><strong>Análise de
+                                dados:</strong> o estudante observa seu gráfico final da Moral Machine e identifica seus
+                            valores principais, como salvar jovens, priorizar pedestres, entre outros.</li>
+                        <li class="text-body-md font-body-md text-on-surface-variant"><strong>Co-criação com
+                                IA:</strong> utilizando o ChatGPT ou o Gemini, o estudante deve fornecer um prompt
+                            estruturado: &quot;Com base nos meus valores de priorizar o maior número de vidas e
+                            respeitar
+                            as leis de trânsito, ajude-me a escrever as '5 Leis Fundamentais dos Carros Autônomos de
+                            Neo-Silicon City'. Use uma linguagem formal e clara.&quot;</li>
+                        <li class="text-body-md font-body-md text-on-surface-variant"><strong>Refinamento e
+                                curadoria:</strong> o estudante deve ler as leis geradas e ajustar o texto para garantir
+                            que ele reflita exatamente o que pensa, evitando &quot;alucinações&quot; ou termos genéricos
+                            da IA.</li>
+                        <li class="text-body-md font-body-md text-on-surface-variant"><strong>Produto:</strong> por meio
+                            do Canva, do Google Apresentações ou de uma imagem gerada por IA, o estudante deve criar um
+                            manifesto contendo, pelo menos, 5 orientações gerais.</li>
+                    </ol>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image7.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image7.png" />
+                    </figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Essa abordagem fortalece o
+                        desenvolvimento da abstração, ao transformar decisões individuais em regras gerais. Além disso,
+                        promove a compreensão da colaboração humano-máquina e evidencia que a IA pode atuar como
+                        assistente na organização de ideias complexas, mas não substitui o julgamento ético humano.</p>
+                </div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF08CO04</span> – “Construir soluções computacionais de
+                    problemas de diferentes áreas do conhecimento, de forma individual e colaborativa, selecionando as
+                    estruturas de dados e técnicas adequadas.”</li>
+            </ul>
+        </template>
+        <template id="nave-focus-expand-1">
+            <h2 class="nave-meta-expand__title">Mundo Digital e IA</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF08CO08</span> – “Distinguir os tipos de dados pessoais que
+                    são solicitados em espaços digitais e os riscos associados.”</li>
+                <li><span class="nave-meta-expand__code">EF08CO09</span> – “Analisar criticamente as políticas de termos
+                    de uso das redes sociais e demais plataformas.”</li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
+</body>
+
+</html>

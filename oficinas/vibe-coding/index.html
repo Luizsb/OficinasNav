@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<!-- Oficina: vibe-coding | Vibe Coding -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe Coding — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Vibe
+                    Coding</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Vibe Coding</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 14 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">2 encontros de 45 min cada (total: 90 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Vibe Coding</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta atividade, os
+                            estudantes atuarão como arquitetos de software em um cenário de desenvolvimento ágil
+                            orientado por intenção. Para isso, explorarão o potencial do Vibe Coding e da inteligência
+                            artificial generativa (IAG). Por meio de um desafio prático, eles utilizarão técnicas de
+                            Engenharia de Prompt e decomposição de problemas, a fim de planejar, refinar e construir um
+                            protótipo funcional de aplicativo web utilizando a ferramenta Lovable.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Em vez de apenas
+                            utilizarem a tecnologia, os estudantes deverão compreender a lógica por trás das instruções
+                            em linguagem natural e entender como a metaprogramação transforma ideias em comandos capazes
+                            de gerar códigos automaticamente.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">O projeto busca
+                            transformar os jovens em protagonistas no uso da tecnologia, passando de usuários passivos a
+                            criadores ativos, capazes de identificar demandas reais do seu entorno, compreender os
+                            limites da automação e desenvolver soluções tecnológicas inovadoras para os desafios do
+                            mundo contemporâneo.</p>
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 14
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">2 encontros de 45 min cada
+                                    (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento
+                                    Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-1"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Mundo Digital e
+                                    IA</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">10 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Fazer
+                            provocação sobre Vibe Coding e IA generativa, debater sobre como a IA produz códigos
+                            (metaprogramação) e escolher um problema para solucionar.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">60 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Decompor
+                            o problema escolhido, escrever o prompt e usar o Lovable para gerar e refinar o app de modo
+                            iterativo, ajustando interface e lógica via linguagem natural.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">20 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Testar e
+                            debater sobre os protótipos, a fim de encontrar possibilidades de melhorias.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Retomar o
+                            protótipo com base nos feedbacks recebidos, analisar sugestões automáticas da ferramenta e
+                            implementar melhorias progressivas na solução desenvolvida.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Computadores ou tablets com acesso
+                                    à internet</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-2" /><span
+                                    class="text-body-md font-body-md text-on-surface">Conta no Lovable (<a
+                                        class="text-prepare hover:underline" href="https://lovable.dev/)"
+                                        rel="noopener noreferrer"
+                                        target="_blank">https://lovable.dev/)</a></span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-3" /><span
+                                    class="text-body-md font-body-md text-on-surface">Caderno ou folha de rascunho para
+                                    planejamento e estruturação do prompt</span></label></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">10 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Nesta oficina, propõe-se a
+                                exploração da fronteira entre criatividade humana e automação digital por meio do Vibe
+                                Coding. Explique que, historicamente, a programação exigia o domínio de linguagens
+                                técnicas e sintaxes complexas. Hoje, com a IAG e ferramentas como o Lovable, o foco
+                                desloca-se para a clareza da intenção: o programador passa a atuar como um estrategista
+                                que organiza ideias em instruções estruturadas, e a IA executa a implementação técnica
+                                em código funcional.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image1.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image1.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Perguntas reflexivas</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Se uma IAG pode escrever
+                                    milhares de linhas de código em segundos, por que ainda precisamos de humanos para
+                                    criar aplicativos?</li>
+                            </ul>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Se a mesma instrução for
+                                    fornecida a duas IAGs diferentes, os aplicativos gerados serão idênticos? Quais
+                                    fatores influenciam essa variação?Ao observar o cotidiano da escola ou do bairro,
+                                    qual tarefa repetitiva poderia ser otimizada por uma ferramenta digital simples?
+                                    Para projetar essa solução, quais informações são essenciais e quais são apenas
+                                    detalhes secundários?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">O elemento-chave desta
+                                    oficina é a Engenharia de Prompt como linguagem de projeto. Diferentemente da
+                                    programação tradicional, em que erros costumam estar ligados à sintaxe, no Vibe
+                                    Coding o foco está na estruturação clara da intenção. O prompt deixa de ser apenas
+                                    um comando textual e passa a ser também a organização lógica do problema,
+                                    evidenciando a decomposição das partes e a abstração do que é essencial. Nesse
+                                    contexto, saber formular boas instruções torna-se tão estratégico quanto dominar uma
+                                    linguagem de programação.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1"
+                                    id="nave-dicas-trigger-prepare-1"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Não dê
+                                        respostas prontas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">o objetivo dessas
+                                        perguntas não é uma definição de dicionário, mas sim ouvir as hipóteses dos
+                                        estudantes.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2"
+                                    id="nave-dicas-trigger-prepare-2"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Prompt
+                                        Engineering</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ao abordar a
+                                        importância da precisão na formulação das instruções, introduza o conceito de
+                                        Engenharia de Prompt, que pode ser definido como a técnica de projetar, refinar
+                                        e otimizar instruções fornecidas a modelos de IAG para que eles produzam
+                                        resultados mais precisos, úteis e contextualizados. Explique que se trata de
+                                        estruturar a intenção humana de forma lógica e explícita, reduzindo
+                                        ambiguidades. Pode-se sintetizar esse conceito como o processo de transformar
+                                        ideias em instruções claras que orientam o raciocínio da IA.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3"
+                                    id="nave-dicas-trigger-prepare-3"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Avaliação
+                                        formativa</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">utilize as respostas
+                                        dos estudantes para identificar quem já compreende a IAG como ferramenta de
+                                        automação baseada em padrões e quem ainda a percebe como mecanismo “mágico”.
+                                        Esse diagnóstico ajudará a ajustar o nível de aprofundamento técnico antes da
+                                        exploração prática no Lovable.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4"
+                                    id="nave-dicas-trigger-prepare-4"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Modelo
+                                        freemium</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">antes de os estudantes
+                                        experimentarem a ferramenta, deixe claro que o site possui um nível de
+                                        experimentação gratuito, mas com limitações quanto aos recursos disponíveis e à
+                                        quantidade de usos. Explique que se trata de uma ferramenta freemium, que
+                                        permite experimentar parte das funcionalidades da versão premium e,
+                                        posteriormente, exige a assinatura de um plano ou a compra de créditos para
+                                        ampliar seu uso. Caso considere pertinente, aproveite a oportunidade para
+                                        discutir questões relacionadas à dependência desse tipo de tecnologia. O Gemini
+                                        ou o ChatGPT podem ser utilizados para auxiliar na elaboração de prompts mais
+                                        assertivos, o que contribui para a economia desses créditos.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-5"
+                                    id="nave-dicas-trigger-prepare-5"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Ferramentas
+                                        alternativas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">caso o site esteja
+                                        indisponível ou o limite diário seja atingido, é possível recorrer a
+                                        alternativas como Bolt.new, v0.dev ou Create.xyz, que operam em lógica
+                                        semelhante à do Lovable. Reforce que a aprendizagem central está na metodologia
+                                        de formulação de problemas e prompts, independentemente da ferramenta utilizada.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Para iniciar a jornada, o
+                                educador realizará um experimento com a colaboração da turma para apresentar as bases da
+                                ferramenta. Este momento funciona como demonstração guiada do funcionamento da
+                                plataforma e reduz possíveis dificuldades que possam surgir posteriormente. Observe os
+                                passos a seguir.</p>
+                            <ol class="list-decimal pl-5 space-y-4">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Projete a tela do Lovable
+                                    para a turma, mostre como o processo de login é feito e, em seguida, solicite aos
+                                    estudantes que escolham uma &quot;vibe&quot; (por exemplo: futurista, retrô ou
+                                    cyberpunk) e também um sentimento ou uma sensação (como alegria, calma ou
+                                    nostalgia).<figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image2.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Digite, no chat da
+                                    ferramenta, exatamente o seguinte comando: &quot;Crie uma página web de tela cheia
+                                    com a vibe [VIBE ESCOLHIDA]. No centro, coloque um botão gigante com o texto 'GERAR
+                                    DESTINO'. Quando clicado, o fundo deve mudar para uma cor que represente
+                                    [SENTIMENTO] e uma frase de efeito sobre tecnologia deve aparecer em uma animação
+                                    suave.&quot;<figure class="max-w-xl mx-auto my-4 text-center"><img alt="image3.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image3.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Selecione “Build” e clique
+                                    em “Gerar (↑)”. Enquanto o código é escrito pela IA em segundos, peça aos estudantes
+                                    que observem a aba lateral de código. Nela, será possível visualizar uma Timeline
+                                    simples das alterações realizadas. Além disso, na aba “Changes”, acessível pelo
+                                    histórico (clicando nos três pontos verticais e, em seguida, na opção “View Code
+                                    Changes”), será possível observar a complexidade do código gerado. Chamar a atenção
+                                    para essa observação reforça que o resultado é fruto de um processamento algorítmico
+                                    estruturado, e não de um mecanismo &quot;mágico&quot;.<figure
+                                        class="max-w-xl mx-auto my-4 text-center"><img alt="image6.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image6.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Após a geração, aparecerá
+                                    o botão “Preview”. Antes de clicar nele, chame um estudante para interagir com a
+                                    criação. O processo costuma ser rápido e dura menos de 3 minutos.<figure
+                                        class="max-w-xl mx-auto my-4 text-center"><img alt="image7.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image7.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Ao pressionar “Preview”, o
+                                    estudante visualizará o site e poderá observar o efeito programado. Essa interação
+                                    simples demonstra como um prompt pode ser convertido em sistema funcional, servindo
+                                    como exemplo inspirador para a etapa seguinte.<figure
+                                        class="max-w-xl mx-auto my-4 text-center"><img alt="image9.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image9.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Após o clique, pergunte:
+                                    Nós programamos as cores? Escrevemos a animação? Escute as respostas e conduza a
+                                    conversa para que os estudantes compreendam que o papel humano foi definir objetivos
+                                    e critérios, ao passo que à IA coube a implementação técnica.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Para o fechamento da
+                                    etapa, sugira uma mediação como: Agora que vocês viram a ferramenta funcionar, é
+                                    hora de sair do papel de observadores. O teclado está com vocês. Vamos construir
+                                    algo que não apenas mude cores, mas que também resolva um problema. Bem-vindos ao
+                                    Vibe Coding!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">60 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">Criando o Vibe Coding</h3>
+                        </div>
+                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image11.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image11.png" /></figure>
+                    </div>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Passo 1: divida os estudantes em trios.
+                        Apresente a seguinte provocação, retomando uma das perguntas norteadoras do início da oficina:
+                    </p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">“Muitas vezes imaginamos que os grandes
+                        aplicativos só nascem em prédios espelhados no Vale do Silício. Mas a melhor tecnologia é aquela
+                        que resolve o problema que você encontra ao sair de casa. Olhe ao seu redor, para o trajeto da
+                        sua escola, para o comércio do seu bairro ou para a organização do nosso ambiente escolar. Se
+                        você tivesse o poder de criar uma solução digital, um site para melhorar a vida de quem mora
+                        aqui, no nosso bairro/cidade, o que seria?&quot;</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Esta discussão pode ir para além da
+                        sala de aula. Aproveite para conectar o projeto a temas do bairro, a histórias das famílias dos
+                        estudantes ou a demandas reais da comunidade escolar. Basta perguntar à turma o que a incomoda
+                        no bairro, na escola ou na comunidade. Se houver interesse, o protótipo pode nascer de uma
+                        necessidade verdadeira e se tornar uma excelente porta de entrada para projetos
+                        interdisciplinares.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Para inspirar os estudantes, seguem
+                        algumas sugestões. Lembre-se, no entanto, de que o escopo é de um protótipo bastante simples de
+                        um site. Faça as adaptações conforme achar necessário.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Uma plataforma de troca de
+                            monitoria entre estudantes da própria escola (exemplo deste material).</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Um catálogo digital interativo
+                            para pequenos comércios da região que não estão no Google Maps (a tia do bolo, o mecânico da
+                            esquina, a costureira).</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Uma ferramenta para mapear pontos
+                            de iluminação pública queimada ou descarte irregular de lixo no trajeto da escola, gerando
+                            um relatório para enviar à subprefeitura.</li>
+                    </ul>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Passo 2: solicite aos grupos que
+                        preencham um Mapa da Solução, abstraindo cada etapa do projeto antes da criação. Sugere-se que
+                        utilizem um Google Documentos para preenchimento, facilitando o processo de estruturação do
+                        prompt nos próximos passos. É recomendada a estrutura a seguir.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Nome do aplicativo</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Quem irá usá-lo?</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Que elementos visuais irão
+                            existir?</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Qual é o botão mais importante?
+                        </li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Qual é o objetivo principal da sua
+                            solução?</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Quais funcionalidades iniciais
+                            você deseja ter?</li>
+                    </ul>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Antes de acessar o Lovable, oriente os
+                        grupos a revisar e estruturar o prompt com o apoio de uma IAG (como o Gemini). Peça a eles que
+                        copiem o mapa elaborado e solicite sugestões de aprimoramento na organização, na clareza e no
+                        detalhamento das instruções. Para isso, eles podem usar um prompt como o do seguinte exemplo.
+                    </p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">“Ajude-me a criar e polir um prompt
+                        para ser utilizado na ferramenta Lovable. A ideia é a criação de uma aplicação web chamada SOS
+                        Estudos, focada em monitoria colaborativa entre estudantes da nossa escola. Observe a estrutura
+                        a seguir.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Objetivo: facilitar que estudantes com
+                        domínio em determinadas disciplinas ajudem colegas com dificuldades, criando uma rede de apoio
+                        regional.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Interface: design moderno, limpo e
+                        acolhedor. Use uma paleta de cores 'Educação' (tons de azul e branco) com cantos arredondados e
+                        sombras suaves.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Funcionalidades</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Página inicial: um cabeçalho com o
+                            nome SOS Estudos e 2 botões: 'Preciso de ajuda' e 'Quero ser monitor'.</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Busca de matérias: uma barra de
+                            pesquisa e cards clicáveis com ícones para as principais áreas: Matemática, Natureza,
+                            Humanas e Linguagens.</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Lista de monitores: ao clicar em
+                            uma matéria, exiba cards de estudantes monitores disponíveis. Cada card deve ter: Nome, Foto
+                            (placeholder), Matéria e um botão 'Pedir socorro'.</li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Interatividade: quando clicar em
+                            'Pedir socorro', abra um modal simples simulando um chat ou um formulário de agendamento.
+                        </li>
+                    </ul>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class="text-body-md font-body-md text-on-surface-variant">Refinamento: pergunte-me qualquer
+                            coisa de que precise para entender melhor minha visão antes de começar a gerar o
+                            código.&quot;</li>
+                    </ul>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Passo 3: com o mapa preenchido, os
+                        estudantes acessam o site do Lovable, fazem o login e inserem o prompt polido com auxílio do
+                        Gemini.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Altere também o modo de interação do
+                        Lovable para “Plan”, que inicia um processo de criação colaborativa e realiza perguntas aos
+                        desenvolvedores ao longo da tomada de decisões em diferentes etapas do desenvolvimento da
+                        aplicação.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image11.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image11.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Passo 4: após iniciar o processo, o
+                        Lovable poderá apresentar perguntas para esclarecer ambiguidades ou sugerir melhorias. Explique
+                        que esse momento mostra que o desenvolvimento não acontece de uma vez só: a cada pergunta ou
+                        ajuste feito pela ferramenta, o projeto é aprimorado com novas decisões do grupo. Por exemplo,
+                        ao solicitar um formulário, a ferramenta pode perguntar se haverá banco de dados real ou apenas
+                        simulação para teste.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image12.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image12.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Passo 5: enquanto a aplicação é gerada,
+                        poderão aparecer algumas atividades sendo realizadas pelo Lovable. No caso da solução do
+                        exemplo, algumas imagens serão criadas para ilustrar o site.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image13.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image13.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Passo 6: ao fim do processo, pressione
+                        “Preview”. O Lovable é rápido: todo processo de geração não deve durar mais do que 5 minutos. Ao
+                        fim desse tempo, será possível ver o protótipo funcionando.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image14.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image14.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Passo 7: oriente os estudantes a
+                        avaliar criticamente o protótipo gerado. Enquanto um navega pela aplicação, outro pode registrar
+                        pontos de melhoria. Mesmo com um prompt estruturado, o primeiro resultado raramente será
+                        definitivo. A revisão faz parte do processo de refinamento contínuo do projeto. Solicite que
+                        identifiquem ao menos cinco melhorias para futuras iterações.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image15.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image15.png" /></figure>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image16.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image16.png" /></figure>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image17.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image17.png" /></figure>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                    id="nave-dicas-trigger-create-1"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Planejamento</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">nesta atividade, o
+                                        planejamento antecede a execução. Incentive os estudantes a dedicar tempo ao
+                                        preenchimento cuidadoso do Mapa da Solução, pois ele orientará todas as decisões
+                                        posteriores. Um mapa bem estruturado reduz retrabalho e aumenta a qualidade do
+                                        protótipo gerado.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                    id="nave-dicas-trigger-create-2"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Prompt</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">a formulação do prompt
+                                        influencia diretamente o nível de detalhamento e coerência do protótipo. Oriente
+                                        os estudantes a reler coletivamente o texto antes do envio, verificando clareza,
+                                        organização e completude das informações. A cultura de revisão é parte essencial
+                                        do processo de desenvolvimento.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                    id="nave-dicas-trigger-create-3"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Créditos</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">o Lovable funciona com
+                                        alguns créditos gratuitos. Por conta dessa questão, é relevante que os
+                                        estudantes enviem um prompt único e não fiquem testando múltiplas opções.
+                                        Relacione o fato com a ideia de que, no mercado de trabalho, os tokens/créditos
+                                        têm custos elevados, e cabe ao funcionário fazer a gestão inteligente desses
+                                        recursos.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                    id="nave-dicas-trigger-create-4"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Exemplos</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">use os exemplos de
+                                        projetos principalmente se notar que os estudantes não estão trazendo ideias e
+                                        contribuições. Os exemplos, nesse contexto, servem como uma fagulha inicial.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                    id="nave-dicas-trigger-create-5"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Preenchimento</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">peça aos estudantes que
+                                        observem como a IAG preenche lacunas não especificadas no prompt, criando
+                                        elementos de interface, botões ou interações adicionais. Oriente-os a avaliar
+                                        criticamente quando essas sugestões ampliam o projeto e quando se desviam da
+                                        intenção original.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-6"
+                                    id="nave-dicas-trigger-create-6"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Evolução</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">caso a turma deseje
+                                        evoluir o protótipo para algo funcional, é necessário pedir explicitamente ao
+                                        Lovable que crie um banco de dados para guardar e validar informações de login e
+                                        senha.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-7"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-7"
+                                    id="nave-dicas-trigger-create-7"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">7</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">No mesmo
+                                        chat, use um prompt como</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-7" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-7">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">“Agora desejo tornar o
+                                        site funcional, criando um banco real para cadastrar monitores e pedidos de
+                                        ajuda de estudantes”.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-8"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-8"
+                                    id="nave-dicas-trigger-create-8"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">8</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">O Lovable
+                                        fará algumas perguntas…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-8" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-8">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">O Lovable fará algumas
+                                        perguntas no decorrer do processo, a fim de compreender aspectos específicos da
+                                        aplicação, como a necessidade de utilização de contas Google, quem será o
+                                        administrador, entre outras definições importantes para o desenvolvimento do
+                                        projeto.</p>
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image18.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image18.png" /></figure>
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image19.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image19.png" /></figure>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-9"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-9"
+                                    id="nave-dicas-trigger-create-9"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">9</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Pode ser
+                                        que, durante o…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-9" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-9">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Pode ser que, durante o
+                                        processo, o Lovable apresente algum erro. Caso isso aconteça, peça a ele que
+                                        tente localizá-lo e resolvê-lo.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-10"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-10"
+                                    id="nave-dicas-trigger-create-10"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">10</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Ao final do
+                                        processo, ele…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-10" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-10">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Ao final do processo,
+                                        ele irá atualizar o site com um campo de “Entrar”.</p>
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image20.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image20.png" /></figure>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-11"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-11"
+                                    id="nave-dicas-trigger-create-11"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">11</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">É relevante
+                                        abordar que projetos…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-11" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-11">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">É relevante abordar que
+                                        projetos funcionais podem trazer questões técnicas mais complexas que exigem
+                                        pesquisa de termos específicos para maior entendimento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">20 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Dinâmica de compartilhamento
+                            </p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Por uma facilidade logística,
+                                recomenda-se organizar a apresentação no formato de feira de projetos. Em cada trio, um
+                                estudante permanece no computador apresentando o protótipo, enquanto os outros dois
+                                circulam pela sala explorando diferentes soluções. Após aproximadamente 5 minutos, os
+                                papéis se invertem, garantindo que todos tenham a oportunidade de apresentar e conhecer
+                                outros projetos.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Este tipo de dinâmica
+                                privilegia os interesses e as afinidades temáticas dos estudantes, permitindo a eles
+                                ver, interagir e fornecer feedbacks a soluções que “conversam” com eles. É também um
+                                momento estratégico para que o grupo apresente os pontos de melhoria previamente
+                                identificados, solicitando feedback dos colegas e avaliando se as sugestões fazem
+                                sentido sob novas perspectivas.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">De modo complementar, é
+                                possível criar um mural digital ou outro ambiente em que todos possam colocar os links
+                                dos projetos. Isso traz uma visibilidade que vai além do momento da oficina. O Lovable
+                                tem uma opção de preview na qual é criado um link temporário que dura 7 dias.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Para publicar o projeto de
+                                forma permanente, localize o botão “Publish”, geralmente situado no canto superior
+                                direito da interface. Ao clicar nessa opção, é possível definir ou alterar a URL do site
+                                e configurar elementos como título, descrição, imagem e ícone.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image21.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image21.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Após avançar nas etapas de
+                                configuração, selecione “Continue” até concluir a publicação. Ao final do processo, o
+                                link definitivo poderá ser copiado ou acessado diretamente pela opção “View app”.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image22.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image22.png" /></figure>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image23.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image23.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Perguntas reflexivas</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Em que momento da
+                                    atividade a intervenção humana foi decisiva para evitar que a IA gerasse uma solução
+                                    genérica ou pouco adequada?</li>
+                            </ul>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Ao desenvolver uma solução
+                                    para um problema local, que critérios devem ser considerados para garantir que o
+                                    aplicativo seja confiável e eticamente responsável?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--primary-container mb-4 pb-2 border-b border-primary-container/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="reflect">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-1"
+                                    id="nave-dicas-trigger-reflect-1"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Provocações</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">utilize perguntas
+                                        estratégicas que levem os estudantes a justificar o valor da solução criada,
+                                        como: Por que alguém utilizaria o seu aplicativo em vez de uma alternativa já
+                                        existente? Qual o principal problema concreto ele resolve de forma mais
+                                        eficiente?</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-2"
+                                    id="nave-dicas-trigger-reflect-2"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Preparo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">recomenda-se ao
+                                        educador que explore previamente a ferramenta Lovable e desenvolva ao menos um
+                                        protótipo simples antes da aula. Essa familiarização antecipa limitações
+                                        técnicas, ajuda a compreender o fluxo de criação e organiza melhor o tempo da
+                                        atividade, garantindo maior segurança na mediação pedagógica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span></div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-5 content-block"></div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EM13CO02</span> – “Explorar e construir a solução de problemas por meio de refinamentos, utilizando diversos níveis de abstração.”</li>
+                    <li><span class="nave-meta-expand__code">EM13CO04</span> – “Reconhecer o conceito de metaprogramação como uma forma de generalização na construção de programas.”</li>
+            </ul>
+        </template>
+        <template id="nave-focus-expand-1">
+            <h2 class="nave-meta-expand__title">Mundo Digital e IA</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EM13CO03</span> – “Analisar e experimentar princípios básicos de IA aplicados à programação.”</li>
+                    <li><span class="nave-meta-expand__code">EM13CO10</span> – “Conhecer os fundamentos da Inteligência Artificial e utilizá-la para aprimorar produtos e processos criativos.”</li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
+</body>
+
+</html>

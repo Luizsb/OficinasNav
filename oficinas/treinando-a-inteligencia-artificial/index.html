@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<!-- Oficina: treinando-a-inteligencia-artificial | Treinando a Inteligência Artificial -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treinando a Inteligência Artificial — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Treinando a
+                    Inteligência Artificial</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Treinando a Inteligência Artificial</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 14 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">4 encontros de 45 min cada (total: 180 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Treinando a Inteligência Artificial</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, propõe-se
+                            aos estudantes que atuem como engenheiros de machine learning, treinando uma inteligência
+                            artificial (IA) para reconhecer movimentos corporais específicos. Ao contrário de utilizar
+                            modelos prontos, eles serão responsáveis por compreender e executar as etapas centrais do
+                            ciclo de vida dos dados: captura, rotulagem, treinamento e depuração (debugging).</p>
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 14
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">4 encontros de 45 min cada
+                                    (total: 180 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento
+                                    Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-1"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Mundo Digital e
+                                    IA</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">25 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Expor
+                            conceitos relativos ao aprendizado de máquina, explorar a ferramenta pela primeira vez e
+                            promover reflexão com base em perguntas norteadoras.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">110 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Desenvolver e treinar um modelo de reconhecimento de sinais em Libras por meio do Teachable
+                            Machine, aplicando as etapas de coleta, treinamento, teste, análise e melhoria.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">45 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Compartilhar os projetos, testar modelos de colegas e discutir impactos técnicos, sociais e
+                            éticos da IA.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Ampliar o
+                            projeto integrando o modelo ao Playground do MIT para criar interação programável.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Computadores ou tablets com webcam
+                                    e acesso à internet.</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-2" /><span
+                                    class="text-body-md font-body-md text-on-surface">Acesso à ferramenta Teachable
+                                    Machine (Google Labs), disponível em: <a class="text-prepare hover:underline"
+                                        href="https://teachablemachine.withgoogle.com/" rel="noopener noreferrer"
+                                        target="_blank">https://teachablemachine.withgoogle.com/</a> Acesso em: 13 jul.
+                                    2026.</span></label></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">25 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Nesta etapa, propõe-se iniciar
+                                uma investigação sobre o universo da inteligência artificial (IA), com foco específico
+                                em como os computadores aprendem e tomam decisões por meio do aprendizado de máquina
+                                (Machine Learning). Ao longo dos encontros, o desafio será desenvolver, na prática, um
+                                sistema de aprendizado supervisionado utilizando a ferramenta digital Teachable Machine.
+                                Oriente a turma na construção de protótipos funcionais, em especial um tradutor visual
+                                capaz de reconhecer o próprio nome dos estudantes reproduzido em Língua Brasileira de
+                                Sinais (Libras).</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Durante o processo, explore o
+                                eixo Mundo Digital, analisando como computadores capturam, codificam e armazenam imagens
+                                e áudios em formato digital. No eixo Cultura Digital, promova uma discussão crítica
+                                sobre as implicações éticas dos algoritmos, ressaltando que a assertividade de qualquer
+                                sistema inteligente está diretamente relacionada à qualidade, diversidade e
+                                representatividade dos dados utilizados em seu treinamento, o que favorece a
+                                problematização dos vieses algorítmicos. Ao longo da atividade, evidencie também
+                                aspectos do eixo Pensamento Computacional, ao analisar com a turma as etapas de coleta
+                                de dados, treinamento, teste e aprimoramento do modelo.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image1.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image1.png" /></figure>
+                            <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare mt-8">
+                                <h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                                </h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Ao ouvir a expressão
+                                        Inteligência Artificial, quais associações surgem? Em quais situações cotidianas
+                                        já
+                                        interagimos com sistemas baseados em IA (feeds de redes sociais, plataformas de
+                                        streaming, jogos, assistentes virtuais)?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Como um computador
+                                        aprende
+                                        a diferenciar a imagem de um gato da de um cachorro? Trata-se de compreensão
+                                        conceitual ou de identificação de padrões estatísticos com base em exemplos?
+                                    </li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Uma IA treinada com
+                                        dados
+                                        de voz coletados apenas em uma única região do mundo funcionaria adequadamente
+                                        para
+                                        reconhecer sotaques e expressões da comunidade escolar? Que papel a diversidade
+                                        de
+                                        dados desempenha nesse processo?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">Para a construção dos
+                                    tradutores visuais de Libras e dos sistemas de comando por voz, o componente
+                                    principal e o coração tecnológico da nossa oficina será o Google Teachable Machine.
+                                    Trata-se de uma ferramenta digital desenvolvida para tornar o aprendizado de máquina
+                                    mais visual, rápido e acessível, sendo amplamente utilizada em contextos
+                                    educacionais e de prototipagem para tornar mais compreensível o funcionamento da IA.
+                                </p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">O Teachable Machine opera
+                                    como um ambiente prático de Aprendizado Supervisionado, o que significa que é
+                                    possível ensinar a máquina ao definir categorias (&quot;classes&quot;), fornecer
+                                    exemplos do mundo real (como fotos capturadas pela webcam) e acionar o processo de
+                                    treinamento para que o sistema identifique padrões nesses dados.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">A grande contribuição
+                                    pedagógica desse software é abstrair a programação tradicional, permitindo aos
+                                    estudantes que concentrem seus esforços no ciclo estratégico da Ciência de Dados:
+                                    coleta e organização dos dados, treinamento do modelo e teste de desempenho
+                                    (inferência).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1"
+                                    id="nave-dicas-trigger-prepare-1"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Respostas
+                                        rápidas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ao utilizar as
+                                        perguntas norteadoras, oriente os estudantes a responder a elas de forma
+                                        objetiva, a fim de diagnosticar o nível prévio de conhecimento da turma e
+                                        construir uma base coletiva de compreensão sobre o tema.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2"
+                                    id="nave-dicas-trigger-prepare-2"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Embarque</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">durante a explicação do
+                                        Embarque, utilize o projetor como apoio visual e demonstre os passos diretamente
+                                        na interface do Teachable Machine, em vez de apenas descrevê-los oralmente.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3"
+                                    id="nave-dicas-trigger-prepare-3"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Monitoramento
+                                        de erros</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">no momento de clicar em
+                                        “Train Model”, muitos estudantes tendem a mudar de aba por impulso. Circule pela
+                                        sala reforçando a orientação: “Não mudem de aba, pois o navegador pode pausar o
+                                        processo de treinamento”.</p>
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Ferramentas de
+                                        cronômetro
+                                        podem contribuir para a organização do tempo da atividade. Algumas sugestões
+                                        incluem:</p>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant"><strong>Online
+                                                Stopwatch.</strong> Disponível em: <a
+                                                class="text-prepare hover:underline" href="https://online-stopwatch.com"
+                                                rel="noopener noreferrer" target="_blank">online-stopwatch.com</a>.
+                                            Acesso em: 13 jul. 2026.</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Procurar por
+                                            &quot;8
+                                            minute countdown&quot; no YouTube retorna diversos vídeos com contagem
+                                            regressiva acompanhada de sons. Um exemplo está disponível em: <a
+                                                class="text-prepare hover:underline"
+                                                href="https://www.youtube.com/watch?v=Ca7jRC_DWGQ"
+                                                rel="noopener noreferrer"
+                                                target="_blank">https://www.youtube.com/watch?v=Ca7jRC_DWGQ</a>. Acesso
+                                            em: 13 jul. 2026.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4"
+                                    id="nave-dicas-trigger-prepare-4"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Conceituação</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">para apoiar a mediação
+                                        do educador, seguem explicações didáticas sobre os principais conceitos
+                                        abordados:</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-5"
+                                    id="nave-dicas-trigger-prepare-5"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Aprendizado
+                                        de máquina</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">é um ramo da IA que
+                                        possibilita a computadores aprender a realizar tarefas com base em dados, sem
+                                        que seja necessário programar regras fixas para cada situação. O sistema analisa
+                                        exemplos e identifica padrões para resolver problemas.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-6"
+                                    id="nave-dicas-trigger-prepare-6"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Aprendizado
+                                        supervisionado</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">é um método de
+                                        treinamento em que o educador fornece ao sistema um conjunto de dados já
+                                        rotulados (por exemplo, imagens de mão aberta e mão fechada), o que faz com que
+                                        a máquina aprenda a diferenciar as categorias.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-7"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-7"
+                                    id="nave-dicas-trigger-prepare-7"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">7</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Reconhecimento
+                                        de padrões</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-7" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-7">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">é a capacidade do
+                                        sistema de identificar semelhanças e regularidades nos dados. A IA não “enxerga”
+                                        como humanos: ela processa combinações de pixels, cores e formas para realizar
+                                        classificações.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-8"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-8"
+                                    id="nave-dicas-trigger-prepare-8"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">8</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Viés de
+                                        IA</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-8" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-8">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ocorre quando um
+                                        algoritmo apresenta decisões distorcidas ou injustas devido ao uso de dados
+                                        incompletos, não representativos ou influenciados por preconceitos humanos.</p>
+                                    <div
+                                        class="rounded-xl border border-prepare/20 border-l-4 border-l-prepare overflow-hidden bg-prepare/5">
+                                        <button type="button"
+                                            class="w-full flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-4 text-left hover:bg-prepare/10 transition-colors"
+                                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                class="material-symbols-outlined text-prepare text-xl">lightbulb</span><span
+                                                class="text-label-md font-label-md font-bold text-prepare flex-1">Dica —
+                                                Exemplo pronto</span><span
+                                                class="material-symbols-outlined text-prepare dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                        <div class="hidden border-t border-prepare/20 px-4 py-3 sm:px-5 sm:py-4">
+                                            <p
+                                                class="text-body-sm font-body-md text-on-surface-variant leading-relaxed">
+                                                Caso deseje utilizar um modelo funcional como referência, é possível
+                                                criar
+                                                o próprio exemplo no Teachable Machine e gerar um link compartilhável.
+                                                Após
+                                                treinar o modelo, clique em “Export Model”, selecione a opção “Upload
+                                                (TensorFlow.js)” e, ao final do processo, copie o link gerado para
+                                                compartilhamento. Esse endereço poderá ser utilizado para demonstração
+                                                em
+                                                sala ou enviado previamente aos estudantes. É importante destacar que o
+                                                link público permite a visualização e o uso do modelo treinado, mas não
+                                                possibilita a edição do projeto original, preservando as configurações
+                                                feitas pelo educador. Alternativamente, pode-se acessar o modelo de
+                                                exemplo pelo link: <a class="text-prepare hover:underline"
+                                                    href="https://teachablemachine.withgoogle.com/models/Gez8A7keL/"
+                                                    rel="noopener noreferrer"
+                                                    target="_blank">https://teachablemachine.withgoogle.com/models/Gez8A7keL/</a>.
+                                                Acesso em: 13 jul. 2026.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-9"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-9"
+                                    id="nave-dicas-trigger-prepare-9"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">9</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Salvar</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-9" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-9">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ao clicar nas 3 linhas
+                                        ao
+                                        lado do nome da ferramenta, no canto superior esquerdo, é possível salvar o
+                                        projeto no Google Drive ou realizar o download local. Oriente os estudantes a
+                                        salvar o projeto ao final da atividade para evitar perda de dados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <h4 class="text-headline-sm font-headline-sm text-prepare">Speedrun de IA!</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Para canalizar a curiosidade
+                                inicial da turma e promover um primeiro contato direto e descomplicado com a ferramenta,
+                                proponha um desafio contra o relógio, denominado Speedrun de IA. Em vez de explicações
+                                longas, os estudantes terão exatamente 8 minutos para abrir o software, alimentar um
+                                modelo rudimentar de visão computacional com dois estados opostos (Mão aberta vs. Mão
+                                fechada), treinar a máquina e observar o reconhecimento em tempo real. Trata-se de uma
+                                experiência breve, visualmente impactante e totalmente prática. Antes do início da
+                                atividade, organize a turma em duplas, que serão mantidas ao longo de toda a oficina.
+                            </p>
+                            <ol class="list-decimal pl-5 space-y-6">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Oriente todas as duplas a
+                                    abrir o navegador e acessar o site do Teachable Machine.
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image2.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Clique em “Get Started”
+                                    (Começar) e selecione “Image Project” (Projeto de Imagem) e “Standard Image Model”
+                                    (Modelo de Imagem Padrão).
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image3.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image3.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Ressalte que, ao clicar no
+                                    ícone de lápis, é possível renomear as classes.
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image4.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Oriente que, ao segurar o
+                                    botão “Hold to Record”, é possível capturar várias imagens em sequência.
+                                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image5.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image5.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Explique que, para que o
+                                    modelo funcione, é necessário clicar em “Train Model” e que não se deve mudar de aba
+                                    ou navegador durante o processo, pois isso pode interromper o treinamento.
+                                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image6.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image6.png" /></figure>
+                                </li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Finalize informando que o
+                                    modelo poderá ser testado na aba “Preview” (Visualização).
+                                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image7.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image7.png" /></figure>
+                                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image8.png"
+                                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                            src="images/image8.png" /></figure>
+                                </li>
+                            </ol>
+                            <div
+                                class="rounded-xl border border-prepare/20 border-l-4 border-l-prepare overflow-hidden bg-prepare/5">
+                                <button type="button"
+                                    class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-prepare/10 transition-colors"
+                                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                        class="material-symbols-outlined text-prepare text-xl">lightbulb</span><span
+                                        class="text-label-md font-label-md font-bold text-prepare flex-1">Dica</span><span
+                                        class="material-symbols-outlined text-prepare dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="hidden border-t border-prepare/20 px-5 py-4 sm:px-6 sm:py-5 space-y-4">
+                                    <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Para
+                                        gamificar a atividade, utilize um cronômetro com contagem regressiva visível
+                                        para
+                                        toda a sala, reforçando a ideia de tempo limitado e estimulando foco e
+                                        engajamento. Um som ambiente leve pode contribuir para criar um clima de desafio
+                                        sem comprometer a concentração.</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Essa
+                                        dinâmica funciona como “quebra de gelo” e torna a ferramenta mais acessível e
+                                        tangível. Em apenas 8 minutos, os estudantes vivenciam, de forma prática, o
+                                        funcionamento básico de um sistema de IA. O principal ganho pedagógico é
+                                        perceber
+                                        que a máquina responde aos dados que recebe e que a qualidade dessas respostas
+                                        depende diretamente das escolhas feitas durante a coleta e o treinamento.</p>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="space-y-6 mt-4">
+                                <div>
+                                    <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Para
+                                        atribuir significado à
+                                        experiência, conduza uma breve discussão conectando a prática aos conceitos
+                                        fundamentais.</p><br>
+                                    <p class="text-label-md font-label-md font-bold text-on-surface mb-2">1.
+                                        Reconhecimento de padrões e diferenciação entre inteligência humana e IA</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant italic mb-2">
+                                        &quot;Quando
+                                        vocês mexeram a mão e o gráfico mudou na tela, o computador entendeu o conceito
+                                        de 'Mão aberta' ou ele apenas identificou um padrão recorrente de pixels, cores
+                                        e formas?&quot;</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant">Essa reflexão ajuda a
+                                        explicitar que a máquina não possui compreensão semântica: ela opera por cálculo
+                                        estatístico de semelhança entre dados previamente registrados e novas entradas.
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="text-label-md font-label-md font-bold text-on-surface mb-2">2. Aprendizado
+                                        Supervisionado</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant italic mb-2">&quot;Na
+                                        dinâmica, vocês criaram os nomes das caixas e seguraram o botão para capturar as
+                                        fotos. Sabendo disso, por que esse processo é classificado como um Aprendizado
+                                        Supervisionado? Quem é o verdadeiro responsável pelo que a máquina
+                                        aprendeu?&quot;</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant">A intenção é que os
+                                        estudantes reconheçam que o sistema reflete diretamente as decisões humanas
+                                        sobre
+                                        organização, rotulagem e seleção de dados.</p>
+                                </div>
+                                <div>
+                                    <p class="text-label-md font-label-md font-bold text-on-surface mb-2">3. Vieses e
+                                        limites da IA</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant italic mb-2">&quot;Se
+                                        nós
+                                        mudarmos a iluminação da sala agora, se mudarmos o fundo da câmera ou se uma
+                                        pessoa de outra dupla tentar testar o modelo de vocês, o que acham que vai
+                                        acontecer com a precisão da IA?&quot;</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant">Uma pergunta como esta
+                                        permite aos estudantes compreender que um conjunto de dados pequeno ou pouco
+                                        diverso pode gerar um sistema frágil, capaz de funcionar apenas nas condições em
+                                        que foi treinado. Isso evidencia a importância de ampliar e diversificar os
+                                        dados nas próximas etapas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">110 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">Tradutor de Libras</h3>
+                        </div>
+                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image9.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image9.png" /></figure>
+                    </div>
+                    <div class="workshop-accordions">
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="atividade"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-atividade" aria-expanded="false"
+                                aria-controls="workshop-panel-atividade">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span>
+                                </div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Atividade</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">10
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-atividade" role="region"
+                                aria-labelledby="workshop-trigger-atividade">
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Introdução ao
+                                            problema</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Para iniciar a
+                                            atividade, oriente as duplas a escolher o primeiro nome a ser representado,
+                                            preferencialmente com poucas letras distintas (até 5). Caso o nome de ambos
+                                            os estudantes seja muito longo, é possível usar sobrenomes e apelidos. A
+                                            ideia é ficar com até 5 letras distintas neste momento. Para o passo a
+                                            passo, utilizaremos o nome Caio, formado por letras distintas.</p>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Configuração</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Peça aos estudantes
+                                            que abram novamente o projeto de imagem-padrão no Teachable Machine. Neste
+                                            exemplo, adicione novas classes utilizando o botão “Add a class” e
+                                            renomeie-as com as letras correspondentes ao nome escolhido (por exemplo: C,
+                                            A, I e O).</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image10.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image10.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Pesquisa</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Provoque os
+                                            estudantes perguntando o que eles conhecem da Libras e se sabem falar o seu
+                                            nome usando-a. Pergunte se algum dos estudantes conhece alguém que utilize a
+                                            Libras como principal forma de comunicação.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">A pesquisa será
+                                            essencial para entender como representar as letras visualmente. Para
+                                            suporte, há o Dicionário da Língua Brasileira de Sinais. Trata-se de uma
+                                            excelente ferramenta, que está disponível em: <a
+                                                class="text-prepare hover:underline"
+                                                href="https://dicionario.ines.gov.br/" rel="noopener noreferrer"
+                                                target="_blank">https://dicionario.ines.gov.br/</a> Acesso em: 13 jul.
+                                            2026.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image11.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image11.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">A seguir, oriente a
+                                            turma a buscar pelos sinais que representam as letras do nome escolhido.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image12.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image12.png" />
+                                            <figcaption class="text-body-md font-body-md text-on-surface-variant">Imagem
+                                                gerada por IA (Gemini)</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Coleta de dados
+                                        </h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Nesta segunda
+                                            rodada de coleta, estimule os estudantes a aprimorar a qualidade e a
+                                            quantidade dos dados.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Explique que
+                                            aumentar o número de imagens é fundamental porque modelos de aprendizado de
+                                            máquina operam por probabilidades. Com poucos exemplos, o algoritmo pode
+                                            memorizar padrões superficiais, em vez de identificar características
+                                            relevantes do sinal. Nesse sentido, um volume maior de dados contribui para
+                                            um modelo mais robusto e capaz de funcionar em diferentes condições. No
+                                            entanto, não basta aumentar a quantidade sem variar as condições de captura.
+                                            Por isso, oriente a turma a alterar ângulos da mão, distância da câmera e
+                                            condições de iluminação.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image13.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image13.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Para esta
+                                            atividade, recomenda-se aos estudantes gerar ao menos 200 fotos de cada
+                                            letra ou um número suficiente para observar melhora consistente na taxa de
+                                            acerto durante os testes, buscando tornar o sistema mais confiável.</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                </p>
+                                                <p class="text-body-md font-body-md text-on-surface-variant">Note que,
+                                                    na área
+                                                    da Webcam, existe um botão chamado “Crop”, na parte superior à
+                                                    esquerda, que
+                                                    permite selecionar apenas uma parte da imagem capturada. Ao clicar
+                                                    novamente
+                                                    nesse botão, a seleção é confirmada. Esse recurso ajuda a capturar
+                                                    apenas a
+                                                    mão, e não o corpo de quem está gravando.</p><br>
+                                                <p class="text-body-md font-body-md text-on-surface-variant">Aqui, por
+                                                    uma
+                                                    questão de tempo, é interessante orientar os estudantes a manter o
+                                                    plano de
+                                                    fundo constante durante a coleta das imagens. Como a IA não sabe o
+                                                    que é uma
+                                                    mão, ela analisa toda a imagem capturada. Assim, alterar
+                                                    constantemente o
+                                                    plano de fundo ao mover o computador dificulta o treinamento do
+                                                    modelo. Da
+                                                    mesma forma, para que os resultados sejam mais consistentes,
+                                                    recomenda-se
+                                                    realizar os testes no mesmo plano de fundo utilizado durante o
+                                                    treinamento.
+                                                </p>
+                                                <figure class="w-1/4 mx-auto my-4 text-center"><img alt="image14.png"
+                                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                        src="images/image14.png" /></figure>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Treino e Preview
+                                        </h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Explique que,
+                                            quanto maior for o número de imagens, mais demorado será o processo de
+                                            “Train Model”; porém, mesmo com mais de 1000 imagens, ele não deve durar
+                                            muito mais do que 1 ou 2 minutos. Ao final do processo de treinamento, a aba
+                                            “Preview” será habilitada novamente. A tela de Preview também possibilita o
+                                            Crop da área da câmera, melhorando os resultados.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image15.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image15.png" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image16.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image16.png" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image17.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image17.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Observe que letras
+                                            com formatos mais distintos tendem a ser reconhecidas com maior facilidade,
+                                            enquanto letras com configurações semelhantes podem gerar confusão no
+                                            modelo.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image18.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image18.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Teste inicial</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após finalizarem as
+                                            letras propostas, peça às duplas que testem todos os sinais algumas vezes e
+                                            que registrem os resultados na seguinte tabela (preenchida com um exemplo).
+                                        </p>
+                                        <div
+                                            class="mt-2 rounded-xl overflow-hidden border border-outline-variant bg-surface shadow-sm">
+                                            <table class="w-full text-center border-collapse">
+                                                <thead>
+                                                    <tr
+                                                        class="bg-surface-container-low border-b border-outline-variant">
+                                                        <th class="p-4 font-bold text-on-surface">Etapa do projeto</th>
+                                                        <th class="p-4 font-bold text-on-surface">Letra</th>
+                                                        <th class="p-4 font-bold text-on-surface">Quem treinou?</th>
+                                                        <th class="p-4 font-bold text-on-surface">Quantas fotos?</th>
+                                                        <th class="p-4 font-bold text-on-surface">% Acerto Membro A</th>
+                                                        <th class="p-4 font-bold text-on-surface">% Acerto Membro B</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4 align-middle font-medium" rowspan="3">Teste
+                                                            inicial</td>
+                                                        <td class="p-4">C</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">270</td>
+                                                        <td class="p-4">95%</td>
+                                                        <td class="p-4">90%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">A</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">265</td>
+                                                        <td class="p-4">95%</td>
+                                                        <td class="p-4">90%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">I</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">290</td>
+                                                        <td class="p-4">85%</td>
+                                                        <td class="p-4">80%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">O</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">255</td>
+                                                        <td class="p-4">100%</td>
+                                                        <td class="p-4">90%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4 align-middle font-medium" rowspan="4">Teste 2
+                                                        </td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Discussão</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após a finalização
+                                            do preenchimento, oriente a turma a parar de mexer no computador. Em
+                                            seguida, solicite a algum dos estudantes da dupla que faça anotações. Para
+                                            isso, levante os questionamentos a seguir.</p>
+                                        <ol class="list-decimal pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Qual a razão
+                                                de termos aumentado o número de fotos do momento do Embarque para o
+                                                Tradutor de Libras?</li>
+                                        </ol>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Com poucos
+                                            exemplos, a máquina tem dificuldade em diferenciar o que é ruído (como fundo
+                                            ou iluminação) do que é característica essencial do sinal. Ao ampliar o
+                                            conjunto de dados, o modelo passa a identificar regularidades mais estáveis,
+                                            o que, por sua vez, reduz a influência de variações acidentais.</p>
+                                        <ol class="list-decimal pl-5 space-y-2" start="2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Em algum
+                                                momento, vocês tiveram duas letras que acabaram se confundindo bastante
+                                                no Teste Inicial?</li>
+                                        </ol>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">O computador não
+                                            reconhece conceitos como &quot;mão&quot; ou &quot;letra&quot;. Ele
+                                            transforma a imagem capturada pela webcam em valores numéricos
+                                            correspondentes a cores e à luminosidade. Se a iluminação ou o enquadramento
+                                            mudam, esses valores também são alterados, podendo aproximar artificialmente
+                                            sinais distintos.</p>
+                                        <ol class="list-decimal pl-5 space-y-2" start="3">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Imagine que,
+                                                mesmo depois de colocar 200 fotos, a IA ainda balance e confunda letras
+                                                com formatos muito parecidos, como o C e o O (porque ambos são
+                                                arredondados). Qual é a estratégia correta de treinamento para tirar a
+                                                máquina dessa dúvida?</li>
+                                        </ol>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Quando duas
+                                            categorias são muito parecidas, o computador precisa ser ensinado a enxergar
+                                            o ponto exato de diferença entre elas. No caso do C e do O, a diferença
+                                            crucial é que o C mantém um espaço aberto entre os dedos e o dedão, ao passo
+                                            que, no O, eles se fecham completamente, tocando as pontas. Se apenas
+                                            adicionarmos mais fotos genéricas, a confusão pode permanecer. A estratégia
+                                            mais eficaz é capturar exemplos que evidenciem claramente a diferença
+                                            crítica entre as letras, orientando o modelo a aprender o elemento que
+                                            realmente as distingue.</p>
+                                        <ol class="list-decimal pl-5 space-y-2" start="4">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Vocês possuem
+                                                mais alguma ideia de como melhorar a captação de letras no treinamento
+                                                criado?</li>
+                                        </ol>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">A última pergunta é
+                                            propositalmente mais expansiva, a fim de que os estudantes possam ter a
+                                            liberdade de sugerir possibilidades e de anotar ideias de outros colegas.
+                                        </p>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Planejando as
+                                            melhorias</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Depois de
+                                            construído, testado e discutido o primeiro protótipo, levante os seguintes
+                                            pontos, que podem contribuir para o aprimoramento do projeto.</p>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Letras
+                                                    em
+                                                    movimento</strong>: para letras de Libras que exigem movimento (como
+                                                o J, X, Z),
+                                                se você apenas registrar o início do movimento, o modelo pode
+                                                confundi-lo com outra letra estática (por exemplo, o início do J é
+                                                idêntico à configuração de mão do I). Em vez de tirar fotos paradas,
+                                                segure o botão de gravar e realize o movimento da letra repetidamente,
+                                                variando ligeiramente a velocidade, o ângulo e a distância da câmera.
+                                                Certifique-se de que o início, o meio e o fim do movimento estão bem
+                                                representados.<br><br> É possível também
+                                                que essa característica das “letras com movimento” encontre um limite da
+                                                tecnologia utilizada. Trata-se de uma oportunidade para iniciar um
+                                                debate
+                                                sobre o desenvolvimento de tecnologias que se adequem à realidade
+                                                humana, e
+                                                não o contrário.</li>
+                                        </ul>
+                                        <p class="text-body-md font-body-md text-on-surface-variant"></p>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Alto
+                                                    contraste</strong>: a mão deve apresentar contraste suficiente em
+                                                relação ao
+                                                fundo para que o modelo identifique os contornos dela com precisão.
+                                                Fundos muito semelhantes à cor da pele podem comprometer o
+                                                reconhecimento.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Isolar
+                                                    o
+                                                    rosto</strong>: o rosto humano contém muitos elementos visuais que
+                                                podem desviar
+                                                a atenção do modelo. Sempre que possível, mantenha apenas a mão
+                                                enquadrada, evitando que o sistema aprenda padrões irrelevantes.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Variar
+                                                    os
+                                                    ângulos</strong>: é fundamental aumentar ainda mais a variação dos
+                                                ângulos e das
+                                                possibilidades de aparência de uma letra.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Variar
+                                                    as
+                                                    pessoas</strong>: recrute colegas da sala com diferentes
+                                                características (como
+                                                tamanhos de mão, idades e origens étnico-raciais) e, se possível,
+                                                convide também o educador para ampliar a diversidade dos dados, tornando
+                                                o sistema mais generalista.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Foco
+                                                    nos
+                                                    problemas</strong>: caso haja 2 letras se confundindo, evidencie
+                                                suas
+                                                características únicas ao realizar a captura das fotos.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">
+                                                <strong>Padronização</strong>:
+                                                ao convidar outras pessoas para participar da captura das imagens,
+                                                garanta que não estejam usando relógio, que as mangas da roupa não
+                                                cubram as mãos e que não utilizem um número excessivo de anéis. Isso
+                                                evita a introdução de variáveis indesejadas nos dados de treinamento.
+                                            </li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Fundo
+                                                    neutro</strong>:
+                                                use cartolina, papelão ou algum outro material para padronizar o fundo e
+                                                deixá-lo mais neutro.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Aplicando as
+                                            melhorias</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após conhecer mais
+                                            possibilidades no passo anterior, a ideia é editar o projeto, trazendo essas
+                                            melhorias a ele.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Mesmo após o
+                                            treinamento, basta clicar na área da Webcam de uma classe para conseguir
+                                            gerar ainda mais imagens. Para a letra C, busque variar ainda mais o ângulo,
+                                            a distância e o número de fotos, bem como evidenciar mais a abertura da
+                                            letra no enquadramento. Repita o processo para a letra O.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image19.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image19.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após a nova
+                                            captura, é necessário treinar o modelo novamente. O processo costuma ser
+                                            rápido, e, ao final, a aba “Preview” será exibida novamente.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Observe que, após o
+                                            aprimoramento do modelo, a letra C passa a ser reconhecida corretamente em
+                                            diferentes variações do mesmo sinal, atingindo 100% de acerto.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image20.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image20.png" /></figure>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image21.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image21.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Teste 2</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Ao realizar as
+                                            mudanças e o treino, é necessário realizar um teste, com o propósito de
+                                            entender o quanto o sistema melhorou como um todo. A fim de fazer isso,
+                                            repita os mesmos passos do teste inicial, garantindo que tanto o Membro A
+                                            quanto o Membro B façam as experimentações.</p>
+                                        <div
+                                            class="mt-2 rounded-xl overflow-hidden border border-outline-variant bg-surface shadow-sm">
+                                            <table class="w-full text-center border-collapse">
+                                                <thead>
+                                                    <tr
+                                                        class="bg-surface-container-low border-b border-outline-variant">
+                                                        <th class="p-4 font-bold text-on-surface">Etapa do projeto</th>
+                                                        <th class="p-4 font-bold text-on-surface">Letra</th>
+                                                        <th class="p-4 font-bold text-on-surface">Quem treinou?</th>
+                                                        <th class="p-4 font-bold text-on-surface">Quantas fotos?</th>
+                                                        <th class="p-4 font-bold text-on-surface">% Acerto Membro A</th>
+                                                        <th class="p-4 font-bold text-on-surface">% Acerto Membro B</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4 align-middle font-medium" rowspan="3">Teste
+                                                            inicial</td>
+                                                        <td class="p-4">C</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">270</td>
+                                                        <td class="p-4">95%</td>
+                                                        <td class="p-4">90%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">A</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">265</td>
+                                                        <td class="p-4">95%</td>
+                                                        <td class="p-4">90%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">I</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">290</td>
+                                                        <td class="p-4">85%</td>
+                                                        <td class="p-4">80%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">&nbsp;</td>
+                                                        <td class="p-4">O</td>
+                                                        <td class="p-4">Membro A</td>
+                                                        <td class="p-4">255</td>
+                                                        <td class="p-4">100%</td>
+                                                        <td class="p-4">90%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4 align-middle font-medium" rowspan="4">Teste 2
+                                                        </td>
+                                                        <td class="p-4">C</td>
+                                                        <td class="p-4">Membros A e B</td>
+                                                        <td class="p-4">800</td>
+                                                        <td class="p-4">100%</td>
+                                                        <td class="p-4">100%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">A</td>
+                                                        <td class="p-4">Membros A e B</td>
+                                                        <td class="p-4">265</td>
+                                                        <td class="p-4">100%</td>
+                                                        <td class="p-4">100%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">I</td>
+                                                        <td class="p-4">Membros A e B</td>
+                                                        <td class="p-4">290</td>
+                                                        <td class="p-4">100%</td>
+                                                        <td class="p-4">100%</td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">O</td>
+                                                        <td class="p-4">Membros A e B</td>
+                                                        <td class="p-4">800</td>
+                                                        <td class="p-4">100%</td>
+                                                        <td class="p-4">100%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após o
+                                            preenchimento, as duplas devem observar as diferenças entre as tabelas,
+                                            focando especificamente o entendimento do que causou a mudança dos valores.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                    id="nave-dicas-trigger-create-1"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Ritmo da
+                                        turma</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">caso algumas duplas
+                                        concluam o treinamento robusto mais rapidamente, proponha desafios adicionais,
+                                        como incluir uma nova letra para formar uma palavra maior ou testar o modelo com
+                                        variações extremas de distância e de movimento diante da webcam, analisando os
+                                        limites de desempenho antes da falha.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                    id="nave-dicas-trigger-create-2"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Peer
+                                        instruction</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">se uma dupla alcançar
+                                        níveis próximos de 100% de precisão para ambos os membros na segunda rodada,
+                                        convide-os a atuar como facilitadores, visitando duplas com menor desempenho
+                                        para observar enquadramento, sugerir melhorias de contraste e orientar ajustes
+                                        no processo de coleta.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                    id="nave-dicas-trigger-create-3"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Diversidade
+                                        e acessibilidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">se houver estudantes
+                                        canhotos na turma, incentive as duplas a testar os modelos utilizando a mão
+                                        esquerda em sistemas treinados predominantemente por destros. Utilize essa
+                                        variação para ampliar a discussão sobre acessibilidade e representatividade de
+                                        dados, demonstrando como a ausência de diversidade na coleta pode gerar
+                                        exclusões involuntárias em sistemas reais.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                    id="nave-dicas-trigger-create-4"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Leitura de
+                                        ambiguidade nos gráficos</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">caso o sistema
+                                        apresente porcentagens muito próximas entre duas classes (por exemplo, 50% para
+                                        C e 50% para O), solicite aos estudantes que investiguem a transição visual
+                                        antes de simplesmente coletar mais imagens. Peça que ajustem milimetricamente a
+                                        posição e a curvatura dos dedos para identificar qual característica influencia
+                                        a decisão do modelo.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                    id="nave-dicas-trigger-create-5"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Salvar</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ao clicar nas três
+                                        linhas ao lado do nome da ferramenta, no canto superior esquerdo, é possível
+                                        salvar o projeto no Google Drive ou realizar o download local. Oriente os
+                                        estudantes a salvar o trabalho ao final da aula para garantir continuidade em
+                                        encontros futuros.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">45 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4">
+                            <p class="text-body-md font-body-md text-on-surface-variant"><strong>Dinâmica de
+                                    compartilhamento
+                                </strong>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Antes de iniciar o momento de
+                                compartilhamento, é importante entender que o Teachable Machine torna possível
+                                compartilhar o projeto. Para isso, localize o botão “Export Model” na área de “Preview”
+                                e clique nele.</p>
+                            <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image22.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image22.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Na tela que será aberta, busque
+                                pela opção “Upload my model”.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image23.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image23.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Após alguns instantes, será
+                                gerado um link compartilhável para outras pessoas testarem.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image24.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image24.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant">O projeto utilizado para
+                                exemplo da atividade pode ser acessado no link: <a class="text-prepare hover:underline"
+                                    href="https://teachablemachine.withgoogle.com/models/H0pLrQckU/"
+                                    rel="noopener noreferrer"
+                                    target="_blank">https://teachablemachine.withgoogle.com/models/H0pLrQckU/</a> Acesso
+                                em: 13 jul. 2026.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Gerar o link permite à outras
+                                pessoas testar e compartilhar a atividade em diferentes contextos, o que amplia a
+                                validação do modelo desenvolvido.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Para este momento, os
+                                estudantes irão acessar o sistema da dupla ao lado, fazendo assim com que todos testem
+                                outros sistemas. O teste realizado por pessoas que não participaram da criação do modelo
+                                funciona como uma etapa de validação externa, além de revelar o grau de generalização do
+                                sistema e possíveis fragilidades ainda não identificadas pela dupla criadora. Outro
+                                ponto positivo é que, para interagir com outros projetos, os estudantes irão aprender
+                                novos sinais, desenvolvendo ainda mais as habilidades em libras.</p>
+                            <div
+                                class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container mt-8">
+                                <h4
+                                    class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                                </h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">No Teachable Machine,
+                                        podemos clicar em “Export Model” e gerar um link público para que qualquer
+                                        pessoa
+                                        no mundo use a nossa IA. Sabendo o que descobrimos sobre os bugs e os vieses na
+                                        primeira rodada de treinos, quais são os riscos de disponibilizar publicamente
+                                        um
+                                        sistema de IA cujo desempenho ainda não foi amplamente testado em diferentes
+                                        contextos e usuários?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Existe uma preocupação
+                                        comum de que a IA extinguirá muitas profissões no futuro. Sabendo que hoje vocês
+                                        atuaram como curadores de dados e treinadores de IA, como essa experiência
+                                        amplia
+                                        a compreensão sobre o papel humano na construção, supervisão e melhoria contínua
+                                        de sistemas de IA? Que tipos de novas profissões humanas vão surgir para
+                                        garantir
+                                        que esses sistemas inteligentes funcionem sem erros e sem preconceitos?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-5 content-block">
+                        <p class="text-body-md font-body-md text-on-surface-variant">Para deixar o projeto ainda mais
+                            interessante, iremos integrá-lo ao Playground do MIT, criando um sistema responsivo e
+                            personalizável que interage com base nos movimentos detectados. Seguem os principais passos
+                            do processo.</p>
+                        <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-beyond/40 space-y-12">
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 1</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">No Teachable Machine,
+                                    garanta que o projeto está funcionando. Importe-o caso necessário. Treine o modelo e
+                                    faça alguns testes. Quando ele estiver identificando corretamente a letra, é
+                                    possível
+                                    prosseguir.</p>
+                                <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image25.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image25.png" /></figure>
+                            </div>
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 2</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Caso o projeto ainda não
+                                    possua um link público, clique em “Export Model” e, na janela seguinte, selecione
+                                    “Upload my Model”. Esse procedimento gera o link necessário para integrar o modelo
+                                    ao ambiente de programação.</p>
+                            </div>
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 3</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Acesse o link <a
+                                        class="text-beyond hover:underline"
+                                        href="https://playground.raise.mit.edu/create/" rel="noopener noreferrer"
+                                        target="_blank">https://playground.raise.mit.edu/create/</a> e delete o ator
+                                    laranja clicando no ícone de lixeira.</p>
+                                <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image26.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image26.png" /></figure>
+                            </div>
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 4</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Clique no ícone de gato no
+                                    canto direito inferior e vá em “Adicione um Ator”. Procure pela primeira letra. Após
+                                    adicioná-la, mude para a aba “Fantasias” e insira as demais letras como novas
+                                    fantasias
+                                    do mesmo ator.</p>
+                                <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image27.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image27.png" /></figure>
+                                <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image28.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image28.png" /></figure>
+                            </div>
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 5</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Para fazer a ligação entre
+                                    o
+                                    Playground e o Teachable Machine, será necessário adicionar uma extensão. Localize o
+                                    botão de adicionar extensão no canto inferior esquerdo da interface e procure por
+                                    “Teachable Machine”.</p>
+                                <figure class="w-1/4 mx-auto my-4 text-center"><img alt="image29.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image29.png" /></figure>
+                                <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image30.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image30.png" /></figure>
+                            </div>
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 6</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Após a adição, será
+                                    possível
+                                    encontrar alguns blocos de detecção de vídeo. Como ainda não estão disponíveis em
+                                    português, seus nomes aparecerão apenas em inglês.</p>
+                                <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image31.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image31.png" /></figure>
+                            </div>
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 7</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Com a letra selecionada,
+                                    adicione o evento “Quando o botão bandeira verde for clicado” para disparar alguma
+                                    ação e o bloco “use model” para conectar as ferramentas, colando o link do Teachable
+                                    no espaço disponível.</p>
+                                <div
+                                    class="rounded-xl border border-beyond/20 border-l-4 border-l-beyond overflow-hidden bg-beyond/5">
+                                    <button type="button"
+                                        class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-beyond/10 transition-colors"
+                                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                            class="material-symbols-outlined text-beyond text-xl">warning</span><span
+                                            class="text-label-md font-label-md font-bold text-beyond flex-1">Atenção!</span><span
+                                            class="material-symbols-outlined text-beyond atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                    <div class="hidden border-t border-beyond/20 px-5 py-4 sm:px-6 sm:py-5">
+                                        <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                            Após
+                                            copiar o link do Teachable Machine, é necessário fechar a aba do site antes
+                                            de
+                                            retorná-lo ao Scratch. Ao inserir o link, o Scratch solicitará uma nova
+                                            permissão para uso da câmera. Caso o Teachable Machine permaneça aberto, a
+                                            câmera poderá não ser ativada corretamente.</p>
+                                        <br>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image32.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image32.png" /></figure>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="relative space-y-4">
+                                <div
+                                    class="absolute w-6 h-6 bg-beyond rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                </div>
+                                <h4 class="text-headline-sm font-headline-sm text-beyond">Passo 8</h4>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Agora é possível programar
+                                    o
+                                    modelo para detectar cada uma das letras e fazer uma ação. Neste exemplo, a ação
+                                    programada é a troca de fantasia, mas o modelo pode acionar diferentes respostas
+                                    visuais ou sonoras, conforme a criatividade da dupla.</p>
+                                <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image33.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image33.png" /></figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--beyond mb-4 pb-2 border-b border-beyond/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="beyond">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-1"
+                                    id="nave-dicas-trigger-beyond-1"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Etapa Para
+                                        ir
+                                        além</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">é importante que o
+                                        educador tenha um protótipo funcionando com o próprio nome, pois assim
+                                        conseguirá
+                                        demonstrar aos estudantes o resultado esperado. Provoque os estudantes para que
+                                        experimentem diferentes respostas programáveis quando a letra for detectada, a
+                                        fim
+                                        de reforçar a ideia de que o modelo pode ser integrado a sistemas interativos
+                                        mais
+                                        complexos.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-2"
+                                    id="nave-dicas-trigger-beyond-2"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Velocidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">oriente os estudantes a
+                                        diversificar o conjunto de dados incluindo variações de velocidade: execução
+                                        lenta,
+                                        em ritmo natural e rápida. Essa variação contribui para que o modelo reconheça o
+                                        padrão do movimento independentemente da rapidez da execução.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-3"
+                                    id="nave-dicas-trigger-beyond-3"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Salvar</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ao clicar nas 3 linhas
+                                        ao
+                                        lado do nome da ferramenta, no canto superior esquerdo, é possível salvar o
+                                        projeto
+                                        no Google Drive ou realizar o download local. Reforce a importância de salvar o
+                                        trabalho ao final da aula para possibilitar continuidade em etapas futuras.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EM13CO02</span> – “Explorar e construir a solução de problemas
+                    por meio de refinamentos, utilizando diversos níveis de abstração.”</li>
+                <li><span class="nave-meta-expand__code">EM13CO04</span> – “Reconhecer o conceito de metaprogramação
+                    como uma forma de generalização na construção de programas.”</li>
+            </ul>
+        </template>
+        <template id="nave-focus-expand-1">
+            <h2 class="nave-meta-expand__title">Mundo Digital e IA</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EM13CO03</span> – “Analisar e experimentar princípios básicos
+                    de Inteligência Artificial aplicados à programação, compreendendo como os algoritmos aprendem,
+                    classificam e tomam decisões a partir de dados.”</li>
+                <li><span class="nave-meta-expand__code">EM13CO10</span> – “Conhecer os fundamentos da Inteligência
+                    Artificial, comparando-a com a inteligência humana, analisando suas funcionalidades, riscos e
+                    ética.”</li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
+</body>
+
+</html>

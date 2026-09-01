@@ -1,86 +1,1337 @@
 <!DOCTYPE html>
 <!-- Oficina: missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade | Missão Programador e Game Designer - Jogo de Esquiva no MakeCode Arcade -->
 <html lang="pt-BR">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Missão Programador e Game Designer - Jogo de Esquiva no MakeCode Arcade — Oficina NAVE</title>
-    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png"/>
-    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png"/>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="../../assets/js/tailwind-config.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="../../assets/css/nave.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
 </head>
-<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
 
-<header class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
-<div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-<a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html" title="Oficinas NAVE — início">
-<img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg" width="137"/>
-</a>
-<a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4" href="../../index.html" title="Voltar ao índice">
-<span class="material-symbols-outlined text-lg">arrow_back</span>
-<span>Todas</span>
-</a>
-<div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
-<span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Missão Programador e Game Designer - Jogo de Esquiva no MakeCode Arcade</span>
-</div></div></header>
-<div class="flex flex-1 w-full max-w-max-width mx-auto">
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
 
-<aside class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
-<div class="nave-workshop-sidebar__head">
-<div class="nave-workshop-sidebar__icon" aria-hidden="true"><span class="material-symbols-outlined">face</span></div>
-<h2 class="nave-workshop-sidebar__title">Missão Programador e Game Designer - Jogo de Esquiva no MakeCode Arcade</h2>
-<div class="nave-sidebar-meta"><span class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant" data-nave-meta="audience" tabindex="0" title="Público-alvo"><span class="material-symbols-outlined" aria-hidden="true">school</span><span class="nave-meta-chip__value">a partir de 12 anos</span><span class="nave-meta-chip__hint" role="tooltip">Público-alvo</span></span><span class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant" data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span class="material-symbols-outlined" aria-hidden="true">timer</span><span class="nave-meta-chip__value">2 encontros de 45 min cada (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da oficina</span></span></div>
-</div>
-<nav id="sidebar-nav">
-<ul class="space-y-1">
-<li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link" href="#view" data-section-color="primary"><span class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão Geral</a></li>
-<li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link" href="#materials" data-section-color="tertiary"><span class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a></li>
-<li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link" href="#prepare" data-section-color="prepare"><span class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a></li>
-<li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link" href="#create" data-section-color="secondary"><span class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a></li>
-<li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link" href="#reflect" data-section-color="primary-container"><span class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a></li>
-<li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional" href="#beyond" data-section-color="beyond"><span class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span class="nav-link__label-row">Para ir além <span class="nav-link__optional-tag">Opcional</span></span></a></li>
-</ul></nav></aside>
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Missão
+                    Programador e Game Designer - Jogo de Esquiva no MakeCode Arcade</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
 
-<main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Missão Programador e Game Designer - Jogo de Esquiva no
+                    MakeCode Arcade</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 12 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">2 encontros de 45 min cada (total: 90 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
 
-<section class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24" id="view">
-<div class="absolute inset-0 pattern-grid z-0"></div>
-<div class="relative z-10 p-8 lg:p-12"><div class="flex-1 space-y-6">
-<h1 class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">Missão Programador e Game Designer - Jogo de Esquiva no MakeCode Arcade</h1>
-<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, os estudantes serão desafiados a assumir o papel de game designers e programadores, desenvolvendo um jogo de esquiva funcional no MakeCode Arcade. O projeto consiste em, utilizando algoritmos de colisão, sistemas de pontuação e controle de vidas, programar um personagem controlado pelo jogador para desviar de obstáculos que caem continuamente. Ao longo do desenvolvimento, os estudantes poderão personalizar o tema do jogo (sustentabilidade, cibersegurança, saúde digital etc.), integrar conhecimentos de outras áreas à criação digital e ampliar o significado pedagógico da experiência. Toda a construção pode ser realizada integralmente no ambiente virtual do MakeCode Arcade, com a possibilidade de compartilhamento dos jogos finalizados por meio de link ou QR Code gerado pela própria plataforma.</p><div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm" data-nave-meta="audience" tabindex="0" title="Público-alvo"><span class="material-symbols-outlined">school</span><span class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 12 anos</span><span class="nave-meta-chip__hint" role="tooltip">Público-alvo</span></span><span class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm" data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span class="material-symbols-outlined">timer</span><span class="nave-meta-chip__value text-label-sm font-label-sm">2 encontros de 45 min cada (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da oficina</span></span><span class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm" data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI" data-nave-meta-hint="Eixo da Nova BCCI" data-nave-meta-expand="nave-focus-expand-0"><span class="material-symbols-outlined">account_tree</span><span class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova BCCI</span></span></div></div></div></section>
-<section class="mb-16"><h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2><div class="nave-estrutura-grid nave-estrutura-grid--4"><div class="nave-estrutura-card nave-estrutura-card--prepare"><div class="nave-estrutura-card__head"><div class="nave-estrutura-card__title-row"><h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">20 min</span></div></div><p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Apresentar o tema de criação de jogos, introduzir o MakeCode Arcade, explorar a interface e os sprites e realizar uma miniexperiência de movimentação simples.</p></div><div class="nave-estrutura-card nave-estrutura-card--create"><div class="nave-estrutura-card__head"><div class="nave-estrutura-card__title-row"><h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">60 min</span></div></div><p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Construir passo a passo o jogo de esquiva (incluindo personagem, movimento, gerador de obstáculos, colisão) e garantir um produto jogável ao final.</p></div><div class="nave-estrutura-card nave-estrutura-card--reflect"><div class="nave-estrutura-card__head"><div class="nave-estrutura-card__title-row"><h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">Refletir</h3><span class="duration-badge bg-primary-container/10 text-primary-container">10 min</span></div></div><p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Compartilhar os jogos, testar as criações dos colegas e refletir sobre o processo de desenvolvimento e as possibilidades de melhoria.</p></div><div class="nave-estrutura-card nave-estrutura-card--beyond"><div class="nave-estrutura-card__head"><div class="nave-estrutura-card__title-row"><h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span></div><span class="nave-estrutura-card__optional-tag">Opcional</span></div><p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Incrementar o jogo com recursos de pontuação e vida.</p></div></div></section><section class="mb-16 scroll-mt-24" id="materials">
-<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center"><span class="material-symbols-outlined">inventory_2</span></div>
-<h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2></div>
-<p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de materiais/softwares/componentes necessários</p><div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary"><ul class="space-y-3"><li><label class="flex items-center gap-3 cursor-pointer"><input class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0" type="checkbox" id="nave-material-1"/><span class="text-body-md font-body-md text-on-surface">Computadores com acesso à internet</span></label></li><li><label class="flex items-center gap-3 cursor-pointer"><input class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0" type="checkbox" id="nave-material-2"/><span class="text-body-md font-body-md text-on-surface">Acesso ao site MakeCode Arcade</span></label></li><li><label class="flex items-center gap-3 cursor-pointer"><input class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0" type="checkbox" id="nave-material-3"/><span class="text-body-md font-body-md text-on-surface">Conta institucional Google ou Microsoft</span></label></li><li><label class="flex items-center gap-3 cursor-pointer"><input class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0" type="checkbox" id="nave-material-4"/><span class="text-body-md font-body-md text-on-surface">Folha de papel sulfite</span></label></li></ul></div></section>
-<section class="mb-16 scroll-mt-24" id="prepare">
-<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center"><span class="material-symbols-outlined">menu_book</span></div>
-<h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span class="duration-badge ml-auto bg-prepare/10 text-prepare">20 min</span></div><div class="space-y-8"><div><h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3><div class="space-y-4 content-block"><p class="text-body-md font-body-md text-on-surface-variant">Nesta oficina, os estudantes são convidados a compreender como se constrói um jogo digital com base em decisões de design e programação. A proposta consiste no desenvolvimento de um jogo de esquiva no MakeCode Arcade em que um personagem deve desviar de obstáculos que caem continuamente na tela.</p><p class="text-body-md font-body-md text-on-surface-variant">A construção do jogo exigirá a decomposição do problema em partes menores (movimento, geração de obstáculos, colisão e contagem de pontos) e a organização dessas etapas em algoritmos funcionais. O foco está no processo de testar, ajustar e aprimorar o código até que o jogo se torne jogável, equilibrado e capaz de proporcionar uma experiência desafiadora ao jogador. Ao final, mais do que um jogo pronto, os estudantes terão desenvolvido raciocínio lógico, capacidade de análise e autonomia para transformar ideias em sistemas funcionais.</p><figure class="max-w-xl mx-auto my-4 text-center"><img alt="image1.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image1.png"/></figure></div></div><div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare"><h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2"><span class="material-symbols-outlined">help</span>Perguntas reflexivas</h4><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">O que torna um jogo divertido? Como as decisões de programação influenciam essa experiência?</li><li class="text-body-md font-body-md text-on-surface-variant">Como o computador identifica que o personagem encostou em um obstáculo?</li><li class="text-body-md font-body-md text-on-surface-variant">O que aconteceria se os obstáculos caíssem muito rápido ou muito devagar?</li><li class="text-body-md font-body-md text-on-surface-variant">Qual tema poderia tornar o jogo mais significativo (ex.: desviar de poluição, fugir de vírus)?</li></ul></div><div class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave"><button type="button" class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button><div class="hidden border-t border-outline-variant bg-surface-container-lowest"><div class="p-5 sm:p-6 space-y-4 content-block"><p class="text-body-md font-body-md text-on-surface-variant">O grande destaque da nossa oficina é o MakeCode Arcade, uma plataforma gratuita e visual que permite criar jogos por meio de blocos de programação organizados como peças de encaixar. Embora a interface seja intuitiva, a lógica envolvida é a mesma utilizada em linguagens de programação tradicionais.</p><p class="text-body-md font-body-md text-on-surface-variant">A ferramenta possibilita explorar conceitos fundamentais da computação, como eventos, que ocorrem quando uma ação do jogador ou uma condição do sistema dispara uma resposta do programa; laços de repetição, que permitem gerar obstáculos continuamente; e estruturas condicionais, que são responsáveis por definir comportamentos como perder uma vida ao detectar colisão.</p><p class="text-body-md font-body-md text-on-surface-variant">Além disso, o uso de listas ajuda a armazenar e gerenciar múltiplos objetos simultaneamente na tela, o que facilita a organização de elementos como obstáculos, inimigos ou itens colecionáveis. Mesmo em linguagem por blocos, os estudantes trabalham com estruturas algorítmicas robustas e, com isso, desenvolvem raciocínio lógico e compreensão do funcionamento interno dos jogos digitais. Tudo isso sem precisar escrever códigos complexos, mas mobilizando os princípios da lógica de programação!</p></div></div></div><div><h3 class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2"><span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução</h3><div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare"><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="prepare-1"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1" id="nave-dicas-trigger-prepare-1"><span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Contextualização inicial</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-prepare-1" role="region" aria-labelledby="nave-dicas-trigger-prepare-1"><p class="text-body-sm font-body-md text-on-surface-variant">apresente o desafio da oficina de forma clara, situando os estudantes no problema que será resolvido.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="prepare-2"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2" id="nave-dicas-trigger-prepare-2"><span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Exploração livre</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-prepare-2" role="region" aria-labelledby="nave-dicas-trigger-prepare-2"><p class="text-body-sm font-body-md text-on-surface-variant">utilize o momento de Embarque para uma experimentação inicial. Antes da aula, familiarize-se com o MakeCode Arcade, para antecipar possíveis dúvidas técnicas, e teste especialmente a criação de sprites, a movimentação, a geração de obstáculos e a detecção de colisão.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="prepare-3"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3" id="nave-dicas-trigger-prepare-3"><span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Apoio individualizado</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-prepare-3" role="region" aria-labelledby="nave-dicas-trigger-prepare-3"><p class="text-body-sm font-body-md text-on-surface-variant">durante a atividade, caminhe pela sala de aula para identificar dificuldades e oferecer apoio pontual. Incentive o compartilhamento de estratégias entre os estudantes.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="prepare-4"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4" id="nave-dicas-trigger-prepare-4"><span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Uso de linguagem acessível</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-prepare-4" role="region" aria-labelledby="nave-dicas-trigger-prepare-4"><p class="text-body-sm font-body-md text-on-surface-variant">antes de formalizar os conceitos técnicos, utilize termos próximos da realidade da turma, como “blocos de instruções” e “regras do jogo”,.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="prepare-5"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-prepare-5" id="nave-dicas-trigger-prepare-5"><span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Definição do tema do jogo</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-prepare-5" role="region" aria-labelledby="nave-dicas-trigger-prepare-5"><p class="text-body-sm font-body-md text-on-surface-variant">desde o início, estimule a escolha de um tema para o projeto. A personalização de sprites e cenários amplia o engajamento e o significado pedagógico.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="prepare-6"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-prepare-6" id="nave-dicas-trigger-prepare-6"><span class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro do processo</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-prepare-6" role="region" aria-labelledby="nave-dicas-trigger-prepare-6"><p class="text-body-sm font-body-md text-on-surface-variant">incentive o registro de decisões, descobertas e ajustes realizados ao longo da construção. O acompanhamento favorece a organização do pensamento e o refinamento do jogo.</p></div></div></div></div><div><h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3><div class="space-y-4 content-block"><p class="text-body-md font-body-md text-on-surface-variant">Inicie a aula propondo um primeiro contato rápido com o MakeCode Arcade, com o objetivo de familiarizar os estudantes com a interface e os principais recursos da plataforma.</p><p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a acessar o site <a class="text-prepare hover:underline" href="https://arcade.makecode.com" rel="noopener noreferrer" target="_blank">arcade.makecode.com</a> e, depois, a clicar em “Novo Projeto”. Solicite-lhes que atribuam um nome ao projeto, reforçando a importância de nomear corretamente os arquivos desde o início.</p><figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image2.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Apresente a organização da tela inicial. Para isso, destaque as três áreas principais:</p><ol class="list-decimal pl-5 space-y-4"><li class="text-body-md font-body-md text-on-surface-variant">à esquerda, o simulador, que representa o “dispositivo” no qual o jogo será executado;</li><li class="text-body-md font-body-md text-on-surface-variant">ao centro, a área de blocos, em que se encontram os comandos disponíveis;</li><li class="text-body-md font-body-md text-on-surface-variant">à direita, a área de programação, na qual os blocos serão organizados para estruturar o funcionamento do jogo.<figure class="max-w-xl mx-auto my-4 text-center"><img alt="image3.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image3.png"/></figure></li></ol><p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a adicionar um personagem (sprite) utilizando o bloco “set mySprite” no menu “Sprites”. Eles podem optar por desenhar um personagem próprio ou selecionar uma imagem da “Gallery” da ferramenta.</p><figure class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image4.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Em seguida, solicite que escolham um cenário no conjunto “Scene”. Há também a opção de desenhar ou selecionar uma arte disponível da “Gallery”, por meio do bloco “set background image to ()”.</p><figure class="max-w-xl mx-auto my-4 text-center"><img alt="image5.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image5.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Após a escolha do personagem e do cenário, proponha o primeiro desafio exploratório: fazer com que o personagem se movimente pelo cenário utilizando os blocos do grupo “Controller”. Incentive a experimentação e a observação do comportamento do personagem no simulador.</p><figure class="max-w-xl mx-auto my-4 text-center"><img alt="image6.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image6.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Durante essa etapa, oriente os estudantes a registrar ideias iniciais para o jogo: qual personagem escolheram, que tipo de obstáculo poderia ser inserido, de onde esses obstáculos surgiriam, qual temática poderia dar sentido à narrativa do jogo etc. Esse planejamento inicial auxiliará nas próximas etapas de desenvolvimento.</p><p class="text-body-md font-body-md text-on-surface-variant">Passo a passo para o estudante</p><ol class="list-decimal pl-5 space-y-4"><li class="text-body-md font-body-md text-on-surface-variant">Acesso: peça aos estudantes que acessem o site <a class="text-prepare hover:underline" href="https://arcade.makecode.com" rel="noopener noreferrer" target="_blank">arcade.makecode.com</a> e preferencialmente façam login para que possam salvar suas produções.</li><li class="text-body-md font-body-md text-on-surface-variant">Exploração: após a exploração guiada, proponha o seguinte desafio: Vocês têm 2 minutos para fazer o personagem andar pelo cenário por meio das setas do teclado ou pelo joystick do dispositivo simulado.</li><li class="text-body-md font-body-md text-on-surface-variant">Exploração livre: incentive a turma a explorar os diferentes blocos e a errar sem medo, pois isso pode conduzi-los a descobertas importantes para esta primeira etapa.</li><li class="text-body-md font-body-md text-on-surface-variant">Socialização: quem descobrir um novo comando aplicável para a construção do jogo poderá compartilhar com a turma.</li></ol></div></div></div></section>
-<section class="mb-16 scroll-mt-24" id="create">
-<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center"><span class="material-symbols-outlined">construction</span></div>
-<h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span class="duration-badge ml-auto bg-secondary/10 text-secondary">60 min</span></div><div class="space-y-10"><div class="space-y-4"><div class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center"><p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo</p><h3 class="text-headline-md font-headline-md text-on-surface">Criando um Jogo de Esquiva</h3></div><figure class="max-w-xl mx-auto my-4 text-center"><img alt="image7.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image7.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">A construção do jogo no MakeCode Arcade pode representar uma novidade significativa para muitos estudantes. Para garantir que todos se mantenham engajados e consigam acompanhar o processo, organize a atividade em etapas claras e progressivas, promovendo a sensação de conquista a cada avanço.</p><p class="text-body-md font-body-md text-on-surface-variant">Reforce que programar envolve testar, identificar erros e realizar ajustes constantes. O objetivo não é acertar de primeira, mas compreender o funcionamento do sistema e aprimorar o projeto ao longo do percurso. Ao final da sequência principal, cada estudante deverá ter um jogo jogável e funcional, pronto para ser compartilhado com os colegas.</p><p class="text-body-md font-body-md text-on-surface-variant">Apresente previamente os marcos da atividade e destaque que o foco principal é garantir que todos avancem até a etapa 5, momento em que o jogo já contará com movimentação, geração de obstáculos, sistema de colisão e controle básico de vidas. As etapas seguintes podem ser apresentadas como desafios opcionais para aprofundamento ou ampliação criativa.</p></div><div class="workshop-accordions"><div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden" data-workshop-accordion-id="atividade"><button type="button" class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left" id="workshop-trigger-atividade" aria-expanded="false" aria-controls="workshop-panel-atividade"><div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0"><span class="material-symbols-outlined">school</span></div><span class="text-headline-sm font-headline-sm text-secondary flex-1">Atividade</span><span class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">5 etapas</span><span class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8" id="workshop-panel-atividade" role="region" aria-labelledby="workshop-trigger-atividade"><div class="space-y-4 mb-8"><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Circulação e apoio individualizado: durante a atividade, circule pela sala para identificar dificuldades específicas e oferecer apoio pontual. Observe soluções criativas desenvolvidas pelas duplas e incentive o compartilhamento com a turma.</li></ul><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Incentivo à colaboração: estimule a ajuda mútua, convidando estudantes que encontrarem soluções eficazes a explicá-las aos colegas. A prática fortalece a aprendizagem coletiva e a autonomia progressiva.</li></ul><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Apoio linguístico: informe que o MakeCode Arcade apresenta comandos em inglês. Quando necessário, sugira a construção de um glossário com os blocos mais utilizados ou o uso pontual de tradutores, ampliando a compreensão e o vocabulário técnico.</li></ul><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Revisão antes de solicitar ajuda: reforce a importância de verificar os tipos de “sprites” (“Jogador” e “Inimigo”) para garantir o funcionamento da detecção de colisão. Caso algo não funcione como esperado, incentive a revisão organizada do código antes de intervir.</li></ul><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Valorização do erro como aprendizagem: destaque que o erro integra o processo de programação. O processo de testar, ajustar e tentar novamente favorece a compreensão da lógica do jogo e o desenvolvimento do Pensamento Computacional.</li></ul></div><h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3><div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12"><div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div><h4 class="text-headline-sm font-headline-sm text-secondary">Criando o cenário e o personagem</h4><p class="text-body-md font-body-md text-on-surface-variant">Retome o ambiente do MakeCode Arcade, solicitando aos estudantes que criem um novo projeto. Em seguida, oriente-os a localizar os blocos responsáveis pela definição do cenário e do personagem, disponíveis nos grupos “Scene” e “Sprites”, respectivamente.</p><p class="text-body-md font-body-md text-on-surface-variant">Explique que é possível desenhar cenários e personagens personalizados utilizando o editor da própria plataforma. No entanto, considerando o tempo previsto para a atividade, recomende aos estudantes que selecionem elementos já disponíveis na aba “Gallery”, pois isso garante maior agilidade no desenvolvimento da estrutura principal do jogo.</p><p class="text-body-md font-body-md text-on-surface-variant">Caso haja tempo adicional ou interesse da turma em aprofundar o projeto, sugira a expansão da atividade com a personalização detalhada de personagens e cenários. Essa ampliação pode enriquecer o aspecto criativo do jogo, mas requer planejamento e dedicação de um período extra para não comprometer as etapas essenciais de programação.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image8.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image8.png"/></figure></div><div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div><h4 class="text-headline-sm font-headline-sm text-secondary">Programando o movimento</h4><p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a adicionar movimentação ao personagem. Para isso, deverão acessar a aba “Controller” e localizar o bloco “move mySprite with buttons”. Explique que esse bloco permite controlar o personagem utilizando as setas do teclado, as teclas WASD ou o joystick disponível no simulador da plataforma.</p><p class="text-body-md font-body-md text-on-surface-variant">Incentive os estudantes a testar diferentes velocidades de movimento, ajustando os valores do bloco para observar como pequenas alterações influenciam a experiência do jogador. Para isso, devem clicar no botão “+”, à direita do bloco.</p><div class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8"><button type="button" class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5"><p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Antes de seguir para os próximos passos, proponha uma experimentação rápida para que a turma compreenda como o bloco de movimentação “enxerga” o personagem. Peça que criem uma nova variável do personagem (por exemplo, alterar o nome padrão “mySprite” para “herói” ou “jogador”) sem alterar o parâmetro dentro do bloco “move mySprite with buttons”.</p></div></div><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image9.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image9.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Ao testarem, perceberão que o personagem não se move mais. Isso acontece porque o bloco de controle continua tentando movimentar um objeto chamado “mySprite”, mas a variável do personagem agora tem outro nome. Essa experiência demonstra, na prática, o conceito de referência a objetos e a importância da consistência na nomeação de variáveis.</p><p class="text-body-md font-body-md text-on-surface-variant">Em seguida, oriente os estudantes a corrigir o parâmetro do bloco “move mySprite with buttons” para que ele aponte para o novo nome da variável do personagem. Após o ajuste, o controle voltará a funcionar normalmente.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image10.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image10.png"/></figure></div><div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div><h4 class="text-headline-sm font-headline-sm text-secondary">Fazendo o personagem permanecer na tela</h4><p class="text-body-md font-body-md text-on-surface-variant">Após programar a movimentação do personagem, solicite aos estudantes que realizem testes no simulador para identificar possíveis comportamentos inesperados. Espera-se que eles percebam que, ao mover o personagem continuamente em uma mesma direção, ele poderá sair da tela e continuar se deslocando indefinidamente.</p><p class="text-body-md font-body-md text-on-surface-variant">Utilize esse momento para problematizar a situação e discutir a necessidade de limitar o espaço de movimentação. Para corrigir esse comportamento, oriente a inserção do bloco “set mySprite stay in screen on/off”, localizado no grupo “Sprites”, na categoria “Effects”. Esse bloco restringe o personagem aos limites da tela do jogo.</p><p class="text-body-md font-body-md text-on-surface-variant">Destaque que esse recurso pode ser aplicado a diferentes personagens do jogo e que pode ser ativado ou desativado conforme a necessidade da programação, ampliando o controle sobre as regras definidas para o projeto.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image11.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image11.png"/></figure></div><div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div><h4 class="text-headline-sm font-headline-sm text-secondary">Criando o gerador de obstáculos</h4><p class="text-body-md font-body-md text-on-surface-variant">Após configurar a movimentação do personagem, introduza a próxima etapa: a inserção dos obstáculos. Explique que esse é o momento em que o jogo começa a ganhar dinâmica e desafio. Neste exemplo, os obstáculos serão programados para “cair do céu”, simulando uma ameaça constante ao jogador.</p><p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a acessar o grupo de blocos “Game” e selecionar o bloco “on game update every 500 ms”. Esclareça que esse bloco executa uma ação em intervalos regulares de tempo e funciona como um temporizador. No contexto do jogo, ele será utilizado para gerar obstáculos repetidamente. Ressalte que o valor do intervalo pode ser alterado: quanto menor for o tempo (por exemplo, 300 ms), maior será a frequência de surgimento dos obstáculos, aumentando o nível de dificuldade; quanto maior for o intervalo, menor será a intensidade do desafio.</p><p class="text-body-md font-body-md text-on-surface-variant">Nesse bloco de atualização, oriente a criação de um novo personagem no grupo “Sprites”, que representará o obstáculo. Esse novo sprite será definido como inimigo “myEnemy” e terá sua aparência definida por meio do editor de desenho ou da aba “Gallery”.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image12.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image12.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Após definir o inimigo, oriente os estudantes a configurar a posição inicial. No grupo “Sprites”, dentro da categoria “Physics”, utilize o bloco “set mySprite position to x 0 y 0”. Selecione “myEnemy” e explique que será necessário posicioná-lo no topo da tela, ajustando o valor do eixo Y para que ele inicie fora ou próximo da borda superior.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image13.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image13.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Para tornar o jogo mais dinâmico, proponha que o inimigo surja em posições diferentes a cada geração. Explique que, para isso, o valor do eixo X deve ser aleatório. No grupo “Math”, selecione o bloco de número aleatório e insira-o no campo correspondente ao X. Considerando os limites-padrão da tela no MakeCode Arcade, o intervalo pode variar de 0 a 160, o que garante que o obstáculo apareça dentro da área visível. No entanto, tendo em vista a dinâmica do jogo, sugira aos estudantes que utilizem a aleatoriedade entre 10 e 150, a fim de evitar que os objetos apareçam nos extremos e não representem um desafio para ser desviado.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image14.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image14.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Em seguida, configure o movimento do inimigo para que ele “caia do céu”. Ainda no grupo “Sprites”, na categoria “Physics”, utilize o bloco “set velocity to”. Selecione “myEnemy” e atribua um valor positivo ao eixo Y para definir a velocidade de queda e nulo ao eixo X. Explique que valores maiores tornam o obstáculo mais rápido, aumentando o nível de dificuldade do jogo. Opcionalmente, é possível considerar valores aleatórios entre -10 e 10 ao eixo X.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image15.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image15.png"/></figure></div><div class="relative space-y-4"><div class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background"></div><h4 class="text-headline-sm font-headline-sm text-secondary">Implementando colisão e vidas</h4><p class="text-body-md font-body-md text-on-surface-variant">Após configurar a geração e movimentação dos obstáculos, introduza o sistema de colisão. Mencione que, para que o jogo responda ao contato entre personagens, é necessário utilizar um evento de sobreposição. Ressalte aos alunos que o programa já contém um evento que identifica quando um sprite ocupa o mesmo espaço que outro.</p><p class="text-body-md font-body-md text-on-surface-variant">Em “Sprites”, localize o bloco de “overlaps”, responsável por detectar quando um “Inimigo” encosta no “Jogador”. Para isso, garanta que os parâmetros estejam como “Enemy” e “Player”, assim como está indicado nos blocos que criaram esses personagens.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image16.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image16.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a programar as consequências dessa colisão. Quando a interação entre o inimigo e o personagem for detectada, o jogo deverá reduzir a quantidade de vidas do jogador e remover o obstáculo da tela. Explique que destruir o inimigo após o contato evita que ele retire mais de um ponto de vida em uma única colisão.</p><p class="text-body-md font-body-md text-on-surface-variant">No grupo “Info”, utilize o bloco “change life by -1” para reduzir uma vida do jogador. Em seguida, no grupo “Sprites”, utilize o bloco “destroy myEnemy” para eliminar o obstáculo após a colisão.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image17.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image17.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Nesse caso, ainda é necessário puxar e soltar a variável “sprite”, obtida como retorno da função de sobreposição (“overlaps”). Se não for feito dessa maneira, o inimigo destruído será o último criado, e não aquele que de fato encostou no personagem do jogador. Esse erro pode causar um bug na programação, fazendo com que o jogador perca todas as vidas de uma só vez, já que o inimigo que realmente colidiu continua em contato com o personagem, sem ser destruído. Para corrigir isso, é necessário arrastar o bloco “sprite” (retornado pelo evento de colisão) e utilizá-lo no lugar do “myEnemy” genérico, garantindo que apenas o inimigo específico envolvido na colisão seja removido.</p><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image18.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image18.png"/></figure><figure class="w-1/2 mx-auto my-4 text-center"><img alt="image19.png" class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image19.png"/></figure><p class="text-body-md font-body-md text-on-surface-variant">Essa é uma excelente oportunidade para que os estudantes experimentem o erro propositalmente e busquem o motivo do mau funcionamento. Incentive-os a testar o código sem a correção, observar o comportamento inesperado (perda rápida de todas as vidas) e, em seguida, depurar o problema ajustando a referência do bloco “destroy”. Esse processo de tentativa, erro e correção é uma prática fundamental do pensamento computacional e fortalece a compreensão sobre referência a objetos e eventos de colisão.</p><p class="text-body-md font-body-md text-on-surface-variant">Destaque que o MakeCode Arcade já é pré-programado para iniciar o jogo com 3 vidas. Caso a turma deseje alterar esse valor, é possível configurá-lo no grupo “Info”, ajustando a quantidade inicial conforme a proposta do jogo. O bloco correspondente deve ser adicionado a “on start”, mesmo local em que foram configurados os primeiros blocos do jogo.</p><p class="text-body-md font-body-md text-on-surface-variant">Após implementar o sistema básico de colisão e vidas, incentive ajustes e testes. Oriente os estudantes a refletir sobre o equilíbrio do jogo, por meio de perguntas como: O número de vidas está adequado? Os obstáculos estão rápidos demais? O desafio está justo? Para aqueles que avançarem mais rapidamente, proponha extensões como aumento progressivo da dificuldade, inclusão de sistema de pontuação ou criação de novas fases.</p></div></div></div></div></div></div></section>
-<section class="mb-16 scroll-mt-24" id="reflect">
-<div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center"><span class="material-symbols-outlined">psychology</span></div>
-<h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span class="duration-badge ml-auto bg-primary-container/10 text-primary-container">10 min</span></div><div class="space-y-10"><div class="space-y-6"><h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3><div class="space-y-4"><h4 class="text-headline-sm font-headline-sm text-primary-container mt-8 first:mt-0">Dinâmica de compartilhamento: &quot;Feira de games&quot;</h4><p class="text-body-md font-body-md text-on-surface-variant">Organize um momento breve para socialização dos jogos desenvolvidos. Como o tempo pode ser limitado, priorize dinâmicas ágeis e coletivas que valorizem o protagonismo dos estudantes e a troca de experiências.</p><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Opção 1 – Roda de testes: divida a turma em duplas. Cada um dos estudantes testa o jogo do colega por aproximadamente 2 minutos e, em seguida, realiza a troca. Ao final, cada participante comenta um aspecto positivo do jogo testado e apresenta uma sugestão de melhoria, estimulando o feedback construtivo.</li></ul><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Opção 2 – Galeria interativa: caso haja projetor disponível, convide alguns voluntários a apresentar seus jogos para a turma. Durante as demonstrações, incentive os colegas a observar elementos como movimentação, temática escolhida, equilíbrio da dificuldade e comportamento dos obstáculos.</li></ul><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Opção 3 – Compartilhamento digital: oriente os estudantes a utilizar a opção “Compartilhar” no MakeCode Arcade para gerar o link ou QR Code do jogo. Os links podem ser publicados em um mural virtual (como o Padlet), permitindo à turma explorar os jogos posteriormente.</li></ul><p class="text-body-md font-body-md text-on-surface-variant">Finalize reforçando que, mesmo partindo de um mesmo desafio, diferentes decisões de programação resultam em experiências únicas de jogo.</p></div></div><div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container"><h4 class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2"><span class="material-symbols-outlined">help</span>Perguntas reflexivas</h4><ul class="list-disc pl-5 space-y-2"><li class="text-body-md font-body-md text-on-surface-variant">Qual foi a parte mais fácil de programar? E a mais desafiadora? Por quê?</li><li class="text-body-md font-body-md text-on-surface-variant">Se fosse necessário tornar o jogo progressivamente mais difícil, quais elementos do código poderiam ser modificados?</li><li class="text-body-md font-body-md text-on-surface-variant">Como o computador identifica que o personagem encostou no obstáculo? O que acontece no programa quando isso ocorre?</li><li class="text-body-md font-body-md text-on-surface-variant">O que aconteceria se não fosse usada uma lista para gerenciar os obstáculos? O que mudaria na organização do código?</li><li class="text-body-md font-body-md text-on-surface-variant">Que tema você escolheu para o seu jogo? Como a programação ajudou você a contar essa história?</li></ul></div><div><h3 class="text-headline-sm font-headline-sm heading-dicas heading-dicas--primary-container mb-4 pb-2 border-b border-primary-container/15 flex items-center gap-2"><span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução</h3><div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="reflect"><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="reflect-1"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-reflect-1" id="nave-dicas-trigger-reflect-1"><span class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Celebração das entregas</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-reflect-1" role="region" aria-labelledby="nave-dicas-trigger-reflect-1"><p class="text-body-sm font-body-md text-on-surface-variant">reconheça o esforço de cada estudante ao final da atividade, mesmo que o jogo não esteja totalmente concluído. Valorize os avanços em lógica, criatividade e resolução de problemas, visto que esse reconhecimento promove a motivação e a confiança.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="reflect-2"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-reflect-2" id="nave-dicas-trigger-reflect-2"><span class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro dos aprendizados</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-reflect-2" role="region" aria-labelledby="nave-dicas-trigger-reflect-2"><p class="text-body-sm font-body-md text-on-surface-variant">solicite um breve registro reflexivo em caderno ou documento digital, orientado por perguntas como: O que aprendi hoje? O que posso aprimorar no meu jogo? A prática favorece a metacognição e a consolidação do conhecimento.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="reflect-3"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-reflect-3" id="nave-dicas-trigger-reflect-3"><span class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Criação de um evento</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-reflect-3" role="region" aria-labelledby="nave-dicas-trigger-reflect-3"><p class="text-body-sm font-body-md text-on-surface-variant">sempre que possível, promova um momento de socialização para que os estudantes apresentem seus jogos a outras turmas ou em eventos internos. A iniciativa amplia o reconhecimento do trabalho e fortalece o protagonismo.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="reflect-4"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-reflect-4" id="nave-dicas-trigger-reflect-4"><span class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Feedback construtivo</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-reflect-4" role="region" aria-labelledby="nave-dicas-trigger-reflect-4"><p class="text-body-sm font-body-md text-on-surface-variant">durante testes e apresentações, incentive devolutivas que iniciem por um ponto forte e avancem para sugestões de melhoria. Isso promove um ambiente colaborativo e de aprimoramento contínuo.</p></div></div><div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden" data-nave-dicas-item-id="reflect-5"><button type="button" class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left" aria-expanded="false" aria-controls="nave-dicas-panel-reflect-5" id="nave-dicas-trigger-reflect-5"><span class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span class="text-label-md font-label-md font-bold text-on-surface flex-1">Estímulo à continuidade</span><span class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button><div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5" id="nave-dicas-panel-reflect-5" role="region" aria-labelledby="nave-dicas-trigger-reflect-5"><p class="text-body-sm font-body-md text-on-surface-variant">reforce que a criação de jogos é um campo em constante evolução e incentive a ampliação ou o aperfeiçoamento dos projetos em outros momentos, na escola ou fora dela.</p></div></div></div></div></div></section>
-<section class="mb-16 scroll-mt-24" id="beyond"><div class="flex items-center gap-3 mb-8 flex-wrap"><div class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0"><span class="material-symbols-outlined">rocket_launch</span></div><h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span class="nave-estrutura-card__optional-tag">Opcional</span><span class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span></div><div class="space-y-5 content-block"></div></section></main>
-<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl" id="bottom-nav">
-<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile" href="#view"><span class="material-symbols-outlined">visibility</span><span class="nav-link-mobile__label">Visão</span></a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile" href="#materials"><span class="material-symbols-outlined">inventory_2</span><span class="nav-link-mobile__label">Materiais</span></a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile" href="#prepare"><span class="material-symbols-outlined">menu_book</span><span class="nav-link-mobile__label">Preparar</span></a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile" href="#create"><span class="material-symbols-outlined">construction</span><span class="nav-link-mobile__label">Criar</span></a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile" href="#reflect"><span class="material-symbols-outlined">psychology</span><span class="nav-link-mobile__label">Refletir</span></a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional" href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span class="nav-link-mobile__label">Além</span></a>
-</nav>
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
 
-<template id="nave-focus-expand-0">
-<h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
-<ul class="nave-meta-expand__list">
-<li>Habilidades deste eixo na oficina.</li>
-</ul>
-</template>
-<script src="../../assets/js/nave.js"></script>
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Missão Programador e Game Designer - Jogo de Esquiva no MakeCode Arcade</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, os
+                            estudantes serão desafiados a assumir o papel de game designers e programadores,
+                            desenvolvendo um jogo de esquiva funcional no MakeCode Arcade. O projeto consiste em,
+                            utilizando algoritmos de colisão, sistemas de pontuação e controle de vidas, programar um
+                            personagem controlado pelo jogador para desviar de obstáculos que caem continuamente. Ao
+                            longo do desenvolvimento, os estudantes poderão personalizar o tema do jogo
+                            (sustentabilidade, cibersegurança, saúde digital etc.), integrar conhecimentos de outras
+                            áreas à criação digital e ampliar o significado pedagógico da experiência. Toda a construção
+                            pode ser realizada integralmente no ambiente virtual do MakeCode Arcade, com a possibilidade
+                            de compartilhamento dos jogos finalizados por meio de link ou QR Code gerado pela própria
+                            plataforma.</p>
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 12
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">2 encontros de 45 min cada
+                                    (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento
+                                    Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">20 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Apresentar o tema de criação de jogos, introduzir o MakeCode Arcade, explorar a interface e
+                            os sprites e realizar uma miniexperiência de movimentação simples.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">60 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Construir
+                            passo a passo o jogo de esquiva (incluindo personagem, movimento, gerador de obstáculos,
+                            colisão) e garantir um produto jogável ao final.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">10 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Compartilhar os jogos, testar as criações dos colegas e refletir sobre o processo de
+                            desenvolvimento e as possibilidades de melhoria.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Incrementar o jogo com recursos de pontuação e vida.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Computadores com acesso à
+                                    internet</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-2" /><span
+                                    class="text-body-md font-body-md text-on-surface">Acesso ao site MakeCode
+                                    Arcade</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-3" /><span
+                                    class="text-body-md font-body-md text-on-surface">Conta institucional Google ou
+                                    Microsoft</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-4" /><span
+                                    class="text-body-md font-body-md text-on-surface">Folha de papel
+                                    sulfite</span></label></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">20 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Nesta oficina, os estudantes
+                                são convidados a compreender como se constrói um jogo digital com base em decisões de
+                                design e programação. A proposta consiste no desenvolvimento de um jogo de esquiva no
+                                MakeCode Arcade em que um personagem deve desviar de obstáculos que caem continuamente
+                                na tela.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">A construção do jogo exigirá a
+                                decomposição do problema em partes menores (movimento, geração de obstáculos, colisão e
+                                contagem de pontos) e a organização dessas etapas em algoritmos funcionais. O foco está
+                                no processo de testar, ajustar e aprimorar o código até que o jogo se torne jogável,
+                                equilibrado e capaz de proporcionar uma experiência desafiadora ao jogador. Ao final,
+                                mais do que um jogo pronto, os estudantes terão desenvolvido raciocínio lógico,
+                                capacidade de análise e autonomia para transformar ideias em sistemas funcionais.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image1.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image1.png" /></figure>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare">
+                        <h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2"><span
+                                class="material-symbols-outlined">help</span>Perguntas reflexivas</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">O que torna um jogo divertido?
+                                Como as decisões de programação influenciam essa experiência?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Como o computador identifica
+                                que o personagem encostou em um obstáculo?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">O que aconteceria se os
+                                obstáculos caíssem muito rápido ou muito devagar?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Qual tema poderia tornar o
+                                jogo mais significativo (ex.: desviar de poluição, fugir de vírus)?</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">O grande destaque da nossa
+                                    oficina é o MakeCode Arcade, uma plataforma gratuita e visual que permite criar
+                                    jogos por meio de blocos de programação organizados como peças de encaixar. Embora a
+                                    interface seja intuitiva, a lógica envolvida é a mesma utilizada em linguagens de
+                                    programação tradicionais.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">A ferramenta possibilita
+                                    explorar conceitos fundamentais da computação, como eventos, que ocorrem quando uma
+                                    ação do jogador ou uma condição do sistema dispara uma resposta do programa; laços
+                                    de repetição, que permitem gerar obstáculos continuamente; e estruturas
+                                    condicionais, que são responsáveis por definir comportamentos como perder uma vida
+                                    ao detectar colisão.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Além disso, o uso de listas
+                                    ajuda a armazenar e gerenciar múltiplos objetos simultaneamente na tela, o que
+                                    facilita a organização de elementos como obstáculos, inimigos ou itens
+                                    colecionáveis. Mesmo em linguagem por blocos, os estudantes trabalham com estruturas
+                                    algorítmicas robustas e, com isso, desenvolvem raciocínio lógico e compreensão do
+                                    funcionamento interno dos jogos digitais. Tudo isso sem precisar escrever códigos
+                                    complexos, mas mobilizando os princípios da lógica de programação!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1"
+                                    id="nave-dicas-trigger-prepare-1"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Contextualização
+                                        inicial</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">apresente o desafio da
+                                        oficina de forma clara, situando os estudantes no problema que será resolvido.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2"
+                                    id="nave-dicas-trigger-prepare-2"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Exploração
+                                        livre</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">utilize o momento de
+                                        Embarque para uma experimentação inicial. Antes da aula, familiarize-se com o
+                                        MakeCode Arcade, para antecipar possíveis dúvidas técnicas, e teste
+                                        especialmente a criação de sprites, a movimentação, a geração de obstáculos e a
+                                        detecção de colisão.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3"
+                                    id="nave-dicas-trigger-prepare-3"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Apoio
+                                        individualizado</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">durante a atividade,
+                                        caminhe pela sala de aula para identificar dificuldades e oferecer apoio
+                                        pontual. Incentive o compartilhamento de estratégias entre os estudantes.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4"
+                                    id="nave-dicas-trigger-prepare-4"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Uso de
+                                        linguagem acessível</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">antes de formalizar os
+                                        conceitos técnicos, utilize termos próximos da realidade da turma, como “blocos
+                                        de instruções” e “regras do jogo”,.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-5"
+                                    id="nave-dicas-trigger-prepare-5"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Definição
+                                        do tema do jogo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">desde o início,
+                                        estimule a escolha de um tema para o projeto. A personalização de sprites e
+                                        cenários amplia o engajamento e o significado pedagógico.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-6"
+                                    id="nave-dicas-trigger-prepare-6"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro do
+                                        processo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">incentive o registro de
+                                        decisões, descobertas e ajustes realizados ao longo da construção. O
+                                        acompanhamento favorece a organização do pensamento e o refinamento do jogo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Inicie a aula propondo um
+                                primeiro contato rápido com o MakeCode Arcade, com o objetivo de familiarizar os
+                                estudantes com a interface e os principais recursos da plataforma.</p>
+                            <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="embarque">
+                                <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                    data-nave-dicas-item-id="embarque-1">
+                                    <button type="button"
+                                        class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                        aria-expanded="false" aria-controls="nave-dicas-panel-embarque-1"
+                                        id="nave-dicas-trigger-embarque-1">
+                                        <span
+                                            class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span>
+                                        <span
+                                            class="text-label-md font-label-md font-bold text-on-surface flex-1">Acesso
+                                            e configuração inicial</span>
+                                        <span
+                                            class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                    </button>
+                                    <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                        id="nave-dicas-panel-embarque-1" role="region"
+                                        aria-labelledby="nave-dicas-trigger-embarque-1">
+                                        <p class="text-body-sm font-body-md text-on-surface-variant">Oriente os
+                                            estudantes
+                                            a acessar o site <a class="text-prepare hover:underline"
+                                                href="https://arcade.makecode.com" rel="noopener noreferrer"
+                                                target="_blank">arcade.makecode.com</a> e, depois, a clicar em “Novo
+                                            Projeto”. Solicite-lhes que atribuam um nome ao projeto, reforçando a
+                                            importância de nomear corretamente os arquivos desde o início.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image2.png" /></figure>
+                                    </div>
+                                </div>
+                                <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                    data-nave-dicas-item-id="embarque-2">
+                                    <button type="button"
+                                        class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                        aria-expanded="false" aria-controls="nave-dicas-panel-embarque-2"
+                                        id="nave-dicas-trigger-embarque-2">
+                                        <span
+                                            class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span>
+                                        <span
+                                            class="text-label-md font-label-md font-bold text-on-surface flex-1">Organização
+                                            da tela</span>
+                                        <span
+                                            class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                    </button>
+                                    <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                        id="nave-dicas-panel-embarque-2" role="region"
+                                        aria-labelledby="nave-dicas-trigger-embarque-2">
+                                        <p class="text-body-sm font-body-md text-on-surface-variant">Apresente a
+                                            organização da tela inicial. Para isso, destaque as três áreas principais:
+                                        </p>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">à esquerda, o
+                                                simulador, que representa o “dispositivo” no qual o jogo será executado;
+                                            </li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">ao centro, a
+                                                área de blocos, em que se encontram os comandos disponíveis;</li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">à direita, a
+                                                área de programação, na qual os blocos serão organizados para
+                                                estruturar o funcionamento do jogo.</li>
+                                        </ul>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image3.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image3.png" /></figure>
+                                    </div>
+                                </div>
+                                <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                    data-nave-dicas-item-id="embarque-3">
+                                    <button type="button"
+                                        class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                        aria-expanded="false" aria-controls="nave-dicas-panel-embarque-3"
+                                        id="nave-dicas-trigger-embarque-3">
+                                        <span
+                                            class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span>
+                                        <span
+                                            class="text-label-md font-label-md font-bold text-on-surface flex-1">Personagem
+                                            (sprite)</span>
+                                        <span
+                                            class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                    </button>
+                                    <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                        id="nave-dicas-panel-embarque-3" role="region"
+                                        aria-labelledby="nave-dicas-trigger-embarque-3">
+                                        <p class="text-body-sm font-body-md text-on-surface-variant">Oriente os
+                                            estudantes a adicionar um personagem (sprite) utilizando o bloco “set
+                                            mySprite” no menu “Sprites”. Eles podem optar por desenhar um personagem
+                                            próprio ou selecionar uma imagem da “Gallery” da ferramenta.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image4.png" /></figure>
+                                    </div>
+                                </div>
+                                <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                    data-nave-dicas-item-id="embarque-4">
+                                    <button type="button"
+                                        class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                        aria-expanded="false" aria-controls="nave-dicas-panel-embarque-4"
+                                        id="nave-dicas-trigger-embarque-4">
+                                        <span
+                                            class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span>
+                                        <span
+                                            class="text-label-md font-label-md font-bold text-on-surface flex-1">Cenário</span>
+                                        <span
+                                            class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                    </button>
+                                    <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                        id="nave-dicas-panel-embarque-4" role="region"
+                                        aria-labelledby="nave-dicas-trigger-embarque-4">
+                                        <p class="text-body-sm font-body-md text-on-surface-variant">Em seguida,
+                                            solicite que escolham um cenário no conjunto “Scene”. Há também a opção de
+                                            desenhar ou selecionar uma arte disponível da “Gallery”, por meio do bloco
+                                            “set background image to ()”.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image5.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image5.png" /></figure>
+                                    </div>
+                                </div>
+                                <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                    data-nave-dicas-item-id="embarque-5">
+                                    <button type="button"
+                                        class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                        aria-expanded="false" aria-controls="nave-dicas-panel-embarque-5"
+                                        id="nave-dicas-trigger-embarque-5">
+                                        <span
+                                            class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span>
+                                        <span
+                                            class="text-label-md font-label-md font-bold text-on-surface flex-1">Desafio
+                                            exploratório de movimentação</span>
+                                        <span
+                                            class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                    </button>
+                                    <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                        id="nave-dicas-panel-embarque-5" role="region"
+                                        aria-labelledby="nave-dicas-trigger-embarque-5">
+                                        <p class="text-body-sm font-body-md text-on-surface-variant">Após a escolha do
+                                            personagem e do cenário, proponha o primeiro desafio exploratório: fazer com
+                                            que o personagem se movimente pelo cenário utilizando os blocos do grupo
+                                            “Controller”. Incentive a experimentação e a observação do comportamento do
+                                            personagem no simulador.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image6.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image6.png" /></figure>
+                                    </div>
+                                </div>
+                                <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                    data-nave-dicas-item-id="embarque-6">
+                                    <button type="button"
+                                        class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                        aria-expanded="false" aria-controls="nave-dicas-panel-embarque-6"
+                                        id="nave-dicas-trigger-embarque-6">
+                                        <span
+                                            class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span>
+                                        <span
+                                            class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                            de ideias iniciais</span>
+                                        <span
+                                            class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                    </button>
+                                    <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                        id="nave-dicas-panel-embarque-6" role="region"
+                                        aria-labelledby="nave-dicas-trigger-embarque-6">
+                                        <p class="text-body-sm font-body-md text-on-surface-variant">Durante essa etapa,
+                                            oriente os estudantes a registrar ideias iniciais para o jogo: qual
+                                            personagem
+                                            escolheram, que tipo de obstáculo poderia ser inserido, de onde esses
+                                            obstáculos surgiriam, qual temática poderia dar sentido à narrativa do jogo
+                                            etc. Esse planejamento inicial auxiliará nas próximas etapas de
+                                            desenvolvimento.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-surface-container-low rounded-xl p-6 sm:p-7 border border-outline-variant border-l-4 border-l-prepare">
+                                <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Passo a passo para
+                                    o estudante</p>
+                                <ol class="list-decimal pl-5 space-y-4">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">
+                                        <strong>Acesso:</strong> peça aos estudantes que acessem o site <a
+                                            class="text-prepare hover:underline" href="https://arcade.makecode.com"
+                                            rel="noopener noreferrer" target="_blank">arcade.makecode.com</a> e
+                                        preferencialmente façam login para que possam salvar suas produções.
+                                    </li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">
+                                        <strong>Exploração:</strong> após a exploração guiada, proponha o seguinte
+                                        desafio: Vocês têm 2 minutos para fazer o personagem andar pelo cenário por meio
+                                        das setas do teclado ou pelo joystick do dispositivo simulado.
+                                    </li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant"><strong>Exploração
+                                            livre:</strong> incentive a turma a explorar os diferentes blocos e a errar
+                                        sem medo, pois isso pode conduzi-los a descobertas importantes para esta
+                                        primeira etapa.</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">
+                                        <strong>Socialização:</strong> quem descobrir um novo comando aplicável para a
+                                        construção do jogo poderá compartilhar com a turma.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">60 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">Criando um Jogo de Esquiva
+                            </h3>
+                        </div>
+                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image7.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image7.png" /></figure>
+                        <p class="text-body-md font-body-md text-on-surface-variant">A construção do jogo no MakeCode
+                            Arcade pode representar uma novidade significativa para muitos estudantes. Para garantir que
+                            todos se mantenham engajados e consigam acompanhar o processo, organize a atividade em
+                            etapas claras e progressivas, promovendo a sensação de conquista a cada avanço.</p>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Reforce que programar envolve
+                            testar, identificar erros e realizar ajustes constantes. O objetivo não é acertar de
+                            primeira, mas compreender o funcionamento do sistema e aprimorar o projeto ao longo do
+                            percurso. Ao final da sequência principal, cada estudante deverá ter um jogo jogável e
+                            funcional, pronto para ser compartilhado com os colegas.</p>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Apresente previamente os marcos da
+                            atividade e destaque que o foco principal é garantir que todos avancem até a etapa 5,
+                            momento em que o jogo já contará com movimentação, geração de obstáculos, sistema de colisão
+                            e controle básico de vidas. As etapas seguintes podem ser apresentadas como desafios
+                            opcionais para aprofundamento ou ampliação criativa.</p>
+                    </div>
+
+
+                    <div
+                        class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 hidden">
+                            <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Estrutura sugerida da
+                                construção</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <ol class="list-decimal pl-5 space-y-1">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Criando o cenário
+                                            e o personagem</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Programando o
+                                            movimento</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Fazendo o
+                                            personagem permanecer na tela</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Criando o gerador
+                                            de obstáculos</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Implementando
+                                            colisão e vidas</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Adicionando
+                                            pontuação</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Desafios futuros:
+                                            novos cenários, ajuste fino da pontuação, criação de novos tipos de
+                                            obstáculos</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="workshop-accordions">
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="atividade"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-atividade" aria-expanded="false"
+                                aria-controls="workshop-panel-atividade">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span>
+                                </div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Atividade</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">5
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-atividade" role="region"
+                                aria-labelledby="workshop-trigger-atividade">
+                                <div
+                                    class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                    <button type="button"
+                                        class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                            class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                            class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                            class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                    <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                        <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Estrutura
+                                            sugerida da construção</p>
+                                        <ol class="list-decimal pl-5 space-y-1">
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">Criando o
+                                                cenário e o personagem</li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">Programando o
+                                                movimento</li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">Fazendo o
+                                                personagem permanecer na tela</li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">Criando o
+                                                gerador de obstáculos</li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">Implementando
+                                                colisão e vidas</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Criando o cenário e
+                                            o personagem</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Retome o ambiente
+                                            do MakeCode Arcade, solicitando aos estudantes que criem um novo projeto. Em
+                                            seguida, oriente-os a localizar os blocos responsáveis pela definição do
+                                            cenário e do personagem, disponíveis nos grupos “Scene” e “Sprites”,
+                                            respectivamente.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Explique que é
+                                            possível desenhar cenários e personagens personalizados utilizando o editor
+                                            da própria plataforma. No entanto, considerando o tempo previsto para a
+                                            atividade, recomende aos estudantes que selecionem elementos já disponíveis
+                                            na aba “Gallery”, pois isso garante maior agilidade no desenvolvimento da
+                                            estrutura principal do jogo.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Caso haja tempo
+                                            adicional ou interesse da turma em aprofundar o projeto, sugira a expansão
+                                            da atividade com a personalização detalhada de personagens e cenários. Essa
+                                            ampliação pode enriquecer o aspecto criativo do jogo, mas requer
+                                            planejamento e dedicação de um período extra para não comprometer as etapas
+                                            essenciais de programação.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image8.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image8.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Programando o
+                                            movimento</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Oriente os
+                                            estudantes a adicionar movimentação ao personagem. Para isso, deverão
+                                            acessar a aba “Controller” e localizar o bloco “move mySprite with buttons”.
+                                            Explique que esse bloco permite controlar o personagem utilizando as setas
+                                            do teclado, as teclas WASD ou o joystick disponível no simulador da
+                                            plataforma.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Incentive os
+                                            estudantes a testar diferentes velocidades de movimento, ajustando os
+                                            valores do bloco para observar como pequenas alterações influenciam a
+                                            experiência do jogador. Para isso, devem clicar no botão “+”, à direita do
+                                            bloco.</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    Antes de seguir para os próximos passos, proponha uma experimentação
+                                                    rápida para que a turma compreenda como o bloco de movimentação
+                                                    “enxerga” o personagem. Peça que criem uma nova variável do
+                                                    personagem (por exemplo, alterar o nome padrão “mySprite” para
+                                                    “herói” ou “jogador”) sem alterar o parâmetro dentro do bloco “move
+                                                    mySprite with buttons”.</p>
+                                                <br>
+                                                <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image9.png"
+                                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                        src="images/image9.png" /></figure>
+                                                <br>
+                                                <p class="text-body-md font-body-md text-on-surface-variant">Ao
+                                                    testarem,
+                                                    perceberão que o personagem não se move mais. Isso acontece porque o
+                                                    bloco
+                                                    de controle continua tentando movimentar um objeto chamado
+                                                    “mySprite”, mas a
+                                                    variável do personagem agora tem outro nome. Essa experiência
+                                                    demonstra, na
+                                                    prática, o conceito de referência a objetos e a importância da
+                                                    consistência
+                                                    na nomeação de variáveis.</p><br>
+                                                <p class="text-body-md font-body-md text-on-surface-variant">Em seguida,
+                                                    oriente
+                                                    os estudantes a corrigir o parâmetro do bloco “move mySprite with
+                                                    buttons”
+                                                    para que ele aponte para o novo nome da variável do personagem. Após
+                                                    o
+                                                    ajuste, o controle voltará a funcionar normalmente.</p><br>
+                                                <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image10.png"
+                                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                        src="images/image10.png" /></figure>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Fazendo o
+                                            personagem permanecer na tela</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após programar a
+                                            movimentação do personagem, solicite aos estudantes que realizem testes no
+                                            simulador para identificar possíveis comportamentos inesperados. Espera-se
+                                            que eles percebam que, ao mover o personagem continuamente em uma mesma
+                                            direção, ele poderá sair da tela e continuar se deslocando indefinidamente.
+                                        </p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Utilize esse
+                                            momento para problematizar a situação e discutir a necessidade de limitar o
+                                            espaço de movimentação. Para corrigir esse comportamento, oriente a inserção
+                                            do bloco “set mySprite stay in screen on/off”, localizado no grupo
+                                            “Sprites”, na categoria “Effects”. Esse bloco restringe o personagem aos
+                                            limites da tela do jogo.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Destaque que esse
+                                            recurso pode ser aplicado a diferentes personagens do jogo e que pode ser
+                                            ativado ou desativado conforme a necessidade da programação, ampliando o
+                                            controle sobre as regras definidas para o projeto.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image11.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image11.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Criando o gerador
+                                            de obstáculos</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após configurar a
+                                            movimentação do personagem, introduza a próxima etapa: a inserção dos
+                                            obstáculos. Explique que esse é o momento em que o jogo começa a ganhar
+                                            dinâmica e desafio. Neste exemplo, os obstáculos serão programados para
+                                            “cair do céu”, simulando uma ameaça constante ao jogador.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Oriente os
+                                            estudantes a acessar o grupo de blocos “Game” e selecionar o bloco “on game
+                                            update every 500 ms”. Esclareça que esse bloco executa uma ação em
+                                            intervalos regulares de tempo e funciona como um temporizador. No contexto
+                                            do jogo, ele será utilizado para gerar obstáculos repetidamente. Ressalte
+                                            que o valor do intervalo pode ser alterado: quanto menor for o tempo (por
+                                            exemplo, 300 ms), maior será a frequência de surgimento dos obstáculos,
+                                            aumentando o nível de dificuldade; quanto maior for o intervalo, menor será
+                                            a intensidade do desafio.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Nesse bloco de
+                                            atualização, oriente a criação de um novo personagem no grupo “Sprites”, que
+                                            representará o obstáculo. Esse novo sprite será definido como inimigo
+                                            “myEnemy” e terá sua aparência definida por meio do editor de desenho ou da
+                                            aba “Gallery”.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image12.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image12.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após definir o
+                                            inimigo, oriente os estudantes a configurar a posição inicial. No grupo
+                                            “Sprites”, dentro da categoria “Physics”, utilize o bloco “set mySprite
+                                            position to x 0 y 0”. Selecione “myEnemy” e explique que será necessário
+                                            posicioná-lo no topo da tela, ajustando o valor do eixo Y para que ele
+                                            inicie fora ou próximo da borda superior.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image13.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image13.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Para tornar o jogo
+                                            mais dinâmico, proponha que o inimigo surja em posições diferentes a cada
+                                            geração. Explique que, para isso, o valor do eixo X deve ser aleatório. No
+                                            grupo “Math”, selecione o bloco de número aleatório e insira-o no campo
+                                            correspondente ao X. Considerando os limites-padrão da tela no MakeCode
+                                            Arcade, o intervalo pode variar de 0 a 160, o que garante que o obstáculo
+                                            apareça dentro da área visível. No entanto, tendo em vista a dinâmica do
+                                            jogo, sugira aos estudantes que utilizem a aleatoriedade entre 10 e 150, a
+                                            fim de evitar que os objetos apareçam nos extremos e não representem um
+                                            desafio para ser desviado.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image14.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image14.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em seguida,
+                                            configure o movimento do inimigo para que ele “caia do céu”. Ainda no grupo
+                                            “Sprites”, na categoria “Physics”, utilize o bloco “set velocity to”.
+                                            Selecione “myEnemy” e atribua um valor positivo ao eixo Y para definir a
+                                            velocidade de queda e nulo ao eixo X. Explique que valores maiores tornam o
+                                            obstáculo mais rápido, aumentando o nível de dificuldade do jogo.
+                                            Opcionalmente, é possível considerar valores aleatórios entre -10 e 10 ao
+                                            eixo X.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image15.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image15.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Implementando
+                                            colisão e vidas</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após configurar a
+                                            geração e movimentação dos obstáculos, introduza o sistema de colisão.
+                                            Mencione que, para que o jogo responda ao contato entre personagens, é
+                                            necessário utilizar um evento de sobreposição. Ressalte aos alunos que o
+                                            programa já contém um evento que identifica quando um sprite ocupa o mesmo
+                                            espaço que outro.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em “Sprites”,
+                                            localize o bloco de “overlaps”, responsável por detectar quando um “Inimigo”
+                                            encosta no “Jogador”. Para isso, garanta que os parâmetros estejam como
+                                            “Enemy” e “Player”, assim como está indicado nos blocos que criaram esses
+                                            personagens.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image16.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image16.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Oriente os
+                                            estudantes a programar as consequências dessa colisão. Quando a interação
+                                            entre o inimigo e o personagem for detectada, o jogo deverá reduzir a
+                                            quantidade de vidas do jogador e remover o obstáculo da tela. Explique que
+                                            destruir o inimigo após o contato evita que ele retire mais de um ponto de
+                                            vida em uma única colisão.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">No grupo “Info”,
+                                            utilize o bloco “change life by -1” para reduzir uma vida do jogador. Em
+                                            seguida, no grupo “Sprites”, utilize o bloco “destroy myEnemy” para eliminar
+                                            o obstáculo após a colisão.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image17.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image17.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Nesse caso, ainda é
+                                            necessário puxar e soltar a variável “sprite”, obtida como retorno da função
+                                            de sobreposição (“overlaps”). Se não for feito dessa maneira, o inimigo
+                                            destruído será o último criado, e não aquele que de fato encostou no
+                                            personagem do jogador. Esse erro pode causar um bug na programação, fazendo
+                                            com que o jogador perca todas as vidas de uma só vez, já que o inimigo que
+                                            realmente colidiu continua em contato com o personagem, sem ser destruído.
+                                            Para corrigir isso, é necessário arrastar o bloco “sprite” (retornado pelo
+                                            evento de colisão) e utilizá-lo no lugar do “myEnemy” genérico, garantindo
+                                            que apenas o inimigo específico envolvido na colisão seja removido.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image18.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image18.png" /></figure>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image19.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image19.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Essa é uma
+                                            excelente oportunidade para que os estudantes experimentem o erro
+                                            propositalmente e busquem o motivo do mau funcionamento. Incentive-os a
+                                            testar o código sem a correção, observar o comportamento inesperado (perda
+                                            rápida de todas as vidas) e, em seguida, depurar o problema ajustando a
+                                            referência do bloco “destroy”. Esse processo de tentativa, erro e correção é
+                                            uma prática fundamental do pensamento computacional e fortalece a
+                                            compreensão sobre referência a objetos e eventos de colisão.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Destaque que o
+                                            MakeCode Arcade já é pré-programado para iniciar o jogo com 3 vidas. Caso a
+                                            turma deseje alterar esse valor, é possível configurá-lo no grupo “Info”,
+                                            ajustando a quantidade inicial conforme a proposta do jogo. O bloco
+                                            correspondente deve ser adicionado a “on start”, mesmo local em que foram
+                                            configurados os primeiros blocos do jogo.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após implementar o
+                                            sistema básico de colisão e vidas, incentive ajustes e testes. Oriente os
+                                            estudantes a refletir sobre o equilíbrio do jogo, por meio de perguntas
+                                            como: O número de vidas está adequado? Os obstáculos estão rápidos demais? O
+                                            desafio está justo? Para aqueles que avançarem mais rapidamente, proponha
+                                            extensões como aumento progressivo da dificuldade, inclusão de sistema de
+                                            pontuação ou criação de novas fases.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-10">
+                                    <h3
+                                        class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de
+                                        condução
+                                    </h3>
+                                    <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-1"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                                id="nave-dicas-trigger-create-1"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Circulação
+                                                    e apoio individualizado</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-1" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-1">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">durante a
+                                                    atividade, circule pela sala para identificar dificuldades
+                                                    específicas e oferecer apoio pontual. Observe soluções criativas
+                                                    desenvolvidas pelas duplas e incentive o compartilhamento com a
+                                                    turma.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-2"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                                id="nave-dicas-trigger-create-2"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Incentivo
+                                                    à colaboração</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-2" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-2">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">estimule a
+                                                    ajuda mútua, convidando estudantes que encontrarem soluções eficazes
+                                                    a explicá-las aos colegas. A prática fortalece a aprendizagem
+                                                    coletiva e a autonomia progressiva.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-3"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                                id="nave-dicas-trigger-create-3"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Apoio
+                                                    linguístico</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-3" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-3">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">informe que
+                                                    o MakeCode Arcade apresenta comandos em inglês. Quando necessário,
+                                                    sugira a construção de um glossário com os blocos mais utilizados ou
+                                                    o uso pontual de tradutores, ampliando a compreensão e o vocabulário
+                                                    técnico.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-4"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                                id="nave-dicas-trigger-create-4"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Revisão
+                                                    antes de solicitar ajuda</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-4" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-4">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">reforce a
+                                                    importância de verificar os tipos de “sprites” (“Jogador” e
+                                                    “Inimigo”) para garantir o funcionamento da detecção de colisão.
+                                                    Caso algo não funcione como esperado, incentive a revisão organizada
+                                                    do código antes de intervir.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-5"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                                id="nave-dicas-trigger-create-5"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Valorização
+                                                    do erro como aprendizagem</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-5" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-5">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">destaque
+                                                    que
+                                                    o erro integra o processo de programação. O processo de testar,
+                                                    ajustar e tentar novamente favorece a compreensão da lógica do jogo
+                                                    e
+                                                    o desenvolvimento do Pensamento Computacional.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">10 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4">
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container mt-8 first:mt-0">
+                                Dinâmica de compartilhamento: &quot;Feira de games&quot;</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Organize um momento breve para
+                                socialização dos jogos desenvolvidos. Como o tempo pode ser limitado, priorize dinâmicas
+                                ágeis e coletivas que valorizem o protagonismo dos estudantes e a troca de experiências.
+                            </p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Opção 1 – Roda de testes:
+                                    divida a turma em duplas. Cada um dos estudantes testa o jogo do colega por
+                                    aproximadamente 2 minutos e, em seguida, realiza a troca. Ao final, cada
+                                    participante comenta um aspecto positivo do jogo testado e apresenta uma sugestão de
+                                    melhoria, estimulando o feedback construtivo.</li>
+                            </ul>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Opção 2 – Galeria
+                                    interativa: caso haja projetor disponível, convide alguns voluntários a apresentar
+                                    seus jogos para a turma. Durante as demonstrações, incentive os colegas a observar
+                                    elementos como movimentação, temática escolhida, equilíbrio da dificuldade e
+                                    comportamento dos obstáculos.</li>
+                            </ul>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">Opção 3 – Compartilhamento
+                                    digital: oriente os estudantes a utilizar a opção “Compartilhar” no MakeCode Arcade
+                                    para gerar o link ou QR Code do jogo. Os links podem ser publicados em um mural
+                                    virtual (como o Padlet), permitindo à turma explorar os jogos posteriormente.</li>
+                            </ul>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Finalize reforçando que, mesmo
+                                partindo de um mesmo desafio, diferentes decisões de programação resultam em
+                                experiências únicas de jogo.</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container">
+                        <h4
+                            class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                        </h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Qual foi a parte mais fácil de
+                                programar? E a mais desafiadora? Por quê?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Se fosse necessário tornar o
+                                jogo progressivamente mais difícil, quais elementos do código poderiam ser modificados?
+                            </li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Como o computador identifica
+                                que o personagem encostou no obstáculo? O que acontece no programa quando isso ocorre?
+                            </li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">O que aconteceria se não fosse
+                                usada uma lista para gerenciar os obstáculos? O que mudaria na organização do código?
+                            </li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Que tema você escolheu para o
+                                seu jogo? Como a programação ajudou você a contar essa história?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--primary-container mb-4 pb-2 border-b border-primary-container/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="reflect">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-1"
+                                    id="nave-dicas-trigger-reflect-1"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Celebração
+                                        das entregas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reconheça o esforço de
+                                        cada estudante ao final da atividade, mesmo que o jogo não esteja totalmente
+                                        concluído. Valorize os avanços em lógica, criatividade e resolução de problemas,
+                                        visto que esse reconhecimento promove a motivação e a confiança.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-2"
+                                    id="nave-dicas-trigger-reflect-2"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                        dos aprendizados</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">solicite um breve
+                                        registro reflexivo em caderno ou documento digital, orientado por perguntas
+                                        como: O que aprendi hoje? O que posso aprimorar no meu jogo? A prática favorece
+                                        a metacognição e a consolidação do conhecimento.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-3"
+                                    id="nave-dicas-trigger-reflect-3"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Criação de
+                                        um evento</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">sempre que possível,
+                                        promova um momento de socialização para que os estudantes apresentem seus jogos
+                                        a outras turmas ou em eventos internos. A iniciativa amplia o reconhecimento do
+                                        trabalho e fortalece o protagonismo.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-4"
+                                    id="nave-dicas-trigger-reflect-4"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Feedback
+                                        construtivo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">durante testes e
+                                        apresentações, incentive devolutivas que iniciem por um ponto forte e avancem
+                                        para sugestões de melhoria. Isso promove um ambiente colaborativo e de
+                                        aprimoramento contínuo.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-5"
+                                    id="nave-dicas-trigger-reflect-5"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Estímulo à
+                                        continuidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que a criação
+                                        de jogos é um campo em constante evolução e incentive a ampliação ou o
+                                        aperfeiçoamento dos projetos em outros momentos, na escola ou fora dela.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-5 content-block">
+                    <p class="text-body-md font-body-md text-on-surface-variant">Proponha a ampliação do projeto por
+                        meio
+                        da implementação de um sistema de pontuação. Um desafio inicial consiste em criar uma pontuação
+                        que aumente a cada obstáculo gerado ou a cada desvio bem-sucedido. Para isso, oriente os
+                        estudantes a explorar os blocos do conjunto “Info”, como “change score by 1”. É possível criar
+                        um contador para registrar o tempo durante o qual o jogador permaneceu no jogo sem perder todas
+                        as vidas. Basta adicionar o bloco mencionado anteriormente a outro evento “on game update every
+                        (1000) ms”. Uma alternativa é criar um segundo tipo de obstáculo “bônus” que, ao ser coletado,
+                        aumente a pontuação do jogador.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image20.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image20.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Incentive a criação de novas fases,
+                        modificando o cenário e ajustando progressivamente a velocidade ou a frequência de geração dos
+                        obstáculos. Essa variação contribui para o balanceamento do jogo e amplia a experiência do
+                        jogador.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Sugira também a implementação de
+                        obstáculos variados, diferenciando aqueles que retiram vidas daqueles que concedem pontos ou
+                        bônus temporários, como invencibilidade por alguns segundos. Essa estratégia permite trabalhar
+                        múltiplas condições e eventos no código.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a explorar a
+                        categoria “Music” para adicionar efeitos sonoros, como sons de colisão, coleta de itens ou
+                        trilha
+                        de fundo. Esse recurso enriquece a ambientação do jogo.</p>
+                    <figure class="w-1/4 mx-auto my-4 text-center"><img alt="image21.png"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image21.png" /></figure>
+                </div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF08CO04</span> – “Construir soluções computacionais de
+                    problemas de diferentes áreas do conhecimento, de forma individual e colaborativa, selecionando as
+                    estruturas de dados e técnicas adequadas, aperfeiçoando e articulando saberes escolares.”</li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
 </body>
+
 </html>

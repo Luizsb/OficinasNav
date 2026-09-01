@@ -10,6 +10,50 @@ Formato do cabeçalho de cada entrada:
 
 ---
 
+## 2026-09-01 · 14:20 — Espaçamento do aviso global na Visão Geral
+
+### Contexto
+
+O bloco **Atenção!** injetado na Visão Geral aparecia colado às bordas do card, sem o padding do conteúdo ao redor.
+
+### O que mudou
+
+- `assets/js/nave.js`: o aviso passa a ser inserido dentro do container `.relative` (com `p-8 lg:p-12`), não como filho direto de `#view`.
+- `assets/css/nave.css`: padding interno maior, gap entre parágrafos, tipografia `body-md` e leve sombra no card.
+
+### Como verificar
+
+1. Abrir qualquer oficina → **Visão Geral**.
+2. O aviso deve alinhar ao texto/chips acima, com margem superior e respiro interno confortável.
+
+### Resultado
+
+Aviso visualmente integrado ao hero da oficina, sem colar nas bordas.
+
+---
+
+## 2026-09-01 · 13:45 — Aviso de oficinas digitais só na Visão Geral
+
+### Contexto
+
+O bloco **Atenção!** injetado por `initWorkshopNotice()` aparecia em todas as seções (Materiais, Preparar, Criar, etc.) ao navegar pela oficina.
+
+### O que mudou
+
+- `assets/js/nave.js`: o `<aside id="nave-workshop-notice">` passa a ser inserido **dentro** de `#view`, em vez de logo após a seção. O modo painel só alterna `<section>`; elementos soltos no `<main>` ficavam sempre visíveis.
+
+### Como verificar
+
+1. Abrir qualquer oficina em `/oficinas/…/index.html` (ex.: Tradutor de Dados).
+2. Na **Visão Geral**: o aviso azul sobre oficinas digitais deve aparecer.
+3. Ir para **Criar**, **Preparar** ou outra seção: o aviso **não** deve repetir no topo.
+
+### Resultado
+
+Aviso global restrito à etapa Visão Geral; demais seções sem duplicata.
+
+---
+
 ## 2026-08-31 · 15:40 — Janela de código estilo macOS (Blink ESP32)
 
 ### Contexto

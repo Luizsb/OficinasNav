@@ -58,7 +58,7 @@
         "ano": "a partir de 14 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/zoologia-fantastica-criando-especies-com-ia/images/image1.png"
+        "capa": "oficinas/zoologia-fantastica-criando-especies-com-ia/images/image4.png"
     },
     {
         "id": "reconhecendo-padroes-o-detector-de-poses",
@@ -69,7 +69,7 @@
         "ano": "a partir de 11 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image1.png"
+        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image7.png"
     },
     {
         "id": "missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade",
@@ -80,6 +80,50 @@
         "ano": "a partir de 12 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade/images/image1.png"
+        "capa": "oficinas/missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade/images/image7.png"
+    },
+    {
+        "id": "etica-na-computacao-a-maquina-moral",
+        "titulo": "Ética na Computação: A Máquina Moral",
+        "subtitulo": "",
+        "arquivo": "oficinas/etica-na-computacao-a-maquina-moral/index.html",
+        "icone": "school",
+        "ano": "a partir de 12 anos",
+        "duracao": "2 encontros de 45 min cada (total: 90 min)",
+        "tags": [],
+        "capa": "oficinas/etica-na-computacao-a-maquina-moral/images/image3.png"
+    },
+    {
+        "id": "arquitetos-do-conhecimento",
+        "titulo": "Arquitetos do Conhecimento",
+        "subtitulo": "",
+        "arquivo": "oficinas/arquitetos-do-conhecimento/index.html",
+        "icone": "school",
+        "ano": "a partir de 13 anos",
+        "duracao": "2 encontros de 45 min cada (total: 90 min)",
+        "tags": [],
+        "capa": "oficinas/arquitetos-do-conhecimento/images/image6.png"
+    },
+    {
+        "id": "tradutor-de-dados",
+        "titulo": "Tradutor de Dados",
+        "subtitulo": "",
+        "arquivo": "oficinas/tradutor-de-dados/index.html",
+        "icone": "school",
+        "ano": "a partir de 13 anos",
+        "duracao": "2 encontros de 45 min cada (total: 90 min)",
+        "tags": [],
+        "capa": "oficinas/tradutor-de-dados/images/image1.png"
+    },
+    {
+        "id": "treinando-a-inteligencia-artificial",
+        "titulo": "Treinando a Inteligência Artificial",
+        "subtitulo": "",
+        "arquivo": "oficinas/treinando-a-inteligencia-artificial/index.html",
+        "icone": "school",
+        "ano": "a partir de 14 anos",
+        "duracao": "4 encontros de 45 min cada (total: 180 min)",
+        "tags": [],
+        "capa": "oficinas/treinando-a-inteligencia-artificial/images/image1.png"
     }
 ]

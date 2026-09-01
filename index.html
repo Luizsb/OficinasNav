@@ -76,20 +76,20 @@
                 <p class="text-body-md text-on-surface-variant mt-1" id="home-catalogo-subtitulo">Carregando…</p>
             </div>
             <div class="nave-home-view-toggle" role="group" aria-label="Modo de exibição do catálogo">
-                <button type="button" class="nave-home-view-toggle__btn" data-catalog-view="list"
-                    aria-pressed="true">
-                    <span class="material-symbols-outlined" aria-hidden="true">view_agenda</span>
-                    Lista
-                </button>
                 <button type="button" class="nave-home-view-toggle__btn" data-catalog-view="cards"
-                    aria-pressed="false">
+                    aria-pressed="true">
                     <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
                     Cards
+                </button>
+                <button type="button" class="nave-home-view-toggle__btn" data-catalog-view="list"
+                    aria-pressed="false">
+                    <span class="material-symbols-outlined" aria-hidden="true">view_agenda</span>
+                    Lista
                 </button>
             </div>
         </div>
 
-        <div class="nave-home-lista nave-home-lista--list" id="lista-oficinas"></div>
+        <div class="nave-home-lista nave-home-lista--cards" id="lista-oficinas"></div>
     </main>
 
     <footer class="border-t border-outline-variant bg-surface-container-low mt-auto">
@@ -159,7 +159,7 @@
         "ano": "a partir de 14 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/zoologia-fantastica-criando-especies-com-ia/images/image1.png"
+        "capa": "oficinas/zoologia-fantastica-criando-especies-com-ia/images/image4.png"
     },
     {
         "id": "reconhecendo-padroes-o-detector-de-poses",
@@ -170,7 +170,7 @@
         "ano": "a partir de 11 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image1.png"
+        "capa": "oficinas/reconhecendo-padroes-o-detector-de-poses/images/image7.png"
     },
     {
         "id": "missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade",
@@ -181,7 +181,51 @@
         "ano": "a partir de 12 anos",
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
-        "capa": "oficinas/missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade/images/image1.png"
+        "capa": "oficinas/missao-programador-e-game-designer-jogo-de-esquiva-no-makecode-arcade/images/image7.png"
+    },
+    {
+        "id": "etica-na-computacao-a-maquina-moral",
+        "titulo": "Ética na Computação: A Máquina Moral",
+        "subtitulo": "",
+        "arquivo": "oficinas/etica-na-computacao-a-maquina-moral/index.html",
+        "icone": "school",
+        "ano": "a partir de 12 anos",
+        "duracao": "2 encontros de 45 min cada (total: 90 min)",
+        "tags": [],
+        "capa": "oficinas/etica-na-computacao-a-maquina-moral/images/image3.png"
+    },
+    {
+        "id": "arquitetos-do-conhecimento",
+        "titulo": "Arquitetos do Conhecimento",
+        "subtitulo": "",
+        "arquivo": "oficinas/arquitetos-do-conhecimento/index.html",
+        "icone": "school",
+        "ano": "a partir de 13 anos",
+        "duracao": "2 encontros de 45 min cada (total: 90 min)",
+        "tags": [],
+        "capa": "oficinas/arquitetos-do-conhecimento/images/image6.png"
+    },
+    {
+        "id": "tradutor-de-dados",
+        "titulo": "Tradutor de Dados",
+        "subtitulo": "",
+        "arquivo": "oficinas/tradutor-de-dados/index.html",
+        "icone": "school",
+        "ano": "a partir de 13 anos",
+        "duracao": "2 encontros de 45 min cada (total: 90 min)",
+        "tags": [],
+        "capa": "oficinas/tradutor-de-dados/images/image1.png"
+    },
+    {
+        "id": "treinando-a-inteligencia-artificial",
+        "titulo": "Treinando a Inteligência Artificial",
+        "subtitulo": "",
+        "arquivo": "oficinas/treinando-a-inteligencia-artificial/index.html",
+        "icone": "school",
+        "ano": "a partir de 14 anos",
+        "duracao": "4 encontros de 45 min cada (total: 180 min)",
+        "tags": [],
+        "capa": "oficinas/treinando-a-inteligencia-artificial/images/image1.png"
     }
 ]
     </script>
@@ -196,9 +240,11 @@
 
         function getCatalogView() {
             try {
-                return localStorage.getItem(CATALOG_VIEW_KEY) === "cards" ? "cards" : "list";
+                var saved = localStorage.getItem(CATALOG_VIEW_KEY);
+                if (saved === "list" || saved === "cards") return saved;
+                return "cards";
             } catch (err) {
-                return "list";
+                return "cards";
             }
         }
 

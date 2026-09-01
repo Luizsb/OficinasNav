@@ -2,6 +2,7 @@
 (function () {
     var SECTION_KEY_PREFIX = "nave-section:";
     var CHECKBOX_KEY_PREFIX = "nave-checkboxes:";
+    var AUDIT_FORM_KEY_PREFIX = "nave-audit-form:";
     var COMPLETED_KEY_PREFIX = "nave-completed:";
     var SCROLL_SAVE_MS = 400;
 
@@ -323,6 +324,35 @@
                 }
             }
         });
+    }
+
+    function initWorkshopNotice() {
+        if (!/\/oficinas\//.test(window.location.pathname)) return;
+
+        var viewSection = document.getElementById("view");
+        if (!viewSection || document.getElementById("nave-workshop-notice")) return;
+
+        var notice = document.createElement("aside");
+        notice.id = "nave-workshop-notice";
+        notice.className = "nave-workshop-notice mt-8 scroll-mt-24";
+        notice.setAttribute("role", "note");
+        notice.setAttribute("aria-label", "Atenção sobre oficinas digitais");
+        notice.innerHTML =
+            '<div class="nave-workshop-notice__inner">' +
+            '<p class="nave-workshop-notice__title">' +
+            '<span class="material-symbols-outlined" aria-hidden="true">info</span>' +
+            "<span>Atenção!</span></p>" +
+            '<div class="nave-workshop-notice__body">' +
+            "<p>As oficinas digitais são atividades extras que podem ser executadas ora para contemplar o resgate de aprendizagens ou a introdução de habilidades na sala de aula, ora para expandir os horizontes de turmas que anseiam por novos desafios.</p>" +
+            "<p>Além disso, o planejamento da atividade requer verificar se a escola possui os recursos necessários para executá-la. É possível que as oficinas propostas solicitem materiais físicos que precisem ser adquiridos.</p>" +
+            "</div></div>";
+
+        var viewInner = viewSection.querySelector(":scope > .relative");
+        if (viewInner) {
+            viewInner.appendChild(notice);
+        } else {
+            viewSection.appendChild(notice);
+        }
     }
 
     function initSectionPanel() {
@@ -1566,6 +1596,235 @@
         });
     }
 
+    function auditFormStorageKey(formId) {
+        return AUDIT_FORM_KEY_PREFIX + window.location.pathname + ":" + formId;
+    }
+
+    function loadAuditFormState(formId) {
+        try {
+            return JSON.parse(localStorage.getItem(auditFormStorageKey(formId)) || "{}");
+        } catch (err) {
+            return {};
+        }
+    }
+
+    function saveAuditFormState(formId, state) {
+        try {
+            localStorage.setItem(auditFormStorageKey(formId), JSON.stringify(state));
+        } catch (err) {
+            /* storage indisponível */
+        }
+    }
+
+    function truncateAuditPreview(text, maxLen) {
+        var trimmed = (text || "").trim();
+        if (!trimmed) return "";
+        if (trimmed.length <= maxLen) return trimmed;
+        return trimmed.slice(0, maxLen).trim() + "…";
+    }
+
+    function updateAuditPreview(row, value) {
+        var preview = row.querySelector(".nave-audit-form__preview");
+        if (!preview) return;
+        var snippet = truncateAuditPreview(value, 120);
+        preview.textContent = snippet || "Clique para preencher…";
+        preview.classList.toggle("nave-audit-form__preview--empty", !snippet);
+        row.classList.toggle("nave-audit-form__row--filled", !!snippet);
+    }
+
+    function buildAuditDownloadText(formEl, state) {
+        var formTitle = formEl.getAttribute("data-nave-audit-form-title") || "Formulário de auditoria de algoritmo";
+        var lines = [
+            formTitle,
+            "",
+            "Oficina: " + (document.title || ""),
+            "Exportado em: " + new Date().toLocaleString("pt-BR"),
+            "",
+            "---",
+            ""
+        ];
+
+        formEl.querySelectorAll("[data-nave-audit-row-id]").forEach(function (row) {
+            var id = row.getAttribute("data-nave-audit-row-id");
+            var label = row.getAttribute("data-nave-audit-label") || id;
+            var instruction = row.getAttribute("data-nave-audit-instruction") || "";
+            var draft = (state[id] || "").trim();
+
+            lines.push(label);
+            if (instruction) lines.push("Instrução: " + instruction);
+            lines.push("Rascunho:");
+            lines.push(draft || "(não preenchido)");
+            lines.push("");
+        });
+
+        return lines.join("\n");
+    }
+
+    function downloadAuditForm(formEl) {
+        var formId = formEl.getAttribute("data-nave-audit-form-id");
+        if (!formId) return;
+
+        var state = loadAuditFormState(formId);
+        var text = buildAuditDownloadText(formEl, state);
+        var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement("a");
+        link.href = url;
+        link.download = formId + "-rascunho.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+    }
+
+    function initAuditForms() {
+        var forms = document.querySelectorAll("[data-nave-audit-form-id]");
+        if (!forms.length) return;
+
+        var activeModal = null;
+        var activeRow = null;
+        var saveTimer = null;
+
+        function closeAuditModal() {
+            if (!activeModal) return;
+            activeModal.classList.remove("nave-audit-form-modal--visible");
+            document.body.classList.remove("nave-audit-form-modal-active");
+            if (activeRow) {
+                var trigger = activeRow.querySelector(".nave-audit-form__open");
+                if (trigger) trigger.focus();
+            }
+            setTimeout(function () {
+                if (activeModal && activeModal.parentNode) activeModal.remove();
+                activeModal = null;
+                activeRow = null;
+            }, 300);
+        }
+
+        function persistDraft(formId, rowId, value) {
+            var state = loadAuditFormState(formId);
+            if ((value || "").trim()) {
+                state[rowId] = value;
+            } else {
+                delete state[rowId];
+            }
+            saveAuditFormState(formId, state);
+        }
+
+        function openAuditModal(formEl, row) {
+            var formId = formEl.getAttribute("data-nave-audit-form-id");
+            var rowId = row.getAttribute("data-nave-audit-row-id");
+            var label = row.getAttribute("data-nave-audit-label") || rowId;
+            var instruction = row.getAttribute("data-nave-audit-instruction") || "";
+            var state = loadAuditFormState(formId);
+            var currentValue = state[rowId] || "";
+
+            closeAuditModal();
+            activeRow = row;
+
+            var modal = document.createElement("div");
+            modal.className = "nave-audit-form-modal";
+            modal.setAttribute("role", "dialog");
+            modal.setAttribute("aria-modal", "true");
+            modal.setAttribute("aria-labelledby", "nave-audit-form-modal-title");
+
+            modal.innerHTML =
+                '<div class="nave-audit-form-modal__inner">' +
+                '<button type="button" class="nave-audit-form-modal__close" aria-label="Fechar">' +
+                '<span class="material-symbols-outlined">close</span></button>' +
+                '<p class="nave-audit-form-modal__eyebrow">Seu rascunho (lógica)</p>' +
+                '<h2 id="nave-audit-form-modal-title" class="nave-audit-form-modal__title"></h2>' +
+                '<p class="nave-audit-form-modal__instruction"></p>' +
+                '<label class="nave-audit-form-modal__label" for="nave-audit-form-modal-field">Resposta</label>' +
+                '<textarea id="nave-audit-form-modal-field" class="nave-audit-form-modal__field" rows="8" placeholder="Descreva a lógica ou o critério que orientará esta decisão…"></textarea>' +
+                '<div class="nave-audit-form-modal__actions">' +
+                '<button type="button" class="nave-audit-form-modal__btn nave-audit-form-modal__btn--ghost" data-action="close">Fechar</button>' +
+                '<button type="button" class="nave-audit-form-modal__btn nave-audit-form-modal__btn--primary" data-action="save">Salvar rascunho</button>' +
+                "</div></div>";
+
+            document.body.appendChild(modal);
+            activeModal = modal;
+
+            modal.querySelector(".nave-audit-form-modal__title").textContent = label;
+            modal.querySelector(".nave-audit-form-modal__instruction").textContent = instruction;
+
+            var field = modal.querySelector("#nave-audit-form-modal-field");
+            field.value = currentValue;
+
+            function syncDraft() {
+                var value = field.value;
+                persistDraft(formId, rowId, value);
+                updateAuditPreview(row, value);
+            }
+
+            field.addEventListener("input", function () {
+                clearTimeout(saveTimer);
+                saveTimer = setTimeout(syncDraft, 350);
+            });
+
+            modal.querySelector('[data-action="save"]').addEventListener("click", function () {
+                syncDraft();
+                closeAuditModal();
+            });
+
+            modal.querySelector('[data-action="close"]').addEventListener("click", function () {
+                syncDraft();
+                closeAuditModal();
+            });
+
+            modal.querySelector(".nave-audit-form-modal__close").addEventListener("click", function () {
+                syncDraft();
+                closeAuditModal();
+            });
+
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) {
+                    syncDraft();
+                    closeAuditModal();
+                }
+            });
+
+            document.addEventListener("keydown", function onKeydown(e) {
+                if (e.key === "Escape" && activeModal === modal) {
+                    e.preventDefault();
+                    syncDraft();
+                    closeAuditModal();
+                    document.removeEventListener("keydown", onKeydown);
+                }
+            });
+
+            document.body.classList.add("nave-audit-form-modal-active");
+            requestAnimationFrame(function () {
+                modal.classList.add("nave-audit-form-modal--visible");
+                field.focus();
+            });
+        }
+
+        forms.forEach(function (formEl) {
+            var formId = formEl.getAttribute("data-nave-audit-form-id");
+            if (!formId) return;
+
+            var state = loadAuditFormState(formId);
+            formEl.querySelectorAll("[data-nave-audit-row-id]").forEach(function (row) {
+                var rowId = row.getAttribute("data-nave-audit-row-id");
+                updateAuditPreview(row, state[rowId] || "");
+
+                var trigger = row.querySelector(".nave-audit-form__open");
+                if (!trigger) return;
+
+                trigger.addEventListener("click", function () {
+                    openAuditModal(formEl, row);
+                });
+            });
+
+            var downloadBtn = formEl.querySelector(".nave-audit-form__download");
+            if (downloadBtn) {
+                downloadBtn.addEventListener("click", function () {
+                    downloadAuditForm(formEl);
+                });
+            }
+        });
+    }
+
     function initCopyTriggers() {
         document.querySelectorAll("[data-nave-copy-from]").forEach(function (btn) {
             if (btn.dataset.naveCopyBound) return;
@@ -1608,6 +1867,7 @@
     window.Nave = window.Nave || {};
     window.Nave.refreshMetaHints = initMetaHints;
 
+    initWorkshopNotice();
     panelController = initSectionPanel();
     initInSectionAnchors();
     initExternalLinks();
@@ -1621,5 +1881,6 @@
     initDicasAccordions();
     initCodeWindows();
     initCopyTriggers();
+    initAuditForms();
     initVideoModals();
 })();

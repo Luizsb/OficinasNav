@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<!-- Oficina: arquitetos-do-conhecimento | Arquitetos do Conhecimento -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arquitetos do Conhecimento — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Arquitetos do
+                    Conhecimento</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Arquitetos do Conhecimento</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 13 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">2 encontros de 45 min cada (total: 90 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Arquitetos do Conhecimento</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, os
+                            estudantes serão desafiados a investigar como a Inteligência Artificial (IA) reconhece
+                            padrões visuais e semânticos e a explorar duas ferramentas interativas do Google: QuickDraw
+                            e Semantris. No QuickDraw, eles experimentarão como uma rede neural tenta adivinhar desenhos
+                            feitos em tempo real, observando acertos, erros e critérios implícitos por trás do
+                            reconhecimento de padrões visuais. No Semantris, mergulharão no processamento de linguagem
+                            natural, bem como testarão associações de palavras e refinarão suas descrições (prompts)
+                            para interagir com a IA de forma mais precisa e intencional.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">A atividade propõe uma
+                            jornada investigativa na qual os estudantes assumirão o papel de analistas do comportamento
+                            da IA. Assim eles observarão como o sistema responde a diferentes tipos de entrada e
+                            registrarão evidências para análise posterior. No decorrer das duas aulas, desenvolverão
+                            habilidades de observação, argumentação e análise crítica, aprofundando a compreensão sobre
+                            o funcionamento das IAs contemporâneas.</p>
+
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 13
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">2 encontros de 45 min cada
+                                    (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento
+                                    Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-1"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Mundo Digital e
+                                    IA</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">20 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Mostrar
+                            como IAs reconhecem padrões, apresentar o QuickDraw e realizar os primeiros testes rápidos.
+                        </p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">55 min</span>
+                            </div>
+                        </div>
+                        <div class="nave-estrutura-card__blocks">
+                            <div class="nave-estrutura-card__block">
+                                <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                                    Aprofundar, com desafios investigativos, a exploração do QuickDraw, refletir sobre
+                                    acertos e erros da IA e registrar as primeiras conclusões no Diário de Bordo.</p>
+                            </div>
+                            <div class="nave-estrutura-card__block">
+                                <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                                    Explorar o Semantris (modo Blocks e modo Arcade), testar palavras e frases (prompts)
+                                    e observar como a IA compreende relações semânticas e associa termos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">15 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Comparar
+                            as experiências com o QuickDraw e o Semantris, discutir as descobertas sobre como as IAs
+                            &quot;pensam&quot; e registrar as aprendizagens finais.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Ampliar a
+                            investigação com novas ferramentas e desafios, aprofundando a análise crítica sobre limites
+                            e possibilidades das IAs.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Computadores com acesso à internet
+                                    (recomendação ideal: 1 computador por estudante ou dupla)</span></label></li>
+                        <li class="space-y-2">
+                            <span class="text-body-md font-body-md text-on-surface">Acesso aos sites:</span>
+                            <ul class="space-y-2 pl-8">
+                                <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                            class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                            type="checkbox" id="nave-material-2" /><span
+                                            class="text-body-md font-body-md text-on-surface">QuickDraw. Disponível em:
+                                            <a class="text-tertiary hover:underline"
+                                                href="https://quickdraw.withgoogle.com/" rel="noopener noreferrer"
+                                                target="_blank">https://quickdraw.withgoogle.com/</a> Acesso em: 13 jul.
+                                            2026.</span></label></li>
+                                <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                            class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                            type="checkbox" id="nave-material-3" /><span
+                                            class="text-body-md font-body-md text-on-surface">Semantris. Disponível em:
+                                            <a class="text-tertiary hover:underline"
+                                                href="https://research.google.com/semantris/" rel="noopener noreferrer"
+                                                target="_blank">https://research.google.com/semantris/</a> Acesso em: 13
+                                            jul. 2026.</span></label></li>
+                            </ul>
+                        </li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-4" /><span
+                                    class="text-body-md font-body-md text-on-surface">Projetor ou TV para demonstrações
+                                    (opcional)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-5" /><span
+                                    class="text-body-md font-body-md text-on-surface">Caderno ou folha de rascunho para
+                                    registro das descobertas (diário de bordo)</span></label></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">20 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Neste primeiro momento, o foco
+                                é apresentar o funcionamento geral de sistemas capazes de reconhecer padrões visuais,
+                                propondo o QuickDraw como experiência inicial. A intenção é que os estudantes tenham
+                                contato direto com a ferramenta antes de aprofundar a análise conceitual sobre como ela
+                                opera.</p>
+                            <div
+                                class="rounded-xl border border-prepare/20 border-l-4 border-l-prepare overflow-hidden bg-prepare/5 mb-8">
+                                <button type="button"
+                                    class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-prepare/10 transition-colors"
+                                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                        class="material-symbols-outlined text-prepare text-xl">lightbulb</span><span
+                                        class="text-label-md font-label-md font-bold text-prepare flex-1">Dica</span><span
+                                        class="material-symbols-outlined text-prepare dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="hidden border-t border-prepare/20 px-5 py-4 sm:px-6 sm:py-5">
+                                    <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed"></p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant"><strong>Sugestão de
+                                            fala para
+                                            apresentar aos estudantes</strong></p><br>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-md font-body-md text-on-surface-variant">Como uma
+                                            Inteligência
+                                            Artificial consegue adivinhar um desenho mesmo quando ele não está
+                                            perfeitamente
+                                            representado?</li>
+                                    </ul>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-md font-body-md text-on-surface-variant">A IA realmente
+                                            “pensa” ou
+                                            apenas reconhece padrões aprendidos com muitos exemplos?</li>
+                                    </ul>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-md font-body-md text-on-surface-variant">Que tipo de pistas
+                                            visuais
+                                            podem ajudar a máquina a tomar uma decisão?</li>
+                                    </ul><br>
+                                    <p class="text-body-md font-body-md text-on-surface-variant">Explique que, no
+                                        decorrer da
+                                        atividade, a turma deve investigar o comportamento da IA observando evidências,
+                                        testando
+                                        hipóteses e analisando resultados para compreender como as máquinas aprendem.
+                                        Apresente,
+                                        então, a ferramenta QuickDraw e oriente os estudantes a fazer desenhos enquanto
+                                        a IA
+                                        tenta adivinhá-los. Após os testes, retome o debate coletivo propondo perguntas
+                                        como:
+                                    </p><br>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-md font-body-md text-on-surface-variant">Em quais situações
+                                            a IA
+                                            acertou com mais facilidade?</li>
+                                    </ul>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-md font-body-md text-on-surface-variant">Onde ocorreram
+                                            erros?</li>
+                                    </ul>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-md font-body-md text-on-surface-variant">O que esses
+                                            resultados
+                                            revelam sobre o funcionamento do sistema?</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image1.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image1.png" /></figure>
+                            <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare">
+                                <h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                                </h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Como vocês acham que
+                                        um
+                                        computador consegue “adivinhar” o que alguém está desenhando, mesmo que o
+                                        desenho
+                                        não seja perfeito?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">O que acontece quando
+                                        a IA
+                                        erra um desenho? Que hipóteses podem explicar esse erro?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Se a IA foi treinada
+                                        com
+                                        desenhos de pessoas do mundo todo, é possível que ela reconheça certos estilos
+                                        de
+                                        representação com mais facilidade do que outros? Por quê?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">O elemento central desta
+                                    aula é o conceito de reconhecimento de padrões visuais. O QuickDraw é uma ferramenta
+                                    desenvolvida pelo Google a qual utiliza uma rede neural treinada com mais de 1
+                                    bilhão de desenhos feitos por pessoas ao redor do mundo. Cada traço que o usuário
+                                    faz é comparado, em tempo real, com esse enorme banco de dados, permitindo à IA
+                                    “adivinhar” o que está sendo desenhado antes mesmo de o desenho ficar pronto. Isso
+                                    demonstra como máquinas podem aprender padrões com base em exemplos, estabelecendo
+                                    correlações estatísticas entre traços e categorias previamente aprendidas, e revela
+                                    os limites desse processo, já que desenhos muito diferentes do padrão ou de objetos
+                                    menos comuns costumam gerar erros.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Como é possível verificar
+                                    na imagem anterior, o desenho de uva foi facilmente reconhecido mesmo com traços
+                                    simplificados, ao passo que a IA teve mais dificuldade para reconhecer o desenho de
+                                    calculadora. Essa diferença ocorre porque a IA foi treinada com muito mais exemplos
+                                    de objetos comuns do cotidiano (como frutas) do que com objetos específicos ou menos
+                                    frequentes (como calculadoras). Fica evidente, então, como a distribuição dos dados
+                                    de treinamento influencia diretamente o desempenho do modelo, revelando os vieses
+                                    presentes no conjunto de dados de treinamento.</p>
+                                <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png"
+                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                        src="images/image2.png" /></figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1"
+                                    id="nave-dicas-trigger-prepare-1"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Preparação
+                                        prévia</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">antes da aula, teste o
+                                        QuickDraw nos equipamentos da escola para verificar acesso, funcionamento e
+                                        estabilidade da conexão. Realize ao menos uma rodada completa para compreender a
+                                        dinâmica do jogo e antecipar possíveis dúvidas dos estudantes sobre acertos,
+                                        erros e tempo de reconhecimento.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2"
+                                    id="nave-dicas-trigger-prepare-2"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Acesso por
+                                        celular</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">caso haja limitação de
+                                        computadores, a ferramenta pode ser utilizada pelo navegador do celular,
+                                        respeitando as orientações institucionais sobre o uso de dispositivos móveis em
+                                        sala. Recomenda-se que o uso seja previamente alinhado com a turma, com
+                                        objetivos pedagógicos claros e tempo delimitado para a atividade. Isso reforça o
+                                        uso responsável dos dispositivos, o foco na tarefa proposta e os cuidados com a
+                                        navegação e a proteção de dados pessoais.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3"
+                                    id="nave-dicas-trigger-prepare-3"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Circulação
+                                        e apoio</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">durante a atividade,
+                                        circule pela sala para apoiar estudantes com dificuldades técnicas ou de
+                                        compreensão e incentive o compartilhamento de estratégias observadas.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4"
+                                    id="nave-dicas-trigger-prepare-4"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Diário de
+                                        Bordo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">sugira aos estudantes
+                                        que anotem rapidamente os acertos, os erros e as hipóteses iniciais sobre o
+                                        comportamento da IA. Esse registro será fundamental para a próxima etapa.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-5"
+                                    id="nave-dicas-trigger-prepare-5"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Clima de
+                                        curiosidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que o foco não
+                                        é desenhar bem, mas analisar como a IA responde aos diferentes traços. O erro
+                                        também deve ser tratado como dado de investigação.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-6"
+                                    id="nave-dicas-trigger-prepare-6"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                        visual</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">sempre que possível,
+                                        incentive os estudantes a realizar capturas de telas ao final de cada rodada
+                                        para registrar os resultados e para compartilhar com os colegas durante a
+                                        discussão.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Antes de os estudantes
+                                iniciarem os desafios propostos pelo QuickDraw, é recomendável deixá-los explorar a
+                                ferramenta livremente. Esse breve momento inicial tem como objetivo despertar a
+                                curiosidade, permitir que descubram como a IA reage aos desenhos e fazer com que eles
+                                comecem a formular questões como: Por que o reconhecimento ocorreu tão rápido em alguns
+                                casos? Por que o sistema não identificou determinado desenho?</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">A ideia é que experimentem,
+                                errem, acertem e explorem a ferramenta de maneira espontânea antes de avançar para uma
+                                observação mais sistemática. Esse primeiro contato funciona como levantamento inicial de
+                                hipóteses, que serão aprofundadas na etapa seguinte. Após isso, promova uma breve
+                                socialização das descobertas para que a turma perceba que os resultados variam conforme
+                                o objeto desenhado e o nível de detalhamento, criando um ponto de partida comum para as
+                                reflexões seguintes, sem ainda formalizar explicações técnicas.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Oriente a turma a acessar o
+                                site <a class="text-prepare hover:underline" href="https://quickdraw.withgoogle.com"
+                                    rel="noopener noreferrer" target="_blank">quickdraw.withgoogle.com</a> e, na
+                                sequência, a clicar em “Vamos Desenhar!” (ou <em>“Let’s Draw!”</em>, caso o idioma
+                                configurado no
+                                navegador seja o inglês). O jogador deve desenhar uma sequência de 6 imagens, com 20
+                                segundos para cada uma, enquanto a IA tenta identificar o que está sendo desenhado em
+                                tempo real.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image3.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image3.png" /></figure>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Incentive os estudantes a
+                                realizar ao menos uma rodada completa e, ao final, anotar quais imagens foram
+                                identificadas corretamente e quais não foram. O registro pode ser simples e destacar,
+                                por exemplo, acertos, erros e situações que chamaram a atenção. Sempre que possível,
+                                utilize o recurso de captura de tela disponível no dispositivo para registrar os
+                                resultados.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Essas imagens podem ser
+                                reunidas em um documento temporário para serem exibidas durante a discussão. Caso o
+                                registro digital não seja viável, as anotações escritas já serão suficientes para a
+                                partilha.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Após as rodadas iniciais,
+                                solicite que os estudantes compartilhem voluntariamente as próprias impressões,
+                                mostrando as capturas de tela ou comentando sobre os acertos e erros observados. Evite
+                                antecipar explicações neste momento: priorize a escuta das hipóteses formuladas pelos
+                                estudantes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">55 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">Aprofundamento no QuickDraw e
+                                exploração do Semantris</h3>
+                        </div>
+                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image4.png" /></figure>
+                        <p class="text-body-md font-body-md text-on-surface-variant"><strong>Aprofundamento no
+                                QuickDraw</strong></p>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Após o primeiro contato
+                            exploratório com o QuickDraw, inicia-se uma etapa de aprofundamento investigativo. Neste
+                            momento, os estudantes realizarão novas rodadas, mas agora com o objetivo específico de
+                            observar padrões: Quais objetos a IA reconhece com mais facilidade? Quais geram mais erros?
+                            Existe diferença entre desenhos simples e desenhos complexos?</p>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Além disso, é importante que os
+                            estudantes percebam um aspecto central do funcionamento do QuickDraw: a IA já sabe
+                            antecipadamente o objeto que deve ser desenhado, pois o jogo informa qual é a palavra-alvo.
+                            Isso significa que o sistema realiza a classificação dentro de uma categoria previamente
+                            definida, não se valendo de possibilidades ilimitadas. Trata-se de um processo de
+                            classificação dentro de uma categoria já definida, o que influencia a forma como
+                            interpretamos o desempenho do sistema. Esse ponto deve ser retomado na discussão final,
+                            evitando-se, no entanto, repetir a explicação técnica já apresentada na etapa anterior.</p>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                    id="nave-dicas-trigger-create-1"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Peça aos
+                                        estudantes que realizem…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Peça aos estudantes que
+                                        realizem pelo menos duas rodadas completas (cada rodada com 6 desenhos). Ao
+                                        final de cada rodada, oriente-os a registrar no diário de bordo: quais desenhos
+                                        foram reconhecidos corretamente pela IA; quais não foram reconhecidos; se houve
+                                        alguma palavra identificada muito rapidamente; e se alguma exigiu todo o tempo
+                                        disponível para ser classificada.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                    id="nave-dicas-trigger-create-2"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Incentive
+                                        os estudantes a testar…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Incentive os estudantes
+                                        a testar diferentes estratégias de desenho, variando nível de detalhamento e
+                                        tempo de execução. Auxilie-os a observar se há variação no reconhecimento
+                                        conforme a estratégia utilizada.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                    id="nave-dicas-trigger-create-3"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Após as
+                                        rodadas, promova uma…</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Após as rodadas,
+                                        promova uma breve conversa com a turma utilizando questões como: Houve imagens
+                                        reconhecidas muito depressa? Quais imagens a IA teve mais dificuldade de
+                                        reconhecer? Quais hipóteses podem explicar essas diferenças? Retome o fato de
+                                        que o jogo informa previamente a categoria a ser desenhada e questione os
+                                        estudantes sobre como essa informação influencia a interpretação do desempenho
+                                        da IA.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                    id="nave-dicas-trigger-create-4"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Proponha à
+                                        turma que responda à seguinte questão</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">A IA realmente
+                                        “adivinhou” o desenho ou realizou uma comparação com padrões previamente
+                                        aprendidos? Qual é a diferença entre essas duas interpretações?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image5.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image5.png" /></figure>
+
+                        <br>
+                        <p class="text-body-md font-body-md text-on-surface-variant"><strong>Exploração do
+                                Semantris</strong></p><br>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Nesta segunda parte, os estudantes
+                            migrarão do reconhecimento de padrões visuais (QuickDraw) para o reconhecimento de padrões
+                            semânticos, ou seja, para a análise de como a IA estabelece relações de sentido entre
+                            palavras por meio de associações estatísticas. A ferramenta escolhida é o Semantris, que
+                            apresenta dois modos de jogo: Blocks e Arcade.</p><br>
+                        <p class="text-body-md font-body-md text-on-surface-variant">O foco principal da aula será o
+                            modo Blocks, por permitir uma interação mais pausada e analítica. Em um exercício prático de
+                            formulação estratégica de entradas linguísticas (prompts), os estudantes terão tempo para
+                            testar palavras, observar quais associações a IA reconhece e refinar as tentativas. O modo
+                            Arcade será apresentado como um desafio complementar, priorizando agilidade e rapidez nas
+                            associações, incentivando os estudantes a ir além na exploração da ferramenta.</p>
+                        <br>
+                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image6.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image6.png" /></figure>
+
+                        <br>
+
+
+                        <div
+                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5">
+                            <button type="button"
+                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                    class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                    class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                            <div class="border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 hidden">
+                                <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Estrutura sugerida
+                                    da construção</p>
+                                <div class="space-y-5">
+                                    <div>
+                                        <ol class="list-decimal pl-5 space-y-1">
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">
+                                                Contextualização para os estudantes</li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">Orientações
+                                                para o modo Blocks</li>
+                                            <li class="text-body-sm font-body-md text-on-surface-variant">Exploração
+                                                rápida do modo Arcade</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                    <div class="workshop-accordions">
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="atividade"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-atividade" aria-expanded="false"
+                                aria-controls="workshop-panel-atividade">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span>
+                                </div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Atividade</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">3
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-atividade" role="region"
+                                aria-labelledby="workshop-trigger-atividade">
+
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Contextualização
+                                            para os estudantes</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Antes de iniciar a
+                                            exploração, apresente o Semantris com uma fala como esta:</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">&quot;Agora vamos
+                                            mudar de desafio! No QuickDraw, vimos como a IA reconhece desenhos. Agora
+                                            vamos ver como ela reconhece o significado das palavras. O Semantris é um
+                                            jogo onde vocês digitam palavras ou frases, e a IA tenta entender quais
+                                            blocos estão relacionados ao que vocês escreveram. Quanto mais precisa a
+                                            relação, com mais eficiência o bloco é encontrado. É um ótimo exercício para
+                                            entender como as máquinas aprendem associações entre ideias.&quot;</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8 mt-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Nota
+                                                    sobre o idioma</span><span
+                                                    class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <div class="space-y-3">
+                                                    <p class="text-body-md font-body-md text-on-surface-variant">O
+                                                        Semantris funciona em inglês. Antes do início da atividade,
+                                                        informe a turma sobre essa característica e, se necessário,
+                                                        autorize o uso pontual de tradutores on-line como apoio. Como
+                                                        alternativa, projete ou disponibilize previamente uma lista de
+                                                        vocabulário estratégico relacionada a categorias frequentes,
+                                                        como animais, objetos, emoções e ações. O foco deve permanecer
+                                                        na análise das associações estabelecidas pela IA, e não na
+                                                        proficiência no idioma.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Orientações para o
+                                            modo Blocks</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Oriente
+                                            a turma a acessar o site <a class="text-prepare hover:underline"
+                                                href="https://research.google.com/semantris/" rel="noopener noreferrer"
+                                                target="_blank">https://research.google.com/semantris/</a> e
+                                            selecionar o modo &quot;Blocks&quot;. O jogo apresentará uma
+                                            tela com diversos blocos, cada um contendo uma palavra. O
+                                            objetivo é digitar uma palavra ou frase que esteja
+                                            semanticamente relacionada aos blocos que se deseja eliminar.
+                                        </p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image7.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image7.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">
+                                            Proponha aos estudantes começar testando palavras simples, como
+                                            &quot;Sun&quot; (Sol) para eliminar blocos como
+                                            &quot;Light&quot;, &quot;Hot&quot; ou &quot;Beach&quot;. Depois,
+                                            incentive-os a experimentar palavras com duplo sentido, como
+                                            &quot;Bank&quot; (banco financeiro ou margem de rio), e observar
+                                            qual dos significados a IA prioriza.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image8.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image8.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Note,
+                                            na imagem anterior, que, apesar de existir o bloco
+                                            &quot;Summer&quot;, a palavra &quot;Sun&quot; foi relacionada
+                                            com outro bloco: &quot;Eye&quot;. Essa relação evidencia que a
+                                            escolha das palavras influencia diretamente o resultado obtido.
+                                            Nem sempre a associação feita pelos estudantes será a mesma
+                                            priorizada pelo sistema, o que reforça a necessidade de testar
+                                            diferentes formulações.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">
+                                            Avançando, peça que testem pequenas frases descritivas, como
+                                            &quot;a place where you sleep&quot; (um lugar onde você dorme)
+                                            para eliminar o bloco &quot;Hotel&quot;. Peça-lhes que comparem
+                                            os resultados e verifiquem se usar a frase funcionou melhor do
+                                            que usar uma única palavra e por que?</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image9.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image9.png" /></figure>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                                    class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p class="text-body-md font-body-md text-on-surface-variant">É
+                                                    importante destacar que o Semantris está programado para manter o
+                                                    jogo em andamento. Mesmo quando o estudante digita palavras pouco
+                                                    relacionadas aos blocos, o sistema tende a selecionar a associação
+                                                    estatística mais próxima disponível. Esse comportamento pode gerar
+                                                    respostas plausíveis, mas nem sempre precisas e merece ser discutido
+                                                    com a turma.</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    <strong>A importância dos prompts</strong>
+                                                </p>
+                                                <p class="text-body-md font-body-md text-on-surface-variant mt-3">Assim
+                                                    como o traço influencia o reconhecimento no QuickDraw, a formulação
+                                                    de palavras e frases (prompts) impacta diretamente o desempenho do
+                                                    sistema no Semantris. Quanto mais específica e contextualizada for a
+                                                    entrada, maiores serão as chances de se obter uma resposta coerente
+                                                    com a intenção do usuário. Explique que a IA estabelece relações com
+                                                    base em associações estatísticas entre palavras, e não em
+                                                    compreensão semântica humana. </p><br>
+                                                <p class="text-body-md font-body-md text-on-surface-variant">Esse é um
+                                                    conceito fundamental para a
+                                                    comunicação com IAs generativas.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Exploração rápida
+                                            do modo Arcade</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após a exploração
+                                            do
+                                            modo Blocks, apresente o modo Arcade como um desafio complementar. Nesse
+                                            modo, um termo-alvo aparece destacado em azul na tela. O jogador deve
+                                            digitar, o mais rápido possível, palavras semanticamente relacionadas a
+                                            esse termo. À medida que novas palavras surgem e se acumulam na tela, o
+                                            nível de dificuldade aumenta. A partida termina quando o limite de vocábulos
+                                            exibidos é atingido.</p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image10.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image10.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Durante a
+                                            exploração do Arcade, oriente os estudantes a iniciar o desafio com
+                                            associações mais evidentes e, em seguida, testar relações mais criativas ou
+                                            menos imediatas, observando como a velocidade de resposta influencia o
+                                            desempenho. Incentive também a comparação entre a experiência no Arcade e
+                                            no Blocks, promovendo a reflexão sobre qual deles favorece maior
+                                            compreensão do funcionamento da IA e por quê.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image11.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image11.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">O jogo começa de
+                                            forma mais lenta e permite maior tempo de reflexão. No momento inicial, o
+                                            uso
+                                            de frases pode ser produtivo, e os estudantes terão tempo para consultar
+                                            traduções, se necessário, considerando que a ferramenta está em inglês. À
+                                            medida que o nível avança e o tempo de resposta diminui, palavras-chave
+                                            tendem a se tornar mais eficientes do que frases completas, devido ao tempo
+                                            necessário para digitação.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Essa transição
+                                            entre
+                                            momentos de maior tempo de reflexão e fases que exigem rapidez possibilita
+                                            problematizar a relação entre tempo, estratégia e escolha lexical. Em
+                                            contextos mais acelerados, palavras-chave tendem a ser mais eficientes do
+                                            que frases longas, o que evidencia como diferentes condições afetam o
+                                            desempenho da IA.</p>
+                                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image12.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image12.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">
+                                            <strong>Importante:</strong>
+                                            o modo Arcade é opcional. Se a turma estiver com dificuldades no Blocks ou
+                                            com o idioma, priorize a exploração do Blocks e deixe o Arcade como sugestão
+                                            para quem terminar rapidamente. Caso o tempo seja limitado, recomenda-se ao
+                                            menos apresentar brevemente o modo Arcade, a fim de garantir que os
+                                            estudantes conheçam as duas possibilidades de interação oferecidas pela
+                                            ferramenta.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div
+                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                            <button type="button"
+                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                <p class="text-label-md font-label-md font-bold text-on-surface-variant">Sobre os modos
+                                    de jogo</p><br>
+                                <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">O modo
+                                    Blocks é mais tranquilo e permite aos estudantes pensar com calma sobre as
+                                    associações e a qualidade dos prompts. Esse é o foco principal da aula. O modo
+                                    Arcade começa calmo; no entanto, ao longo dos níveis, passa a exigir respostas mais
+                                    rápidas e pode ser mais desafiador (mas também mais empolgante!). Ambos os modos são
+                                    válidos e podem ser explorados conforme o perfil da turma e o tempo disponível.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-secondary mb-8">
+                            <h4 class="text-headline-sm font-headline-sm text-secondary mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                            </h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant mb-4">Após os estudantes terem
+                                explorado tanto o QuickDraw quanto o Semantris, proponha-lhes que registrem, no Diário
+                                de Bordo, uma breve reflexão comparativa. Para orientar a escrita, apresente questões
+                                como:</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">No QuickDraw, a IA realiza
+                                    reconhecimento de padrões visuais; no Semantris, estabelece relações entre palavras.
+                                    Que elementos estruturais são comuns a essas duas tarefas?</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Em qual das duas
+                                    ferramentas o desempenho da IA pareceu mais consistente? Que fatores (tipo de dado,
+                                    frequência, clareza da entrada) podem ter influenciado esse resultado?</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">O que o QuickDraw revela
+                                    sobre a forma como a IA classifica representações visuais? E o que o Semantris
+                                    evidencia sobre a maneira como ela estabelece associações linguísticas?</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant">Se fosse possível
+                                    aprimorar
+                                    uma dessas ferramentas, que tipo de modificação poderia torná-la mais precisa, menos
+                                    enviesada ou mais eficiente? Justifique a proposta.</li>
+                            </ul>
+                        </div>
+                        <div
+                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                            <button type="button"
+                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                    class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                    class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 space-y-4">
+                                <p class="text-label-md font-label-md font-bold text-on-surface">Respostas esperadas
+                                    para
+                                    orientar o educador na discussão</p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p class="text-body-md font-body-md font-bold text-on-surface-variant">1. Que
+                                            elementos estruturais são comuns a essas duas tarefas?</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant mt-2">Os estudantes
+                                            devem perceber que tanto o QuickDraw quanto o Semantris operam com base em
+                                            reconhecimento de padrões, ainda que em domínios distintos (visual e
+                                            linguístico). Em ambos os casos, o desempenho depende do repertório de
+                                            exemplos utilizados no treinamento e da forma como o usuário apresenta sua
+                                            entrada (desenho ou palavra).</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant mt-2">Outro ponto
+                                            comum é que os erros tendem a ocorrer quando a entrada se afasta do padrão
+                                            mais frequente: no QuickDraw, quando o desenho foge do formato esperado; no
+                                            Semantris, quando a palavra é ambígua ou estabelece uma associação menos
+                                            comum.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-body-md font-body-md font-bold text-on-surface-variant">2. Em
+                                            qual
+                                            das duas ferramentas o desempenho da IA pareceu mais consistente?</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant mt-2">Espera-se que
+                                            os estudantes identifiquem que o QuickDraw tende a apresentar maior
+                                            consistência em objetos comuns e amplamente representados, enquanto o
+                                            Semantris funciona melhor em associações diretas e frequentes. A
+                                            variabilidade
+                                            aumenta quando surgem múltiplas possibilidades de interpretação, como
+                                            desenhos muito estilizados ou palavras com duplo sentido.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant mt-2">Os fatores que
+                                            interferem nesses resultados incluem: o tipo de dado (desenhos são mais
+                                            subjetivos que palavras); a frequência com que aquele objeto ou aquela
+                                            relação aparecem no treinamento; e a clareza da entrada. Um desenho mal
+                                            executado ou uma palavra ambígua comprometem mais o desempenho do que uma
+                                            entrada clara e direta.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-body-md font-body-md font-bold text-on-surface-variant">3. O que
+                                            o
+                                            QuickDraw revela sobre a forma como a IA classifica representações visuais?
+                                        </p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant mt-2">O QuickDraw
+                                            evidencia que a classificação ocorre por comparação de traços com modelos
+                                            previamente aprendidos, priorizando características recorrentes de cada
+                                            objeto. Quanto mais o desenho se aproximar dessas características
+                                            predominantes, maior será a probabilidade de reconhecimento rápido.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant mt-2">Já o Semantris
+                                            demonstra que as associações linguísticas são estabelecidas com base na
+                                            proximidade entre palavras em modelos matemáticos de representação
+                                            semântica, o que explica tanto conexões esperadas quanto associações
+                                            inesperadas.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-body-md font-body-md font-bold text-on-surface-variant">4. Se
+                                            fosse
+                                            possível aprimorar uma dessas ferramentas, que tipo de modificação poderia
+                                            torná-la mais precisa?</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant mt-2">Os estudantes
+                                            podem sugerir ampliar a diversidade dos dados utilizados no treinamento,
+                                            incorporar mecanismos de feedback do usuário ou incluir pistas contextuais
+                                            adicionais que reduzam ambiguidades. Espera-se que justifiquem suas
+                                            propostas com base nos limites observados durante a atividade, como erros
+                                            recorrentes, associações imprecisas ou dificuldade diante de entradas menos
+                                            frequentes.</p>
+                                    </div>
+                                </div>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Após alguns minutos de
+                                    escrita
+                                    individual, convide voluntários a compartilhar suas reflexões com a turma. Durante a
+                                    socialização, sistematize no quadro (ou em mural visível) as principais semelhanças
+                                    e
+                                    diferenças apontadas, organizando-as em categorias como: tipo de dado, estratégia do
+                                    usuário, velocidade de resposta, presença de viés e processo de classificação.</p>
+                                <p class="text-label-md font-label-md font-bold text-on-surface">Principais pontos
+                                    comparativos que podem emergir da discussão</p>
+                                <div
+                                    class="rounded-xl overflow-hidden border border-outline-variant bg-surface shadow-sm">
+                                    <table class="w-full text-left border-collapse text-body-sm">
+                                        <thead>
+                                            <tr class="bg-surface-container-low border-b border-outline-variant">
+                                                <th class="p-3 font-bold text-on-surface">QuickDraw</th>
+                                                <th class="p-3 font-bold text-on-surface">Semantris</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-outline-variant">
+                                                <td class="p-3 text-on-surface-variant align-top">Reconhece padrões
+                                                    visuais (desenhos)</td>
+                                                <td class="p-3 text-on-surface-variant align-top">Reconhece padrões
+                                                    semânticos (associações entre palavras)</td>
+                                            </tr>
+                                            <tr class="border-b border-outline-variant bg-surface-container-lowest">
+                                                <td class="p-3 text-on-surface-variant align-top">A IA já sabe o que
+                                                    esperar (o objeto foi informado)</td>
+                                                <td class="p-3 text-on-surface-variant align-top">A IA estabelece
+                                                    relações com base nas palavras digitadas, sem uma categoria
+                                                    previamente explícita</td>
+                                            </tr>
+                                            <tr class="border-b border-outline-variant">
+                                                <td class="p-3 text-on-surface-variant align-top">Depende da qualidade
+                                                    do
+                                                    traço e dos detalhes do desenho</td>
+                                                <td class="p-3 text-on-surface-variant align-top">Depende da precisão
+                                                    das
+                                                    palavras e frases (prompts)</td>
+                                            </tr>
+                                            <tr class="border-b border-outline-variant bg-surface-container-lowest">
+                                                <td class="p-3 text-on-surface-variant align-top">Erros acontecem quando
+                                                    o desenho foge do padrão esperado</td>
+                                                <td class="p-3 text-on-surface-variant align-top">Erros acontecem quando
+                                                    a
+                                                    associação é ambígua, pouco frequente ou apresenta múltiplos
+                                                    sentidos
+                                                    possíveis</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 text-on-surface-variant align-top">Mostra como IAs
+                                                    aprendem
+                                                    com exemplos visuais</td>
+                                                <td class="p-3 text-on-surface-variant align-top">Mostra como IAs
+                                                    aprendem
+                                                    relações estatísticas e contextuais entre palavras</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Este momento de reflexão
+                                    escrita é fundamental para consolidar as aprendizagens construídas ao longo das duas
+                                    aulas. Ao comparar as duas ferramentas, os estudantes sistematizam suas observações
+                                    e
+                                    fundamentam suas conclusões com base nas experiências realizadas. Por sua vez, a
+                                    socialização posterior amplia a análise e garante que diferentes perspectivas sejam
+                                    compartilhadas e discutidas à luz dos registros do Diário de Bordo.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">A atividade de comparação,
+                                    orientada por perguntas direcionadoras, contribui para que os estudantes:</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Identifiquem
+                                        semelhanças e diferenças entre o reconhecimento de padrões visuais e semânticos,
+                                        compreendendo que ambos operam por lógicas estatísticas específicas.</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Organizem e expressem
+                                        suas descobertas por escrito, o que favorece a metacognição e a apropriação dos
+                                        conceitos trabalhados.</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Estruturem argumentos
+                                        para o debate coletivo sobre limites, vieses e potencialidades das IAs.</li>
+                                </ul>
+                                <p class="text-body-md font-body-md text-on-surface-variant">A troca de ideias após a
+                                    escrita individual fortalece a escuta ativa e a construção coletiva do conhecimento.
+                                    O Diário de Bordo, por sua vez, constitui evidência do percurso investigativo e pode
+                                    ser retomado em momentos posteriores.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                    id="nave-dicas-trigger-create-1"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Foco na
+                                        análise, não na performance</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que o objetivo
+                                        não é obter alta pontuação nem &quot;vencer o jogo&quot;, mas observar como a IA
+                                        responde a diferentes tipos de entrada (traços, palavras e frases). Convide os
+                                        estudantes a explicitar o que aprenderam com cada erro ou associação inesperada,
+                                        transformando o resultado em evidência para análise. O erro deve ser tratado
+                                        como dado de investigação.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                    id="nave-dicas-trigger-create-2"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Exploração
+                                        comparativa entre ferramentas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">estimule os estudantes
+                                        a perceber que QuickDraw e Semantris operam com tipos distintos de dados (visual
+                                        e linguístico). Durante a discussão, peça que utilizem exemplos concretos
+                                        vivenciados por eles para sustentar comparações, evitando generalizações
+                                        abstratas. Incentive conexões explícitas entre as duas experiências.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                    id="nave-dicas-trigger-create-3"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Ambiguidade
+                                        e viés como oportunidade de análise</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">sempre que surgir uma
+                                        associação inesperada ou um reconhecimento impreciso, conduza a discussão para
+                                        hipóteses sobre dados de treinamento, frequência de padrões e expectativas do
+                                        modelo. Faça perguntas como “O que pode ter levado a IA a escolher essa
+                                        resposta?” antes de apresentar qualquer explicação, priorizando a construção
+                                        coletiva do raciocínio.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                    id="nave-dicas-trigger-create-4"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Idioma como
+                                        mediação, não como barreira</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">no caso do Semantris,
+                                        organize a tela dividida com ferramenta de tradução quando necessário. Oriente
+                                        que o apoio linguístico seja utilizado apenas como suporte estratégico, mantendo
+                                        o foco na análise das relações estabelecidas pela IA, e não na correção
+                                        gramatical. O foco permanece na compreensão das relações semânticas
+                                        estabelecidas pela IA.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                    id="nave-dicas-trigger-create-5"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Encaminhamento
+                                        para a etapa final</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ao final da exploração,
+                                        retome os registros do Diário de Bordo e prepare a transição para a reflexão
+                                        comparativa, garantindo que as observações coletadas sirvam de base concreta
+                                        para a discussão. Antecipe que as anotações feitas ao longo da etapa serão
+                                        essenciais para sustentar argumentos na etapa seguinte. Isso incentivará os
+                                        estudantes a revisitar os próprios registros antes do debate coletivo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">15 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4">
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container mt-8 first:mt-0">
+                                Dinâmica de compartilhamento: O que a IA realmente entendeu?</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Após a reflexão escrita
+                                realizada ao final da Etapa 2, promova uma discussão coletiva para que os estudantes
+                                compartilhem suas conclusões e aprofundem a análise das implicações do que foi observado
+                                nas duas ferramentas.</p>
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container mt-8 first:mt-0">
+                                Organização da discussão:</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Organize a turma em um círculo
+                                ou um semicírculo para facilitar o diálogo. Inicie retomando brevemente as duas
+                                ferramentas exploradas e algumas das respostas que os estudantes registraram em seus
+                                Diários de ordo. Convide voluntários a ler suas reflexões e utilize as perguntas a
+                                seguir para aprofundar a conversa.</p>
+                            <div
+                                class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container">
+                                <h4
+                                    class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                                </h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Qual das duas
+                                        ferramentas foi considerada mais surpreendente pela turma? Quais critérios
+                                        fundamentam essa percepção?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Retomando o QuickDraw:
+                                        considerando que a IA já tinha conhecimento prévio da categoria a ser desenhada,
+                                        isso pode ser caracterizado como “adivinhação” ou como um processo de
+                                        classificação baseado em expectativa prévia? O que essa constatação revela sobre
+                                        a forma como testes de IA devem ser estruturados e interpretados?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">No Semantris, quando a
+                                        palavra “Sun” foi associada a “Eye” em vez de “Summer”, o que esse resultado
+                                        indica sobre ambiguidade semântica e frequência de associações? Que estratégias
+                                        poderiam reduzir esse tipo de associação inesperada?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Considerando que os
+                                        sistemas aprendem com base em grandes volumes de dados disponíveis online, que
+                                        riscos e responsabilidades estão envolvidos nesse processo? Como identificar
+                                        possíveis distorções nos resultados apresentados?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Após as experiências
+                                        realizadas, quais diferenças concretas podem ser estabelecidas entre o
+                                        processamento realizado pelas IAs testadas e o modo como seres humanos
+                                        interpretam informações?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">O que ocorreria se o
+                                        QuickDraw fosse testado com desenhos de objetos inexistentes ou se o Semantris
+                                        recebesse palavras inventadas? O que esses experimentos hipotéticos revelariam
+                                        sobre os limites e dependências desses sistemas?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--primary-container mb-4 pb-2 border-b border-primary-container/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="reflect">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-1"
+                                    id="nave-dicas-trigger-reflect-1"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Retomada do
+                                        viés do QuickDraw</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-4"
+                                    id="nave-dicas-panel-reflect-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Aproveite este momento
+                                        para aprofundar a reflexão sobre como as expectativas influenciam a
+                                        interpretação de resultados. Em vez de reapresentar o conceito, conduza a turma
+                                        com questões como:</p>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Como o fato de a
+                                            categoria já estar informada influencia nossa percepção sobre o desempenho
+                                            da IA?</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">De que maneira
+                                            poderíamos estruturar um teste mais imparcial?</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Situações
+                                            semelhantes acontecem apenas com máquinas ou também com pessoas?</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-2"
+                                    id="nave-dicas-trigger-reflect-2"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Síntese dos
+                                        conceitos trabalhados</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-4"
+                                    id="nave-dicas-panel-reflect-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">Ao final da discussão,
+                                        organize uma síntese coletiva com base nas contribuições dos estudantes,
+                                        registrando ideias que emergiram durante o debate. Exemplos incluem:</p>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Limites observados
+                                            nas ferramentas</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Estratégias que
+                                            melhoraram os resultados</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Situações que
+                                            revelaram possíveis distorções</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Critérios para
+                                            avaliar respostas de sistemas de IA</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-5 content-block">
+                    <p class="text-body-md font-body-md text-on-surface-variant">Após explorarem o QuickDraw e o
+                        Semantris, os estudantes já possuem repertório suficiente para ampliar a investigação e testar
+                        novas situações de uso dessas tecnologias. Esta etapa propõe justamente isso, incentivando a
+                        continuidade da exploração de forma autônoma ou em pequenos grupos, com o objetivo de testar
+                        novas ferramentas e formular questionamentos mais complexos.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Apresente as sugestões a seguir como
+                        possibilidades de aprofundamento a serem desenvolvidas dentro ou fora do contexto escolar,
+                        reforçando que a experimentação crítica é parte fundamental do letramento em IA. Utilize
+                        perguntas provocativas para estimular a curiosidade, o pensamento analítico e a capacidade de
+                        problematizar o funcionamento dessas tecnologias.</p>
+                    <div
+                        class="rounded-xl border border-beyond/20 border-l-4 border-l-beyond overflow-hidden bg-beyond/5">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-beyond/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-beyond text-xl">lightbulb</span><span
+                                class="text-label-md font-label-md font-bold text-beyond flex-1">Dica</span><span
+                                class="material-symbols-outlined text-beyond dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="hidden border-t border-beyond/20 px-5 py-4 sm:px-6 sm:py-5 space-y-4">
+                            <p class="text-label-md font-label-md font-bold text-on-surface">Sugestão de fala para
+                                apresentar aos estudantes</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">O educador pode introduzir esta
+                                etapa com uma provocação como:</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant italic">&quot;Até agora, foram
+                                exploradas ferramentas baseadas em reconhecimento de padrões. Com base nessa
+                                experiência,
+                                já é possível avançar para uma análise mais crítica. Como a IA reage diante de situações
+                                menos previsíveis ou descrições extremamente específicas? Ela mantém o desempenho ou
+                                apresenta limitações?&quot;</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant italic">&quot;A proposta agora é
+                                testar
+                                esses limites. Ao utilizar as próximas ferramentas, observem como a IA responde a
+                                situações menos previsíveis. Ela acerta? Erra? Simplifica? Ignora detalhes? Mais do que
+                                jogar, o desafio agora é analisar os limites e as possibilidades dessas ferramentas em
+                                contextos variados.&quot;</p>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl border border-beyond/20 border-l-4 border-l-beyond overflow-hidden bg-beyond/5">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-beyond/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-beyond text-xl">warning</span><span
+                                class="text-label-md font-label-md font-bold text-beyond flex-1">Atenção!</span><span
+                                class="material-symbols-outlined text-beyond atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="hidden border-t border-beyond/20 px-5 py-4 sm:px-6 sm:py-5 space-y-4">
+                            <p class="text-label-md font-label-md font-bold text-on-surface">Ferramentas complementares
+                                para explorar</p>
+                            <ul class="list-disc pl-5 space-y-3">
+                                <li class="text-body-md font-body-md text-on-surface-variant">
+                                    <strong>QuickDraw:</strong>
+                                    jogo interativo em que o participante recebe uma palavra e deve desenhá-la
+                                    rapidamente ao mesmo tempo que a IA tenta reconhecer o que está sendo representado.
+                                    A atividade demonstra como sistemas de IA são treinados por intermédio de grandes
+                                    conjuntos de dados de imagens desenhadas por usuários. Disponível em: <a
+                                        class="text-beyond hover:underline" href="https://quickdraw.withgoogle.com/"
+                                        rel="noopener noreferrer" target="_blank">https://quickdraw.withgoogle.com/</a>.
+                                    Acesso em: 13 jul. 2026.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>AutoDraw:</strong>
+                                    diferentemente do QuickDraw, em que a IA tenta identificar o desenho realizado, o
+                                    AutoDraw auxilia o usuário a aprimorar seu traço. O participante realiza um esboço
+                                    simples, e a IA sugere ícones mais refinados para substituí-lo. Disponível em: <a
+                                        class="text-beyond hover:underline" href="https://www.autodraw.com/"
+                                        rel="noopener noreferrer" target="_blank">https://www.autodraw.com/</a>. Acesso
+                                    em: 13 jul. 2026.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Guess the
+                                        Line:</strong> jogo em que o participante recebe um comando de desenho (por
+                                    exemplo, &quot;cachorro cubista&quot;) e desenha enquanto a IA tenta identificar o
+                                    que está sendo representado. Disponível em: <a class="text-beyond hover:underline"
+                                        href="https://experiments.withgoogle.com/guess-the-line"
+                                        rel="noopener noreferrer"
+                                        target="_blank">https://experiments.withgoogle.com/guess-the-line</a>. Acesso
+                                    em:
+                                    13 jul. 2026.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Say What You
+                                        See:</strong> jogo de descrição visual no qual o participante precisa descrever
+                                    com precisão o que observa em uma imagem gerada por IA. Disponível em: <a
+                                        class="text-beyond hover:underline" href="https://saywhatyousee.withgoogle.com/"
+                                        rel="noopener noreferrer"
+                                        target="_blank">https://saywhatyousee.withgoogle.com/</a>. Acesso em: 13 jul.
+                                    2026.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-beyond">
+                        <h4 class="text-headline-sm font-headline-sm text-beyond mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">home</span>Desafio em casa
+                        </h4>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Proponha aos estudantes que
+                            convidem familiares para jogar QuickDraw ou Semantris e retomem as perguntas discutidas em
+                            aula, analisando como o sistema respondeu às entradas, quais erros ocorreram e que fatores
+                            podem ter influenciado os resultados.</p>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-beyond">
+                        <h4 class="text-headline-sm font-headline-sm text-beyond mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                        </h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Se fosse possível criar uma
+                                ferramenta inspirada no QuickDraw ou no Semantris, que tipo de padrão ela reconheceria
+                                (sons, imagens médicas, expressões faciais, movimentos)? Que tipo de dados seriam
+                                necessários para treiná-la?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Que problema da comunidade
+                                local poderia ser abordado com o uso de uma IA baseada em reconhecimento de padrões?
+                                Pense em aplicações como a identificação de resíduos em espaços públicos ou o auxílio à
+                                catalogação de espécies vegetais. Quais seriam as primeiras etapas necessárias para
+                                transformar essa ideia em um projeto?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--beyond mb-4 pb-2 border-b border-beyond/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="beyond">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-1"
+                                    id="nave-dicas-trigger-beyond-1"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Valorização
+                                        das descobertas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5"
+                                    id="nave-dicas-panel-beyond-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">cada estudante pode ter
+                                        observado aspectos distintos durante a exploração. Incentive o compartilhamento
+                                        das percepções e ajude a turma a relacionar suas descobertas com situações reais
+                                        ou experiências pessoais.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-2"
+                                    id="nave-dicas-trigger-beyond-2"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                        como
+                                        evidência da aprendizagem</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5"
+                                    id="nave-dicas-panel-beyond-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">o Diário de Bordo
+                                        permanece como instrumento de sistematização da oficina. Solicite o
+                                        compartilhamento dos registros ao término da atividade para consolidar o
+                                        percurso realizado.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-3"
+                                    id="nave-dicas-trigger-beyond-3"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Valorização
+                                        do processo reflexivo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5"
+                                    id="nave-dicas-panel-beyond-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que o objetivo
+                                        é analisar resultados, levantar hipóteses e justificar conclusões com base nas
+                                        experiências realizadas.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-4"
+                                    id="nave-dicas-trigger-beyond-4"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Conexão com
+                                        o tema do viés</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5"
+                                    id="nave-dicas-panel-beyond-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">amplie a discussão para
+                                        situações concretas em que sistemas automatizados impactam decisões no
+                                        cotidiano, incentivando uma postura crítica diante do uso dessas tecnologias.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-5"
+                                    id="nave-dicas-trigger-beyond-5"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Estímulo à
+                                        continuidade</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5"
+                                    id="nave-dicas-panel-beyond-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">incentive a exploração
+                                        autônoma das ferramentas e a formulação de novos desafios investigativos,
+                                        fortalecendo a autonomia dos estudantes.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-6"
+                                    id="nave-dicas-trigger-beyond-6"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Encerramento
+                                        formativo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5"
+                                    id="nave-dicas-panel-beyond-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">finalize retomando o
+                                        protagonismo dos estudantes como arquitetos do conhecimento e destaque a
+                                        importância de compreender o funcionamento dessas tecnologias para utilizá-las
+                                        de forma responsável e estratégica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF09CO01</span> – “Criar soluções usando árvores e grafos para
+                    descrever informações e automatizá-las (modelar mapa do parque, rotas, filas).”</li>
+                <li><span class="nave-meta-expand__code">EF09CO02</span> – “Construir soluções computacionais de
+                    diferentes áreas do conhecimento, de forma individual e colaborativa (integrar física, matemática,
+                    eletrônica).”</li>
+            </ul>
+        </template>
+        <template id="nave-focus-expand-1">
+            <h2 class="nave-meta-expand__title">Mundo Digital e IA</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF09MDI01</span> – “Investigar e analisar o funcionamento de
+                    sistemas baseados em Inteligência Artificial, compreendendo seus princípios de reconhecimento de
+                    padrões e processamento de linguagem natural, bem como identificar seus limites, vieses e potenciais
+                    aplicabilidades.”</li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
+</body>
+
+</html>

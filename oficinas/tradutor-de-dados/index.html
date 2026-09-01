@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<!-- Oficina: tradutor-de-dados | Tradutor de Dados -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tradutor de Dados — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Tradutor de
+                    Dados</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Tradutor de Dados</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 13 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">2 encontros de 45 min cada (total: 90 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Tradutor de Dados</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, os
+                            estudantes serão desafiados a investigar um dos aspectos mais opacos do mundo digital: os
+                            Termos de Uso e as Políticas de Privacidade dos aplicativos que utilizam diariamente. Com o
+                            apoio de inteligências artificiais (IAs) generativas, como ChatGPT ou Gemini, os estudantes
+                            analisarão a linguagem jurídica desses documentos e os reescreverão em uma versão clara e
+                            acessível. Ao longo desse processo, compreenderão quais dados são coletados, como são
+                            utilizados e quais são os direitos dos usuários previstos na LGPD (Lei Geral de Proteção de
+                            Dados) e no ECA Digital (Lei nº 15.211/2025).</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">A atividade propõe uma
+                            jornada de conscientização crítica, na qual os estudantes assumem o papel de analistas de
+                            políticas digitais. Nesse sentido, não apenas decodificarão textos complexos, mas também
+                            compararão documentos de diferentes plataformas, identificarão práticas mais transparentes
+                            ou potencialmente abusivas e produzirão um guia prático voltado ao público jovem. O foco não
+                            é “controlar” o comportamento dos estudantes, mas promover letramento digital crítico,
+                            deslocando a responsabilidade para as plataformas e empoderando os usuários com conhecimento
+                            sobre seus direitos no ambiente digital.</p>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Toda a investigação pode
+                            ser realizada 100% online, por meio de ferramentas gratuitas e acessíveis.</p>
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 13
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">2 encontros de 45 min cada
+                                    (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento
+                                    Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-1"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Mundo Digital e
+                                    IA</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">15 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Apresentar o tema Termos de Uso, realizar a atividade provocativa com um trecho real e
+                            discutir a dificuldade de compreensão da linguagem jurídica.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">55 min</span>
+                            </div>
+                        </div>
+                        <div class="nave-estrutura-card__blocks">
+                            <div class="nave-estrutura-card__block">
+                                <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                                    Utilizar IA generativa para traduzir o trecho dos Termos de Uso para uma linguagem
+                                    simples, comparar a versão original com a traduzida e identificar os dados
+                                    solicitados.</p>
+                            </div>
+                            <div class="nave-estrutura-card__block">
+                                <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                                    Escolher dois aplicativos ou redes sociais, pesquisar suas políticas de privacidade
+                                    e utilizar IA para resumir e comparar as práticas de coleta de dados.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">20 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Debater
+                            sobre LGPD e ECA Digital, produzir um infográfico ou checklist com orientações para outros
+                            jovens e compartilhar as conclusões.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Ampliar a
+                            investigação por meio de entrevistas, pesquisas de casos reais e campanhas de
+                            conscientização, aprofundando a postura crítica sobre privacidade e uso de dados no
+                            cotidiano digital.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Computadores com acesso à internet
+                                    (recomendação ideal: 1 computador por estudante ou dupla)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-2" /><span
+                                    class="text-body-md font-body-md text-on-surface">Acesso a IAs generativas: ChatGPT
+                                    ou Google Gemini</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-3" /><span
+                                    class="text-body-md font-body-md text-on-surface">Trecho real de Termos de Uso de um
+                                    aplicativo popular (ex.: Instagram, TikTok, WhatsApp, ChatGPT)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-4" /><span
+                                    class="text-body-md font-body-md text-on-surface">Acesso a sites de políticas de
+                                    privacidade. Pesquisar: &quot;política de privacidade (nome do
+                                    app/site)&quot;</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-5" /><span
+                                    class="text-body-md font-body-md text-on-surface">Caderno ou folha de rascunho para
+                                    registro das descobertas (Diário de Bordo)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-6" /><span
+                                    class="text-body-md font-body-md text-on-surface">Projetor ou TV para demonstrações
+                                    (opcional)</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-7" /><span
+                                    class="text-body-md font-body-md text-on-surface">Impressão do trecho de Termos de
+                                    Uso para atividade provocativa inicial (opcional)</span></label></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">15 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">O uso de ambientes digitais
+                                (como redes sociais, plataformas de vídeo, jogos online, serviços de busca e aplicativos
+                                diversos) é, muitas vezes, acompanhado por documentos formais que regulam a relação
+                                entre usuário e empresa. Esses documentos, denominados Termos de Uso e Políticas de
+                                Privacidade, estabelecem regras de funcionamento, descrevem formas de coleta e
+                                tratamento de dados e definem direitos e responsabilidades das partes envolvidas.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Apesar de estruturarem
+                                juridicamente a experiência digital, esses textos costumam ser extensos, redigidos em
+                                linguagem técnica e apresentados em momentos de navegação que favorecem decisões
+                                rápidas. O resultado é um cenário em que o aceite ocorre com frequência, mas a
+                                compreensão nem sempre acompanha esse gesto.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Esta oficina parte de um
+                                deslocamento simples, mas potente: e se, em vez de aceitar, fosse feita uma
+                                investigação, transferindo o foco do clique para o conteúdo? A atividade consiste na
+                                análise de trechos reais de Termos de Uso e Políticas de Privacidade de plataformas
+                                amplamente utilizadas. Os estudantes serão orientados a identificar quais dados são
+                                coletados, para quais finalidades são descritos, em que condições podem ser
+                                compartilhados e quais mecanismos de controle são oferecidos ao usuário.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Como ferramenta de apoio, serão
+                                utilizadas IAs generativas (como ChatGPT ou Gemini) para reescrever trechos jurídicos em
+                                linguagem mais acessível. A proposta não é substituir a leitura crítica, mas
+                                tencioná-la: comparar o texto original com a versão reformulada, identificar possíveis
+                                simplificações excessivas e discutir o que se revela (ou se oculta) em cada versão.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">A investigação será articulada
+                                com base em dois marcos legais fundamentais:</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">LGPD – que define direitos
+                                    como acesso, correção e exclusão de dados.</li>
+                            </ul>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant">ECA Digital (Lei nº
+                                    15.211/2025) – que estabelece proteções específicas para crianças e adolescentes no
+                                    ambiente digital.</li>
+                            </ul>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Ao final, os estudantes
+                                produzirão um guia prático voltado a outros usuários e, nele, reunirão pontos de atenção
+                                que devem ser observados antes de aceitar os termos de uma plataforma.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">O foco desta oficina não é
+                                gerar medo ou vigilância permanentes, mas desenvolver leitura crítica, compreensão
+                                jurídica básica e autonomia consciente diante das tecnologias digitais.</p>
+                            <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image1.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image1.png" />
+                                <figcaption class="text-body-sm font-body-md text-on-surface-variant mt-2">Imagem
+                                    gerada por IA (Gemini)</figcaption>
+                            </figure>
+                            <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare mt-8">
+                                <h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                                </h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">O consentimento
+                                        digital
+                                        pode ser considerado livre quando a alternativa é não acessar o serviço?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Existe diferença entre
+                                        coleta necessária para funcionamento e coleta para fins comerciais? Como
+                                        distingui-las?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Termos de Uso deveriam
+                                        ser
+                                        padronizados e simplificados por lei? Por quê?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Se uma cláusula é
+                                        ambígua,
+                                        quem tende a se beneficiar dessa ambiguidade?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">É possível exercer os
+                                        direitos previstos na LGPD sem compreender claramente o que foi autorizado?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Transparência
+                                        significa
+                                        apenas disponibilizar o documento ou também garantir que ele seja compreensível?
+                                        Por
+                                        quê?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">O núcleo conceitual desta
+                                    oficina é o consentimento digital como ato jurídico e econômico. Ao aceitar os
+                                    Termos de Uso de uma plataforma, o usuário, além de concordar com as regras de
+                                    convivência, também autoriza práticas específicas de tratamento de dados que podem
+                                    envolver análise comportamental, personalização algorítmica, compartilhamento com
+                                    parceiros comerciais e retenção prolongada de informações.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Nesse cenário, o dado
+                                    pessoal deixa de ser apenas informação e passa a integrar modelos de negócio
+                                    baseados em monitoramento, segmentação e previsão de comportamento, tornando a
+                                    leitura das cláusulas contratuais um modo de compreender as dinâmicas econômicas que
+                                    sustentam os serviços digitais.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Outro ponto central é que a
+                                    tradução de um texto jurídico não é um processo neutro. Ao utilizar IAs generativas
+                                    para reformular trechos dos documentos, introduz-se uma camada adicional de
+                                    interpretação. A IA reorganiza sentidos, escolhe simplificações e pode alterar
+                                    nuances importantes. Por isso, na atividade desenvolvida, o uso da tecnologia será
+                                    acompanhado de uma análise comparativa entre a versão original e a versão
+                                    reformulada, a fim de se destacar possíveis deslocamentos de significado.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">A discussão será ancorada
+                                    em dois referenciais normativos brasileiros:</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">LGPD – que estabelece
+                                        princípios, como finalidade, necessidade e transparência no tratamento de dados
+                                        pessoais, além de assegurar direitos ao titular, como acesso, correção e
+                                        eliminação de dados.Acesso: <a class="text-prepare hover:underline"
+                                            href="https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd"
+                                            rel="noopener noreferrer"
+                                            target="_blank">https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">ECA Digital (Lei nº
+                                        15.211/2025) – que reforça a proteção de crianças e adolescentes no ambiente
+                                        digital, incluindo restrições ao perfilamento para publicidade e mecanismos de
+                                        responsabilização das plataformas.Acesso: <a
+                                            class="text-prepare hover:underline"
+                                            href="https://www.gov.br/mj/pt-br/assuntos/sua-protecao/sedigi/eca-digital"
+                                            rel="noopener noreferrer"
+                                            target="_blank">https://www.gov.br/mj/pt-br/assuntos/sua-protecao/sedigi/eca-digital</a>
+                                    </li>
+                                </ul>
+                                <p class="text-body-md font-body-md text-on-surface-variant">O elemento-chave, portanto,
+                                    não envolve somente a leitura dos Termos de Uso, mas sobretudo a análise crítica das
+                                    relações jurídicas, econômicas e tecnológicas que se estruturam com base neles.</p>
+                                <div
+                                    class="rounded-xl border border-prepare/20 border-l-4 border-l-prepare overflow-hidden bg-prepare/5">
+                                    <button type="button"
+                                        class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-prepare/10 transition-colors"
+                                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                            class="material-symbols-outlined text-prepare text-xl">warning</span><span
+                                            class="text-label-md font-label-md font-bold text-prepare flex-1">Atenção!</span><span
+                                            class="material-symbols-outlined text-prepare atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                    <div class="hidden border-t border-prepare/20 px-5 py-4 sm:px-6 sm:py-5">
+                                        <p class="text-label-md font-label-md font-bold text-on-surface mb-4">
+                                            Perfilamento para publicidade</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                            <strong>Perfilamento</strong> é o termo técnico usado na lei para descrever
+                                            a prática de
+                                            coletar dados de comportamento do usuário (histórico de navegação, buscas,
+                                            localização, tempo de tela) com o objetivo de se criar um perfil detalhado
+                                            de
+                                            seus gostos e hábitos. Esse perfil é, então, usado por empresas de
+                                            publicidade
+                                            para exibir anúncios direcionados e personalizados. O ECA Digital proíbe
+                                            essa
+                                            prática quando aplicada a crianças e adolescentes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--prepare mb-4 pb-2 border-b border-prepare/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-1"
+                                    id="nave-dicas-trigger-prepare-1"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Preparação
+                                        prévia</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">antes da oficina, o
+                                        educador deve testar o acesso ao ChatGPT ou Gemini na rede da escola e verificar
+                                        possíveis bloqueios ou restrições institucionais que possam comprometer a
+                                        atividade.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-2"
+                                    id="nave-dicas-trigger-prepare-2"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Criação de
+                                        contas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ChatGPT e Gemini exigem
+                                        login. Se os estudantes não tiverem conta, o educador pode criar uma conta
+                                        institucional para uso coletivo ou orientar a turma a criar uma com o e-mail
+                                        escolar, observando as políticas da escola quanto ao uso de plataformas
+                                        externas.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-3"
+                                    id="nave-dicas-trigger-prepare-3"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Escolha do
+                                        trecho</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">o trecho de Termos de
+                                        Uso deve ser autêntico, mas não excessivamente longo. Prefira seções
+                                        relacionadas à coleta de dados, compartilhamento com terceiros, armazenamento e
+                                        tratamento de informações pessoais, pois tendem a gerar discussões mais
+                                        significativas.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-4"
+                                    id="nave-dicas-trigger-prepare-4"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Atividade
+                                        provocativa</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">o objetivo da leitura
+                                        inicial sem IA é fazer com que os estudantes experimentem a dificuldade real de
+                                        compreensão do texto jurídico, evidenciando, na prática, a distância entre o
+                                        aceite formal e a compreensão efetiva do conteúdo.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-5"
+                                    id="nave-dicas-trigger-prepare-5"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                        das dificuldades</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">oriente os estudantes a
+                                        anotar palavras, expressões ou trechos que não compreenderam. Esses registros
+                                        servirão como insumo direto para a etapa de tradução com IA.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-6"
+                                    id="nave-dicas-trigger-prepare-6"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Discussão
+                                        inicial</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">após a atividade
+                                        provocativa, conduza uma breve conversa sobre as razões que tornam Termos de Uso
+                                        complexos. Provoque a reflexão com a pergunta: trata-se de uma característica
+                                        inerente ao texto jurídico ou de uma estratégia deliberada de comunicação?</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-7"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-7"
+                                    id="nave-dicas-trigger-prepare-7"><span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">7</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">O foco não
+                                        é controlar o estudante</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-7" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-7">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que a discussão
+                                        sobre Termos de Uso não tem como objetivo culpabilizar os estudantes por não
+                                        realizarem a leitura integral desses documentos, mas sim problematizar a
+                                        responsabilidade das empresas na produção de textos pouco acessíveis. O direito
+                                        à informação clara e transparente é previsto na legislação vigente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Antes de usar qualquer
+                                ferramenta digital, proponha uma atividade provocativa para que os estudantes
+                                experimentem o contraste entre o ato de aceitar um termo e a real compreensão de seu
+                                conteúdo.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Instrua a turma a ler o trecho
+                                projetado ou impresso a seguir (trecho real adaptado de Termos de Uso da plataforma
+                                Canva). Em seguida, peça aos estudantes que tentem responder às perguntas em seus
+                                cadernos.</p>
+                            <div
+                                class="bg-surface-container-low rounded-xl p-6 sm:p-7 border border-outline-variant border-l-4 border-l-prepare my-4">
+                                <p class="text-label-md font-label-md font-bold text-on-surface mb-2">Exemplo de Termo
+                                    de
+                                    Uso</p>
+                                <p class="text-body-sm font-body-md text-on-surface-variant mb-4">Pode ser substituído
+                                    por
+                                    outro à escolha do educador.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant italic leading-relaxed">
+                                    “Você
+                                    não poderá, por si mesmo ou por meio de terceiros, (i) alugar, arrendar, vender,
+                                    distribuir, oferecer em uma agência de serviços, sublicenciar ou disponibilizar de
+                                    outra forma o Serviço ou o Conteúdo Licenciado a terceiros (exceto conforme
+                                    permitido
+                                    por estes Termos); (ii) copiar, replicar, descompilar, fazer engenharia reversa,
+                                    tentar derivar o código-fonte, modificar ou criar trabalhos derivados do Serviço, ou
+                                    de
+                                    qualquer parte dele; (iii) acessar o Serviço para fins de benchmarking de
+                                    desempenho;
+                                    (iv) acessar o Serviço para fins de criação ou comercialização de um produto
+                                    concorrente; (v) usar o Serviço para criar, armazenar ou transmitir um vírus ou
+                                    código
+                                    malicioso; (vi) usar uma rede privada virtual (VPN) para contornar preços baseados
+                                    em
+                                    localização geográfica ou acesso a conteúdo; (vii) usar o Serviço para transmitir
+                                    e-mails não solicitados ou se envolver em spam ou phishing; (viii) usar qualquer
+                                    forma
+                                    de mineração, extração ou scraping de dados no Serviço e/ou no conteúdo disponível
+                                    nele para qualquer finalidade (incluindo, entre outras, finalidades de IA,
+                                    aprendizado
+                                    de máquina e ciência de dados); ou (ix) contornar as medidas que podemos usar para
+                                    impedir ou restringir o acesso ao Serviço, incluindo, entre outras, recursos que
+                                    impedem ou restringem o uso ou a cópia de qualquer conteúdo ou impõem limitações ao
+                                    uso
+                                    do Serviço ou do Conteúdo Licenciado.”</p>
+                                <p
+                                    class="text-body-sm font-body-md text-on-surface-variant mt-4 pt-4 border-t border-outline-variant">
+                                    Texto presente em: <a class="text-prepare hover:underline"
+                                        href="https://www.canva.com/pt_br/politicas/terms-of-use/"
+                                        rel="noopener noreferrer"
+                                        target="_blank">https://www.canva.com/pt_br/politicas/terms-of-use/</a></p>
+                            </div>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Após aproximadamente 3 minutos,
+                                convide voluntários a compartilhar suas respostas. Sistematize no quadro as principais
+                                dificuldades apontadas, organizando-as em categorias que evidenciem barreiras de
+                                compreensão, como vocabulário técnico, ambiguidade, extensão do período e ausência de
+                                exemplos concretos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">55 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">Termo de Uso: Tradutor de
+                                Dados</h3>
+                        </div>
+                        <figure class="w-1/2 mx-auto my-4 text-center"><img alt="image2.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image2.png" />
+                            <figcaption class="text-body-sm font-body-md text-on-surface-variant mt-2">Imagem
+                                gerada por IA (Gemini)</figcaption>
+                        </figure>
+                        <p class="text-body-md font-body-md text-on-surface-variant"><strong>Traduzindo trecho dos
+                                Termos de Uso</strong></p>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Após a atividade provocativa em que
+                            os estudantes tentaram compreender um trecho real de Termos de Uso sem apoio tecnológico,
+                            inicia-se o uso da IA como ferramenta de mediação. O objetivo não é delegar integralmente a
+                            análise a essa ferramenta, mas utilizá-la de maneira estratégica para decodificar textos
+                            complexos, mantendo postura crítica diante das reformulações e comparando constantemente a
+                            versão adaptada ao texto original.</p>
+                        <p class="text-body-md font-body-md text-on-surface-variant">Oriente os estudantes a trabalhar
+                            em duplas ou pequenos grupos. Cada grupo deve ter acesso a um computador com internet e a
+                            uma conta no ChatGPT, no Google Gemini ou em outra IA escolhida pelo educador.</p>
+                    </div>
+
+                    <div
+                        class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 hidden">
+                            <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Estrutura sugerida da
+                                construção</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <ol class="list-decimal pl-5 space-y-1">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">
+                                            Traduzir o trecho com a IA</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Analisar e
+                                            registrar os dados coletados</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Localizar, resumir
+                                            e comparar os dados coletados</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Finalizar as dicas
+                                            do guia</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="workshop-accordions">
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="atividade"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-atividade" aria-expanded="false"
+                                aria-controls="workshop-panel-atividade">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span>
+                                </div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Atividade</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">4
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-atividade" role="region"
+                                aria-labelledby="workshop-trigger-atividade">
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Traduzir o trecho
+                                            com a IA</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Peça aos estudantes
+                                            que acessem o ChatGPT ou o Gemini. Em seguida, devem adicionar um comando
+                                            (prompt) solicitando a tradução para uma linguagem simples, como:</p>
+                                        <div
+                                            class="bg-secondary/5 rounded-xl p-5 sm:p-6 border border-secondary/20 border-l-4 border-l-secondary my-4">
+                                            <p
+                                                class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-3">
+                                                Exemplo de prompt</p>
+                                            <p
+                                                class="text-body-md font-body-md text-on-surface-variant italic leading-relaxed">
+                                                “Traduza o texto abaixo para uma linguagem simples, como se você
+                                                estivesse explicando para um adolescente de 14 anos. Mantenha o
+                                                significado original, mas use palavras fáceis e frases curtas.”</p>
+                                        </div>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em seguida,
+                                            solicite-lhes que colem, no painel da IA, o mesmo trecho utilizado na
+                                            atividade provocativa. Após a IA gerar a tradução, incentive os estudantes a
+                                            comparar o texto original com a versão reformulada, observando o que mudou e
+                                            se o sentido foi preservado. Oriente-os a avaliar criticamente se houve
+                                            omissão, simplificação excessiva ou alteração de termos jurídicos
+                                            relevantes. Caso necessário, também oriente-os a refinar o prompt para
+                                            solicitar maior clareza ou destaque específico para aspectos como coleta de
+                                            dados ou compartilhamento com terceiros.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image3.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image3.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Analisar e
+                                            registrar os dados coletados</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Com o texto já
+                                            traduzido, oriente os estudantes a identificar e registrar, no Diário de
+                                            Bordo, quais dados o aplicativo declara coletar (ex.: localização, histórico
+                                            de navegação, identificadores do dispositivo), para quais finalidades esses
+                                            dados são utilizados (ex.: publicidade, melhoria da experiência,
+                                            compartilhamento com parceiros) e se há menção explícita ao compartilhamento
+                                            dessas informações com terceiros.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em seguida,
+                                            solicite que elaborem dois ou três pontos de atenção identificados na
+                                            análise, como: “O aplicativo pode coletar dados de localização” ou “Os dados
+                                            podem ser compartilhados com empresas de publicidade”. Esses registros serão
+                                            retomados na aula seguinte para a construção do guia prático.</p>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div
+                                            class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-secondary">
+                                            <h4
+                                                class="text-headline-sm font-headline-sm text-secondary mb-4 flex items-center gap-2">
+                                                <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                                            </h4>
+                                            <ul class="list-disc pl-5 space-y-2">
+                                                <li class="text-body-md font-body-md text-on-surface-variant">O que
+                                                    mudou
+                                                    entre o texto original e a tradução da IA? Ficou mais fácil de
+                                                    entender?</li>
+                                                <li class="text-body-md font-body-md text-on-surface-variant">A IA
+                                                    manteve o sentido original ou perdeu alguma informação importante?
+                                                </li>
+                                                <li class="text-body-md font-body-md text-on-surface-variant">Você sabia
+                                                    que esses dados estavam sendo coletados? Você concorda com essa
+                                                    coleta?</li>
+                                            </ul>
+                                        </div>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image4.png" />
+                                            <figcaption class="text-body-sm font-body-md text-on-surface-variant mt-2">
+                                                Imagem gerada por IA (Gemini)</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <p class="text-body-md font-body-md text-on-surface-variant"><strong>Comparando
+                                                Políticas de Privacidade</strong></p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após os estudantes
+                                            terem traduzido um trecho de Termos de Uso com o auxílio da IA e
+                                            identificado
+                                            os dados coletados por um aplicativo, chega o momento de ampliar a
+                                            investigação. Agora eles irão comparar as práticas de coleta de dados de
+                                            dois
+                                            aplicativos diferentes, utilizando a IA para resumir e facilitar a
+                                            compreensão de cada política de privacidade. O objetivo é que percebam
+                                            semelhanças e diferenças, analisando quais plataformas demonstram maior
+                                            transparência ou maior grau de exposição de dados.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Oriente os
+                                            estudantes a permanecer nas mesmas duplas ou grupos da atividade anterior.
+                                            Cada grupo deve escolher dois aplicativos conhecidos para comparar.
+                                            Sugestões incluem Instagram, TikTok, WhatsApp, YouTube, ChatGPT, Spotify ou
+                                            qualquer outro que utilizem no dia a dia.</p>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Localizar, resumir
+                                            e comparar os dados coletados</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Peça aos estudantes
+                                            que busquem no Google as políticas de privacidade dos dois aplicativos
+                                            escolhidos, utilizando termos como &quot;política de privacidade + (nome do
+                                            app)&quot;. Explique que esses documentos costumam ser extensos e que não é
+                                            necessário realizar leitura integral neste momento, pois a IA auxiliará na
+                                            síntese. Oriente também o uso da busca por palavras-chave (Ctrl + F) para
+                                            localizar seções como &quot;dados coletados&quot;,
+                                            &quot;compartilhamento&quot;,
+                                            &quot;terceiros&quot; e &quot;exclusão&quot;.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em seguida, oriente
+                                            os estudantes a copiar um trecho relevante de cada política de privacidade,
+                                            como a seção &quot;Quais dados coletamos&quot; ou &quot;Compartilhamento de
+                                            informações&quot;, e colá-lo no ChatGPT ou no Gemini. Depois, peça que
+                                            utilizem um prompt para solicitar um resumo objetivo, como o exemplo a
+                                            seguir:</p>
+                                        <div
+                                            class="bg-secondary/5 rounded-xl p-5 sm:p-6 border border-secondary/20 border-l-4 border-l-secondary my-4">
+                                            <p
+                                                class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-3">
+                                                Exemplo de prompt</p>
+                                            <p
+                                                class="text-body-md font-body-md text-on-surface-variant italic leading-relaxed">
+                                                &quot;Resuma o texto abaixo, destacando: (1) quais dados são coletados,
+                                                (2) para que finalidades, (3) se são compartilhados com terceiros e (4)
+                                                se o usuário pode solicitar a exclusão dos seus dados.&quot;</p>
+                                        </div>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Eles devem fazer
+                                            esse processo separadamente para cada um dos dois aplicativos.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Com os dois resumos
+                                            em mãos, peça aos estudantes que comparem as práticas de coleta de dados de
+                                            cada aplicativo. Para organizar a comparação, solicite-lhes que registrem,
+                                            no
+                                            Diário de Bordo, um quadro simples como o do exemplo que se segue.</p>
+                                        <div
+                                            class="mt-2 rounded-xl overflow-hidden border border-outline-variant bg-surface shadow-sm">
+                                            <table class="w-full text-left border-collapse">
+                                                <thead>
+                                                    <tr
+                                                        class="bg-surface-container-low border-b border-outline-variant">
+                                                        <th class="p-4 font-bold text-on-surface">Critério</th>
+                                                        <th class="p-4 font-bold text-on-surface">Aplicativo A</th>
+                                                        <th class="p-4 font-bold text-on-surface">Aplicativo B</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">Quais dados coleta?</td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">Para que finalidades?</td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">Compartilha com terceiros</td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                    </tr>
+                                                    <tr class="border-b border-outline-variant">
+                                                        <td class="p-4">O usuário pode excluir os dados?</td>
+                                                        <td class="p-4"></td>
+                                                        <td class="p-4"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Explique à turma
+                                            que
+                                            cada célula deve ser preenchida com base nas informações extraídas dos
+                                            resumos gerados pela IA, a fim de destacar convergências, divergências e
+                                            possíveis zonas de maior risco para o usuário.</p>
+                                        <figure class="w-1/1 mx-auto my-4 text-center"><img alt="image5.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image5.png" />
+                                            <figcaption class="text-body-sm font-body-md text-on-surface-variant mt-2">
+                                                Imagem gerada por IA (Gemini)</figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Finalizar as dicas
+                                            do guia</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Com base na
+                                            comparação realizada, os estudantes devem completar a lista de 5 pontos de
+                                            atenção iniciada na aula anterior. Eles podem manter os pontos que já
+                                            tinham,
+                                            adicionar novos descobertos na comparação entre os aplicativos ou ajustar os
+                                            existentes para torná-los mais precisos.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Ao final da
+                                            atividade, cada grupo terá produzido uma checklist prática contendo 5
+                                            perguntas essenciais que todo jovem deve fazer a si mesmo antes de clicar em
+                                            &quot;Aceito&quot; nos Termos de Uso de um aplicativo. Esse material
+                                            funcionará como síntese do percurso investigativo e como instrumento de
+                                            conscientização digital a ser compartilhado com a turma.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-secondary mb-8">
+                        <h4 class="text-headline-sm font-headline-sm text-secondary mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                        </h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Os dois aplicativos coletam os
+                                mesmos tipos de dados? Quais diferenças relevantes foram identificadas?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Qual dos dois aplicativos
+                                apresenta maior nível de transparência na descrição do uso dos dados? Quais elementos
+                                justificam essa percepção?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Algum dos aplicativos
+                                permaneceu difícil de compreender mesmo com o apoio da IA? O que isso pode indicar sobre
+                                a estrutura ou a intencionalidade do texto?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Com base na tabela comparativa
+                                elaborada, qual dos aplicativos inspira maior confiança? Quais critérios fundamentam
+                                essa
+                                avaliação?</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                    id="nave-dicas-trigger-create-1"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Preparação
+                                        prévia</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">antes da oficina, teste
+                                        o acesso ao ChatGPT ou Gemini na rede da escola e verifique eventuais restrições
+                                        institucionais. Caso necessário, organize previamente o uso de uma conta
+                                        institucional ou oriente a criação de contas com e-mail escolar, garantindo que
+                                        a versão gratuita seja suficiente para a dinâmica da turma.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                    id="nave-dicas-trigger-create-2"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Escolha do
+                                        trecho para a Aula 1</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">o trecho de Termos de
+                                        Uso utilizado na atividade provocativa e na tradução com IA deve ser autêntico,
+                                        mas não excessivamente longo. Prefira seções sobre coleta de dados,
+                                        compartilhamento com terceiros e armazenamento. Trechos entre três e cinco
+                                        linhas costumam ser suficientes para gerar análise e discussão significativas.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                    id="nave-dicas-trigger-create-3"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Ajuste do
+                                        prompt</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">nem sempre a primeira
+                                        resposta da IA será satisfatória. Incentive os estudantes a refinar o comando.
+                                        Para isso, devem solicitar maior adaptação da linguagem ou pedir à IA que
+                                        destaque exclusivamente os dados coletados. Reitere que a IA pode simplificar
+                                        excessivamente ou omitir informações relevantes, que ela deve ser usada como
+                                        ferramenta de apoio e que o texto original deve ser consultado sempre que houver
+                                        dúvida.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                    id="nave-dicas-trigger-create-4"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Comparação
+                                        entre grupos</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">proponha a comparação
+                                        entre diferentes traduções e resumos gerados pelos grupos, questionando quais
+                                        variações apareceram e que fatores (formulação do prompt, escolha do trecho,
+                                        interpretação da IA) podem ter influenciado essas diferenças.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                    id="nave-dicas-trigger-create-5"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                        obrigatório</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">garanta que todos os
+                                        estudantes registrem os dados identificados e os pontos de atenção no Diário de
+                                        Bordo. Esse registro é fundamental para a elaboração do guia na Aula 2.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-6"
+                                    id="nave-dicas-trigger-create-6"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Validação
+                                        das informações</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que as
+                                        informações extraídas pela IA devem ser conferidas no texto original,
+                                        especialmente quando houver termos jurídicos relevantes ou dúvidas sobre
+                                        compartilhamento e exclusão de dados. Incentive a postura de checagem, e não de
+                                        aceitação automática da síntese gerada.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-7"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-7"
+                                    id="nave-dicas-trigger-create-7"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">7</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Organização
+                                        da tabela comparativa</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-7" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-7">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">caminhe pela sala para
+                                        verificar se os estudantes estão preenchendo corretamente a tabela com base nos
+                                        critérios sugeridos. Auxilie na interpretação dos resumos gerados pela IA quando
+                                        houver dificuldade na identificação das informações essenciais.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-8"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-8"
+                                    id="nave-dicas-trigger-create-8"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">8</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Trabalho
+                                        colaborativo</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-8" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-8">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">incentive o
+                                        compartilhamento de descobertas. Caso um grupo identifique um ponto de atenção
+                                        relevante, estimule a análise coletiva desse aspecto.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-9"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-9"
+                                    id="nave-dicas-trigger-create-9"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">9</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Preparação
+                                        para o guia</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-9" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-9">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que as cinco
+                                        perguntas da checklist devem ser claras, objetivas e aplicáveis ao cotidiano.
+                                        Exemplos de formulações adequadas incluem: &quot;Este aplicativo coleta minha
+                                        localização mesmo quando não está em uso?&quot;, &quot;Há compartilhamento de
+                                        dados com empresas de publicidade?&quot;, &quot;Existe possibilidade de
+                                        solicitar a exclusão dos meus dados?&quot;</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="create-10"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-create-10"
+                                    id="nave-dicas-trigger-create-10"><span
+                                        class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">10</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                        visual</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-create-10" role="region"
+                                    aria-labelledby="nave-dicas-trigger-create-10">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">sempre que possível,
+                                        oriente os estudantes a realizar capturas de tela das traduções e resumos
+                                        gerados pela IA. Esses registros podem integrar o Diário de Bordo ou compor uma
+                                        apresentação final de síntese.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">20 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4 content-block">
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container">Dinâmica de
+                                compartilhamento: Galeria dos guias</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Organize um momento para que os
+                                grupos compartilhem suas descobertas e apresentem os guias produzidos. Como cada grupo
+                                pode ter analisado diferentes aplicativos, a troca de resultados enriquece a turma toda.
+                            </p>
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container mt-8">Sugestão de
+                                organização em dois momentos</h4>
+                            <h4 class="text-label-md font-label-md font-bold text-on-surface mt-6">Momento 1 –
+                                Compartilhamento dos guias (10 min)</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Peça aos grupos que apresentem
+                                rapidamente (1–2 minutos) as 5 perguntas da checklist e comentem qual aplicativo
+                                analisado foi mais transparente e qual foi mais opaco, justificando os critérios para
+                                essa avaliação.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Sugira aos grupos que
+                                materializem seus guias em um formato físico ou digital para que possam ser distribuídos
+                                e utilizados por outros jovens. Algumas ideias práticas envolvem:</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Guia de bolso
+                                        impresso:</strong> escrever as cinco perguntas em um pequeno cartão,
+                                    confeccionado
+                                    com papel-cartão ou folha sulfite dobrada, que caiba na carteira ou no bolso.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Checklist
+                                        digital:</strong> criar um arquivo de texto, uma imagem ou um documento
+                                    compartilhável (Google Docs, Canva) para ser enviado aos colegas por mensagem.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Post para redes
+                                        sociais:</strong> produzir uma imagem com as 5 perguntas no formato de post para
+                                    ser compartilhada em grupos da escola ou redes sociais da turma.</li>
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Mural da
+                                        sala:</strong> se houver espaço, fixar os guias em um mural visível para que
+                                    todos
+                                    possam consultar ao longo do ano.</li>
+                            </ul>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Se possível, incentive os
+                                estudantes a utilizar materiais mais resistentes para versões físicas do guia. O
+                                essencial é que o material seja prático, acessível e facilmente consultável no
+                                cotidiano, priorizando funcionalidade em vez de acabamento estético.</p>
+                            <h4 class="text-label-md font-label-md font-bold text-on-surface mt-8">Momento 2 – Discussão
+                                coletiva (10 min)</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Conduza uma roda de conversa
+                                utilizando as perguntas reflexivas a seguir. Registre as principais conclusões em um
+                                quadro visível para toda a turma.</p>
+                            <div
+                                class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container mt-6">
+                                <h4
+                                    class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                                </h4>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Antes da oficina,
+                                        havia
+                                        o hábito de ler os Termos de Uso? Após a atividade, houve mudança de postura?
+                                    </li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Qual informação foi
+                                        considerada mais surpreendente sobre a coleta de dados?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Algum aplicativo
+                                        analisado demonstrou maior clareza nas explicações? Algum apresentou linguagem
+                                        particularmente opaca? O que isso indica sobre a relação entre empresa e
+                                        usuário?
+                                    </li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Se um colega fosse
+                                        instalar um novo aplicativo agora, quais orientações práticas poderiam ser
+                                        oferecidas antes de ele clicar em &quot;Aceito&quot;?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">A complexidade dos
+                                        Termos de Uso pode ser interpretada como estratégia deliberada? Quais indícios
+                                        sustentam essa hipótese?</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">Quais aprendizagens
+                                        desta oficina podem ser aplicadas no cotidiano digital?</li>
+                                </ul>
+                            </div>
+                            <div
+                                class="rounded-xl border border-primary-container/20 border-l-4 border-l-primary-container overflow-hidden bg-primary-container/5 mt-8">
+                                <button type="button"
+                                    class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-primary-container/10 transition-colors"
+                                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                        class="material-symbols-outlined text-primary-container text-xl">warning</span><span
+                                        class="text-label-md font-label-md font-bold text-primary-container flex-1">Atenção!</span><span
+                                        class="material-symbols-outlined text-primary-container atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="hidden border-t border-primary-container/20 px-5 py-4 sm:px-6 sm:py-5">
+                                    <p class="text-label-md font-label-md font-bold text-on-surface mb-4">
+                                        Contextualização legal – LGPD e ECA Digital</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant mb-4">Antes de encerrar,
+                                        reserve alguns minutos para contextualizar a importância das legislações que
+                                        protegem dados pessoais, especialmente de crianças e adolescentes. O educador
+                                        pode
+                                        sintetizar a discussão nos seguintes termos:</p>
+                                    <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                        Explique
+                                        que investigar e questionar Termos de Uso é exercício de cidadania digital. A
+                                        LGPD estabelece regras sobre coleta, armazenamento e uso de dados pessoais,
+                                        garantindo direitos como acesso, correção e exclusão. Já o ECA Digital amplia a
+                                        proteção no ambiente online, incluindo restrições ao perfilamento e exigências
+                                        específicas para contas de menores. Nesse contexto, a transparência deixa de ser
+                                        um favor das empresas e passa a ser uma obrigação legal, além de deslocar a
+                                        responsabilidade da compreensão integral do usuário para o dever de clareza das
+                                        plataformas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-5 content-block">
+                        <p class="text-body-md font-body-md text-on-surface-variant">Sugira caminhos para que os
+                            estudantes continuem explorando e aprofundando seus conhecimentos.</p>
+                        <ul class="list-disc pl-5 space-y-3">
+                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Entrevistar
+                                    familiares:</strong> convidar pais ou responsáveis para responder às 5 perguntas do
+                                guia sobre um aplicativo que usam. Comparar as respostas e debater, em família, questões
+                                relacionadas à privacidade digital.</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Analisar aplicativos
+                                    desconhecidos:</strong> escolher um aplicativo menos conhecido (ex.: de jogos, de
+                                edição de fotos, de clima) e verificar se suas políticas de privacidade são
+                                transparentes
+                                ou abusivas.</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Pesquisar notícias
+                                    sobre
+                                    violações de dados:</strong> buscar casos reais de empresas que vazaram dados de
+                                usuários e discutir as consequências jurídicas e sociais desses episódios. Investigar
+                                quais medidas foram adotadas após o incidente e se houve responsabilização efetiva das
+                                empresas.</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Criar uma campanha na
+                                    escola:</strong> produzir cartazes ou posts para redes sociais com as 5 perguntas do
+                                guia, a fim de conscientizar outros jovens sobre a importância de ler (ou pelo menos
+                                questionar) os Termos de Uso.</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Comparar políticas
+                                    existentes antes e depois da LGPD:</strong> pesquisar como eram os Termos de Uso de
+                                um
+                                aplicativo antes da LGPD e como são agora. Houve melhora na transparência?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--beyond mb-4 pb-2 border-b border-beyond/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="beyond">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-1"
+                                    id="nave-dicas-trigger-beyond-1"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Valorize o
+                                        processo, não apenas o produto</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">o guia produzido é
+                                        importante, mas a discussão e a tomada de consciência sobre os direitos digitais
+                                        são o principal aprendizado.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-2"
+                                    id="nave-dicas-trigger-beyond-2"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Conexão com
+                                        o cotidiano</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">use exemplos reais de
+                                        aplicativos que os estudantes usam diariamente (Instagram, TikTok, WhatsApp,
+                                        Spotify) para tornar a discussão mais próxima da realidade deles.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-3"
+                                    id="nave-dicas-trigger-beyond-3"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Reforço da
+                                        mensagem principal</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">durante a explicação
+                                        sobre LGPD e ECA Digital, enfatize que a legislação estabelece critérios de
+                                        transparência e responsabilidade para as plataformas, consolidando a ideia de
+                                        que
+                                        o usuário deve ter acesso a informações claras para exercer seus direitos.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-4"
+                                    id="nave-dicas-trigger-beyond-4"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Celebração
+                                        das
+                                        entregas</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">se possível, organize
+                                        uma
+                                        &quot;Mostra de Guias&quot; na escola, onde os cartazes ou checklists possam ser
+                                        expostos para outras turmas. Isso valoriza o trabalho dos estudantes e espalha a
+                                        conscientização.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-5"
+                                    id="nave-dicas-trigger-beyond-5"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                        final</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">solicite aos estudantes
+                                        que registrem no Diário de Bordo uma reflexão pessoal respondendo à pergunta:
+                                        Que
+                                        mudança de atitude esta oficina provocou em minha relação com aplicativos e
+                                        dados
+                                        pessoais?</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="beyond-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-beyond-6"
+                                    id="nave-dicas-trigger-beyond-6"><span
+                                        class="w-7 h-7 rounded-full bg-beyond/10 text-beyond flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Encerramento
+                                        motivador</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-beyond-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-beyond-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">finalize destacando que
+                                        os estudantes desenvolveram competências de leitura crítica e compreensão
+                                        jurídica básica aplicáveis ao cotidiano digital. Enfatize que esse repertório os
+                                        posiciona como sujeitos capazes de questionar práticas digitais e participar
+                                        ativamente da construção de uma cultura mais transparente e responsável.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF09CO01</span> – “Criar soluções de problemas para os quais
+                    seja adequado o uso de árvores e grafos para descrever suas informações e automatizá-las usando uma
+                    linguagem de programação.”</li>
+                <li><span class="nave-meta-expand__code">EF09CO02</span> – “Construir soluções computacionais de
+                    problemas de diferentes áreas do conhecimento, de forma individual e colaborativa, selecionando as
+                    estruturas de dados e técnicas adequadas.”</li>
+            </ul>
+        </template>
+        <template id="nave-focus-expand-1">
+            <h2 class="nave-meta-expand__title">Mundo Digital e IA</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF09CO04</span> – “Compreender o funcionamento de malware e
+                    outros ataques cibernéticos.”</li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
+</body>
+
+</html>
