@@ -136,5 +136,27 @@
         "duracao": "2 encontros de 45 min cada (total: 90 min)",
         "tags": [],
         "capa": "oficinas/vibe-coding/images/image1.png"
+    },
+    {
+        "id": "missao-hacker",
+        "titulo": "Missão Hacker",
+        "subtitulo": "",
+        "arquivo": "oficinas/missao-hacker/index.html",
+        "icone": "school",
+        "ano": "a partir de 15 anos",
+        "duracao": "2 encontros de 45 min cada (total: 90 min)",
+        "tags": [],
+        "capa": "oficinas/missao-hacker/images/image1.png"
+    },
+    {
+        "id": "sensor-de-velocidade-radar",
+        "titulo": "Sensor de Velocidade (Radar)",
+        "subtitulo": "",
+        "arquivo": "oficinas/sensor-de-velocidade-radar/index.html",
+        "icone": "school",
+        "ano": "a partir de 15 anos",
+        "duracao": "4 encontros de 45 min cada (total: 180 min)",
+        "tags": [],
+        "capa": "oficinas/sensor-de-velocidade-radar/images/image1.jpg"
     }
 ]

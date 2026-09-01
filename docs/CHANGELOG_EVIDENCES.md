@@ -10,6 +10,30 @@ Formato do cabeçalho de cada entrada:
 
 ---
 
+## 2026-09-01 · 16:15 — Busca e paginação no catálogo da home
+
+### Contexto
+
+Com 15 oficinas publicadas, a home ficava longa demais na rolagem e não havia forma rápida de localizar uma oficina pelo nome ou tema.
+
+### O que mudou
+
+- `index.html`: campo de busca no catálogo (título, subtítulo, id, faixa etária, duração e tags); filtro sem acentos; paginação de 6 itens por página integrada à busca; botão limpar.
+- `assets/css/nave.css`: estilos da busca e da paginação alinhados ao toggle Cards/Lista.
+
+### Como verificar
+
+1. Abrir `index.html` na raiz do projeto.
+2. Digitar termos como `arduino`, `IA` ou `hacker` — a lista filtra em tempo real.
+3. Com mais de 6 resultados, conferir paginação e subtítulo com contagem.
+4. Clicar no × ou em **Limpar busca** quando não houver resultados.
+
+### Resultado
+
+Catálogo navegável com busca e páginas curtas, sem rolagem excessiva.
+
+---
+
 ## 2026-09-01 · 14:20 — Espaçamento do aviso global na Visão Geral
 
 ### Contexto

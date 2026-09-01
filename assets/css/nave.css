@@ -485,6 +485,165 @@ main.nave-panel-mode > section[data-nave-panel] {
     z-index: 1;
 }
 
+.nave-home-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+    padding: 0 0.75rem;
+    border: 1px solid #c2c6d6;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nave-home-search:focus-within {
+    border-color: #1561de;
+    box-shadow: 0 0 0 3px color-mix(in srgb, #1561de 18%, transparent);
+}
+
+.nave-home-search__icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    color: #6b7280;
+}
+
+.nave-home-search__input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    padding: 0.5rem 0;
+    background: transparent;
+    color: #1a1c24;
+    font-size: 0.875rem;
+    font-family: inherit;
+    line-height: 1.25;
+}
+
+.nave-home-search__input::placeholder {
+    color: #8b90a0;
+}
+
+.nave-home-search__input:focus {
+    outline: none;
+}
+
+.nave-home-search__clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 9999px;
+    background: transparent;
+    color: #6b7280;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nave-home-search__clear .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+.nave-home-search__clear:hover {
+    background: color-mix(in srgb, #1561de 10%, #ffffff);
+    color: #004ab3;
+}
+
+.nave-home-search__clear:focus-visible {
+    outline: 2px solid #1561de;
+    outline-offset: 1px;
+}
+
+.nave-home-search__reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #c2c6d6;
+    background: #ffffff;
+    color: #004ab3;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.nave-home-search__reset:hover {
+    background: color-mix(in srgb, #1561de 8%, #ffffff);
+    border-color: #1561de;
+}
+
+.nave-home-search__reset:focus-visible {
+    outline: 2px solid #1561de;
+    outline-offset: 2px;
+}
+
+.nave-home-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.nave-home-pagination__pages {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.nave-home-pagination__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #c2c6d6;
+    background: #ffffff;
+    color: #424654;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.nave-home-pagination__btn .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.nave-home-pagination__btn:hover:not(:disabled) {
+    background: color-mix(in srgb, #1561de 8%, #ffffff);
+    border-color: #1561de;
+    color: #004ab3;
+}
+
+.nave-home-pagination__btn:focus-visible {
+    outline: 2px solid #1561de;
+    outline-offset: 2px;
+}
+
+.nave-home-pagination__btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.nave-home-pagination__btn--page[aria-current="page"] {
+    background: color-mix(in srgb, #1561de 14%, #ffffff);
+    border-color: #1561de;
+    color: #004ab3;
+}
+
 .nave-home-lista {
     display: grid;
     gap: 1.5rem;
