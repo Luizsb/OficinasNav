@@ -1442,6 +1442,93 @@
         return ok;
     }
 
+    function initVideoModals() {
+        document.querySelectorAll("[data-nave-video-url]").forEach(function (trigger) {
+            if (trigger.dataset.naveVideoBound) return;
+            trigger.dataset.naveVideoBound = "1";
+
+            trigger.addEventListener("click", function () {
+                var url = trigger.getAttribute("data-nave-video-url");
+                if (!url) return;
+                if (document.querySelector(".nave-video-modal")) return;
+
+                var title =
+                    trigger.getAttribute("data-nave-video-title") ||
+                    trigger.textContent.trim() ||
+                    "Tutorial em vídeo";
+
+                var modal = document.createElement("div");
+                modal.className = "nave-video-modal";
+                modal.setAttribute("role", "dialog");
+                modal.setAttribute("aria-modal", "true");
+                modal.setAttribute("aria-labelledby", "nave-video-modal-title");
+
+                modal.innerHTML =
+                    '<div class="nave-video-modal__inner">' +
+                    '<button type="button" class="nave-video-modal__close" aria-label="Fechar">' +
+                    '<span class="material-symbols-outlined">close</span></button>' +
+                    '<div class="nave-video-modal__head">' +
+                    '<h2 id="nave-video-modal-title" class="nave-video-modal__title"></h2>' +
+                    "</div>" +
+                    '<div class="nave-video-modal__frame-wrap">' +
+                    '<iframe class="nave-video-modal__frame" title="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+                    "</div>" +
+                    '<div class="nave-video-modal__footer">' +
+                    '<a class="nave-video-modal__external" target="_blank" rel="noopener noreferrer">' +
+                    '<span class="material-symbols-outlined text-base" aria-hidden="true">open_in_new</span>' +
+                    "Abrir tutorial em nova aba</a></div></div>";
+
+                modal.querySelector(".nave-video-modal__title").textContent = title;
+                var frame = modal.querySelector(".nave-video-modal__frame");
+                frame.setAttribute("title", title);
+                frame.src = url;
+                var external = modal.querySelector(".nave-video-modal__external");
+                external.href = url;
+
+                document.body.appendChild(modal);
+                document.body.classList.add("nave-video-modal-active");
+                trigger.setAttribute("aria-expanded", "true");
+
+                requestAnimationFrame(function () {
+                    modal.classList.add("nave-video-modal--visible");
+                });
+
+                var btnClose = modal.querySelector(".nave-video-modal__close");
+                var lastFocus = trigger;
+
+                function dismissModal() {
+                    modal.classList.remove("nave-video-modal--visible");
+                    document.body.classList.remove("nave-video-modal-active");
+                    trigger.setAttribute("aria-expanded", "false");
+                    setTimeout(function () {
+                        frame.src = "about:blank";
+                        modal.remove();
+                        if (lastFocus && typeof lastFocus.focus === "function") {
+                            lastFocus.focus();
+                        }
+                    }, 300);
+                }
+
+                btnClose.addEventListener("click", dismissModal);
+                modal.addEventListener("click", function (e) {
+                    if (e.target === modal) dismissModal();
+                });
+                document.addEventListener(
+                    "keydown",
+                    function onKey(e) {
+                        if (e.key === "Escape") {
+                            dismissModal();
+                            document.removeEventListener("keydown", onKey);
+                        }
+                    },
+                    { once: true }
+                );
+
+                btnClose.focus();
+            });
+        });
+    }
+
     function initCodeWindows() {
         document.querySelectorAll("[data-nave-code-window]").forEach(function (win) {
             var btn = win.querySelector("[data-nave-code-copy]");
@@ -1479,6 +1566,45 @@
         });
     }
 
+    function initCopyTriggers() {
+        document.querySelectorAll("[data-nave-copy-from]").forEach(function (btn) {
+            if (btn.dataset.naveCopyBound) return;
+            btn.dataset.naveCopyBound = "1";
+
+            var selector = btn.getAttribute("data-nave-copy-from");
+            if (!selector) return;
+
+            btn.addEventListener("click", function () {
+                var el = document.querySelector(selector);
+                if (!el) return;
+
+                var text = (el.textContent || "").trim();
+                var label = btn.querySelector(".nave-copy-trigger__label");
+                var icon = btn.querySelector(".material-symbols-outlined");
+                var defaultLabel = label ? label.textContent : "Copiar";
+
+                function markCopied() {
+                    if (label) label.textContent = "Copiado!";
+                    if (icon) icon.textContent = "check";
+                    btn.disabled = true;
+                    setTimeout(function () {
+                        if (label) label.textContent = defaultLabel;
+                        if (icon) icon.textContent = "content_copy";
+                        btn.disabled = false;
+                    }, 2000);
+                }
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(markCopied).catch(function () {
+                        if (fallbackCopyText(text)) markCopied();
+                    });
+                    return;
+                }
+                if (fallbackCopyText(text)) markCopied();
+            });
+        });
+    }
+
     window.Nave = window.Nave || {};
     window.Nave.refreshMetaHints = initMetaHints;
 
@@ -1494,4 +1620,6 @@
     initWorkshopAccordions();
     initDicasAccordions();
     initCodeWindows();
+    initCopyTriggers();
+    initVideoModals();
 })();

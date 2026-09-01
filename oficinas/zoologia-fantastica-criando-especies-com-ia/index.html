@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<!-- Oficina: zoologia-fantastica-criando-especies-com-ia | Zoologia Fantástica: Criando Espécies com IA -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoologia Fantástica: Criando Espécies com IA — Oficina NAVE</title>
+    <link rel="icon" href="../../assets/images/nave_ico.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../../assets/images/nave_ico.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/nave.css" />
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex flex-col relative">
+
+    <header
+        class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-3 md:py-4 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a class="shrink-0 smooth-transition opacity-95 hover:opacity-100" href="../../index.html"
+                title="Oficinas NAVE — início">
+                <img alt="NAVE a vela" class="nave-logo" height="41" src="../../assets/images/Logo_Naveavela.svg"
+                    width="137" />
+            </a>
+            <a class="hidden sm:flex items-center gap-1 text-label-sm text-on-surface-variant hover:text-primary shrink-0 border-l border-outline-variant pl-3 sm:pl-4"
+                href="../../index.html" title="Voltar ao índice">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                <span>Todas</span>
+            </a>
+            <div class="min-w-0 flex-1 border-l border-outline-variant pl-3 sm:pl-4">
+                <span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate block">Zoologia
+                    Fantástica: Criando Espécies com IA</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-max-width mx-auto">
+
+        <aside
+            class="nave-workshop-sidebar hidden lg:flex flex-col sticky top-24 ml-margin-desktop w-64 rounded-r-xl bg-surface-container-low shadow-sm flex-shrink-0 z-40 self-start">
+            <div class="nave-workshop-sidebar__head">
+                <div class="nave-workshop-sidebar__icon" aria-hidden="true"><span
+                        class="material-symbols-outlined">face</span></div>
+                <h2 class="nave-workshop-sidebar__title">Zoologia Fantástica: Criando Espécies com IA</h2>
+                <div class="nave-sidebar-meta"><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                            class="material-symbols-outlined" aria-hidden="true">school</span><span
+                            class="nave-meta-chip__value">a partir de 14 anos</span><span class="nave-meta-chip__hint"
+                            role="tooltip">Público-alvo</span></span><span
+                        class="nave-meta-chip nave-meta-chip--compact text-label-sm font-label-sm text-on-surface-variant"
+                        data-nave-meta="duration" tabindex="0" title="Tempo para desenvolvimento da oficina"><span
+                            class="material-symbols-outlined" aria-hidden="true">timer</span><span
+                            class="nave-meta-chip__value">2 encontros de 45 min cada (total: 90 min)</span><span
+                            class="nave-meta-chip__hint" role="tooltip">Tempo para desenvolvimento da
+                            oficina</span></span></div>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#view" data-section-color="primary"><span
+                                class="material-symbols-outlined group-hover:text-primary">visibility</span>Visão
+                            Geral</a></li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#materials" data-section-color="tertiary"><span
+                                class="material-symbols-outlined group-hover:text-tertiary">inventory_2</span>Materiais</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#prepare" data-section-color="prepare"><span
+                                class="material-symbols-outlined group-hover:text-prepare">menu_book</span>Preparar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#create" data-section-color="secondary"><span
+                                class="material-symbols-outlined group-hover:text-secondary">construction</span>Criar</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link"
+                            href="#reflect" data-section-color="primary-container"><span
+                                class="material-symbols-outlined group-hover:text-primary-container">psychology</span>Refletir</a>
+                    </li>
+                    <li><a class="flex items-center gap-3 py-3 text-on-surface-variant pl-4 text-label-md font-label-md hover:bg-surface-container-high transition-all group nav-link nav-link--optional"
+                            href="#beyond" data-section-color="beyond"><span
+                                class="material-symbols-outlined group-hover:text-beyond">rocket_launch</span><span
+                                class="nav-link__label-row">Para ir além <span
+                                    class="nav-link__optional-tag">Opcional</span></span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full px-margin-mobile lg:px-margin-desktop py-8 pb-32 lg:pb-12 lg:ml-8">
+
+            <section
+                class="relative rounded-2xl bg-surface-container-low overflow-hidden border border-outline-variant mb-16 scroll-mt-24"
+                id="view">
+                <div class="absolute inset-0 pattern-grid z-0"></div>
+                <div class="relative z-10 p-8 lg:p-12">
+                    <div class="flex-1 space-y-6">
+                        <h1
+                            class="text-display-lg font-display-lg workshop-hero-title md:text-display-lg text-headline-lg-mobile">
+                            Zoologia Fantástica: Criando Espécies com IA</h1>
+                        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Nesta oficina, os
+                            estudantes serão desafiados a atuar como biólogos exploradores, criando criaturas híbridas
+                            fantásticas por meio da inteligência artificial (IA) generativa. O projeto consiste em
+                            utilizar modelos de IA para transformar descrições biológicas detalhadas (escrita de
+                            prompts) em representações visuais, classificando características de habitat, alimentação e
+                            adaptação com base em parâmetros definidos pelos próprios estudantes. A construção pode ser
+                            realizada integralmente em ambiente virtual (como Canva ou Gemini), com a possibilidade de
+                            extensão para a criação de um modelo 3D da imagem criada.</p>
+                        <div class="nave-meta-chips-row flex flex-wrap gap-4 pt-4"><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="audience" tabindex="0" title="Público-alvo"><span
+                                    class="material-symbols-outlined">school</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">a partir de 14
+                                    anos</span><span class="nave-meta-chip__hint"
+                                    role="tooltip">Público-alvo</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="duration" tabindex="0"
+                                title="Tempo para desenvolvimento da oficina"><span
+                                    class="material-symbols-outlined">timer</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">2 encontros de 45 min cada
+                                    (total: 90 min)</span><span class="nave-meta-chip__hint" role="tooltip">Tempo para
+                                    desenvolvimento da oficina</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-0"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Pensamento
+                                    Computacional</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span><span
+                                class="nave-meta-chip flex items-center gap-2 bg-surface px-4 py-2 rounded-DEFAULT border border-outline-variant shadow-sm"
+                                data-nave-meta="focus" tabindex="0" title="Eixo da Nova BCCI"
+                                data-nave-meta-hint="Eixo da Nova BCCI"
+                                data-nave-meta-expand="nave-focus-expand-1"><span
+                                    class="material-symbols-outlined">account_tree</span><span
+                                    class="nave-meta-chip__value text-label-sm font-label-sm">Mundo Digital e
+                                    IA</span><span class="nave-meta-chip__hint" role="tooltip">Eixo da Nova
+                                    BCCI</span></span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16">
+                <h2 class="text-headline-md font-headline-md text-on-surface mb-6">Estrutura da Oficina</h2>
+                <div class="nave-estrutura-grid nave-estrutura-grid--4">
+                    <div class="nave-estrutura-card nave-estrutura-card--prepare">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-prepare">
+                                    Preparar</h3><span class="duration-badge bg-prepare/10 text-prepare">15 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Explorar
+                            o tema da biologia sintética, introduzir conceitos e prompts de IA generativa e apresentar o
+                            ambiente de criação.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--create">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-secondary">
+                                    Criar</h3><span class="duration-badge bg-secondary/10 text-secondary">55 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Desenvolver a descrição textual detalhada das criaturas, iterar os comandos para refinamento
+                            da imagem e classificar as adaptações biológicas da espécie.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--reflect">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3
+                                    class="nave-estrutura-card__title text-headline-sm font-headline-sm text-primary-container">
+                                    Refletir</h3><span
+                                    class="duration-badge bg-primary-container/10 text-primary-container">20 min</span>
+                            </div>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">
+                            Compartilhar criações e prompts, discutir autoria e refletir sobre limites e possibilidades
+                            da IA na criação científica e artística.</p>
+                    </div>
+                    <div class="nave-estrutura-card nave-estrutura-card--beyond">
+                        <div class="nave-estrutura-card__head">
+                            <div class="nave-estrutura-card__title-row">
+                                <h3 class="nave-estrutura-card__title text-headline-sm font-headline-sm text-beyond">
+                                    Para ir além</h3><span class="duration-badge bg-beyond/10 text-beyond">30 min</span>
+                            </div><span class="nave-estrutura-card__optional-tag">Opcional</span>
+                        </div>
+                        <p class="nave-estrutura-card__desc text-body-md font-body-md text-on-surface-variant">Criação
+                            de modelos tridimensionais utilizando o MakerLab, do MakerWorld.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="materials">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-tertiary">Materiais</h2>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-6">Lista de
+                    materiais/softwares/componentes necessários</p>
+                <div class="bg-surface rounded-xl p-6 border border-outline-variant border-t-4 border-t-tertiary">
+                    <ul class="space-y-3">
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-1" /><span
+                                    class="text-body-md font-body-md text-on-surface">Dispositivos com acesso à
+                                    internet</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-2" /><span
+                                    class="text-body-md font-body-md text-on-surface">Conta Google
+                                    institucional</span></label></li>
+                        <li><label class="flex items-center gap-3 cursor-pointer"><input
+                                    class="w-5 h-5 text-tertiary rounded border-outline-variant focus:ring-tertiary shrink-0"
+                                    type="checkbox" id="nave-material-3" /><span
+                                    class="text-body-md font-body-md text-on-surface">Acesso ao Google Docs ou folha de
+                                    papel sulfite</span></label></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="prepare">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-prepare text-on-prepare flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-prepare">Preparar</h2><span
+                        class="duration-badge ml-auto bg-prepare/10 text-prepare">15 min</span>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Apresentação</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">Esta aula propõe uma expedição
+                                científica digital voltada à criação de um Catálogo de Zoologia Fantástica. Com base na
+                                problematização sobre como uma IA é capaz de gerar a imagem de um animal que nunca
+                                existiu, os estudantes serão convidados a desenvolver protótipos visuais de criaturas
+                                híbridas, articulando conhecimentos de Biologia e tecnologia por meio de ferramentas de
+                                IA generativa.</p>
+                            <p class="text-body-md font-body-md text-on-surface-variant">Antes da aula, verifique a
+                                estabilidade da conexão com a internet e teste previamente os acessos às plataformas que
+                                serão utilizadas (como ChatGPT ou Gemini), garantindo que logins e permissões estejam
+                                funcionando adequadamente. Essa organização prévia evita perdas de tempo com
+                                dificuldades técnicas e contribui para a fluidez da condução pedagógica.</p>
+                            <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image1.png"
+                                    class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                    src="images/image1.png" /></figure>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-prepare">
+                        <h4 class="text-headline-sm font-headline-sm text-prepare mb-4 flex items-center gap-2"><span
+                                class="material-symbols-outlined">help</span>Perguntas reflexivas</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">Como um computador
+                                &quot;sabe&quot; o que é um elefante se não tem olhos para ver o mundo? De onde vêm as
+                                informações que permitem à IA gerar essa imagem?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Se a IA cometer um erro e
+                                desenhar um gato com 5 patas, como podemos ajustar o comando para corrigir o resultado
+                                usando apenas palavras?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">De que maneira as imagens que
+                                criamos aqui poderiam ser compartilhadas com biólogos de outros países de forma
+                                instantânea?</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden border border-outline-variant border-l-4 border-l-prepare box-elemento-chave">
+                        <button type="button"
+                            class="box-elemento-chave__trigger w-full flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 transition-colors text-left"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined:last-child').classList.toggle('rotate-180')"><span
+                                class="flex items-center gap-2 text-label-md font-label-md font-bold text-prepare"><span
+                                    class="material-symbols-outlined text-xl">key</span>Elemento-chave</span><span
+                                class="material-symbols-outlined text-prepare transition-transform duration-300">expand_more</span></button>
+                        <div class="hidden border-t border-outline-variant bg-surface-container-lowest">
+                            <div class="p-5 sm:p-6 space-y-4 content-block">
+                                <p class="text-body-md font-body-md text-on-surface-variant">A IA generativa é um tipo
+                                    de sistema computacional capaz de produzir novos conteúdos, como textos e imagens,
+                                    valendo-se de padrões aprendidos em grandes volumes de dados. Diferentemente de
+                                    aplicações de IA voltadas apenas à análise, classificação ou previsão, a IA
+                                    generativa opera na criação, combinando informações previamente aprendidas para
+                                    gerar resultados originais por meio de comandos fornecidos pelo usuário.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">No contexto desta oficina,
+                                    a IA será compreendida como um “assistente de laboratório” digital, isto é, uma
+                                    ferramenta que executa as ideias formuladas pelos estudantes por meio de descrições
+                                    textuais estruturadas (prompts). A qualidade do resultado obtido está diretamente
+                                    relacionada à clareza, à organização e ao detalhamento dessas instruções.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">A simulação e a geração
+                                    digital constituem recursos pedagógicos relevantes, pois possibilitam testar
+                                    hipóteses, visualizar possibilidades e reformular propostas sem o receio do erro.
+                                    Nesse processo, o equívoco passa a ser entendido como parte do percurso
+                                    investigativo, o que favorece a experimentação criativa e o desenvolvimento do
+                                    pensamento computacional.</p>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Nesta seção, a IA
+                                    generativa é apresentada como:</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">uma tecnologia capaz
+                                        de transformar descrições textuais em representações visuais;</li>
+                                </ul>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">um recurso que
+                                        viabiliza a simulação e o teste de ideias em ambiente digital;</li>
+                                </ul>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">uma ferramenta de
+                                        mediação entre a intencionalidade humana e a produção automatizada de imagens;
+                                    </li>
+                                </ul>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">um instrumento para o
+                                        desenvolvimento de habilidades relacionadas à organização lógica, ao refinamento
+                                        de comandos e à análise crítica de resultados.</li>
+                                </ul>
+                                <p class="text-body-md font-body-md text-on-surface-variant">Para a realização da
+                                    atividade, sugere-se a utilização de ferramentas como ChatGPT ou Gemini, que
+                                    oferecem qualidade nas gerações e disponibilizam, em suas versões gratuitas, um
+                                    número limitado de criações de imagens.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Contato inicial com a IA
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="prepare-contato-ia">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-contato-ia-1">
+                                <button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-contato-ia-1"
+                                    id="nave-dicas-trigger-prepare-contato-ia-1">
+                                    <span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span>
+                                    <span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Orientação
+                                        inicial</span>
+                                    <span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                </button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-contato-ia-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-contato-ia-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">inicie a etapa
+                                        esclarecendo que o objetivo é proporcionar um primeiro contato intuitivo com a
+                                        interface da IA generativa. Desse modo, deixe os estudantes observarem como a
+                                        ferramenta reage aos comandos inseridos. Neste momento, o foco está na
+                                        experimentação e na familiarização com o ambiente digital.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-contato-ia-2">
+                                <button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-contato-ia-2"
+                                    id="nave-dicas-trigger-prepare-contato-ia-2">
+                                    <span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span>
+                                    <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Acesso e
+                                        login na plataforma</span>
+                                    <span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                </button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-contato-ia-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-contato-ia-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">oriente os estudantes a
+                                        acessar a plataforma definida pela escola e a realizar o login com a conta
+                                        autorizada, preferencialmente institucional. Certifique-se de que todos consigam
+                                        entrar no ambiente antes do início do desafio.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-contato-ia-3">
+                                <button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-contato-ia-3"
+                                    id="nave-dicas-trigger-prepare-contato-ia-3">
+                                    <span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span>
+                                    <span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Experimentação
+                                        livre</span>
+                                    <span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                </button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-contato-ia-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-contato-ia-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">permita que explorem a
+                                        ferramenta conforme proposto no embarque, aguçando a curiosidade inicial e
+                                        preparando-os para uma escuta mais ativa.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-contato-ia-4">
+                                <button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-contato-ia-4"
+                                    id="nave-dicas-trigger-prepare-contato-ia-4">
+                                    <span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span>
+                                    <span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Socialização
+                                        das descobertas</span>
+                                    <span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                </button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-contato-ia-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-contato-ia-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">promova um breve
+                                        momento de compartilhamento e convide os estudantes que obtiverem resultados
+                                        curiosos ou inesperados a mostrar suas imagens aos colegas. Isso incentiva a
+                                        comparação entre comandos e resultados.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-contato-ia-5">
+                                <button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-contato-ia-5"
+                                    id="nave-dicas-trigger-prepare-contato-ia-5">
+                                    <span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span>
+                                    <span class="text-label-md font-label-md font-bold text-on-surface flex-1">Clima
+                                        investigativo e valorização do erro</span>
+                                    <span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                </button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-contato-ia-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-contato-ia-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">reforce que, no
+                                        ambiente digital, é possível testar e ajustar sem prejuízos materiais e valorize
+                                        o erro como parte do processo exploratório.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="prepare-contato-ia-6">
+                                <button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-prepare-contato-ia-6"
+                                    id="nave-dicas-trigger-prepare-contato-ia-6">
+                                    <span
+                                        class="w-7 h-7 rounded-full bg-prepare/10 text-prepare flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span>
+                                    <span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Descoberta
+                                        intuitiva dos prompts</span>
+                                    <span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                                </button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-prepare-contato-ia-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-prepare-contato-ia-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">evite, neste momento,
+                                        explicar formalmente a estrutura dos prompts. Permita aos estudantes perceber,
+                                        de maneira intuitiva, que a ferramenta responde a comandos em linguagem natural,
+                                        favorecendo a compreensão progressiva do funcionamento do sistema.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Embarque</h3>
+                        <div class="space-y-4 content-block">
+                            <p class="text-body-md font-body-md text-on-surface-variant">O objetivo desta etapa é fazer
+                                com que os estudantes tenham um primeiro contato intuitivo com a interface da IA e
+                                percebam na prática como a ferramenta reage aos comandos.</p>
+                            <div
+                                class="bg-surface-container-low rounded-xl p-6 sm:p-7 border border-outline-variant border-l-4 border-l-prepare">
+                                <p class="text-label-md font-label-md font-bold text-on-surface mb-4">Passo a passo para
+                                    o estudante</p>
+                                <ol class="list-decimal pl-5 space-y-4">
+                                    <li class="text-body-md font-body-md text-on-surface-variant">
+                                        <strong>Acesso:</strong> solicite aos
+                                        estudantes que acessem o site <a class="text-prepare hover:underline"
+                                            href="https://gemini.google.com" rel="noopener noreferrer"
+                                            target="_blank">gemini.google.com</a> ou <a
+                                            class="text-prepare hover:underline" href="https://chatgpt.com"
+                                            rel="noopener noreferrer" target="_blank">chatgpt.com</a> e que façam login
+                                        com a conta autorizada.</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant"><strong>O comando
+                                            (input):</strong>
+                                        proponha o seguinte desafio: &quot;Usando a IA escolhida, vocês têm exatamente 3
+                                        minutos para gerar a imagem de um cachorro voando&quot;.</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant"><strong>Exploração
+                                            livre:</strong>
+                                        incentive-os a tentar uma variação do desafio inicial, a fim de que percebam
+                                        como a
+                                        IA responde.</li>
+                                    <li class="text-body-md font-body-md text-on-surface-variant">
+                                        <strong>Socialização:</strong> incentive os
+                                        estudantes que conseguirem um resultado curioso ou engraçado a compartilhar com
+                                        os
+                                        colegas.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="mb-16 scroll-mt-24" id="create">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-secondary">Criar</h2><span
+                        class="duration-badge ml-auto bg-secondary/10 text-secondary">55 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-4">
+                        <div
+                            class="bg-secondary/5 rounded-xl p-6 border border-secondary/20 border-l-4 border-l-secondary text-center">
+                            <p class="text-label-sm font-label-md text-secondary uppercase tracking-wide mb-2">Protótipo
+                            </p>
+                            <h3 class="text-headline-md font-headline-md text-on-surface">O Catálogo das Criaturas
+                                Híbridas</h3>
+                        </div>
+                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image2.png"
+                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                src="images/image2.png" /></figure>
+                        <div
+                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                            <button type="button"
+                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">Antes de
+                                    iniciar o desafio, faça uma breve contextualização. Utilize, para isso, a
+                                    gamificação como estratégia de imersão. Você pode adaptar a história ao perfil da
+                                    turma e incorporar referências culturais, temas locais ou conteúdos que estejam
+                                    sendo trabalhados em outras disciplinas.</p><br>
+                                <p class="text-body-md font-body-md text-on-surface-variant italic">“Atenção,
+                                    pesquisadores.
+                                    Recentemente, nossas sondas espaciais detectaram uma série de ecossistemas em uma
+                                    dimensão
+                                    paralela. Os biomas lá desafiam a lógica: florestas de cristais que vibram com
+                                    música,
+                                    oceanos de mercúrio e desertos onde chove chocolate. Mas o que mais nos impressionou
+                                    foram
+                                    os seres vivos. Eles parecem ser “híbridos”: combinações de animais que conhecemos
+                                    na Terra,
+                                    mas adaptados para sobreviver nessas condições impossíveis. Infelizmente, as fotos
+                                    das
+                                    sondas vieram corrompidas. É aqui que vocês entram. Como biólogos de mundos
+                                    imaginários, sua
+                                    missão é reconstruir visualmente essas criaturas. Vocês devem ser precisos nas
+                                    descrições e
+                                    registrar se o animal tem pele de metal ou solta fogo pela boca, por exemplo.
+                                    Preparem suas
+                                    fichas de campo. O laboratório de bioengenharia digital está oficialmente aberto.
+                                    Boa
+                                    sorte!&quot;</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5">
+                        <button type="button"
+                            class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                            onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                        <div class="border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 hidden">
+                            <p class="text-label-md font-label-md font-bold text-on-surface mb-4"> Estrutura sugerida da
+                                construção:</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <ol class="list-decimal pl-5 space-y-1">
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Acesso e conta
+                                        </li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Decompondo o
+                                            problema</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Criando o prompt
+                                        </li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Debugging</li>
+                                        <li class="text-body-sm font-body-md text-on-surface-variant">Ciências da
+                                            natureza</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="workshop-accordions">
+                        <div class="workshop-accordion border border-secondary/30 rounded-xl overflow-hidden"
+                            data-workshop-accordion-id="atividade"><button type="button"
+                                class="workshop-accordion__trigger w-full flex items-center gap-4 px-6 py-5 min-h-[4.5rem] bg-secondary/5 hover:bg-secondary/10 transition-colors text-left"
+                                id="workshop-trigger-atividade" aria-expanded="false"
+                                aria-controls="workshop-panel-atividade">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">school</span>
+                                </div><span
+                                    class="text-headline-sm font-headline-sm text-secondary flex-1">Atividade</span><span
+                                    class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline mr-2">2
+                                    etapas</span><span
+                                    class="material-symbols-outlined accordion-chevron transition-transform duration-300 shrink-0">expand_more</span>
+                            </button>
+                            <div class="workshop-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest px-6 py-8 sm:px-8"
+                                id="workshop-panel-atividade" role="region"
+                                aria-labelledby="workshop-trigger-atividade">
+
+                                <h3 class="text-headline-sm font-headline-sm subsection-create mb-6">Passo a passo</h3>
+                                <div class="relative pl-10 sm:pl-12 ml-2 border-l-2 border-secondary/40 space-y-12">
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Acesso e conta</h4>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant"><strong>Acesse
+                                                    o site:</strong>
+                                                acesse o site <a class="text-prepare hover:underline"
+                                                    href="https://gemini.google.com" rel="noopener noreferrer"
+                                                    target="_blank">gemini.google.com</a>.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">
+                                                <strong>Login:</strong> faça
+                                                login na conta indicada pelo educador. Caso seja o primeiro acesso,
+                                                aceite os termos de serviço.</li>
+                                        </ul>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">
+                                                <strong>Interface:</strong>
+                                                localize a barra de mensagens na parte inferior, na qual se lê
+                                                &quot;Digite algo aqui&quot;.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Decompondo o
+                                            problema</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Para criar uma
+                                            imagem de alta qualidade, não devemos dar orientações vagas à IA: decompomos
+                                            a imagem desejada em partes. A título de ilustração, veja os exemplos a
+                                            seguir.</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    A Engenharia de Prompt não é uma ciência exata; por isso, há
+                                                    maneiras diversas de organizar um prompt. No entanto, um aspecto
+                                                    essencial é o planejamento.</p><br>
+                                                <div
+                                                    class="mt-2 rounded-xl overflow-hidden border border-outline-variant bg-surface shadow-sm">
+                                                    <table class="w-full text-left border-collapse">
+                                                        <thead>
+                                                            <tr
+                                                                class="bg-surface-container-low border-b border-outline-variant">
+                                                                <th class="p-4 font-bold text-on-surface">Parte do
+                                                                    prompt</th>
+                                                                <th class="p-4 font-bold text-on-surface">O que
+                                                                    escrever?</th>
+                                                                <th class="p-4 font-bold text-on-surface">Seu rascunho
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="border-b border-outline-variant">
+                                                                <td class="p-4">Sujeito (híbrido)</td>
+                                                                <td class="p-4">Quais animais você vai misturar?</td>
+                                                                <td class="p-4"></td>
+                                                            </tr>
+                                                            <tr class="border-b border-outline-variant">
+                                                                <td class="p-4">Características</td>
+                                                                <td class="p-4">Cores, texturas (pele de metal, escamas
+                                                                    de vidro
+                                                                    etc.), tamanho.</td>
+                                                                <td class="p-4"></td>
+                                                            </tr>
+                                                            <tr class="border-b border-outline-variant">
+                                                                <td class="p-4">Habitat</td>
+                                                                <td class="p-4">Onde ele vive? (deserto de cristais,
+                                                                    nuvens de
+                                                                    algodão etc.).</td>
+                                                                <td class="p-4"></td>
+                                                            </tr>
+                                                            <tr class="border-b border-outline-variant">
+                                                                <td class="p-4">Estilo artístico</td>
+                                                                <td class="p-4">Foto realista, desenho 3D, aquarela ou
+                                                                    8-bit?
+                                                                </td>
+                                                                <td class="p-4"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    Decomponha o problema com os estudantes. Você pode utilizar diversos
+                                                    formatos para registro, como Google Docs, folha de papel sulfite,
+                                                    uma ficha impressa estruturada com as categorias da atividade etc.
+                                                    Independentemente do formato escolhido, considere utilizar o
+                                                    formulário de especificação de criatura, na versão impressa ou
+                                                    digital, como recurso de apoio. Essa estrutura contribui para a
+                                                    gamificação da proposta e pode favorecer o engajamento do estudante,
+                                                    visto que aproxima a atividade da estética de uma ficha de pesquisa
+                                                    científica.</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.atencao-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">warning</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Atenção!</span><span
+                                                    class="material-symbols-outlined text-secondary atencao-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    Esta tabela de Especificação de Criatura pode ser utilizada como uma
+                                                    ficha avaliativa e evidência de aprendizagem, colaborando também com
+                                                    a dinâmica de ludicidade e inventividade.</p>
+                                                <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image3.png"
+                                                        class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                        src="images/image3.png" /></figure>
+                                                <div class="flex justify-center mb-4">
+                                                    <a class="inline-flex items-center gap-2 text-label-md font-label-md text-secondary hover:underline"
+                                                        href="images/image3.png" download>
+                                                        <span class="material-symbols-outlined">download</span>
+                                                        Baixar ficha
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Criando o prompt
+                                        </h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Ao responder às
+                                            perguntas, o prompt vai se formando naturalmente. Junte as respostas em um
+                                            único parágrafo contínuo e estruture a descrição de maneira clara e
+                                            detalhada. Caso seja necessário, solicite aos estudantes que organizem as
+                                            ideias, revisem a coerência do texto e corrijam possíveis erros antes do
+                                            envio.</p>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após a revisão,
+                                            eles devem passar o prompt na barra de chat e pressionar a tecla “Enter”. O
+                                            Gemini levará alguns segundos para processar o comando e gerar a imagem com
+                                            base nas informações fornecidas. Após o processamento, a imagem será gerada.
+                                        </p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    Projete, se possível, uma imagem anteriormente criada por você para
+                                                    inspirar os estudantes e exemplificar como as escolhas feitas no
+                                                    prompt influenciam o resultado visual gerado.</p>
+                                            </div>
+                                        </div>
+                                        <div class="bg-surface p-5 sm:p-6 rounded-xl border border-outline-variant">
+                                            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                                                <p class="text-label-md font-label-md font-bold text-on-surface">
+                                                    Sugestão de prompt</p>
+                                                <button type="button"
+                                                    class="inline-flex items-center gap-1.5 text-label-sm font-label-md font-semibold text-secondary hover:bg-secondary/10 px-3 py-1.5 rounded-DEFAULT border border-secondary/25 transition-colors shrink-0"
+                                                    data-nave-copy-from="#prompt-sugestao-lontra"
+                                                    aria-label="Copiar prompt">
+                                                    <span class="material-symbols-outlined text-base"
+                                                        aria-hidden="true">content_copy</span>
+                                                    <span class="nave-copy-trigger__label">Copiar prompt</span>
+                                                </button>
+                                            </div>
+                                            <p id="prompt-sugestao-lontra"
+                                                class="text-body-sm font-body-md text-on-surface-variant">Crie um
+                                                híbrido encantador de lontra com dragão-marinho, com pelagem
+                                                azul-petróleo acetinada e escamas translúcidas que capturam a luz como
+                                                bolhas d’água. Nas laterais da cabeça, ele deve ter pequenas aletas
+                                                luminosas e suaves, que pulsam em tons de turquesa e verde-esmeralda. Os
+                                                olhos devem ser grandes e expressivos, com um brilho verde-água profundo
+                                                e curioso, e as patas, pequenas e ágeis, devem apresentar membranas
+                                                brilhantes entre os dedos. A criatura deve ter bochechas redondas,
+                                                postura brincalhona e uma cauda longa e sinuosa, com pontas que emitem
+                                                um brilho suave em tons de azul e prata. Como habitat, ao fundo, crie um
+                                                recife subaquático formado por corais bioluminescentes em tons de roxo e
+                                                ciano, localizado no oceano de um planeta cuja enorme lua dourada pode
+                                                ser vista através da superfície translúcida da água. Estilo arte digital
+                                                cinematográfica encantadora, com iluminação fria e mágica, como nas
+                                                animações da Pixar.</p>
+                                        </div>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image4.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image4.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Debugging</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">É comum que a IA
+                                            cometa erros, como colocar elementos no lugar errado ou ignorar detalhes. O
+                                            estudante deve solicitar a correção da área de debugging fornecendo novas
+                                            instruções à IA, como “A IA gerou alguns elementos que pedi, mas se esqueceu
+                                            de X e Y. Crie novamente a imagem, dando ênfase a esses elementos”.</p>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div
+                                                class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5 space-y-4">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    Mesmo que não haja erro na imagem gerada, melhorias são bem-vindas.
+                                                    Compartilhe com os estudantes a possibilidade de, caso achem
+                                                    necessário, melhorar a pose do animal, alterar o estilo artístico e
+                                                    adicionar outros elementos. Ressalte a importância do refinamento,
+                                                    uma parte essencial da Engenharia de prompt.</p>
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    <strong>Exemplo:</strong> “Mantenha todos os elementos da imagem
+                                                    como estão, mas deixe os olhos um pouco maiores, para que o animal
+                                                    fique ainda mais adorável”.</p>
+                                            </div>
+                                        </div>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image5.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image5.png" /></figure>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Mostre aos
+                                            estudantes que também é possível estilizar a imagem após a geração inicial.
+                                            Na figura inicial, solicite à ferramenta apenas a alteração do estilo visual
+                                            da criatura para ilustração flat, mantendo os demais elementos da imagem.
+                                        </p>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image6.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image6.png" /></figure>
+                                        <div
+                                            class="rounded-xl border border-secondary/20 border-l-4 border-l-secondary overflow-hidden bg-secondary/5 mb-8">
+                                            <button type="button"
+                                                class="w-full flex items-center gap-3 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-secondary/10 transition-colors"
+                                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.dica-chevron').classList.toggle('rotate-180')"><span
+                                                    class="material-symbols-outlined text-secondary text-xl">lightbulb</span><span
+                                                    class="text-label-md font-label-md font-bold text-secondary flex-1">Dica</span><span
+                                                    class="material-symbols-outlined text-secondary dica-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="hidden border-t border-secondary/20 px-5 py-4 sm:px-6 sm:py-5">
+                                                <p
+                                                    class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                                                    Ajude os estudantes a compreender o quanto a organização e a clareza
+                                                    de ideias são importantes nesse processo. A IA usa o prompt como
+                                                    base; assim, quanto mais completo, organizado e livre de
+                                                    ambiguidades ele for, melhor será o resultado. As imagens podem ser
+                                                    geradas em diversos estilos. Entre os mais comuns, estão mangá,
+                                                    minimalismo, aquarela, rascunho, HQ e pixel art.</p>
+                                            </div>
+                                        </div>
+                                        <figure class="max-w-xl mx-auto my-4 text-center"><img alt="image7.png"
+                                                class="w-full rounded-xl border border-outline-variant shadow-sm"
+                                                src="images/image7.png" /></figure>
+                                    </div>
+                                    <div class="relative space-y-4">
+                                        <div
+                                            class="absolute w-6 h-6 bg-secondary rounded-full -left-[42px] sm:-left-[50px] top-1 border-4 border-background">
+                                        </div>
+                                        <h4 class="text-headline-sm font-headline-sm text-secondary">Ciências da
+                                            natureza</h4>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Após a experiência
+                                            com decomposição de prompts, geração de imagens e ciclo de criação,
+                                            questione os alunos sobre as características do animal híbrido criado,
+                                            relacionando-o com:</p>
+                                        <ol class="list-decimal pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">processos
+                                                evolutivos (adaptações, vantagens e desvantagens do corpo, dos sentidos,
+                                                do modo de locomoção etc.);</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">habitat
+                                                (biomas, clima, disponibilidade de água, abrigos, presença de outros
+                                                seres vivos);</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">cadeia
+                                                alimentar (nível trófico, presas, predadores, competidores).</li>
+                                        </ol>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Em seguida,
+                                            solicite a eles que criem um dia na vida desse animal e que explorem:</p>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Em que época
+                                                da Terra ele vive/viveria: Pré-história? Atualidade? Futuro?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Que tipo de
+                                                ambiente ele habita (floresta, deserto, fundo do mar, cavernas, tundra,
+                                                ambientes urbanos, ambientes extremos…)?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Onde
+                                                repousa/dorme?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Como se
+                                                protege?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">O que come?
+                                                Como obtém esse alimento (caça, coleta, filtração)?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Por quem é
+                                                caçado? Que estratégias usa para fugir ou se defender?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Ele vive em
+                                                grupo ou sozinho? Como interage com outros animais da cadeia alimentar?
+                                            </li>
+                                        </ul>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Seja provocativo
+                                            com cada colocação feita, incentivando o estudante a pesquisar eras
+                                            geológicas, cadeias e teias alimentares, biomas e evolução. Algumas
+                                            perguntas que você pode usar para tensionar as respostas são listadas a
+                                            seguir.</p>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Esse animal
+                                                conseguiria realmente sobreviver nesse ambiente? Por quê?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Que parte do
+                                                corpo dele é uma adaptação vantajosa? Em que situação ela ajudaria?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Se o clima da
+                                                região mudasse, ele ainda conseguiria sobreviver? O que teria que ser
+                                                mudado nele?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Que animal
+                                                real se parece mais com o seu híbrido em comportamento ou alimentação? O
+                                                que vocês aprenderam pesquisando esse animal real?</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">Onde ele
+                                                ficaria na teia alimentar? Se ele sumisse, quem seria afetado primeiro?
+                                            </li>
+                                        </ul>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Incentive os
+                                            estudantes a consultar livros, vídeos curtos, animações científicas e mapas
+                                            de biomas para sustentar as escolhas. Ao final, proponha aos grupos que
+                                            apresentem as histórias e que destaquem explicitamente, na fala ou em um
+                                            cartaz/slide, ao menos:</p>
+                                        <ul class="list-disc pl-5 space-y-2">
+                                            <li class="text-body-md font-body-md text-on-surface-variant">1 adaptação
+                                                física;</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">1 relação com
+                                                o habitat;</li>
+                                            <li class="text-body-md font-body-md text-on-surface-variant">1 relação com
+                                                a cadeia alimentar.</li>
+                                        </ul>
+                                        <p class="text-body-md font-body-md text-on-surface-variant">Isso ajuda a
+                                            conectar criticamente a criação artística por meio da IA a conceitos
+                                            científicos.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-10">
+                                    <h3
+                                        class="text-headline-sm font-headline-sm heading-dicas heading-dicas--secondary mb-4 pb-2 border-b border-secondary/15 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de
+                                        condução
+                                    </h3>
+                                    <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="create">
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-1"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-1"
+                                                id="nave-dicas-trigger-create-1"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Gestão
+                                                    do ritmo e desafios complementares</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-1" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-1">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">considere o
+                                                    ritmo da turma ao longo da atividade. Enquanto alguns estudantes
+                                                    criarão imagens rapidamente, outros poderão apresentar dificuldades
+                                                    no rascunho do prompt. Proponha desafios adicionais para quem
+                                                    finalizar antes, como gerar a mesma criatura em outro estilo
+                                                    artístico (por exemplo, 8-bits) ou criar o principal predador da
+                                                    espécie desenvolvida.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-2"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-2"
+                                                id="nave-dicas-trigger-create-2"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Mediação
+                                                    de dificuldades na geração de imagens</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-2" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-2">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">esteja
+                                                    atento a problemas recorrentes durante a geração:</p>
+                                                <ul class="list-disc pl-5 space-y-2">
+                                                    <li class="text-body-sm font-body-md text-on-surface-variant">Se a
+                                                        imagem estiver genérica, verifique o uso de adjetivos
+                                                        específicos e auxilie na decomposição da descrição em elementos
+                                                        como textura, brilho, tamanho e forma.</li>
+                                                    <li class="text-body-sm font-body-md text-on-surface-variant">Em
+                                                        casos de “alucinações” (patas extras ou rostos distorcidos),
+                                                        explique que se trata de limitações do modelo e oriente a
+                                                        reformulação do comando com maior precisão.</li>
+                                                    <li class="text-body-sm font-body-md text-on-surface-variant">Se
+                                                        houver bloqueio de segurança, ajude os estudantes a identificar
+                                                        termos inadequados e sugira reformulações com linguagem mais
+                                                        científica ou descritiva.</li>
+                                                    <li class="text-body-sm font-body-md text-on-surface-variant">Caso a
+                                                        ferramenta atinja o limite de geração, avalie outro serviço
+                                                        disponível e reforce a importância do planejamento, evitando
+                                                        produções excessivas sem intencionalidade pedagógica.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-3"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-3"
+                                                id="nave-dicas-trigger-create-3"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Colaboração
+                                                    e peer instruction</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-3" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-3">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">incentive a
+                                                    troca entre os estudantes. Quando alguém descobrir um termo ou
+                                                    adjetivo que produza efeito visual relevante, estimule o
+                                                    compartilhamento com os colegas.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-4"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-4"
+                                                id="nave-dicas-trigger-create-4"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">IA
+                                                    como ambiente de simulação e uso consciente</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-4" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-4">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">apresente a
+                                                    IA como um espaço de experimentação, no qual é possível testar,
+                                                    revisar e tentar novamente. Reforce o uso consciente das ferramentas
+                                                    e considere que modelos de IA demandam alto consumo de recursos
+                                                    naturais (inclusive água) para resfriamento de servidores.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-5"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-5"
+                                                id="nave-dicas-trigger-create-5"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Registro
+                                                    do processo no diário de bordo</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-5" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-5">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">incentive o
+                                                    registro do prompt utilizado, dos critérios adotados nas escolhas
+                                                    (por exemplo, camuflagem em habitat de gelo) e dos ajustes
+                                                    realizados. O acompanhamento torna visíveis o processo de
+                                                    aprendizagem e o desenvolvimento do pensamento computacional.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                            data-nave-dicas-item-id="create-6"><button type="button"
+                                                class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                                aria-expanded="false" aria-controls="nave-dicas-panel-create-6"
+                                                id="nave-dicas-trigger-create-6"><span
+                                                    class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                                    class="text-label-md font-label-md font-bold text-on-surface flex-1">Integração
+                                                    entre rascunho manual e IA</span><span
+                                                    class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                            <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                                id="nave-dicas-panel-create-6" role="region"
+                                                aria-labelledby="nave-dicas-trigger-create-6">
+                                                <p class="text-body-sm font-body-md text-on-surface-variant">quando
+                                                    possível, incentive a produção de um rascunho manual da criatura,
+                                                    seguida do registro por fotografia e do envio da imagem à ferramenta
+                                                    de IA. Essa estratégia complementa o prompt textual com referências
+                                                    visuais autorais, o que, por sua vez, favorece resultados mais
+                                                    precisos e fortalece a autoria.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="reflect">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-primary-container">Refletir</h2><span
+                        class="duration-badge ml-auto bg-primary-container/10 text-primary-container">20 min</span>
+                </div>
+                <div class="space-y-10">
+                    <div class="space-y-6">
+                        <h3 class="text-headline-sm font-headline-sm subsection-neutral mb-4">Aprendizados</h3>
+                        <div class="space-y-4">
+                            <h4 class="text-headline-sm font-headline-sm text-primary-container mt-8 first:mt-0">
+                                Dinâmica de compartilhamento: &quot;Galeria fantástica&quot;</h4>
+                            <p class="text-body-md font-body-md text-on-surface-variant">A dinâmica de compartilhamento
+                                &quot;Galeria Fantástica&quot; permite aos estudantes mostrar seus projetos uns para os
+                                outros, promovendo a socialização e a tangibilização do conhecimento. Como as
+                                ferramentas de IA seguem padrões, os projetos podem ter bases parecidas, e isso torna a
+                                comparação das diferenças ainda mais rica.</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Opção A</strong>:
+                                    organize uma
+                                    mostra rápida e coletiva onde cada estudante exibe apenas a imagem da sua criatura
+                                    em seu computador. Apenas observando os detalhes visuais, os demais colegas devem
+                                    tentar adivinhar quais animais foram fundidos e qual foi o habitat escolhido. Após
+                                    os palpites, o autor revela o prompt (comando) utilizado. O foco aqui é comentar
+                                    como palavras específicas (adjetivos de textura, iluminação ou estilo) influenciaram
+                                    o resultado. Incentive os estudantes a caminhar pela sala e ver outros trabalhos.
+                                </li>
+                            </ul>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li class="text-body-md font-body-md text-on-surface-variant"><strong>Opção B</strong>:
+                                    o professor deve
+                                    disponibilizar um link para um mural digital (Padlet) em que cada estudante fará o
+                                    upload da imagem gerada por IA. Abaixo da imagem, deve ser registrada a história
+                                    produzida sobre um dia na vida do animal. Ao salvar e nomear as imagens corretamente
+                                    no mural, os estudantes aplicam o conceito de metadados e entendem como a
+                                    organização ajuda a localizar informações em um servidor. Após a postagem, a turma
+                                    deve navegar pelo mural do Padlet e tentar identificar, no projeto de um colega,
+                                    qual foi o adjetivo ou comando que gerou o detalhe que mais chama a atenção na
+                                    imagem.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low rounded-xl p-6 sm:p-7 border-l-4 border-primary-container">
+                        <h4
+                            class="text-headline-sm font-headline-sm text-primary-container mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined">help</span>Perguntas reflexivas
+                        </h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li class="text-body-md font-body-md text-on-surface-variant">A quem podemos atribuir a
+                                autoria da imagem: à pessoa que escreveu o comando ou ao sistema que gerou a imagem?
+                            </li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">O que aconteceu quando a IA
+                                não entendeu o comando que você forneceu? Como você ajustou o prompt para melhorar o
+                                resultado?</li>
+                            <li class="text-body-md font-body-md text-on-surface-variant">Sua criatura fantástica está
+                                bem adaptada ao habitat em que ela vive? Qual princípio da biologia terrestre você
+                                precisou “quebrar” para que ela sobrevivesse no ambiente criado?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-headline-sm font-headline-sm heading-dicas heading-dicas--primary-container mb-4 pb-2 border-b border-primary-container/15 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-xl">tips_and_updates</span>Dicas de condução
+                        </h3>
+                        <div class="space-y-2 nave-dicas-accordion" data-nave-dicas-accordion-id="reflect">
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-1"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-1"
+                                    id="nave-dicas-trigger-reflect-1"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">1</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Objetivo do
+                                        compartilhamento</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-1" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-1">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">explique que o momento
+                                        tem como finalidade apresentar os projetos desenvolvidos e comparar diferentes
+                                        soluções criativas para um mesmo desafio.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-2"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-2"
+                                    id="nave-dicas-trigger-reflect-2"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">2</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Análise de
+                                        omissões no prompt</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-2" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-2">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">incentive os estudantes
+                                        a observar detalhes não explicitados no prompt, como cor ou ambientação. Utilize
+                                        esses exemplos para mostrar que, diante de lacunas, a IA interpreta o contexto e
+                                        completa informações com base em padrões aprendidos, reforçando a importância da
+                                        precisão na elaboração dos comandos.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-3"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-3"
+                                    id="nave-dicas-trigger-reflect-3"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">3</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Comparação
+                                        entre rascunho e resultado</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-3" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-3">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">estruture a mediação da
+                                        crítica propondo a comparação entre o rascunho inicial do prompt e a imagem
+                                        final gerada. Para isso, solicite aos estudantes que identifiquem palavras-chave
+                                        mais eficazes e ajustes realizados. A análise evidencia o processo de
+                                        refinamento das instruções.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-4"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-4"
+                                    id="nave-dicas-trigger-reflect-4"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">4</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Debate
+                                        sobre limitações da IA</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-4" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-4">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">ao abordar erros ou
+                                        “alucinações” (como membros extras ou cenários distorcidos), utilize-os para
+                                        discutir limitações atuais da tecnologia e a necessidade de supervisão humana.
+                                        Quando pertinente, apresente exemplos de imagens geradas em anos anteriores para
+                                        evidenciar a evolução dos modelos.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-5"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-5"
+                                    id="nave-dicas-trigger-reflect-5"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">5</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Reconhecimento
+                                        simbólico</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-5" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-5">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">implemente um sistema
+                                        de insígnias digitais (por exemplo, “Especialista em Prompts” ou “Mestre de
+                                        Biomas”) como forma de valorização das produções. Caso a estratégia se torne
+                                        recorrente, considere disponibilizar um modelo fixo de insígnias para uso
+                                        impresso ou digital.</p>
+                                </div>
+                            </div>
+                            <div class="nave-dicas-accordion__item border border-outline-variant rounded-xl overflow-hidden"
+                                data-nave-dicas-item-id="reflect-6"><button type="button"
+                                    class="nave-dicas-accordion__trigger w-full flex items-center gap-3 p-4 bg-surface hover:bg-surface-container-low transition-colors text-left"
+                                    aria-expanded="false" aria-controls="nave-dicas-panel-reflect-6"
+                                    id="nave-dicas-trigger-reflect-6"><span
+                                        class="w-7 h-7 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-label-sm font-label-md font-bold shrink-0">6</span><span
+                                        class="text-label-md font-label-md font-bold text-on-surface flex-1">Gestão de
+                                        créditos no MakerWorld</span><span
+                                        class="material-symbols-outlined dicas-accordion-chevron transition-transform duration-300 shrink-0">expand_more</span></button>
+                                <div class="nave-dicas-accordion__panel hidden border-t border-outline-variant bg-surface-container-lowest p-4 sm:p-5 space-y-5"
+                                    id="nave-dicas-panel-reflect-6" role="region"
+                                    aria-labelledby="nave-dicas-trigger-reflect-6">
+                                    <p class="text-body-sm font-body-md text-on-surface-variant">informe que a
+                                        ferramenta de geração de modelos 3D do MakerWorld utiliza um sistema de créditos
+                                        para o download dos modelos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-16 scroll-mt-24" id="beyond">
+                <div class="flex items-center gap-3 mb-8 flex-wrap">
+                    <div
+                        class="w-10 h-10 rounded-full bg-beyond/15 text-beyond flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h2 class="text-headline-lg font-headline-lg text-beyond">Para ir além</h2><span
+                        class="nave-estrutura-card__optional-tag">Opcional</span><span
+                        class="duration-badge ml-auto bg-beyond/10 text-beyond">30 min</span>
+                </div>
+                <div class="space-y-5 content-block">
+                    <p class="text-body-md font-body-md text-on-surface-variant">Para ampliar a experiência, proponha
+                        aos estudantes um desdobramento tridimensional da criatura criada. Questione como o animal,
+                        inicialmente representado em 2D, poderia ser visualizado em 3D e explore a possibilidade de
+                        transformar a imagem gerada em um modelo tridimensional.</p>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Apresente a ferramenta MakerWorld (<a
+                            class="text-beyond hover:underline" href="https://makerworld.com/pt/makerlab"
+                            rel="noopener noreferrer" target="_blank">makerworld.com/pt/makerlab</a>) e explique aos
+                        estudantes que ela gera modelos 3D com base em imagens. Oriente-os de que a criação de contas
+                        deve ser realizada conforme as diretrizes da escola, preferencialmente utilizando um e-mail
+                        Google para facilitar o acesso. Ao realizar o login, solicite aos estudantes que concordem com
+                        os Termos de Uso.</p>
+                    <h3 class="text-headline-sm font-headline-sm text-beyond mt-8">Passo a passo</h3>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="Tela inicial do MakerWorld"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image8.png" />
+                    </figure>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="Login no MakerWorld"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm" src="images/image9.png" />
+                    </figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Ao finalizar o login, os estudantes
+                        poderão inserir nome, nome do usuário, nível de habilidade em impressão 3D, além das categorias
+                        preferidas. Peça-lhes que cliquem em “Next” até chegarem à tela de criação.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="Cadastro de perfil no MakerWorld"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image10.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Nessa tela, solicite a eles que
+                        procurem pelo recurso “Imagem para modelo 3D”.</p>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="Tela de criação do MakerWorld"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image11.png" /></figure>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="Recurso Imagem para modelo 3D"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image12.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Em “Model”, são oferecidas algumas
+                        opções de modelos generativos de parceiros do MakerWorld, que podem variar com o passar do
+                        tempo. Para o escopo desta atividade, recomenda-se priorizar modelos que ofereçam boa qualidade
+                        visual, como Tripo AI 3.1 e Hitem3D 2.1.</p>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="Seleção de modelo generativo"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image13.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Para ajudar o modelo de IA a
+                        classificar melhor as informações, sugira aos estudantes que criem uma imagem do animal com o
+                        fundo branco, de modo que apenas a criatura apareça em destaque, sem outros elementos.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="Imagem da criatura com fundo branco"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image14.png" /></figure>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="Anexar imagem no MakerWorld"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image15.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Oriente-os a anexar a imagem ao site e,
+                        em seguida, selecionar “Generate”. O processo será iniciado e, dependendo do modelo escolhido,
+                        durará de 3 a 7 minutos em média. Aproveite esse intervalo para conversar com os estudantes
+                        sobre a ferramenta e investigue se eles já a conheciam, como imaginam que ela funciona e o que
+                        acreditam que ela poderá realizar no futuro.</p>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="Geração do modelo 3D em andamento"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image16.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Após a geração, é possível interagir
+                        com o modelo 3D por meio do botão esquerdo do mouse e analisá-lo por todos os ângulos.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="Visualização do modelo 3D gerado"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image17.png" /></figure>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img
+                            alt="Exploração do modelo por diferentes ângulos"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image18.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">Após explorar o modelo, solicite aos
+                        estudantes que cliquem em “Export”, no canto superior direito da interface, e, na tela seguinte,
+                        em “Confirm”. Em seguida, caso a escola disponha de uma impressora 3D, oriente-os a inserir as
+                        configurações do equipamento. Após essa etapa, o download do modelo será habilitado.</p>
+                    <figure class="w-1/4 mx-auto my-4 text-center"><img alt="Exportação do modelo 3D"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image19.png" /></figure>
+                    <figure class="w-1/2 mx-auto my-4 text-center"><img alt="Confirmação da exportação"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image20.png" /></figure>
+                    <p class="text-body-md font-body-md text-on-surface-variant">A exportação será habilitada em 3
+                        formatos distintos: STL e 3MF, destinados à impressão 3D, e GLB, utilizado para a exibição em
+                        navegadores de internet.</p>
+                    <figure class="max-w-xl mx-auto my-4 text-center"><img alt="Formatos de exportação STL, 3MF e GLB"
+                            class="w-full rounded-xl border border-outline-variant shadow-sm"
+                            src="images/image21.png" /></figure>
+                </div>
+            </section>
+        </main>
+        <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl"
+            id="bottom-nav">
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#view"><span class="material-symbols-outlined">visibility</span><span
+                    class="nav-link-mobile__label">Visão</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#materials"><span class="material-symbols-outlined">inventory_2</span><span
+                    class="nav-link-mobile__label">Materiais</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#prepare"><span class="material-symbols-outlined">menu_book</span><span
+                    class="nav-link-mobile__label">Preparar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#create"><span class="material-symbols-outlined">construction</span><span
+                    class="nav-link-mobile__label">Criar</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile"
+                href="#reflect"><span class="material-symbols-outlined">psychology</span><span
+                    class="nav-link-mobile__label">Refletir</span></a>
+            <a class="flex flex-col items-center justify-center text-on-surface-variant py-2 rounded-xl transition-colors nav-link-mobile nav-link--optional"
+                href="#beyond"><span class="material-symbols-outlined">rocket_launch</span><span
+                    class="nav-link-mobile__label">Além</span></a>
+        </nav>
+
+        <template id="nave-focus-expand-0">
+            <h2 class="nave-meta-expand__title">Pensamento Computacional</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">EF08CO01</span> – “Programação com Recursão: Cada novo prompt
+                    parte do resultado anterior, refinando e reaproveitando partes já validadas.”</li>
+                <li><span class="nave-meta-expand__code">EF08CO02</span> – “Listas como Estrutura de Dados: Os atributos
+                    da criatura (Sujeito, Características, Habitat, Estilo) são tratados como uma lista de parâmetros
+                    que alimenta o sistema.”</li>
+                <li><span class="nave-meta-expand__code">EF08CO03</span> – “Algoritmos Clássicos de Manipulação de
+                    Listas: Revisar a lista de atributos do prompt simulando operações de busca, localização e
+                    substituição do elemento inconsistente.”</li>
+                <li><span class="nave-meta-expand__code">EF08CO04</span> – “Soluções Computacionais em Diferentes Áreas:
+                    Articulação colaborativa entre biologia, linguagem e computação na construção da criatura.”</li>
+            </ul>
+        </template>
+        <template id="nave-focus-expand-1">
+            <h2 class="nave-meta-expand__title">Mundo Digital e IA</h2>
+            <ul class="nave-meta-expand__list">
+                <li><span class="nave-meta-expand__code">NavEF08CO01</span> – “Criar soluções de impacto social com
+                    Inteligência Artificial integrada e consciência ética; entender anatomia de prompts.”</li>
+                <li><span class="nave-meta-expand__code">EF08CO06</span> – “Entender como é a estrutura e funcionamento
+                    da internet.”</li>
+                <li><span class="nave-meta-expand__code">NavEF08CO02</span> – “Compreender e utilizar a Inteligência
+                    Artificial na produção de conhecimento na internet.”</li>
+            </ul>
+        </template>
+        <script src="../../assets/js/nave.js"></script>
+</body>
+
+</html>
