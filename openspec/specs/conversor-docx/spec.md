@@ -44,7 +44,7 @@ Domínio: `tools/conversor/` — transformação de `.docx` template NAVE em pac
 
 **Given** conversão bem-sucedida no Chrome ou Edge, com o repositório aberto no disco  
 **When** o usuário clica em **Enviar para a home** e escolhe a pasta raiz do OficinasNave **ou** a pasta `oficinas`  
-**Then** grava `oficinas/{id}/index.html`, `images/` e `fonte/` no mesmo formato da oficina modelo; se a pasta escolhida for a raiz (com `oficinas.json`), também atualiza `oficinas.json` e o bloco `#oficinas-data` de `index.html`
+**Then** grava `oficinas/{id}/index.html`, `images/` e `fonte/` no mesmo formato da oficina modelo **e** atualiza `oficinas.json` e o bloco `#oficinas-data` de `index.html`. Se a pasta escolhida for só `oficinas/`, o conversor pede a pasta OficinasNave (ou reutiliza a última raiz autorizada no navegador) para gravar o catálogo.
 
 ## Cenários de erro
 

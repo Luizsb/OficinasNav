@@ -212,6 +212,128 @@
         return typeof window.showDirectoryPicker === "function";
     }
 
+    var HANDLE_DB = "nave-conversor";
+    var HANDLE_STORE = "handles";
+    var HANDLE_KEY = "oficinasNaveRoot";
+
+    function withHandleDb(mode, fn) {
+        return new Promise(function (resolve, reject) {
+            var req = indexedDB.open(HANDLE_DB, 1);
+            req.onupgradeneeded = function () {
+                if (!req.result.objectStoreNames.contains(HANDLE_STORE)) {
+                    req.result.createObjectStore(HANDLE_STORE);
+                }
+            };
+            req.onsuccess = function () {
+                var db = req.result;
+                var tx = db.transaction(HANDLE_STORE, mode);
+                Promise.resolve(fn(tx.objectStore(HANDLE_STORE))).then(resolve, reject);
+                tx.onerror = function () {
+                    reject(tx.error);
+                };
+            };
+            req.onerror = function () {
+                reject(req.error);
+            };
+        }).catch(function () {
+            return null;
+        });
+    }
+
+    function saveRootHandle(handle) {
+        if (!handle) return Promise.resolve();
+        return withHandleDb("readwrite", function (store) {
+            return new Promise(function (resolve, reject) {
+                var req = store.put(handle, HANDLE_KEY);
+                req.onsuccess = function () {
+                    resolve();
+                };
+                req.onerror = function () {
+                    reject(req.error);
+                };
+            });
+        });
+    }
+
+    function loadRootHandle() {
+        return withHandleDb("readonly", function (store) {
+            return new Promise(function (resolve, reject) {
+                var req = store.get(HANDLE_KEY);
+                req.onsuccess = function () {
+                    resolve(req.result || null);
+                };
+                req.onerror = function () {
+                    reject(req.error);
+                };
+            });
+        });
+    }
+
+    function grantHandle(handle) {
+        if (!handle) return Promise.resolve(null);
+        var opts = { mode: "readwrite" };
+        var queried =
+            typeof handle.queryPermission === "function"
+                ? handle.queryPermission(opts)
+                : Promise.resolve("granted");
+        return Promise.resolve(queried)
+            .then(function (state) {
+                if (state === "granted") return handle;
+                if (typeof handle.requestPermission !== "function") return null;
+                return handle.requestPermission(opts).then(function (next) {
+                    return next === "granted" ? handle : null;
+                });
+            })
+            .catch(function () {
+                return null;
+            });
+    }
+
+    function listingIsRepoRoot(listed) {
+        return !!(
+            listed.files["oficinas.json"] ||
+            (listed.files["index.html"] && listed.dirs["oficinas"])
+        );
+    }
+
+    function promptCatalogRootPick() {
+        window.alert(
+            "Passo 2 de 2 — catálogo da home\n\n" +
+            "A oficina já foi salva em oficinas/.\n\n" +
+            "Agora escolha a pasta RAIZ do projeto:\n" +
+            "[NAVE] OficinasNave\n\n" +
+            "Ela deve conter oficinas.json e index.html.\n" +
+            "NÃO escolha a pasta oficinas de novo."
+        );
+        return pickRepoRootForCatalog();
+    }
+
+    function pickRepoRootForCatalog() {
+        setStatus("Passo 2: escolha a pasta [NAVE] OficinasNave (com oficinas.json e index.html na raiz).");
+        return window.showDirectoryPicker({ id: "nave-oficinas-catalog-root", mode: "readwrite" }).then(function (dir) {
+            return collectDirListing(dir).then(function (listed) {
+                if (!listingIsRepoRoot(listed)) {
+                    throw new Error(
+                        "Essa pasta não tem oficinas.json. Escolha a pasta OficinasNave, um nível acima de oficinas."
+                    );
+                }
+                return dir;
+            });
+        });
+    }
+
+    function ensureCatalogRoot(layout) {
+        if (layout.root) return Promise.resolve(layout.root);
+        return loadRootHandle()
+            .then(grantHandle)
+            .then(function (stored) {
+                if (!stored) return promptCatalogRootPick();
+                return collectDirListing(stored).then(function (listed) {
+                    return listingIsRepoRoot(listed) ? stored : promptCatalogRootPick();
+                });
+            });
+    }
+
     function fileExists(dir, name) {
         return dir.getFileHandle(name).then(
             function () { return true; },
@@ -322,7 +444,7 @@
                     return {
                         root: dir,
                         oficinasDir: oficinasDir,
-                        updateCatalog: hasJson || hasIndex,
+                        updateCatalog: true,
                         jsonName: listed.files["oficinas.json"] ? listed.files["oficinas.json"].name : "oficinas.json",
                         indexName: listed.files["index.html"] ? listed.files["index.html"].name : "index.html"
                     };
@@ -401,7 +523,7 @@
         var id = entry.id;
         var html = NaveHtmlGenerator.generate(parsed);
 
-        setStatus("Selecione a pasta OficinasNave (raiz) ou a pasta oficinas…");
+        setStatus("Passo 1: escolha a pasta [NAVE] OficinasNave (recomendado — uma janela só). Se escolher só oficinas/, haverá um passo 2 para o catálogo.");
 
         window.showDirectoryPicker({ id: "nave-oficinas-root", mode: "readwrite" })
             .then(function (picked) {
@@ -418,11 +540,17 @@
                         return ensureDir(layout.oficinasDir, id);
                     }).then(function (slugDir) {
                         return writeWorkshopFiles(slugDir, parsed, html).then(function () {
-                            if (!layout.updateCatalog || !layout.root) {
-                                return { catalogUpdated: false };
-                            }
-                            return updateCatalogFiles(layout.root, layout.jsonName, layout.indexName, entry)
-                                .then(function () { return { catalogUpdated: true }; });
+                            return ensureCatalogRoot(layout).then(function (root) {
+                                var jsonName = layout.jsonName || "oficinas.json";
+                                var indexName = layout.indexName || "index.html";
+                                return updateCatalogFiles(root, jsonName, indexName, entry)
+                                    .then(function () {
+                                        return saveRootHandle(root);
+                                    })
+                                    .then(function () {
+                                        return { catalogUpdated: true };
+                                    });
+                            });
                         });
                     });
                 });
@@ -432,7 +560,7 @@
                 var oficinaHref = "../../oficinas/" + id + "/index.html";
                 var catalogNote = result && result.catalogUpdated
                     ? "O card já entra na home."
-                    : "Para o card aparecer na home, na próxima vez escolha a pasta OficinasNave (a que tem oficinas.json).";
+                    : "O card ainda não entrou na home. Envie de novo e, quando pedir, escolha a pasta OficinasNave (com oficinas.json).";
                 setStatus("Oficina salva em oficinas/" + id + "/. " + catalogNote + " Abra o código para ajustar o que precisar.", "success");
                 setPublishHint(
                     'Estrutura igual à oficina modelo: <code>oficinas/' + escape(id) + '/index.html</code>, <code>images/</code> e <code>fonte/</code>. ' +
@@ -442,7 +570,7 @@
             })
             .catch(function (err) {
                 if (err && (err.code === "cancel" || err.name === "AbortError")) {
-                    setStatus("Envio cancelado.", "");
+                    setStatus("Envio cancelado. Se a oficina já foi gravada na pasta, o card só entra na home depois de escolher a pasta OficinasNave (com oficinas.json).", "");
                     return;
                 }
                 console.error(err);

@@ -151,7 +151,7 @@ Se estiver usando `npx serve` (porta 3000):
 http://localhost:3000/tools/conversor/index.html
 ```
 
-O conversor processa o arquivo `.docx` **no próprio navegador** (nada é enviado a servidor externo). Envie o documento e, se quiser, a pasta de imagens. Revise a prévia e use **Enviar para a home** (Chrome/Edge): escolha a pasta **OficinasNave** (a que contém `oficinas.json`) — recomendado para o card aparecer na home — ou a pasta **oficinas**. O conversor grava `oficinas/{slug}/` no formato da oficina modelo (`index.html`, `images/`, `fonte/`). Depois abra os arquivos no editor para os ajustes finos. Alternativa: baixar o ZIP.
+O conversor processa o arquivo `.docx` **no próprio navegador** (nada é enviado a servidor externo). Envie o documento e, se quiser, a pasta de imagens. Revise a prévia e use **Enviar para a home** (Chrome/Edge): escolha a pasta **OficinasNave** (a que contém `oficinas.json`) ou a pasta **oficinas**. O conversor grava `oficinas/{slug}/` e atualiza o catálogo da home (`oficinas.json` + embed em `index.html`). Se você escolher só `oficinas`, ele pede em seguida a pasta OficinasNave. Depois abra os arquivos no editor para os ajustes finos. Alternativa: baixar o ZIP.
 
 ---
 
@@ -199,7 +199,7 @@ Campos opcionais em `oficinas.json`: `icone` (Material Symbol no card). O progre
 1. Use o template Word NAVE
 2. Rode `npm run dev` e abra `http://localhost:3000/tools/conversor/index.html`
 3. Envie o `.docx` e, se houver, a pasta `images` da oficina; revise a prévia
-4. Clique em **Enviar para a home** e escolha a pasta **OficinasNave** (recomendado, a que contém `oficinas.json`) ou a pasta **oficinas**
+4. Clique em **Enviar para a home** e escolha a pasta **OficinasNave** (a que contém `oficinas.json`) ou a pasta **oficinas**. O card entra na home nesses dois casos (se escolher `oficinas`, o conversor pede a OficinasNave em seguida).
 5. O conversor grava `oficinas/{slug}/index.html`, `images/` e `fonte/`; na raiz, também atualiza o catálogo
 6. Abra os arquivos no editor e ajuste o que ainda precisar (layout fino, imagens, textos)
 

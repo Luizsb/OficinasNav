@@ -4,7 +4,7 @@ Documento norte técnico. Reflete o que o código faz **hoje** (baseline jul/202
 
 ## 1. Visão técnica em uma linha
 
-Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; duas oficinas no catálogo (`o-espelho-tecnologico`, `recriando-a-realidade`); conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
+Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; quatro oficinas no catálogo (`o-espelho-tecnologico`, `recriando-a-realidade`, `semaforo-inteligente-com-pedestre-arduino`, `cofre-com-esp32-autenticacao-e-maquina-de-estados`); conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
 
 ## 2. Arquitetura
 
@@ -64,7 +64,7 @@ flowchart LR
 
 **B — Publicar manualmente:** pasta `oficinas/{slug}/` + entrada em `oficinas.json` → push `main`.
 
-**C — Conversor (local):** `.docx` (+ pasta de imagens opcional) → `tools/conversor/` → prévia → **Enviar para a home** (Chrome/Edge escolhe a raiz do OficinasNave ou a pasta `oficinas/`; grava `oficinas/{slug}/` e, na raiz, atualiza o catálogo) ou ZIP → revisão no editor → fluxo B.
+**C — Conversor (local):** `.docx` (+ pasta de imagens opcional) → `tools/conversor/` → prévia → **Enviar para a home** (Chrome/Edge escolhe a raiz do OficinasNave ou a pasta `oficinas/`; grava `oficinas/{slug}/` e atualiza o catálogo — se a escolha for só `oficinas/`, pede a pasta OficinasNave em seguida ou reutiliza a última raiz autorizada) ou ZIP → revisão no editor → fluxo B.
 
 ## 4. Modelo de dados
 
@@ -72,6 +72,7 @@ Não há banco. Persistência e conteúdo:
 
 | Camada | Chave / arquivo | Conteúdo |
 |--------|-----------------|----------|
+| Cliente | `nave-home-catalog-view` | `list` ou `cards` (modo do catálogo na home) |
 | Cliente | `nave-section:{pathname}` | Última seção visitada |
 | Cliente | `nave-checkboxes:{pathname}` | JSON de checkboxes |
 | Cliente | `nave-completed:{slug}` | ISO datetime ao Concluir |
@@ -94,9 +95,9 @@ Progresso na home: 0% se só Visão/sem seção; seções intermediárias avanç
 
 ## 6. Runtime (`nave.js`) — ordem de boot
 
-`initSectionPanel` → `initInSectionAnchors` → `initExternalLinks` → `initImageLightbox` → `initSectionRestore` → `initBackToTop` → `initCheckboxPersist` → `initHomeOficinas` → `initMetaHints` → `initWorkshopAccordions` → `initDicasAccordions`
+`initSectionPanel` → `initInSectionAnchors` → `initExternalLinks` → `initImageLightbox` → `initSectionRestore` → `initBackToTop` → `initCheckboxPersist` → `initHomeOficinas` → `initMetaHints` → `initWorkshopAccordions` → `initDicasAccordions` → `initCodeWindows`
 
-Painéis ocultam seções com `.nave-panel-hidden` + `aria-hidden`. Accordions de oficina: um aberto por grupo e scroll ao trigger.
+Painéis ocultam seções com `.nave-panel-hidden` + `aria-hidden`. Accordions de oficina: um aberto por grupo e scroll ao trigger. Janelas de código (`.nave-code-window`, `data-nave-code-window`): chrome estilo macOS e botão copiar via `initCodeWindows`.
 
 ## 7. Fora de escopo (estado atual)
 
@@ -121,6 +122,10 @@ Detalhamento e checkboxes: `docs/ROADMAP.md`.
 
 | Data | Mudança |
 |------|---------|
+| 2026-08-31 | Janela de código estilo macOS (`.nave-code-window`) + `initCodeWindows` (copiar) |
+| 2026-08-31 | Home: catálogo em lista ou cards (2–3 por linha); preferência em `localStorage` |
+| 2026-08-31 | Catálogo com quatro oficinas; *Cofre com ESP32* entra em `oficinas.json` |
+| 2026-08-31 | Catálogo com três oficinas; Enviar para a home atualiza `oficinas.json` mesmo se a pasta escolhida for `oficinas/` |
 | 2026-08-31 | Catálogo com duas oficinas; *Recriando a realidade* entra em `oficinas.json` |
 | 2026-08-31 | Conversor: Enviar para a home aceita raiz ou pasta `oficinas/`; pasta de imagens; títulos no card Para ir além |
 | 2026-08-31 | `serve.json` + `<base>` no conversor para URLs do `npx serve` não quebrarem scripts |

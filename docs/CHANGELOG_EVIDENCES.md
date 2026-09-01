@@ -10,6 +10,114 @@ Formato do cabeçalho de cada entrada:
 
 ---
 
+## 2026-08-31 · 15:40 — Janela de código estilo macOS (Blink ESP32)
+
+### Contexto
+
+O sketch Blink na oficina *Cofre com ESP32* estava numa tabela, sem fonte monoespaçada nem forma de copiar o código.
+
+### O que mudou
+
+- Componente `.nave-code-window` (chrome com bolinhas vermelho/amarelo/verde, título, botão Copiar)
+- Highlight simples (palavra-chave, função, número, comentário) em `nave.css`
+- `initCodeWindows` em `nave.js` copia o texto do `<code>` (Clipboard API, com fallback)
+
+### Como verificar
+
+1. Abrir `http://localhost:3000/oficinas/cofre-com-esp32-autenticacao-e-maquina-de-estados/`
+2. Ir a Preparar → Preparação da placa ESP32 → passo do Blink
+3. Conferir a janela escura e o botão **Copiar**; colar noutro sítio e ver o sketch indentado
+
+### Resultado
+
+O código aparece como bloco de editor; copiar devolve o sketch, não HTML.
+
+### Conclusão
+
+**Sim** — bloco de código reutilizável (`data-nave-code-window`) na oficina do cofre.
+
+---
+
+## 2026-08-31 · 15:20 — Catálogo da home em lista ou cards
+
+### Contexto
+
+Com mais oficinas no catálogo, a lista em coluna única fica longa. Era preciso poder ver os itens em grade, sem perder o layout atual.
+
+### O que mudou
+
+- Toggle **Lista** / **Cards** em “Catálogo de oficinas”
+- Cards: 1 coluna no celular, 2 a partir de 768px, 3 a partir de 1100px; capa do catálogo no topo do card
+- Preferência gravada em `localStorage` (`nave-home-catalog-view`)
+
+### Como verificar
+
+1. Abrir `http://localhost:3000/`
+2. Alternar Lista e Cards; recarregar e confirmar que o modo permanece
+3. Em Cards, conferir 2 colunas em tablet e 3 no desktop; abrir um card continua levando à oficina
+
+### Resultado
+
+O educador escolhe a vista; a lista original permanece disponível.
+
+### Conclusão
+
+**Sim** — duas vistas no catálogo, com persistência local.
+
+---
+
+## 2026-08-31 · 15:16 — Cofre com ESP32 no catálogo da home
+
+### Contexto
+
+A pasta `oficinas/cofre-com-esp32-autenticacao-e-maquina-de-estados/` já existia após o envio pelo conversor, mas o card não aparecia na home: o catálogo só lista `oficinas.json` e o embed `#oficinas-data`.
+
+### O que mudou
+
+- Entrada do Cofre em `oficinas.json` e em `#oficinas-data` (`index.html`)
+- Docs D.N.E.E. passam a registrar 4 oficinas no catálogo
+
+### Como verificar
+
+1. Abrir `http://localhost:3000/` (Ctrl+F5): devem aparecer 4 cards, inclusive o Cofre
+2. Abrir o card e chegar em `oficinas/cofre-com-esp32-autenticacao-e-maquina-de-estados/index.html`
+
+### Resultado
+
+A oficina nova entra na home local. Para o site publicado, ainda é preciso subir pasta + catálogo no git.
+
+### Conclusão
+
+**Sim** — catálogo alinhado à pasta enviada pelo conversor.
+
+---
+
+## 2026-08-31 · 13:20 — Enviar para a home sempre atualiza o catálogo
+
+### Contexto
+
+A oficina *Semáforo Inteligente com Pedestre - Arduino* foi gravada em `oficinas/`, mas o card não aparecia na home: o catálogo só muda se `oficinas.json` (e o embed em `index.html`) forem atualizados. Escolher a pasta `oficinas` no conversor pulava esse passo.
+
+### O que mudou
+
+- Catálogo: entrada do Semáforo em `oficinas.json` e em `#oficinas-data`
+- Conversor: depois de gravar a pasta, atualiza o catálogo; se a escolha foi `oficinas/`, pede a pasta OficinasNave (ou reusa a última raiz autorizada)
+
+### Como verificar
+
+1. Abrir `http://localhost:3000/` (Ctrl+F5): devem aparecer 3 cards, inclusive o Semáforo
+2. Abrir o card e chegar em `oficinas/semaforo-inteligente-com-pedestre-arduino/index.html`
+
+### Resultado
+
+A oficina nova entra na home; o próximo **Enviar para a home** também registra o card.
+
+### Conclusão
+
+**Sim** — catálogo alinhado às pastas; conversor deixa de depender de escolher só a raiz.
+
+---
+
 ## 2026-08-31 · 10:55 — Imagens não usadas removidas
 
 ### Contexto

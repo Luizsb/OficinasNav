@@ -1424,6 +1424,61 @@
         });
     }
 
+    function fallbackCopyText(text) {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try {
+            ok = document.execCommand("copy");
+        } catch (e) {
+            ok = false;
+        }
+        document.body.removeChild(ta);
+        return ok;
+    }
+
+    function initCodeWindows() {
+        document.querySelectorAll("[data-nave-code-window]").forEach(function (win) {
+            var btn = win.querySelector("[data-nave-code-copy]");
+            var code = win.querySelector("code");
+            if (!btn || !code) return;
+
+            var label = btn.querySelector(".nave-code-window__copy-label");
+            var icon = btn.querySelector(".material-symbols-outlined");
+
+            function resetCopyButton() {
+                btn.classList.remove("is-copied");
+                if (label) label.textContent = "Copiar";
+                if (icon) icon.textContent = "content_copy";
+                btn.setAttribute("aria-label", "Copiar código");
+            }
+
+            function markCopied() {
+                btn.classList.add("is-copied");
+                if (label) label.textContent = "Copiado";
+                if (icon) icon.textContent = "check";
+                btn.setAttribute("aria-label", "Código copiado");
+                window.setTimeout(resetCopyButton, 2000);
+            }
+
+            btn.addEventListener("click", function () {
+                var text = (code.textContent || "").replace(/^\n/, "").replace(/\s+$/, "");
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(markCopied).catch(function () {
+                        if (fallbackCopyText(text)) markCopied();
+                    });
+                    return;
+                }
+                if (fallbackCopyText(text)) markCopied();
+            });
+        });
+    }
+
     window.Nave = window.Nave || {};
     window.Nave.refreshMetaHints = initMetaHints;
 
@@ -1438,4 +1493,5 @@
     initMetaHints();
     initWorkshopAccordions();
     initDicasAccordions();
+    initCodeWindows();
 })();

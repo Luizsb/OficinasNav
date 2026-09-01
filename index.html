@@ -70,12 +70,26 @@
         </section>
 
         <!-- Catálogo (alinhado à borda dos cards acima e abaixo) -->
-        <div class="mb-6">
-            <h2 class="text-headline-md font-headline-md text-on-surface">Catálogo de oficinas</h2>
-            <p class="text-body-md text-on-surface-variant mt-1" id="home-catalogo-subtitulo">Carregando…</p>
+        <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <div class="min-w-0">
+                <h2 class="text-headline-md font-headline-md text-on-surface">Catálogo de oficinas</h2>
+                <p class="text-body-md text-on-surface-variant mt-1" id="home-catalogo-subtitulo">Carregando…</p>
+            </div>
+            <div class="nave-home-view-toggle" role="group" aria-label="Modo de exibição do catálogo">
+                <button type="button" class="nave-home-view-toggle__btn" data-catalog-view="list"
+                    aria-pressed="true">
+                    <span class="material-symbols-outlined" aria-hidden="true">view_agenda</span>
+                    Lista
+                </button>
+                <button type="button" class="nave-home-view-toggle__btn" data-catalog-view="cards"
+                    aria-pressed="false">
+                    <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
+                    Cards
+                </button>
+            </div>
         </div>
 
-        <div class="grid gap-6 lg:gap-8 nave-home-lista" id="lista-oficinas"></div>
+        <div class="nave-home-lista nave-home-lista--list" id="lista-oficinas"></div>
     </main>
 
     <footer class="border-t border-outline-variant bg-surface-container-low mt-auto">
@@ -105,6 +119,36 @@
         "icone": "view_in_ar",
         "ano": "a partir de 11 anos",
         "duracao": "180 min"
+    },
+    {
+        "id": "semaforo-inteligente-com-pedestre-arduino",
+        "titulo": "Semáforo Inteligente com Pedestre - Arduino",
+        "subtitulo": "Arduino, Tinkercad e sinalização de veículos e pedestres",
+        "arquivo": "oficinas/semaforo-inteligente-com-pedestre-arduino/index.html",
+        "capa": "oficinas/semaforo-inteligente-com-pedestre-arduino/images/image6.png",
+        "icone": "traffic",
+        "ano": "a partir de 11 anos",
+        "duracao": "180 min"
+    },
+    {
+        "id": "cofre-com-esp32-autenticacao-e-maquina-de-estados",
+        "titulo": "Cofre com ESP32 – Autenticação e Máquina de Estados",
+        "subtitulo": "ESP32, Bluetooth, senha e máquina de estados",
+        "arquivo": "oficinas/cofre-com-esp32-autenticacao-e-maquina-de-estados/index.html",
+        "capa": "oficinas/cofre-com-esp32-autenticacao-e-maquina-de-estados/images/image15.png",
+        "icone": "lock",
+        "ano": "a partir de 14 anos",
+        "duracao": "180 min"
+    },
+    {
+        "id": "estacao-meteorologica",
+        "titulo": "Estação Meteorológica",
+        "subtitulo": "micro:bit, Tinkercad e sensores de temperatura e luminosidade",
+        "arquivo": "oficinas/estacao-meteorologica/index.html",
+        "capa": "oficinas/estacao-meteorologica/images/image4.png",
+        "icone": "face",
+        "ano": "a partir de 10 anos",
+        "duracao": "180 min"
     }
 ]
     </script>
@@ -113,6 +157,36 @@
             var div = document.createElement("div");
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        var CATALOG_VIEW_KEY = "nave-home-catalog-view";
+
+        function getCatalogView() {
+            try {
+                return localStorage.getItem(CATALOG_VIEW_KEY) === "cards" ? "cards" : "list";
+            } catch (err) {
+                return "list";
+            }
+        }
+
+        function applyCatalogView(view) {
+            var container = document.getElementById("lista-oficinas");
+            var isCards = view === "cards";
+            if (container) {
+                container.classList.toggle("nave-home-lista--cards", isCards);
+                container.classList.toggle("nave-home-lista--list", !isCards);
+            }
+            document.querySelectorAll("[data-catalog-view]").forEach(function (btn) {
+                btn.setAttribute("aria-pressed", btn.getAttribute("data-catalog-view") === view ? "true" : "false");
+            });
+        }
+
+        function saveCatalogView(view) {
+            try {
+                localStorage.setItem(CATALOG_VIEW_KEY, view);
+            } catch (err) {
+                /* storage indisponível */
+            }
         }
 
         function renderOficinas(oficinas) {
@@ -142,6 +216,11 @@
 
                 var icone = o.icone || "school";
                 var baseHref = o.arquivo || "#";
+                var cover = o.capa
+                    ? '<div class="nave-oficina-card__cover"><img src="' +
+                      escapeHtml(o.capa) +
+                      '" alt="" /></div>'
+                    : "";
 
                 var card = document.createElement("article");
                 card.className = "nave-oficina-card group smooth-transition";
@@ -153,6 +232,7 @@
                     '" aria-labelledby="oficina-titulo-' +
                     escapeHtml(o.id) +
                     '"></a>' +
+                    cover +
                     '<div class="nave-oficina-card__body">' +
                     '<div class="nave-oficina-card__head">' +
                     '<div class="nave-oficina-card__icon" aria-hidden="true">' +
@@ -198,6 +278,15 @@
                 window.Nave.refreshMetaHints(container);
             }
         }
+
+        applyCatalogView(getCatalogView());
+        document.querySelectorAll("[data-catalog-view]").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var view = btn.getAttribute("data-catalog-view");
+                saveCatalogView(view);
+                applyCatalogView(view);
+            });
+        });
 
         var embedded = document.getElementById("oficinas-data");
         renderOficinas(JSON.parse(embedded.textContent));

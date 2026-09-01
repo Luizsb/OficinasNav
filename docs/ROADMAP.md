@@ -15,12 +15,12 @@ Débitos e entregas mapeados no Raio-X do código (jul/2026). Atualizar checkbox
 - [ ] Tratar placeholders `<inserir …>` (fluxo claro para GIFs/PNG sem binário no Word)
 - [ ] Gerar tabelas/glossário (ex.: apoio linguístico) sem edição só no HTML manual
 - [ ] Checklist de QA pós-conversão antes de publicar
-- [ ] Publicar segunda oficina piloto via conversor + revisão
+- [x] Publicar segunda oficina piloto via conversor + revisão
 
 ## Médio — dados, deploy e consistência
 
 - [ ] Unificar metadados: uma fonte (`oficinas.json`); remover ou gerar o embed `#oficinas-data`
-- [ ] Usar ou remover o campo `capa` do catálogo (hoje não entra no render dos cards)
+- [x] Usar o campo `capa` do catálogo na vista em cards da home
 - [ ] Filtrar artefato GitHub Pages (não publicar `docs/`, `openspec/`, `tools/`, fonte `.docx` no site público)
 - [ ] Alinhar gerador HTML (`tools/conversor/js/html-generator.js`) ao golden master manual
 - [ ] Remover resíduos desnecessários do conversor (ex.: dependências Node não usadas na UI)

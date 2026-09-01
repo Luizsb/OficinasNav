@@ -18,5 +18,35 @@
         "icone": "view_in_ar",
         "ano": "a partir de 11 anos",
         "duracao": "180 min"
+    },
+    {
+        "id": "semaforo-inteligente-com-pedestre-arduino",
+        "titulo": "Semáforo Inteligente com Pedestre - Arduino",
+        "subtitulo": "Arduino, Tinkercad e sinalização de veículos e pedestres",
+        "arquivo": "oficinas/semaforo-inteligente-com-pedestre-arduino/index.html",
+        "capa": "oficinas/semaforo-inteligente-com-pedestre-arduino/images/image6.png",
+        "icone": "traffic",
+        "ano": "a partir de 11 anos",
+        "duracao": "180 min"
+    },
+    {
+        "id": "cofre-com-esp32-autenticacao-e-maquina-de-estados",
+        "titulo": "Cofre com ESP32 – Autenticação e Máquina de Estados",
+        "subtitulo": "ESP32, Bluetooth, senha e máquina de estados",
+        "arquivo": "oficinas/cofre-com-esp32-autenticacao-e-maquina-de-estados/index.html",
+        "capa": "oficinas/cofre-com-esp32-autenticacao-e-maquina-de-estados/images/image15.png",
+        "icone": "lock",
+        "ano": "a partir de 14 anos",
+        "duracao": "180 min"
+    },
+    {
+        "id": "estacao-meteorologica",
+        "titulo": "Estação Meteorológica",
+        "subtitulo": "micro:bit, Tinkercad e sensores de temperatura e luminosidade",
+        "arquivo": "oficinas/estacao-meteorologica/index.html",
+        "capa": "oficinas/estacao-meteorologica/images/image4.png",
+        "icone": "face",
+        "ano": "a partir de 10 anos",
+        "duracao": "180 min"
     }
 ]

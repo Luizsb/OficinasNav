@@ -18,4 +18,4 @@ Existe um catálogo online com as oficinas publicadas. O educador abre o roteiro
 
 ## Momento atual
 
-Duas oficinas no catálogo: *O Espelho tecnológico* (referência) e *Recriando a realidade* (gerada pelo conversor, ainda em revisão humana). Site utilizável para condução em sala. Conversão do Word ainda parcial. Próximo foco: reduzir o peso das animações e fechar a calibração da conversão.
+Quatro oficinas no catálogo: *O Espelho tecnológico* (referência), *Recriando a realidade*, *Semáforo Inteligente com Pedestre - Arduino* e *Cofre com ESP32 – Autenticação e Máquina de Estados* (as três últimas geradas pelo conversor, ainda em revisão humana). Site utilizável para condução em sala. Conversão do Word ainda parcial. Próximo foco: reduzir o peso das animações e fechar a calibração da conversão.
