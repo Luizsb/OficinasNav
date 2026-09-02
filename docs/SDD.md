@@ -4,7 +4,7 @@ Documento norte técnico. Reflete o que o código faz **hoje** (baseline jul/202
 
 ## 1. Visão técnica em uma linha
 
-Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; **15 oficinas** no catálogo (`oficinas.json`, espelhado em `#oficinas-data` na home); home com **busca e paginação** (6 cards por página); conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
+Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; **15 oficinas** no catálogo (`oficinas.json`, espelhado em `#oficinas-data` na home); home com **busca e paginação** (6 cards por página); conversor DOCX local parcial; deploy GitHub Pages + S3 Arco (`scripts/build-dist.js` → `dist/`); progresso só no `localStorage`.
 
 ## 2. Arquitetura
 
@@ -20,6 +20,7 @@ Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwi
 | `assets/js/tailwind-config.js` | Tokens de cor/espaçamento |
 | `tools/conversor/` | Upload DOCX (+ pasta de imagens) → parse → HTML/ZIP/prévia; **Enviar para a home** grava `oficinas/{slug}/` (raiz do repo ou pasta `oficinas/`, Chrome/Edge) |
 | `scripts/dev-server.js` | Servidor local (`npm run dev`): serve `index.html` sem glob (pastas com `[colchetes]`) |
+| `scripts/build-dist.js` | Gera `dist/` para upload S3 (`npm run build`): site sem `fonte/` nem `.docx` |
 | `serve.json` | Config do `npx serve`: `cleanUrls` e `trailingSlash` ligados para achar `index.html` nas pastas |
 | `.github/workflows/pages.yml` | Deploy: checkout → Pages (path: `.`, sem build) |
 
@@ -62,7 +63,7 @@ flowchart LR
 
 **A — Consumir oficina:** educador abre o catálogo → card → página da oficina → modo painel (hash `#view` … `#beyond`) → percorre “Para ir além” como última etapa quando ela existe → Concluir grava conclusão → home mostra badge.
 
-**B — Publicar manualmente:** pasta `oficinas/{slug}/` + entrada em `oficinas.json` → push `main`.
+**B — Publicar manualmente:** pasta `oficinas/{slug}/` + entrada em `oficinas.json` → push `main` (GitHub Pages) ou `npm run build` + upload de `dist/` para S3 Arco (`public/NAVEaVELA/OFICINAS/` → [conteudo-digital.arcotech.io/public/NAVEaVELA/OFICINAS/index.html](https://conteudo-digital.arcotech.io/public/NAVEaVELA/OFICINAS/index.html)).
 
 **C — Conversor (local):** `.docx` (+ pasta de imagens opcional) → `tools/conversor/` → prévia → **Enviar para a home** (Chrome/Edge escolhe a raiz do OficinasNave ou a pasta `oficinas/`; grava `oficinas/{slug}/` e atualiza o catálogo — se a escolha for só `oficinas/`, pede a pasta OficinasNave em seguida ou reutiliza a última raiz autorizada) ou ZIP → revisão no editor → fluxo B.
 

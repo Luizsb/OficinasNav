@@ -49,10 +49,10 @@ A oficina de referência é **O Espelho tecnológico** (`oficinas/o-espelho-tecn
 | Ícones | [Material Symbols](https://fonts.google.com/icons) | Ícones da interface |
 | Fonte | [Lexend](https://fonts.google.com/specimen/Lexend) | Tipografia principal |
 | Índice | `oficinas.json` | Lista de oficinas exibida na página inicial |
-| Publicação | GitHub Actions + GitHub Pages | Deploy automático ao enviar para `main` |
+| Publicação | GitHub Actions + GitHub Pages; S3 Arco (`npm run build` → `dist/`) | Deploy automático em `main`; produção Arco via upload manual |
 | Conversor (ferramenta interna) | JavaScript + JSZip | Converte `.docx` do template NAVE em HTML (`tools/conversor/`) |
 
-**Não há** Node.js, React, Vue ou processo de build obrigatório para rodar o site das oficinas.
+**Não há** Node.js, React, Vue ou processo de build obrigatório para rodar o site das oficinas. Para publicar no S3 da Arco, use `npm run build` (gera `dist/` — ver abaixo).
 
 ---
 
@@ -73,6 +73,9 @@ OficinasNave/
 │       ├── index.html         # Roteiro completo da oficina
 │       ├── images/            # Figuras e GIFs da oficina
 │       └── fonte/             # Documento .docx original (opcional)
+├── scripts/
+│   ├── dev-server.js          # Servidor local (npm run dev)
+│   └── build-dist.js          # Gera dist/ para S3 (npm run build)
 ├── tools/
 │   └── conversor/             # Ferramenta DOCX → HTML (uso local)
 ├── docs/                      # SDD, estado atual, decisões, evidências
@@ -155,7 +158,9 @@ O conversor processa o arquivo `.docx` **no próprio navegador** (nada é enviad
 
 ---
 
-## Publicação (GitHub Pages)
+## Publicação
+
+### GitHub Pages
 
 O workflow `.github/workflows/pages.yml` publica o conteúdo da branch `main` automaticamente no GitHub Pages.
 
@@ -164,6 +169,35 @@ O workflow `.github/workflows/pages.yml` publica o conteúdo da branch `main` au
 3. Após o workflow concluir, o site fica disponível na URL do Pages do repositório
 
 Não é necessário comando de build: o artefato publicado é o próprio conteúdo do repositório.
+
+### S3 Arco (produção educadores)
+
+Canal principal para educadores Arco. Bucket `conteudo-digital-prd`, pasta de destino:
+
+`public/NAVEaVELA/OFICINAS/`
+
+**URL pública após o upload:**
+
+[https://conteudo-digital.arcotech.io/public/NAVEaVELA/OFICINAS/index.html](https://conteudo-digital.arcotech.io/public/NAVEaVELA/OFICINAS/index.html)
+
+#### Gerar o pacote (`dist/`)
+
+Na raiz do repositório:
+
+```bash
+npm run build
+```
+
+Isso cria a pasta `dist/` (~299 MB) com `index.html`, `oficinas.json`, `assets/` e `oficinas/` — **sem** pastas `fonte/` nem arquivos `.docx`. A pasta `dist/` está no `.gitignore` (não vai para o git).
+
+#### Subir no console S3
+
+1. Abra `public/NAVEaVELA/OFICINAS/` no bucket `conteudo-digital-prd`
+2. **Carregar** → selecione **todo o conteúdo dentro de `dist/`** (não a pasta `dist` em si)
+3. Preserve a estrutura de pastas (`assets/`, `oficinas/`, etc.)
+4. Abra a URL acima e confira o catálogo e 2–3 oficinas
+
+Sempre que alterar oficinas ou assets no repositório: `npm run build` de novo e repita o upload.
 
 ---
 

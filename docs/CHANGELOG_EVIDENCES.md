@@ -10,6 +10,32 @@ Formato do cabeçalho de cada entrada:
 
 ---
 
+## 2026-09-02 · 09:25 — Build `dist/` e deploy S3 Arco documentado
+
+### Contexto
+
+Oficinas passam a ser publicadas no bucket `conteudo-digital-prd` (pasta `public/NAVEaVELA/OFICINAS/`), com URL pública em `conteudo-digital.arcotech.io`.
+
+### O que mudou
+
+- `scripts/build-dist.js` — gera `dist/` com artefato estático (sem `fonte/` e `.docx`).
+- `package.json` — scripts `npm run build` e `npm run dist`.
+- `.gitignore` — ignora `dist/`.
+- `README.md` — seção de publicação S3 com URL, passos de build e upload.
+- `docs/SDD.md` — fluxo B atualizado (GitHub Pages + S3).
+
+### Como verificar
+
+1. `npm run build` na raiz → pasta `dist/` com `index.html`, `oficinas.json`, `assets/`, `oficinas/`.
+2. Abrir [https://conteudo-digital.arcotech.io/public/NAVEaVELA/OFICINAS/index.html](https://conteudo-digital.arcotech.io/public/NAVEaVELA/OFICINAS/index.html) após upload.
+3. `README.md` — seção **S3 Arco (produção educadores)** com a URL.
+
+### Resultado
+
+Deploy S3 reproduzível via `dist/`; documentação alinhada ao canal de produção Arco.
+
+---
+
 ## 2026-09-02 · 07:55 — Docs D.N.E.E. alinhados ao catálogo (15 oficinas)
 
 ### Contexto
