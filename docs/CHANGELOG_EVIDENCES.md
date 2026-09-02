@@ -10,6 +10,30 @@ Formato do cabeçalho de cada entrada:
 
 ---
 
+## 2026-09-02 · 07:52 — Oficina Sensor de Velocidade (Radar): conteúdo pedagógico completo
+
+### Contexto
+
+A oficina `sensor-de-velocidade-radar` tinha passo a passo, dicas de condução e seção Para ir além incompletos ou com layout/estrutura inconsistentes.
+
+### O que mudou
+
+- `oficinas/sensor-de-velocidade-radar/index.html`: passo a passo (3 etapas), dicas de condução em 5 blocos com numeração sequencial 1–26, card de perguntas reflexivas em Refletir, seção Para ir além com 3 desafios de expansão e acordeão de dicas; correções de overflow horizontal (`min-w-0`, carrossel e tabela).
+
+### Como verificar
+
+1. Abrir `oficinas/sensor-de-velocidade-radar/index.html` no navegador.
+2. Seção **Criar** → acordeão Atividade: timeline com 3 etapas; **Dicas de condução** com 5 blocos (numeração continua entre blocos).
+3. Seção **Refletir** → card **Perguntas reflexivas** com borda `primary-container`.
+4. Seção **Para ir além** → lista 1–3 (OLED, rampa, queda livre) + dicas em acordeão.
+5. Confirmar que não há barra de rolagem horizontal indesejada nas etapas 2–3.
+
+### Resultado
+
+Conteúdo pedagógico alinhado ao material-fonte; layout responsivo dentro da largura da tela.
+
+---
+
 ## 2026-09-01 · 16:15 — Busca e paginação no catálogo da home
 
 ### Contexto
