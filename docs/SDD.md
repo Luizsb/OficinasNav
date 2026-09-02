@@ -4,7 +4,7 @@ Documento norte técnico. Reflete o que o código faz **hoje** (baseline jul/202
 
 ## 1. Visão técnica em uma linha
 
-Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; quatro oficinas no catálogo (`o-espelho-tecnologico`, `recriando-a-realidade`, `semaforo-inteligente-com-pedestre-arduino`, `cofre-com-esp32-autenticacao-e-maquina-de-estados`); conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
+Portal estático de roteiros pedagógicos: HTML + CSS/JS compartilhados + Tailwind CDN; **15 oficinas** no catálogo (`oficinas.json`, espelhado em `#oficinas-data` na home); home com **busca e paginação** (6 cards por página); conversor DOCX local parcial; deploy GitHub Pages; progresso só no `localStorage`.
 
 ## 2. Arquitetura
 
@@ -122,6 +122,8 @@ Detalhamento e checkboxes: `docs/ROADMAP.md`.
 
 | Data | Mudança |
 |------|---------|
+| 2026-09-02 | Catálogo com 15 oficinas; docs D.N.E.E. alinhados; *Sensor de Velocidade (Radar)* com roteiro completo |
+| 2026-09-01 | Home: busca no catálogo + paginação (6 por página) |
 | 2026-08-31 | Janela de código estilo macOS (`.nave-code-window`) + `initCodeWindows` (copiar) |
 | 2026-08-31 | Home: catálogo em lista ou cards (2–3 por linha); preferência em `localStorage` |
 | 2026-08-31 | Catálogo com quatro oficinas; *Cofre com ESP32* entra em `oficinas.json` |

@@ -47,3 +47,4 @@ Débitos e entregas mapeados no Raio-X do código (jul/2026). Atualizar checkbox
 - [x] Conversor DOCX v1 (parser de marcadores NAVE) — primeira passagem
 - [x] Deploy GitHub Pages via Actions
 - [x] Organização documental D.N.E.E. (este pacote)
+- [x] Home: busca e paginação no catálogo (15 oficinas)

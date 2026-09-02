@@ -10,6 +10,29 @@ Formato do cabeçalho de cada entrada:
 
 ---
 
+## 2026-09-02 · 07:55 — Docs D.N.E.E. alinhados ao catálogo (15 oficinas)
+
+### Contexto
+
+`SOBRE.md`, `SDD.md`, `visao-projeto.html` e `README.md` ainda citavam “4 oficinas”, desatualizado após publicação em escala.
+
+### O que mudou
+
+- Atualização de contagem e momento atual em `docs/SOBRE.md`, `docs/SDD.md`, `docs/visao-projeto.html`, `README.md`, `docs/ROADMAP.md`.
+- Remoção de `oficinas/estacao-meteorologica/fix-passo-a-passo.py` (script temporário de migração).
+
+### Como verificar
+
+1. Abrir `docs/SOBRE.md` e confirmar “Quinze oficinas”.
+2. Abrir `docs/visao-projeto.html` via `npm run docs:serve` — pill “15 oficinas”.
+3. `git status` — sem `fix-passo-a-passo.py` untracked.
+
+### Resultado
+
+Novo dev encontra estado real do projeto na porta de entrada D.N.E.E.
+
+---
+
 ## 2026-09-02 · 07:52 — Oficina Sensor de Velocidade (Radar): conteúdo pedagógico completo
 
 ### Contexto

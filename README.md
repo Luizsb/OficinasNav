@@ -2,7 +2,7 @@
 
 Guias de condução interativos para educadores, publicados como site estático. Cada oficina reúne o roteiro completo de uma atividade — **Preparar**, **Materiais**, **Criar** e **Refletir** — com navegação lateral, accordions, imagens e dicas de condução.
 
-O projeto não usa framework de front-end nem servidor de aplicação: são páginas HTML que podem ser abertas em qualquer navegador ou publicadas no **GitHub Pages**.
+O projeto não usa framework de front-end nem servidor de aplicação: são páginas HTML que podem ser abertas em qualquer navegador ou publicadas no **GitHub Pages**. O catálogo na home lista **15 oficinas**, com **busca** (título, tags, duração…) e **paginação** (6 por página).
 
 ---
 
@@ -60,8 +60,8 @@ A oficina de referência é **O Espelho tecnológico** (`oficinas/o-espelho-tecn
 
 ```
 OficinasNave/
-├── index.html                 # Página inicial (lista de oficinas)
-├── oficinas.json              # Metadados das oficinas (título, tags, link)
+├── index.html                 # Página inicial (catálogo: busca + paginação)
+├── oficinas.json              # Metadados das oficinas (título, tags, link, capa)
 ├── assets/
 │   ├── css/nave.css           # Estilos compartilhados
 │   ├── js/
@@ -215,6 +215,14 @@ O template Word usa **marcadores entre colchetes**, por exemplo:
 ---
 
 ## Funcionalidades do site (por oficina)
+
+### Home (catálogo)
+
+- **Busca** em tempo real (título, subtítulo, id, faixa etária, duração, tags; ignora acentos)
+- **Paginação** de 6 oficinas por página (anterior / próxima / números)
+- Vista em **cards** ou **lista** (preferência em `localStorage`)
+
+### Página da oficina
 
 - **Modo painel:** menu lateral (desktop) e barra inferior (mobile) mostram uma seção por vez
 - Indicador de progresso e botões Anterior / Próxima no rodapé do conteúdo
